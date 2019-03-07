@@ -18,7 +18,6 @@ require_once(__ROOT_DIR . '/classes/AutoLoader.class.php');
 // Reify the current request
 $request = Request::getCurrentRequest();
 try {
-	echo "try of index<br>";
 	$controller = Dispatcher::dispatch($request);
 	$controller->execute();
 } catch (Exception $e) {
