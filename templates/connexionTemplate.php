@@ -1,6 +1,6 @@
 <h2>Connexion</h2>
 <?php
-if(isset($inscErrorText))
+if(isset($connErrorText))
 	echo '<span class="error">' . $inscErrorText . '</span>';
 ?>
 <form action="index.php" method="post">
@@ -15,7 +15,7 @@ if(isset($inscErrorText))
 		</tr>
 		<tr>
 			<th />
-			<td><input type="submit" value="Creer mon compte" /></td>
+			<td><input type="submit" value="Connexion" /></td>
 		</tr>
 	</table>
 </form>

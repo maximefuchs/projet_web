@@ -49,7 +49,8 @@ class AnonymousController extends Controller{
 	}
 
 	public function connexionAction(){
-		
+		$view = new connexionView($this);
+		$view->render();
 	}
 
 

@@ -22,8 +22,8 @@ try {
 	$controller = Dispatcher::dispatch($request);
 	$controller->execute();
 } catch (Exception $e) {
-	echo 'Error : ' . $e->getMessage() . "\n";
+	echo 'Error : ' . $e->getMessage() . "<br>";
 }
 ?>
 <a href="index.php?action=inscription">Incription</a><br>
-<a href="index.php?action=connexion">Connextion</a>
+<a href="index.php?action=connexion">Connexion</a>
