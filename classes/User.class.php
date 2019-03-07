@@ -31,6 +31,14 @@ class User{
 		return $data;
 	}
 
+	public static function authentification($login, $mdp){
+		$pdo = DatabasePDO::getPDO();
+		$sql = "SELECT * FROM user u WHERE u.login = '".$login."' AND u.motdepasse = '".$mdp."'";
+		$r = $pdo->query($sql);
+		$data = $r->fetch(PDO::FETCH_OBJ);
+		return $data;
+	}
+
 }
 
 ?>

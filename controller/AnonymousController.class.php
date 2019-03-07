@@ -3,8 +3,11 @@
 class AnonymousController extends Controller{
 
 	public function __construct($request){
-		if(isset($_POST['nom'])){
+		if(isset($_POST['inscLogin'])){
 			$this->validateInscription($request);
+		}
+		elseif (isset($_POST['connLogin'])) {
+			$this->validateConnexion($request);
 		}
 	}
 
@@ -13,7 +16,7 @@ class AnonymousController extends Controller{
 		$view->render();
 	}
 
-	public function inscriptionAction(){
+	public function inscriptionAction($request){
 		$view = new InscriptionView($this);
 		$view->render();
 	}
@@ -48,9 +51,26 @@ class AnonymousController extends Controller{
 		}
 	}
 
-	public function connexionAction(){
+	public function connexionAction($request){
 		$view = new connexionView($this);
 		$view->render();
+	}
+
+	public function validateConnexion($request){
+		$login = Request::read('connLogin');
+		$mdp = Request::read('connPassword');
+		$user = User::authentification($login, $mdp);
+		if( ! isset($user)){
+			$view = new View($this);
+			$view->render();
+			echo "Mauvais login ou mot de passe";
+		} else {
+			$newRequest = new Request();
+			$newRequest->write('controller','user');
+			$newRequest->write('userId',$user->id);
+			$controller = Dispatcher::dispatch($newRequest);
+			$controller->execute();
+		}
 	}
 
 

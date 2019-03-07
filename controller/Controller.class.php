@@ -14,7 +14,7 @@ abstract class Controller{
 			$action = $this::defaultAction(Request::getCurrentRequest());
 		} else {
 			$a = $action.'Action';
-			$this::$a();
+			$this::$a(Request::getCurrentRequest());
 		}
 	}
 
