@@ -8,7 +8,7 @@ abstract class Controller{
 
 	function execute(){
 		$action = Request::getAction();
-		//echo "<br>Action : ".$action."<br>";
+		echo "<br>fct execute (Action : ".$action.")<br>";
 		if (is_null($action)){
 			$action = $this::defaultAction(Request::getCurrentRequest());
 		} else {

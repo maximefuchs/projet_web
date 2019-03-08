@@ -72,6 +72,7 @@ class AnonymousController extends Controller{
 			$view->render();
 			echo "Mauvais login ou mot de passe";
 		} else {
+			echo "new Dispatch <br>";
 			$newRequest = new Request();
 			$newRequest->write('controller','user');
 			$newRequest->write('userId',$user->id);
