@@ -9,6 +9,13 @@ class AnonymousController extends Controller{
 		elseif (isset($_POST['connLogin'])) {
 			$this->validateConnexion($request);
 		}
+		$this::afficherAnoMenu($request);
+	}
+
+//pour un utilisateur anonyme, on affichera toujours le menu connexion/inscription
+	public function afficherAnoMenu($request){
+		$view = new AnonymousView($this);
+		$view->renderAnoMenu();
 	}
 
 	public function defaultAction($request) {
