@@ -7,8 +7,11 @@ class UserView extends View {
 	}
 
 	public function renderUserMenu(){
-		echo 'render user menu <br>';
 		require_once(__ROOT_DIR."/templates/menuUserTemplate.php");
+	}
+
+	public function renderProfile(){
+		require_once(__ROOT_DIR."/templates/profileTemplate.php");
 	}
 }
 ?>

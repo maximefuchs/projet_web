@@ -22,6 +22,8 @@ class Request {
 	static function getAction(){
 		if(isset($_GET['action'])){
 			return $_GET['action'];
+		} else {
+			return 'default';
 		}
 	}
 

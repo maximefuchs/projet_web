@@ -1,5 +1,6 @@
 body{
 	background-color: #eaf2ff;
+	padding: 2%;
 }
 
 #menu {
@@ -27,11 +28,12 @@ body{
 	box-shadow: 0 5px 5px 0 grey;
 }
 #footer{
-	margin: 20px;
+	padding: 20px;
 	position: fixed;
 	bottom: 0;
-	left: 48%;
+	width: 100%;
 	text-align: center;
+	background-color: #eaf2ff;
 }
 #footer a{
 	font-size: 20px;
