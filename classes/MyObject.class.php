@@ -2,6 +2,7 @@
 /*
 * Root class of all my classes
 */
-class MyObject{}
-
+class MyObject{
+	public function __construct(){}
+}
 ?>

@@ -1,17 +1,22 @@
 <?php
 
-abstract class Controller{
+abstract class Controller extends MyObject{
 
-	public function __construct($request){}
+	protected $request;
+
+	public function __construct($request){
+		$this->request = $request;
+	}
 
 	abstract public function defaultAction($request);
 
 	function execute(){
-		$action = Request::getAction();
-		echo "<br>fct execute (Action : ".$action.")<br>";
-		$a = $action.'Action';
-		$this::$a(Request::getCurrentRequest());
+		$methodName = Request::getActionName();
+		echo "<br>fct execute (Action : ".$methodName.")<br>";
+		$methodName = $methodName.'Action';
+		$this->$methodName($this->request);
 	}
+
 
 }
 

@@ -19,7 +19,7 @@ class Request {
 		}
 	}
 
-	static function getAction(){
+	static function getActionName(){
 		if(isset($_GET['action'])){
 			return $_GET['action'];
 		} else {
@@ -27,12 +27,16 @@ class Request {
 		}
 	}
 
-	static function read($code){
+	function read($code){
 		return $_POST[$code];
 	}
 
-	public function write($code, $value){
+	function write($code, $value){
 		$_GET[$code] = $value;
+	}
+
+	static function has($code){
+		return (isset($_GET[$code])||isset($_POST[$code]));
 	}
 
 }

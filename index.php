@@ -16,7 +16,7 @@ define ('__BASE_URL', implode('/',$base_url) );
 // Load the Loader class to automatically load classes when needed
 require_once(__ROOT_DIR . '/classes/AutoLoader.class.php');
 //load head 
-require_once(__ROOT_DIR.'/templates/headTemplate.php');
+//	require_once(__ROOT_DIR.'/templates/headTemplate.php');
 // Reify the current request
 $request = Request::getCurrentRequest();
 try {
@@ -27,5 +27,5 @@ try {
 }
 
 //load foot
-require_once(__ROOT_DIR.'/templates/footTemplate.php');
+	//require_once(__ROOT_DIR.'/templates/footTemplate.php');
 ?>
