@@ -1,7 +1,9 @@
 <?php
 
 class Model extends MyObject{
-	
+
+	protected $props;
+
 	protected static function db(){
 		return DatabasePDO::singleton();
 	}
@@ -11,7 +13,6 @@ class Model extends MyObject{
 		return $st;
 	}
 
-	protected $props;
 	public function __construct($props = array()) {
 		$this->props = $props;
 	}
@@ -20,6 +21,17 @@ class Model extends MyObject{
 	}
 	public function __set($prop, $val) {
 		$this->props[$prop] = $val;
+	}
+
+	static function exec($key,$values=NULL){
+		$sql = $this->props[$key];
+		$requete = static::db()->prepare($sql);
+		if(!is_null($values)){
+			foreach ($values as $key => $value) {
+				$requete->bindParam($key, $value);
+			}
+		}
+		$requete->execute();
 	}
 
 

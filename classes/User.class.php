@@ -3,6 +3,15 @@
 class User extends Model{
 
 	protected static $table_name = 'USER';
+
+	public function __construct(){
+		parent::__construct();
+		require_once(__ROOT_DIR.'/sql/User.sql.php');
+	}
+
+	public static function addSqlQuery($key, $value){
+		$this->props[$key] = $value;
+	}
 	
 	public static function getList() {
 		return parent::exec('USER_LIST'); 
