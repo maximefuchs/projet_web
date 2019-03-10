@@ -66,16 +66,17 @@ class AnonymousController extends Controller{
 	public function validateConnexion($request){
 		$login = $request->read('connLogin');
 		$mdp = $request->read('connPassword');
-		$user = User::authentification($login, $mdp);
-		if(is_null($user)){
+		$users = User::tryLogin($login, $mdp);
+		if(is_null($users[0])){
 			//$view = new View($this);
 			//$view->render();
 			echo "Mauvais login ou mot de passe<br>";
 		} else {
+			$user = $users[0];
 			echo "new Dispatch <br>";
 			$newRequest = new Request();
 			$newRequest->write('controller','user');
-			$newRequest->write('userId',$user->id);
+			$newRequest->write('userId',$userid);
 			$controller = Dispatcher::dispatch($newRequest);
 			$controller->execute();
 		}

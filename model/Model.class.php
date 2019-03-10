@@ -2,10 +2,10 @@
 
 class Model extends MyObject{
 
-	protected $props;
+	protected static $props;
 
 	protected static function db(){
-		return DatabasePDO::singleton();
+		return DatabasePDO::getPDO();
 	}
 	protected static function query($sql){
 		$st = static::db()->query($sql) or die("sql query error ! request : " . $sql);
@@ -24,7 +24,7 @@ class Model extends MyObject{
 	}
 
 	static function exec($key,$values=NULL){
-		$sql = $this->props[$key];
+		$sql = static::$props[$key];
 		$requete = static::db()->prepare($sql);
 		if(!is_null($values)){
 			foreach ($values as $key => $value) {
@@ -32,9 +32,8 @@ class Model extends MyObject{
 			}
 		}
 		$requete->execute();
+		return $requete->fetchAll();
 	}
-
-
 	
 }
 

@@ -40,11 +40,17 @@ class User extends Model{
 		$sth = parent::exec('USER_CREATE',
 			array( ':login' => $login,
 				':email' => $mail,
-				':role' => 1,
-				':pwd' => $pwd,
-				':name' => $prenom,
-				':surname' => $nom));
-		return static::tryLogin($login, $pwd);
+				':mdp' => $mdp,
+				':nom' => $nom,
+				':prenom' => $prenom));
+		return static::tryLogin($login, $mdp);
+	}
+
+	public static function tryLogin($login, $mdp){
+		$sth = parent::exec('USER_CONNECT',
+			array(':login' => $login,
+				':mdp' => $mdp));
+		return $sth;
 	}
 
 	public static function getUserById($id){
