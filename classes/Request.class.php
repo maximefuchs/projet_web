@@ -27,12 +27,20 @@ class Request {
 		}
 	}
 
-	function read($code){
+	function readPost($code){
 		return $_POST[$code];
 	}
 
-	function write($code, $value){
+	function readGet($code){
+		return $_GET[$code];
+	}
+
+	function writeGet($code, $value){
 		$_GET[$code] = $value;
+	}
+
+	function writePost($code, $value){
+		$_POST[$code] = $value;
 	}
 
 	static function has($code){

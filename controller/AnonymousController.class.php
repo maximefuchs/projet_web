@@ -33,20 +33,20 @@ class AnonymousController extends Controller{
 	}
 
 	public function validateInscription($request) {
-		$login = $request->read('inscLogin');
+		$login = $request->readPost('inscLogin');
 		if(User::isLoginUsed($login)) {
 			//$view = new View($this,'inscription');
 			//$view->setArg('inscErrorText','This login is already used');
-			$view = new View($this);
+			$view = new AnonymousView($this, 'bienvenue');
 			$view->render();
 			echo "login déjà utilisé<br>";
 		} else {
-			$mdp = $request->read('inscPassword');
-			$nom = $request->read('nom');
-			$prenom = $request->read('prenom');
-			$mail = $request->read('mail');
+			$mdp = $request->readPost('inscPassword');
+			$nom = $request->readPost('nom');
+			$prenom = $request->readPost('prenom');
+			$mail = $request->readPost('mail');
 			$user = User::create($login, $mdp, $mail, $nom, $prenom);
-			if(is_null($user)) {
+			if(!isset($user['user_id'])) {
 				//$view = new View($this,'inscription');
 				//$view->setArg('inscErrorText', 'Cannot complete inscription');
 				
@@ -54,32 +54,30 @@ class AnonymousController extends Controller{
 				//$view->render();
 				echo "Erreur pendant l'inscription<br>";
 			} else {
-				$newRequest = new Request();
-				$newRequest->write('controller','user');
-				$newRequest->write('userId',$user->id);
-				$controller = Dispatcher::dispatch($newRequest);
-				$controller->execute();
+				$this->connexion($user);
 			}
 		}
 	}
 
 	public function validateConnexion($request){
-		$login = $request->read('connLogin');
-		$mdp = $request->read('connPassword');
-		$users = User::tryLogin($login, $mdp);
-		if(is_null($users[0])){
-			//$view = new View($this);
-			//$view->render();
+		$login = $request->readPost('connLogin');
+		$mdp = $request->readPost('connPassword');
+		$user = User::tryLogin($login, $mdp);
+		if(!isset($user['user_id'])){
+			$view = new AnonymousView($this, 'bienvenue');
+			$view->render();
 			echo "Mauvais login ou mot de passe<br>";
 		} else {
-			$user = $users[0];
-			echo "new Dispatch <br>";
-			$newRequest = new Request();
-			$newRequest->write('controller','user');
-			$newRequest->write('userId',$userid);
-			$controller = Dispatcher::dispatch($newRequest);
-			$controller->execute();
+			$this->connexion($user);
 		}
+	}
+
+	public function connexion($user){
+		$newRequest = new Request();
+		$newRequest->writeGet('controller','user');
+		$newRequest->writeGet('userId',$user['user_id']);
+		$controller = Dispatcher::dispatch($newRequest);
+		$controller->execute();
 	}
 
 

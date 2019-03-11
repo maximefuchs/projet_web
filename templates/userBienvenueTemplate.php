@@ -1,4 +1,4 @@
 <?php 
-$data = User::getUserById($_GET['userId']);
+$user = $this->args['user'];
 ?>
-<p>Vous êtes connecté <?php echo $data->nom." ".$data->prenom ?></p>
+<p>Vous êtes connecté <?php echo $user['user_nom']." ".$user['user_prenom'] ?></p>

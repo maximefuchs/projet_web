@@ -1,4 +1,5 @@
 <?php
+//ini_set("display_errors", 1); error_reporting(1);
 // define __ROOT_DIR constant which contains the absolute path on disk
 // of the directory that contains this file (index.php)
 // e.g. for http://eden.imt-lille-douai.fr/~luc.fabresse/index.php
@@ -15,8 +16,6 @@ define ('__BASE_URL', implode('/',$base_url) );
 	//require_once(__ROOT_DIR . "/config/config.php");
 // Load the Loader class to automatically load classes when needed
 require_once(__ROOT_DIR . '/classes/AutoLoader.class.php');
-//load head 
-//	require_once(__ROOT_DIR.'/templates/headTemplate.php');
 // Reify the current request
 $request = Request::getCurrentRequest();
 try {
@@ -25,7 +24,4 @@ try {
 } catch (Exception $e) {
 	echo 'Error : ' . $e->getMessage() . "<br>";
 }
-
-//load foot
-	//require_once(__ROOT_DIR.'/templates/footTemplate.php');
 ?>

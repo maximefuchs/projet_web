@@ -6,11 +6,10 @@ class User extends Model{
 
 	public function __construct(){
 		parent::__construct();
-		require_once(__ROOT_DIR.'/sql/User.sql.php');
 	}
 
 	public static function addSqlQuery($key, $value){
-		$this->props[$key] = $value;
+		self::$props[$key] = $value;
 	}
 	
 	public static function getList() {
@@ -18,55 +17,57 @@ class User extends Model{
 	}
 
 	public static function isLoginUsed($login){
-		$pdo = DatabasePDO::getPDO();
+		/*$pdo = DatabasePDO::getPDO();
 		$sql = "SELECT * FROM user u where u.login = '".$login."'";
 		$req = $pdo->query($sql);
 		$data = $req->fetch(PDO::FETCH_OBJ);
-		return !empty($data);
+		return !empty($data);*/
+
+		$r = parent::exec('USER_IS_LOGIN_USED', 
+			array(':login' => $login));
+		$us = $r->fetch();
+		var_dump($us);
+		return isset($us['user_login']);
 	}
 
 	public static function create($login, $mdp, $mail, $nom, $prenom){
-	/*	$pdo = DatabasePDO::getPDO();
-		$sql = "INSERT INTO `user` (`id`, `login`, `motdepasse`, `mail`, `nom`, `prenom`) 
+/*		$pdo = DatabasePDO::getPDO();
+		$sql = "INSERT INTO `user` (`user_id`, `user_login`, `user_motdepasse`, `user_mail`, `user_nom`, `user_prenom`) 
 		VALUES (NULL, '".$login."', '".$mdp."', '".$mail."', '".$nom."', '".$prenom."')";
 
 		$pdo->query($sql);
-
+/*
 		$sql = "SELECT * FROM user u where u.login = '".$login."'";
 		$req = $pdo->query($sql);
 		$data = $req->fetch(PDO::FETCH_OBJ);
 		return $data;*/
 
-		$sth = parent::exec('USER_CREATE',
-			array( ':login' => $login,
+		$array = array( ':login' => $login,
 				':email' => $mail,
 				':mdp' => $mdp,
 				':nom' => $nom,
-				':prenom' => $prenom));
-		return static::tryLogin($login, $mdp);
+				':prenom' => $prenom);
+		var_dump($array);
+		$sth = parent::exec('USER_CREATE',$array);
+		var_dump($sth);
+		$user = static::tryLogin($login, $mdp);
+		return $user;
 	}
 
 	public static function tryLogin($login, $mdp){
-		$sth = parent::exec('USER_CONNECT',
+		$r = parent::exec('USER_CONNECT',
 			array(':login' => $login,
 				':mdp' => $mdp));
-		return $sth;
+		$user = $r->fetch();
+		var_dump($user);
+		return $user;
 	}
 
 	public static function getUserById($id){
-		$pdo = DatabasePDO::getPDO();
-		$sql = "SELECT * FROM user u where u.id = ".$id;
-		$req = $pdo->query($sql);
-		$data = $req->fetch(PDO::FETCH_OBJ);
-		return $data;
-	}
-
-	public static function authentification($login, $mdp){
-		$pdo = DatabasePDO::getPDO();
-		$sql = "SELECT * FROM user u WHERE u.login = '".$login."' AND u.motdepasse = '".$mdp."'";
-		$r = $pdo->query($sql);
-		$data = $r->fetch(PDO::FETCH_OBJ);
-		return $data;
+		$r = parent::exec('USER_GET_BY_ID',
+				array(':id' => $id));
+		$user = $r->fetch();
+		return $user;
 	}
 
 	public function id() { return $this->props[self::$table_name.'_ID']; }
