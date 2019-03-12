@@ -42,11 +42,6 @@ class Request {
 	function writePost($code, $value){
 		$_POST[$code] = $value;
 	}
-
-	static function has($code){
-		return (isset($_GET[$code])||isset($_POST[$code]));
-	}
-
 }
 
 
