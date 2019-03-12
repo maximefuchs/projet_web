@@ -7,7 +7,7 @@ User::addSqlQuery('USER_GET_WITH_LOGIN_AND_PASSWORD',
 	'SELECT * FROM USER WHERE USER_LOGIN=:login');
 
 User::addSqlQuery('USER_CREATE',
-	'INSERT INTO `user` (`user_id`, `user_login`, `user_motdepasse`, `user_mail`, `user_nom`, `user_prenom`) VALUES (NULL, :login, :email, :mdp, :nom, :prenom)');
+	'INSERT INTO `user` (`user_id`, `user_login`, `user_motdepasse`, `user_mail`, `user_nom`, `user_prenom`) VALUES (NULL, :login, :mdp, :email, :nom, :prenom)');
 
 User::addSqlQuery('USER_CONNECT',
 	'SELECT * FROM USER WHERE USER_LOGIN=:login and USER_MOTDEPASSE=:mdp');
