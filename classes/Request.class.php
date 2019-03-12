@@ -12,9 +12,6 @@ class Request {
 	}
 
 	static function getController(){
-		// if(isset($_SESSION['login'])){
-		// 	$request->writeGet("controller","user");
-		// }
 		if(isset($_GET['controller'])){
 			return $_GET['controller'];
 		} else {
@@ -45,11 +42,6 @@ class Request {
 	function writePost($code, $value){
 		$_POST[$code] = $value;
 	}
-
-	static function has($code){
-		return (isset($_GET[$code])||isset($_POST[$code]));
-	}
-
 }
 
 
