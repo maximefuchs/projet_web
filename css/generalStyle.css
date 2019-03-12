@@ -1,19 +1,22 @@
 body{
 	background-color: #eaf2ff;
-	padding: 2%;
+	padding: 0;
+	margin: 0;
+}
+header{
+	text-align: center;
+	width: 100%;
 }
 #menu {
-	border-radius: 5px;
-	border: solid darkblue 2px;
 	padding: 15px;
 	text-align: right;
-	background-color: lightblue;
+	background-color: #0060BC;
 }
 #menu li{
 	border-radius: 5px;
 	background-color: white;
 	padding: 10px;
-	border: solid #c0d5f7 1px;
+	border: solid black 1px;
 	font-size: 20px;
 	display: inline;
 	color: black;
@@ -23,8 +26,8 @@ body{
 	text-decoration: none;
 }
 #menu li:hover{
-	background-color: #eaf2ff;
-	box-shadow: 0 5px 5px 0 grey;
+	background-color: #FF9700;
+	color: white;
 }
 #footer{
 	margin:10px;
@@ -34,7 +37,6 @@ body{
 }
 #footer a{	
 	padding: 5px;
-	background-color: #eaf2ff;
 	border: solid black 1px;
 	border-radius: 3px;
 	font-size: 20px;
@@ -42,5 +44,7 @@ body{
 	color: black;
 }
 #footer a:hover{
+	background: black;
+	color: white;
 	opacity: 0.7;
 }
