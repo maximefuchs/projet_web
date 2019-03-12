@@ -31,13 +31,14 @@ class Model extends MyObject{
 
 		$sql = static::$props[$key];
 		$requete = static::db()->prepare($sql);
-		if(!is_null($values)){
-			foreach ($values as $key => $value) {
-				var_dump($key);
-				var_dump($value);
-				$requete->bindParam($key, $value);
-			}
+
+	
+		foreach ($values as $key => &$value) {
+			var_dump($key);
+			var_dump($value);
+			$requete->bindParam($key, $value);
 		}
+		
 		$requete->execute();
 		return $requete;
 	}

@@ -17,11 +17,6 @@ class User extends Model{
 	}
 
 	public static function isLoginUsed($login){
-		/*$pdo = DatabasePDO::getPDO();
-		$sql = "SELECT * FROM user u where u.login = '".$login."'";
-		$req = $pdo->query($sql);
-		$data = $req->fetch(PDO::FETCH_OBJ);
-		return !empty($data);*/
 
 		$r = parent::exec('USER_IS_LOGIN_USED', 
 			array(':login' => $login));
@@ -31,16 +26,6 @@ class User extends Model{
 	}
 
 	public static function create($login, $mdp, $mail, $nom, $prenom){
-/*		$pdo = DatabasePDO::getPDO();
-		$sql = "INSERT INTO `user` (`user_id`, `user_login`, `user_motdepasse`, `user_mail`, `user_nom`, `user_prenom`) 
-		VALUES (NULL, '".$login."', '".$mdp."', '".$mail."', '".$nom."', '".$prenom."')";
-
-		$pdo->query($sql);
-/*
-		$sql = "SELECT * FROM user u where u.login = '".$login."'";
-		$req = $pdo->query($sql);
-		$data = $req->fetch(PDO::FETCH_OBJ);
-		return $data;*/
 
 		$array = array( ':login' => $login,
 				':email' => $mail,
@@ -49,7 +34,6 @@ class User extends Model{
 				':prenom' => $prenom);
 		var_dump($array);
 		$sth = parent::exec('USER_CREATE',$array);
-		var_dump($sth);
 		$user = static::tryLogin($login, $mdp);
 		return $user;
 	}
