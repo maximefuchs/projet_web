@@ -3,11 +3,13 @@
 class AnonymousController extends Controller{
 
 	public function __construct($request){
+		parent::__construct($request);
+
 		if(isset($_POST['inscLogin'])){
-			$this->validateInscription($request);
+			$this->methodName = "validateInscription";
 		}
 		elseif (isset($_POST['connLogin'])) {
-			$this->validateConnexion($request);
+			$this->methodName = "validateConnexion";
 		}
 	}
 
