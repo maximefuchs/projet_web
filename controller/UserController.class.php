@@ -1,7 +1,7 @@
 <?php
 
 class UserController extends Controller{
-	
+
 	protected $user;
 
 	public function __construct($request){
@@ -31,6 +31,7 @@ class UserController extends Controller{
 	}
 
 	public function profilAction($request){
+		echo $this->user;
 		$view = new UserView($this, 'userProfil', array('user' => $this->user ));
 		$view->render();
 	}
