@@ -11,10 +11,12 @@ class UserController extends Controller{
 		$userId = NULL;
 		if(isset($_SESSION['user_id'])){
 			$this->user = User::getUserById($_SESSION['user_id']);
+			//var_dump($this->user);
 		} else {
 			$userId = $request->readGet('userId');
 			$this->user = User::getUserById($userId);
 			$_SESSION['user_id'] = $this->user['user_id'];
+			var_dump($this->user);
 		}
 	}
 
@@ -29,7 +31,6 @@ class UserController extends Controller{
 	}
 
 	public function profilAction($request){
-		echo $this->user;
 		$view = new UserView($this, 'userProfil', array('user' => $this->user ));
 		$view->render();
 	}

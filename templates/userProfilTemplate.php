@@ -4,19 +4,19 @@
 	<table>
 		<tr>
 			<th>Login : </th>
-			<td><?php echo $user->login() ?></td>
+			<td><?php echo $user['user_login'] ?></td>
 		</tr>
 		<tr>
 			<th>Nom :</th>
-			<td><?php echo $user->nom() ?></td>
+			<td><?php echo $user['user_nom'] ?></td>
 		</tr>
 		<tr>
 			<th>Prenom :</th>
-			<td><?php echo $user->prenom() ?></td>
+			<td><?php echo $user['user_prenom'] ?></td>
 		</tr>
 		<tr>
 			<th>Mail :</th>
-			<td><?php echo $user->mail() ?></td>
+			<td><?php echo $user['user_mail'] ?></td>
 		</tr>
 	</table>
 </div>

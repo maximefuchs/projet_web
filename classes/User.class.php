@@ -54,12 +54,6 @@ class User extends Model{
 		return $user;
 	}
 
-	public function id() { return $this->props[self::$table_name.'_id']; }
-	public function login() { return $this->props[self::$table_name.'_login']; }
-	public function nom() { return $this->props[self::$table_name.'_nom']; }
-	public function prenom() { return $this->props[self::$table_name.'_prenom']; }
-	public function mail() { return $this->props[self::$table_name.'_mail']; }
-
-	}
+}
 
 	?>
