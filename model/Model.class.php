@@ -33,8 +33,8 @@ class Model extends MyObject{
 
 		if(!is_null($values)){
 			foreach ($values as $key => &$value) {
-				var_dump($key);
-				var_dump($value);
+				//var_dump($key);
+				//var_dump($value);
 				$requete->bindParam($key, $value);
 			}
 		}

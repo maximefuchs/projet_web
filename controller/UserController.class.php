@@ -7,7 +7,6 @@ class UserController extends Controller{
 	public function __construct($request){
 		parent::__construct($request);
 		session_start();
-		echo "session start <br>";
 
 		$userId = NULL;
 		if(isset($_SESSION['user_id'])){
@@ -16,7 +15,6 @@ class UserController extends Controller{
 			$userId = $request->readGet('userId');
 			$this->user = User::getUserById($userId);
 			$_SESSION['user_id'] = $this->user['user_id'];
-			var_dump($_SESSION['login']);
 		}
 	}
 

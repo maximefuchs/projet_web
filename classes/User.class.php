@@ -2,7 +2,7 @@
 
 class User extends Model{
 
-	protected static $table_name = 'USER';
+	protected static $table_name = 'user';
 
 	public function __construct(){
 		parent::__construct();
@@ -21,7 +21,7 @@ class User extends Model{
 		$r = parent::exec('USER_IS_LOGIN_USED', 
 			array(':login' => $login));
 		$us = $r->fetch();
-		var_dump($us);
+		// var_dump($us);
 		return isset($us['user_login']);
 	}
 
@@ -32,7 +32,7 @@ class User extends Model{
 				':mdp' => $mdp,
 				':nom' => $nom,
 				':prenom' => $prenom);
-		var_dump($array);
+		//var_dump($array);
 		$sth = parent::exec('USER_CREATE',$array);
 		$user = static::tryLogin($login, $mdp);
 		return $user;
@@ -43,7 +43,7 @@ class User extends Model{
 			array(':login' => $login,
 				':mdp' => $mdp));
 		$user = $r->fetch();
-		var_dump($user);
+		//var_dump($user);
 		return $user;
 	}
 
@@ -54,12 +54,11 @@ class User extends Model{
 		return $user;
 	}
 
-	public function id() { return $this->props[self::$table_name.'_ID']; }
-	//public function roleId() { return $this->props[self::$table_name.'_ROLE']; }
-	//public function role() { return Role::getWithId($this->roleId()); }
-	//public function isAdmin() { return ($this->role()->isAdmin()) || ($this->role()->isSuperAdmin()); }
-	//public function isSuperAdmin() { return $this->role()->isSuperAdmin();
-
+	public function id() { return $this->props[self::$table_name.'_id']; }
+	public function login() { return $this->props[self::$table_name.'_login']; }
+	public function nom() { return $this->props[self::$table_name.'_nom']; }
+	public function prenom() { return $this->props[self::$table_name.'_prenom']; }
+	public function mail() { return $this->props[self::$table_name.'_mail']; }
 
 	}
 

@@ -78,7 +78,6 @@ class AnonymousController extends Controller{
 		$newRequest = new Request();
 		$newRequest->writeGet('controller','user');
 		$newRequest->writeGet('userId',$user['user_id']);
-		echo "controler=".$_GET['controller']."<br>";
 		$controller = Dispatcher::dispatch($newRequest);
 		$controller->execute();
 	}
