@@ -24,15 +24,15 @@ class View extends MyObject {
 
 	public function render() {
 		$this->loadTemplate($this->templateNames['head'], $this->args);
-		echo "1<br>";
+		//echo "1<br>";
 		$this->loadTemplate($this->templateNames['top'], $this->args);
-		echo "2<br>";
+		//echo "2<br>";
 		$this->loadTemplate($this->templateNames['menu'], $this->args);
-		echo "3<br>";
+		//echo "3<br>";
 		$this->loadTemplate($this->templateNames['content'], $this->args);
-		echo "4<br>";
+		//echo "4<br>";
 		$this->loadTemplate($this->templateNames['foot'], $this->args);
-		echo "5<br>";
+		//echo "5<br>";
 	}
 
 	public function loadTemplate($name,$args=NULL) {
