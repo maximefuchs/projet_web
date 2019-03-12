@@ -1,3 +1,3 @@
 <ul id="menu">
-  <a href="index.php?action=profil"><li>Profil</li></a>
+  <a href="index.php?controller=user&action=profil"><li>Profil</li></a>
 </ul>
