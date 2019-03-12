@@ -11,14 +11,14 @@ class User extends Model{
 	public static function addSqlQuery($key, $value){
 		self::$props[$key] = $value;
 	}
-	
+
 	public static function getList() {
-		return parent::exec('USER_LIST'); 
+		return parent::exec('USER_LIST');
 	}
 
 	public static function isLoginUsed($login){
 
-		$r = parent::exec('USER_IS_LOGIN_USED', 
+		$r = parent::exec('USER_IS_LOGIN_USED',
 			array(':login' => $login));
 		$us = $r->fetch();
 		// var_dump($us);
@@ -54,11 +54,6 @@ class User extends Model{
 		return $user;
 	}
 
-	public function id() { return $this->props[self::$table_name.'_id']; }
-	public function login() { return $this->props[self::$table_name.'_login']; }
-	public function nom() { return $this->props[self::$table_name.'_nom']; }
-	public function prenom() { return $this->props[self::$table_name.'_prenom']; }
-	public function mail() { return $this->props[self::$table_name.'_mail']; }
 
 	}
 

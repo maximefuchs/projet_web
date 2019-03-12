@@ -19,17 +19,16 @@ class UserController extends Controller{
 	}
 
 	public function defaultAction($request){
-		$view = new UserView($this, 'userBienvenue', array('user' => $this->user ));
+		$view = new UserView($this, 'userBienvenue', array('user' => $this->user));
 		$view->render();
 	}
 
 	public function afficherUserMenu($request){
-		$view = new UserView($this, 'userMenu', array('user' => $this->user ));
+		$view = new UserView($this, 'userMenu', array('user' => $this->user));
 		$view->render();
 	}
 
 	public function profilAction($request){
-		echo $this->user;
 		$view = new UserView($this, 'userProfil', array('user' => $this->user ));
 		$view->render();
 	}
