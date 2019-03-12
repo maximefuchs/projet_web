@@ -51,7 +51,7 @@ class AnonymousController extends Controller{
 			if(!isset($user['user_id'])) {
 				//$view = new View($this,'inscription');
 				//$view->setArg('inscErrorText', 'Cannot complete inscription');
-				
+
 				//$view = new View($this);
 				//$view->render();
 				echo "Erreur pendant l'inscription<br>";
@@ -78,6 +78,7 @@ class AnonymousController extends Controller{
 		$newRequest = new Request();
 		$newRequest->writeGet('controller','user');
 		$newRequest->writeGet('userId',$user['user_id']);
+		echo "controler=".$_GET['controller']."<br>";
 		$controller = Dispatcher::dispatch($newRequest);
 		$controller->execute();
 	}
