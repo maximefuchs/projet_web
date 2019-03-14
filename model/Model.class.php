@@ -2,7 +2,7 @@
 
 class Model extends MyObject{
 
-	protected static $props;
+	protected static $queries;
 
 	protected static function db(){
 		return DatabasePDO::getPDO();
@@ -13,22 +13,20 @@ class Model extends MyObject{
 		return $st;
 	}
 
-	public function __construct($props = array()) {
-		$this->props = $props;
+	public function __construct($queries = array()) {
+		parent::__construct();
+		$this->queries = $queries;
 	}
-	public function __get($prop) {
-		return $this->props[$prop];
+	public function __get($query) {
+		return $this->queries[$query];
 	}
-	public function __set($prop, $val) {
-		$this->props[$prop] = $val;
+	public function __set($query, $val) {
+		$this->queries[$query] = $val;
 	}
 
 	static function exec($key,$values=NULL){
-
-//trouver le bon emplacement pour enregistrer toutes les requetes
-		require_once(__ROOT_DIR.'/sql/User.sql.php');
-
-		$sql = static::$props[$key];
+		
+		$sql = static::$queries[$key];
 		$requete = static::db()->prepare($sql);
 		//var_dump($requete);
 		if(!is_null($values)){

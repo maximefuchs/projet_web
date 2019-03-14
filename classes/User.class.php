@@ -9,15 +9,15 @@ class User extends Model{
 	}
 
 	public static function addSqlQuery($key, $value){
-		self::$props[$key] = $value;
+		self::$queries[$key] = $value;
 	}
 
 	public static function getList() {
 		return parent::exec('USER_LIST');
 	}
 
+//renvoi un boolean pour savoir si un login est déjà utilisé
 	public static function isLoginUsed($login){
-
 		$r = parent::exec('USER_IS_LOGIN_USED',
 			array(':login' => $login));
 		$us = $r->fetch();
@@ -25,6 +25,7 @@ class User extends Model{
 		return isset($us['user_login']);
 	}
 
+//ajout d'un nouvel utilisateur, et connexion directe
 	public static function create($login, $mdp, $mail, $nom, $prenom){
 
 		$array = array( ':login' => $login,
@@ -38,6 +39,7 @@ class User extends Model{
 		return $user;
 	}
 
+//connexion d'un utilisateur
 	public static function tryLogin($login, $mdp){
 		$r = parent::exec('USER_CONNECT',
 			array(':login' => $login,
@@ -47,6 +49,7 @@ class User extends Model{
 		return $user;
 	}
 
+//récupération d'un utilisateur par son id
 	public static function getUserById($id){
 		$r = parent::exec('USER_GET_BY_ID',
 				array(':id' => $id));
