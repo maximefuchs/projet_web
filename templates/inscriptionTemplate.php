@@ -1,7 +1,7 @@
 <h2>Inscription</h2>
 <?php
-if(isset($inscErrorText))
-	echo '<span class="error">' . $inscErrorText . '</span>';
+if(isset($args['inscErrorText']))
+	echo '<span class="error">' . $args['inscErrorText'] . '</span>';
 ?>
 <form action="index.php" method="post">
 	<table>

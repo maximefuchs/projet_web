@@ -1,4 +1,4 @@
-<?php $user = $this->args['user']; ?>
+<?php $user = $args['user']; ?>
 <h2>Vos Informations</h2>
 <h4><?php $type = $user['TYPE']; echo $type;?></h4>
 <table>

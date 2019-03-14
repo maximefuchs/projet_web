@@ -1,7 +1,7 @@
 <h2>Connexion</h2>
 <?php
-if(isset($connErrorText))
-	echo '<span class="error">' . $inscErrorText . '</span>';
+if(isset($args['connErrorText']))
+	echo '<span class="error">' . $args['connErrorText'] . '</span>';
 ?>
 <form action="index.php" method="post">
 	<table>
