@@ -30,7 +30,7 @@ class Model extends MyObject{
 
 		$sql = static::$props[$key];
 		$requete = static::db()->prepare($sql);
-
+		//var_dump($requete);
 		if(!is_null($values)){
 			foreach ($values as $key => &$value) {
 				//var_dump($key);

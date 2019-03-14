@@ -65,7 +65,7 @@ class AnonymousController extends Controller{
 		$login = $request->readPost('connLogin');
 		$mdp = $request->readPost('connPassword');
 		$user = User::tryLogin($login, $mdp);
-		if(!isset($user['user_id'])){
+		if(!isset($user['ID_USER'])){
 			$view = new AnonymousView($this, 'bienvenue');
 			$view->render();
 			echo "Mauvais login ou mot de passe<br>";
@@ -77,7 +77,7 @@ class AnonymousController extends Controller{
 	public function connexion($user){
 		$newRequest = new Request();
 		$newRequest->writeGet('controller','user');
-		$newRequest->writeGet('userId',$user['user_id']);
+		$newRequest->writeGet('userId',$user['ID_USER']);
 		$controller = Dispatcher::dispatch($newRequest);
 		$controller->execute();
 	}
