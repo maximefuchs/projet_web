@@ -36,11 +36,13 @@ class Model extends MyObject{
 				$requete->bindParam($key, $value);
 			}
 		}
-		
 		$requete->execute();
 		return $requete;
 	}
-
+	
+	public static function addSqlQuery($key, $value){
+		self::$queries[$key] = $value;
+	}
 }
 
 ?>
