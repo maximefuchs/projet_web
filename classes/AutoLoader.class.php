@@ -11,7 +11,7 @@ class AutoLoader extends MyObject {
 	// an unknown class name in the source code
 	private function load($className) {
 	// TODO
-		$folders = ['classes', 'model', 'controller', 'view', 'assets'];
+		$folders = ['classes', 'model', 'controller', 'view'];
 		foreach ($folders as $f) {
 			if(is_readable(__ROOT_DIR.'/'.$f.'/'.ucfirst($className).'.class.php'))
 			{
