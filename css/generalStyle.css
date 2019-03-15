@@ -54,3 +54,6 @@ header{
 	color: white;
 	opacity: 0.7;
 }
+.eleve, .enseignant{
+	visibility: collapse;
+}

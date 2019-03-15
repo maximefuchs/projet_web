@@ -3,11 +3,6 @@
 if(isset($args['inscErrorText']))
 	echo '<span class="error">' . $args['inscErrorText'] . '</span>';
 ?>
-<style type="text/css">
-	.eleve, .enseignant{
-		visibility: collapse;
-	}
-</style>
 <form action="index.php" method="post">
 	<table>
 		<tr>
@@ -23,15 +18,6 @@ if(isset($args['inscErrorText']))
 				<th>Mail :</th>
 				<td><input type="text" name="mail"/></td>
 			</tr>
-			<!-- <tr>
-				<th> Rôle : </th>
-				<td>
-					<select class="" name="role">
-						<option selected>Etudiant</option>
-						<option onclick="afficherPourEtudiant();">Professeur</option>
-					</select>
-				</td>
-			</tr> -->
 
 			<tr>
 				<th> Rôle : </th>
@@ -49,7 +35,7 @@ if(isset($args['inscErrorText']))
 			</tr>
 
 			<tr class="eleve">
-				<th>Groupe :</th>
+				<th>Groupe de demi promo :</th>
 				<td><input type="text" name="Groupe"></td>
 			</tr>
 
@@ -57,6 +43,8 @@ if(isset($args['inscErrorText']))
 				<th>Td :</th>
 				<td><input type="text" name="td"></td>
 			</tr>
+
+			<!-- date entrée/date sortie ??? -->
 
 			<tr class="enseignant">
 				<th>Matricule :</th>
@@ -68,40 +56,14 @@ if(isset($args['inscErrorText']))
 				<td><input type="text" name="Mat_enseignee"></td>
 			</tr>
 
+			<tr class="enseignant">
+				<th>Intervenant externe :</th>
+				<td><input type="checkbox" name="Int_Ext"></td>
+			</tr>
+
 			<tr>
 				<th />
 				<td><input type="submit" value="Creer mon compte" /></td>
 			</tr>
 		</table>
-		<p onclick="afficherPourEtudiant()">test</p>
 	</form>
-
-	<script type="text/javascript">
-
-		function afficherPourEtudiant(){
-			var eleEleves = document.getElementsByClassName("eleve");
-			for(var i = 0; i< eleEleves.length; i++){
-				eleEleves[i].setAttribute('style', 'visibility: visible;');
-			}
-		}
-		function enleverPourEtudiant(){
-			var eleEleves = document.getElementsByClassName("eleve");
-			for(var i = 0; i< eleEleves.length; i++){
-				eleEleves[i].setAttribute('style', 'visibility: collapse;');
-			}
-		}
-
-		function afficherPourEnseignant(){
-			var eleEnseignant = document.getElementsByClassName("enseignant");
-			for(var i = 0; i< eleEnseignant.length; i++){
-				eleEnseignant[i].setAttribute('style', 'visibility: visible;');
-			}
-		}
-		function enleverPourEnseignant(){
-			var eleEnseignant = document.getElementsByClassName("enseignant");
-			for(var i = 0; i< eleEnseignant.length; i++){
-				eleEnseignant[i].setAttribute('style', 'visibility: collapse;');
-			}
-		}
-
-	</script>
