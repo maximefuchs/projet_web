@@ -71,8 +71,13 @@ class AnonymousController extends Controller{
 
 	public function connexion($user){
 		$newRequest = new Request();
-		$newRequest->writeGet('controller','user');
-		$newRequest->writeGet('userId',$user['ID_USER']);
+		if($user['ID_USER'] == 8){ // user avec id 8 (= Thomas Malidin) est superUtilisateur
+			$newRequest->writeGet('controller','superuser');
+			$newRequest->writeGet('userId',$user['ID_USER']);
+		} else {
+			$newRequest->writeGet('controller','user');
+			$newRequest->writeGet('userId',$user['ID_USER']);
+		}
 		$controller = Dispatcher::dispatch($newRequest);
 		$controller->execute();
 	}

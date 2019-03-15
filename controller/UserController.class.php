@@ -25,11 +25,6 @@ class UserController extends Controller{
 		$view->render();
 	}
 
-	public function afficherUserMenu($request){
-		$view = new UserView($this, 'userMenu', array('user' => $this->user));
-		$view->render();
-	}
-
 	public function profilAction($request){
 		$view = new UserView($this, 'userProfil', array('user' => $this->user ));
 		$view->render();

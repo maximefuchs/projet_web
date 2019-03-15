@@ -150,7 +150,7 @@ CREATE TABLE `USER` (
   `NOM` varchar(30) NOT NULL,
   `PRENOM` varchar(30) NOT NULL,
   `EMAIL` varchar(100) NOT NULL,
-  `TYPE` varchar(30) NOT NULL,
+  `ROLE` varchar(30) NOT NULL,
   `ID_USER` int(11) NOT NULL,
   `MATRICULE` varchar(10) DEFAULT NULL,
   `INTERN_EXT` tinyint(1) DEFAULT NULL,

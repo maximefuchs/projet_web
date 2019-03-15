@@ -3,11 +3,29 @@
 class User extends Model{
 
 	protected static $table_name = 'user';
+	protected static $colId = 'ID_USER';
+	protected static $colLogin = 'LOGIN';
+	protected static $colMdp = 'PASSWORD';
+	protected static $colNom = 'NOM';
+	protected static $colPrenom = 'PRENOM';
+	protected static $colEmail = 'EMAIL';
+	protected static $colRole = 'ROLE';
+	protected static $colMatricule = 'MATRICULE';
+	protected static $colIntExt = 'INTERN_EXT';
+	protected static $colMatiere = 'MATIERE';
+	protected static $colPromo = 'PROMO';
+	protected static $colDateSortie = 'DATE_SORITE';
+	protected static $colDateEntree = 'DATE_ENTREE';
+	protected static $colTD = 'TD';
+	protected static $colGroupe = 'GROUPE';
+
+
 
 	public function __construct(){
 		parent::__construct();
 	}
 
+	// récupération de toutes les users
 	public static function getList() {
 		$users = parent::exec('USER_LIST');
 		return $users->fetchAll();
@@ -53,5 +71,12 @@ class User extends Model{
 		$user = $r->fetch();
 		return $user;
 	}
+
+	public function id() { return $this->props[$colId]; }
+	public function login() { return $this->props['LOGIN']; }
+	public function mdp() { return $this->props['ID']; }
+	//public function id() { return $this->props['ID']; }
+	public function role() { return $this->props['ROLE']; }
+	public function isSuperAdmin() { return $this->id()==8;}
 }
-?>
+	?>

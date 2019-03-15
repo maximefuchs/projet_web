@@ -16,7 +16,7 @@ class AutoLoader extends MyObject {
 			if(is_readable(__ROOT_DIR.'/'.$f.'/'.ucfirst($className).'.class.php'))
 			{
 				require_once(__ROOT_DIR.'/'.$f.'/'.ucfirst($className).'.class.php');
-				//echo 'AutoLoader /'.$f.'/'.ucfirst($className).'.class.php<br>';
+				// echo 'AutoLoader /'.$f.'/'.ucfirst($className).'.class.php<br>';
 			}
 		}
 	}
