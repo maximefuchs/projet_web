@@ -29,7 +29,9 @@ class View extends MyObject {
 		//echo "2<br>";
 		$this->loadTemplate($this->templateNames['menu'], $this->args);
 		//echo "3<br>";
+		echo "<div id='content'>";
 		$this->loadTemplate($this->templateNames['content'], $this->args);
+		echo "</div>";
 		//echo "4<br>";
 		$this->loadTemplate($this->templateNames['foot'], $this->args);
 		//echo "5<br>";

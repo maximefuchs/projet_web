@@ -37,11 +37,9 @@ class AnonymousController extends Controller{
 	public function validateInscription($request) {
 		$login = $request->readPost('inscLogin');
 		if(User::isLoginUsed($login)) {
-			//$view = new View($this,'inscription');
-			//$view->setArg('inscErrorText','This login is already used');
-			$view = new AnonymousView($this, 'bienvenue');
+			$view = new AnonymousView($this, 'inscription');
+			$view->setArg('inscErrorText','Login déjà utilisé');
 			$view->render();
-			echo "login déjà utilisé<br>";
 		} else {
 			$mdp = $request->readPost('inscPassword');
 			$nom = $request->readPost('nom');
@@ -49,12 +47,9 @@ class AnonymousController extends Controller{
 			$mail = $request->readPost('mail');
 			$user = User::create($login, $mdp, $mail, $nom, $prenom);
 			if(!isset($user['user_id'])) {
-				//$view = new View($this,'inscription');
-				//$view->setArg('inscErrorText', 'Cannot complete inscription');
-
-				//$view = new View($this);
-				//$view->render();
-				echo "Erreur pendant l'inscription<br>";
+				$view = new AnonymousView($this,'inscription');
+				$view->setArg('inscErrorText', 'Impossible de finaliser l\'inscription');
+				$view->render();
 			} else {
 				$this->connexion($user);
 			}
@@ -65,10 +60,10 @@ class AnonymousController extends Controller{
 		$login = $request->readPost('connLogin');
 		$mdp = $request->readPost('connPassword');
 		$user = User::tryLogin($login, $mdp);
-		if(!isset($user['user_id'])){
-			$view = new AnonymousView($this, 'bienvenue');
+		if(!isset($user['ID_USER'])){
+			$view = new AnonymousView($this, 'connexion');
+			$view->setArg('connErrorText', 'Utilisateur introuvable');
 			$view->render();
-			echo "Mauvais login ou mot de passe<br>";
 		} else {
 			$this->connexion($user);
 		}
@@ -77,7 +72,7 @@ class AnonymousController extends Controller{
 	public function connexion($user){
 		$newRequest = new Request();
 		$newRequest->writeGet('controller','user');
-		$newRequest->writeGet('userId',$user['user_id']);
+		$newRequest->writeGet('userId',$user['ID_USER']);
 		$controller = Dispatcher::dispatch($newRequest);
 		$controller->execute();
 	}

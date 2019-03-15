@@ -12,10 +12,10 @@ define ('__ROOT_DIR', $rootDirectoryPath );
 $base_url = explode('/',$_SERVER['PHP_SELF']);
 array_pop($base_url);
 define ('__BASE_URL', implode('/',$base_url) );
-// Load all application config
-	//require_once(__ROOT_DIR . "/config/config.php");
 // Load the Loader class to automatically load classes when needed
 require_once(__ROOT_DIR . '/classes/AutoLoader.class.php');
+// Load all application config
+require_once(__ROOT_DIR . "/config/config.php");
 // Reify the current request
 $request = Request::getCurrentRequest();
 try {

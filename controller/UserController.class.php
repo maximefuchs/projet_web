@@ -9,14 +9,14 @@ class UserController extends Controller{
 		session_start();
 
 		$userId = NULL;
-		if(isset($_SESSION['user_id'])){
-			$this->user = User::getUserById($_SESSION['user_id']);
+		if(isset($_SESSION['ID_USER'])){
+			$this->user = User::getUserById($_SESSION['ID_USER']);
 			//var_dump($this->user);
 		} else {
 			$userId = $request->readGet('userId');
 			$this->user = User::getUserById($userId);
-			$_SESSION['user_id'] = $this->user['user_id'];
-			var_dump($this->user);
+			$_SESSION['ID_USER'] = $this->user['ID_USER'];
+			//var_dump($this->user);
 		}
 	}
 
