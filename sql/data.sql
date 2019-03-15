@@ -163,7 +163,7 @@ INSERT INTO `REPONSE_PROPOSEE` (`ID_REPONSESP`, `ID_QUESTION`, `EST_JUSTE_P`, `C
 --
 
 INSERT INTO `USER` (`NOM`, `PRENOM`, `EMAIL`, `TYPE`, `ID_USER`, `MATRICULE`, `INTERN_EXT`, `MATIERE`, `PROMO`, `DATE_SORTIE`, `DATE_ENTREE`, `TD`, `GROUPE`, `LOGIN`, `PASSWORD`) VALUES
-('Fabrez', 'Luc', 'luc.fabrez@imt-lille-douai.fr', 'Enseignant', 6, '1234', 1, 'C', NULL, NULL, NULL, NULL, NULL, 'lucky', '123'),
+('Fabresse', 'Luc', 'luc.fabresse@imt-lille-douai.fr', 'Enseignant', 6, '1234', 1, 'C', NULL, NULL, NULL, NULL, NULL, 'lucky', '123'),
 ('Pinot', 'Remy', 'remy.pinot@imt-lille-douai.fr', 'Enseignant', 7, '5678', 1, 'SGBD', NULL, NULL, NULL, NULL, NULL, 'Reminou', '456'),
 ('Malidin', 'Thomas', 'thomas.malidin@etu.imt-lille-douai.fr', 'Etudiant', 8, NULL, NULL, NULL, '', '2020-09-01', '2017-09-01', '6', '2', 'toto', '789'),
 ('Barrau', 'Myriam', 'myriam.barrau@etu.imt-lille-douai.fr', 'Etudiant', 9, NULL, NULL, NULL, '2019', '2019-09-01', '2016-09-01', '5', '1', 'Mymy', '147'),
