@@ -6,6 +6,11 @@ if(isset($inscErrorText))
 <form action="index.php" method="post">
 	<table>
 		<tr>
+			<th>Mail :</th>
+			<td><input type="text" name="mail"/></td>
+		</tr>
+		<tr>
+		<tr>
 			<th>Login* :</th>
 			<td><input type="text" name="inscLogin"/></td>
 		</tr>
@@ -18,13 +23,14 @@ if(isset($inscErrorText))
 			<td><input type="text" name="mail"/></td>
 		</tr>
 		<tr>
-			<th>Nom :</th>
-			<td><input type="text" name="nom"/></td>
+			<th> Rôle : </th>
+			<td><select class="" name="role">
+				<option selected>Etudiant</option>
+				<option>Professeur</option>
+			</select>
+			</td>
 		</tr>
-		<tr>
-			<th>Prenom :</th>
-			<td><input type="text" name="prenom"/></td>
-		</tr>
+
 		<tr>
 			<th />
 			<td><input type="submit" value="Creer mon compte" /></td>
