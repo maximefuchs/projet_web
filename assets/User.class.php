@@ -9,7 +9,8 @@ class User extends Model{
 	}
 
 	public static function getList() {
-		return parent::exec('USER_LIST');
+		$users = parent::exec('USER_LIST');
+		return $users->fetchAll();
 	}
 
 //renvoi un boolean pour savoir si un login est déjà utilisé
