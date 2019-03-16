@@ -15,18 +15,13 @@ class UserController extends Controller{
 		} else {
 			$userId = $request->readGet('userId');
 			$this->user = User::getUserById($userId);
-			$_SESSION['ID_USER'] = $this->user['ID_USER'];
+			$_SESSION['ID_USER'] = $this->user->id();
 			//var_dump($this->user);
 		}
 	}
 
 	public function defaultAction($request){
 		$view = new UserView($this, 'userBienvenue', array('user' => $this->user));
-		$view->render();
-	}
-
-	public function afficherUserMenu($request){
-		$view = new UserView($this, 'userMenu', array('user' => $this->user));
 		$view->render();
 	}
 

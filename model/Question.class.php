@@ -4,6 +4,10 @@ class Question extends Model{
 
 	protected static $table_name = 'question';
 
+	public function __construct(){
+		parent::__construct();
+	}
+
 	// récupération de toutes les questions
 	public static function getList(){
 		$questions = parent::exec('QUESTION_LIST');

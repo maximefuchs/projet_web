@@ -2,7 +2,7 @@
 
 class Questionnaire extends Model{
 
-	protected static $table_name = 'question';
+	protected static $table_name = 'questionnaire';
 
 	public function __construct(){
 		parent::__construct();

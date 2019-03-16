@@ -1,11 +1,11 @@
 <tr>
 	<th>Matricule :</th>
-	<td><?php echo $user['MATRICULE'] ?></td>
+	<td><?php echo $user->matricule(); ?></td>
 </tr>
 <tr>
 	<th>Intervenant externe :</th>
 	<td>
-<?php if(isset($user['INTERN_EXT'])){
+<?php if($user->int_ext() == 1){
 		echo "Oui";
 	}else {
 			echo "Non";
@@ -15,5 +15,5 @@
 </tr>
 <tr>
 	<th>Matiere :</th>
-	<td><?php echo $user['MATIERE'] ?></td>
+	<td><?php echo $user->matiere(); ?></td>
 </tr>

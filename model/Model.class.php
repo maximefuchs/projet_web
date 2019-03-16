@@ -2,7 +2,8 @@
 
 class Model extends MyObject{
 
-	protected static $queries;
+	static $queries;
+	protected $props;
 
 	protected static function db(){
 		return DatabasePDO::getPDO();
@@ -13,35 +14,35 @@ class Model extends MyObject{
 		return $st;
 	}
 
-	public function __construct($queries = array()) {
-		parent::__construct();
-		$this->queries = $queries;
-	}
-	public function __get($query) {
-		return $this->queries[$query];
-	}
-	public function __set($query, $val) {
-		$this->queries[$query] = $val;
-	}
-
 	static function exec($key,$values=NULL){
-		
-		$sql = static::$queries[$key];
-		$requete = static::db()->prepare($sql);
-		//var_dump($requete);
+		$sql = self::$queries[$key];
+		//var_dump($sql);
 		if(!is_null($values)){
-			foreach ($values as $key => &$value) {
-				//var_dump($key);
-				//var_dump($value);
-				$requete->bindParam($key, $value);
-			}
+			$requete = static::db()->prepare($sql);
+			// foreach ($values as $key => &$value) {
+			// 	$requete->bindParam($key, $value);
+			// }
+			$requete->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, get_called_class());
+			$requete->execute($values);		
+			return $requete;
+		} else {
+			return static::query($sql);
 		}
-		$requete->execute();
-		return $requete;
 	}
 	
 	public static function addSqlQuery($key, $value){
 		self::$queries[$key] = $value;
+	}
+
+
+	public function __construct() {
+		parent::__construct();
+	}
+	public function __get($key) {
+		return $this->props[$key];
+	}
+	public function __set($query, $val) {
+		$this->props[$query] = $val;
 	}
 }
 
