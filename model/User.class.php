@@ -11,7 +11,7 @@ class User extends Model{
 	protected static $colNom = 'NOM';
 	protected static $colPrenom = 'PRENOM';
 	protected static $colMail = 'EMAIL';
-	protected static $colType = 'TYPE';
+	protected static $colType = 'ROLE';
 	protected static $colMatricule = 'MATRICULE';
 	protected static $colIntExt = 'INTERN_EXT';
 	protected static $colMatiere = 'MATIERE';
@@ -27,6 +27,7 @@ class User extends Model{
 	public function prenom() { return $this->props[self::$colPrenom]; }
 	public function mail() { return $this->props[self::$colMail]; }
 	public function role() { return $this->props[self::$colType]; }
+	// on définit le super admin comme le user avec id 8 (= Thomas Malidin)
 	public function isSuperAdmin() { return $this->id()==8;}
 	public function matricule() { return $this->props[self::$colMatricule]; }
 	public function int_ext() { return $this->props[self::$colIntExt]; }

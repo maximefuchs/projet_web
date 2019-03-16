@@ -57,7 +57,7 @@ class AnonymousController extends Controller{
 				$int_ext=$request->readPost('Int_Ext');
 				$user = User::create($login, $mdp, $mail, $nom, $prenom,$role,$promo=null, $groupe=null, $td=null, $matricule, $matiere_enseignee, $int_ext);
 			}
-			if(!isset($user->id()) {
+			if(is_null($user->id())) {
 				$view = new AnonymousView($this,'inscription');
 				$view->setArg('inscErrorText', 'Impossible de finaliser l\'inscription');
 				$view->render();
@@ -82,7 +82,7 @@ class AnonymousController extends Controller{
 
 	public function connexion($user){
 		$newRequest = new Request();
-		if($user->id() == 8){ // user avec id 8 (= Thomas Malidin) est superUtilisateur
+		if($user->isSuperAdmin()){
 			$newRequest->writeGet('controller','superuser');
 			$newRequest->writeGet('userId',$user->id());
 		} else {
