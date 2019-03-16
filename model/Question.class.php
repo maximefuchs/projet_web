@@ -2,14 +2,14 @@
 
 class Question extends Model{
 
-	protected static $table_name = 'question';
+	static $table_name = 'question';
 
-	protected static $colId = 'ID_QUESTION';
-	protected static $colIdConsigne = 'ID_CONSIGNE';
-	protected static $colTag = 'TAG';
-	protected static $colType = 'TYPE_QUESTION';
-	protected static $colNbRep = 'NB_REPONSES';
-	protected static $colDesQu = 'DESCRIPTION_QUESTION';
+	static $colId = 'ID_QUESTION';
+	static $colIdConsigne = 'ID_CONSIGNE';
+	static $colTag = 'TAG';
+	static $colType = 'TYPE_QUESTION';
+	static $colNbRep = 'NB_REPONSES';
+	static $colDesQu = 'DESCRIPTION_QUESTION';
 
 
 	// getters
