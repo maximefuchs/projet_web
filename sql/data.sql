@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Mar 16, 2019 at 12:56 PM
+-- Generation Time: Mar 16, 2019 at 01:06 PM
 -- Server version: 5.7.25
 -- PHP Version: 7.3.1
 
@@ -162,10 +162,10 @@ INSERT INTO `REPONSE_PROPOSEE` (`ID_REPONSESP`, `ID_QUESTION`, `EST_JUSTE_P`, `C
 -- Dumping data for table `USER`
 --
 
-INSERT INTO `USER` (`NOM`, `PRENOM`, `EMAIL`, `TYPE`, `ID_USER`, `MATRICULE`, `INTERN_EXT`, `MATIERE`, `PROMO`, `TD`, `GROUPE`, `LOGIN`, `PASSWORD`) VALUES
-('Fabresse', 'Luc', 'luc.fabresse@imt-lille-douai.fr', 'Enseignant', 6, '1234', 1, 'C', NULL, NULL, NULL, 'lucky', '123'),
-('Pinot', 'Remy', 'remy.pinot@imt-lille-douai.fr', 'Enseignant', 7, '5678', 1, 'SGBD', NULL, NULL, NULL, 'Reminou', '456'),
-('Malidin', 'Thomas', 'thomas.malidin@etu.imt-lille-douai.fr', 'Etudiant', 8, NULL, NULL, NULL, '2020', '6', '2', 'toto', '789'),
-('Barrau', 'Myriam', 'myriam.barrau@etu.imt-lille-douai.fr', 'Etudiant', 9, NULL, NULL, NULL, '2019', '5', '1', 'Mymy', '147'),
-('Fournier', 'Clara', 'clara.fournier@etu.imt-lille-douai.fr', 'Etudiant', 10, NULL, NULL, NULL, '2021', '7', '1', 'Clarousse', '258'),
-('Devaux', 'Colline', 'coco@etu.imt-lille-douai.fr', 'Etudiant', 23, NULL, NULL, NULL, '159', '1', '1', 'coco', '159');
+INSERT INTO `USER` (`LOGIN`, `PASSWORD`, `NOM`, `PRENOM`, `EMAIL`, `TYPE`, `ID_USER`, `MATRICULE`, `INTERN_EXT`, `MATIERE`, `PROMO`, `TD`, `GROUPE`) VALUES
+('lucky', '123', 'Fabresse', 'Luc', 'luc.fabresse@imt-lille-douai.fr', 'Enseignant', 6, '1234', 1, 'C', NULL, NULL, NULL),
+('Reminou', '456', 'Pinot', 'Remy', 'remy.pinot@imt-lille-douai.fr', 'Enseignant', 7, '5678', 1, 'SGBD', NULL, NULL, NULL),
+('toto', '789', 'Malidin', 'Thomas', 'thomas.malidin@etu.imt-lille-douai.fr', 'Etudiant', 8, NULL, NULL, NULL, '2020', '6', '2'),
+('Mymy', '147', 'Barrau', 'Myriam', 'myriam.barrau@etu.imt-lille-douai.fr', 'Etudiant', 9, NULL, NULL, NULL, '2019', '5', '1'),
+('Clarousse', '258', 'Fournier', 'Clara', 'clara.fournier@etu.imt-lille-douai.fr', 'Etudiant', 10, NULL, NULL, NULL, '2021', '7', '1'),
+('coco', '159', 'Devaux', 'Colline', 'coco@etu.imt-lille-douai.fr', 'Etudiant', 23, NULL, NULL, NULL, '159', '1', '1');

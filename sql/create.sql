@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Mar 16, 2019 at 12:56 PM
+-- Generation Time: Mar 16, 2019 at 01:06 PM
 -- Server version: 5.7.25
 -- PHP Version: 7.3.1
 
@@ -147,6 +147,8 @@ CREATE TABLE `REPONSE_PROPOSEE` (
 --
 
 CREATE TABLE `USER` (
+  `LOGIN` varchar(50) NOT NULL,
+  `PASSWORD` varchar(50) NOT NULL,
   `NOM` varchar(30) NOT NULL,
   `PRENOM` varchar(30) NOT NULL,
   `EMAIL` varchar(100) NOT NULL,
@@ -157,9 +159,7 @@ CREATE TABLE `USER` (
   `MATIERE` varchar(30) DEFAULT NULL,
   `PROMO` varchar(10) DEFAULT NULL,
   `TD` varchar(2) DEFAULT NULL,
-  `GROUPE` varchar(2) DEFAULT NULL,
-  `LOGIN` varchar(50) NOT NULL,
-  `PASSWORD` varchar(50) NOT NULL
+  `GROUPE` varchar(2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
