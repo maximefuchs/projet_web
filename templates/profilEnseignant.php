@@ -4,7 +4,14 @@
 </tr>
 <tr>
 	<th>Intervenant externe :</th>
-	<td><?php echo $user['INTERN_EXT'] ?></td>
+	<td>
+<?php if(isset($user['INTERN_EXT'])){
+		echo "Oui";
+	}else {
+			echo "Non";
+		}		
+?>
+</td>
 </tr>
 <tr>
 	<th>Matiere :</th>

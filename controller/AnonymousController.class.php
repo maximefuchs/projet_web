@@ -13,7 +13,7 @@ class AnonymousController extends Controller{
 		}
 	}
 
-//pour un utilisateur anonyme, on affichera toujours le menu connexion/inscription
+	//pour un utilisateur anonyme, on affichera toujours le menu connexion/inscription
 	public function afficherAnoMenu($request){
 		$view = new AnonymousView($this, 'menu');
 		$view->render();
@@ -57,8 +57,7 @@ class AnonymousController extends Controller{
 				$int_ext=$request->readPost('Int_Ext');
 				$user = User::create($login, $mdp, $mail, $nom, $prenom,$role,$promo=null, $groupe=null, $td=null, $matricule, $matiere_enseignee, $int_ext);
 			}
-
-			if(!isset($user['user_id'])) {
+			if(!isset($user['ID_USER'])) {
 				$view = new AnonymousView($this,'inscription');
 				$view->setArg('inscErrorText', 'Impossible de finaliser l\'inscription');
 				$view->render();

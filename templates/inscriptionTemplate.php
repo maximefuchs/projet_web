@@ -15,6 +15,14 @@ if(isset($args['inscErrorText']))
 				<td><input type="password" name="inscPassword"/></td>
 			</tr>
 			<tr>
+				<th>Nom* :</th>
+				<td><input type="text" name="nom"/></td>
+			</tr>
+			<tr>
+				<th>Prénom* :</th>
+				<td><input type="text" name="prenom"/></td>
+			</tr>
+			<tr>
 				<th>Mail :</th>
 				<td><input type="text" name="mail"/></td>
 			</tr>
@@ -22,9 +30,9 @@ if(isset($args['inscErrorText']))
 			<tr>
 				<th> Rôle : </th>
 				<td>
-					<input onclick="afficherPourEtudiant(); enleverPourEnseignant();" 
+					<input onclick="afficherPourEtudiant(); enleverPourEnseignant();"
 					type="radio" name="role" value="Etudiant">Etudiant
-					<input onclick="afficherPourEnseignant(); enleverPourEtudiant();" 
+					<input onclick="afficherPourEnseignant(); enleverPourEtudiant();"
 					type="radio" name="role" value="Enseignant">Enseignant
 				</td>
 			</tr>
@@ -43,8 +51,6 @@ if(isset($args['inscErrorText']))
 				<th>Td :</th>
 				<td><input type="text" name="td"></td>
 			</tr>
-
-			<!-- date entrée/date sortie ??? -->
 
 			<tr class="enseignant">
 				<th>Matricule :</th>

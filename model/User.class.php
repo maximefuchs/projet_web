@@ -24,20 +24,19 @@ class User extends Model{
 
 //ajout d'un nouvel utilisateur, et connexion directe
 	public static function create($login, $mdp, $mail, $nom, $prenom,$role,$promo, $groupe, $td, $matricule, $matiere_enseignee, $int_ext){
-
 		$array = array( ':login' => $login,
 			':email' => $mail,
 			':mdp' => $mdp,
 			':nom' => $nom,
 			':prenom' => $prenom,
-			':type' => $role
+			':type' => $role,
 			':promo' => $promo,
 			':groupe' => $groupe,
 			':td' => $td,
 			':matricule' => $matricule,
 			':matiere' => $matiere_enseignee,
 			':intern_ext' => $int_ext);
-		var_dump($array);
+		//var_dump($array);
 		$sth = parent::exec('USER_CREATE',$array);
 		$user = static::tryLogin($login, $mdp);
 		return $user;
@@ -49,7 +48,6 @@ class User extends Model{
 			array(':login' => $login,
 				':mdp' => $mdp));
 		$user = $r->fetch();
-		//var_dump($user);
 		return $user;
 	}
 
