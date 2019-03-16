@@ -2,22 +2,22 @@
 
 class User extends Model{
 
-	protected static $table_name = 'user';
+	static $table_name = 'USER';
 	// utilisation de variable pour éviter d'avoir à changer plusieurs fois si on
 	// change le nom d'une colonne
-	protected static $colId = 'ID_USER';
-	protected static $colLogin = 'LOGIN';
-	protected static $colMdp = 'PASSWORD';
-	protected static $colNom = 'NOM';
-	protected static $colPrenom = 'PRENOM';
-	protected static $colMail = 'EMAIL';
-	protected static $colType = 'ROLE';
-	protected static $colMatricule = 'MATRICULE';
-	protected static $colIntExt = 'INTERN_EXT';
-	protected static $colMatiere = 'MATIERE';
-	protected static $colPromo = 'PROMO';
-	protected static $colTD = 'TD';
-	protected static $colGroupe = 'GROUPE';
+	static $colId = 'ID_USER';
+	static $colLogin = 'LOGIN';
+	static $colMdp = 'PASSWORD';
+	static $colNom = 'NOM';
+	static $colPrenom = 'PRENOM';
+	static $colMail = 'EMAIL';
+	static $colRole = 'ROLE';
+	static $colMatricule = 'MATRICULE';
+	static $colIntExt = 'INTERN_EXT';
+	static $colMatiere = 'MATIERE';
+	static $colPromo = 'PROMO';
+	static $colTD = 'TD';
+	static $colGroupe = 'GROUPE';
 
 	//getters
 	public function id() { return $this->props[self::$colId]; }
@@ -26,7 +26,7 @@ class User extends Model{
 	public function nom() { return $this->props[self::$colNom]; }
 	public function prenom() { return $this->props[self::$colPrenom]; }
 	public function mail() { return $this->props[self::$colMail]; }
-	public function role() { return $this->props[self::$colType]; }
+	public function role() { return $this->props[self::$colRole]; }
 	// on définit le super admin comme le user avec id 8 (= Thomas Malidin)
 	public function isSuperAdmin() { return $this->id()==8;}
 	public function matricule() { return $this->props[self::$colMatricule]; }

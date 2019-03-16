@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- Contenu de la table `comparee_a`
 --
 
-INSERT INTO `comparee_a` (`ID_REPONSEC`, `ID_REPONSESP`) VALUES
+INSERT INTO `COMPAREE_A` (`ID_REPONSEC`, `ID_REPONSESP`) VALUES
 (16, 1),
 (20, 1),
 (21, 2),
@@ -42,7 +42,7 @@ INSERT INTO `comparee_a` (`ID_REPONSEC`, `ID_REPONSESP`) VALUES
 -- Contenu de la table `consigne`
 --
 
-INSERT INTO `consigne` (`ID_CONSIGNE`, `TEMPS`, `BAREME`, `RETOUR`) VALUES
+INSERT INTO `CONSIGNE` (`ID_CONSIGNE`, `TEMPS`, `BAREME`, `RETOUR`) VALUES
 (1, 15, 20, 1),
 (2, 30, 100, 0),
 (3, 30, 20, 1),
@@ -53,7 +53,7 @@ INSERT INTO `consigne` (`ID_CONSIGNE`, `TEMPS`, `BAREME`, `RETOUR`) VALUES
 -- Contenu de la table `creer`
 --
 
-INSERT INTO `creer` (`ID_USER`, `ID_QUESTIONNAIRE`) VALUES
+INSERT INTO `CREER` (`ID_USER`, `ID_QUESTIONNAIRE`) VALUES
 (6, 1),
 (7, 2),
 (6, 5);
@@ -62,7 +62,7 @@ INSERT INTO `creer` (`ID_USER`, `ID_QUESTIONNAIRE`) VALUES
 -- Contenu de la table `est_compose`
 --
 
-INSERT INTO `est_compose` (`ID_QUESTION`, `ID_QUESTIONNAIRE`) VALUES
+INSERT INTO `EST_COMPOSE` (`ID_QUESTION`, `ID_QUESTIONNAIRE`) VALUES
 (1, 1),
 (13, 1),
 (14, 1),
@@ -76,7 +76,7 @@ INSERT INTO `est_compose` (`ID_QUESTION`, `ID_QUESTIONNAIRE`) VALUES
 -- Contenu de la table `participe`
 --
 
-INSERT INTO `participe` (`ID_USER`, `ID_QUESTIONNAIRE`) VALUES
+INSERT INTO `PARTICIPE` (`ID_USER`, `ID_QUESTIONNAIRE`) VALUES
 (8, 1),
 (9, 1),
 (10, 1),
@@ -86,7 +86,7 @@ INSERT INTO `participe` (`ID_USER`, `ID_QUESTIONNAIRE`) VALUES
 -- Contenu de la table `question`
 --
 
-INSERT INTO `question` (`ID_QUESTION`, `ID_CONSIGNE`, `TAG`, `TYPE_QUESTION`, `NB_REPONSES`, `DESCRIPTION_QUESTION`) VALUES
+INSERT INTO `QUESTION` (`ID_QUESTION`, `ID_CONSIGNE`, `TAG`, `TYPE_QUESTION`, `NB_REPONSES`, `DESCRIPTION_QUESTION`) VALUES
 (1, 1, 'Maths', 'QCM', 4, 'Quelle est la racine carrée de 1234'),
 (2, 1, 'Anglais', 'Libre', 1, 'Quelle est la couleur du cheval blanc d\'Henri IV ?'),
 (9, 3, 'Arabe', 'Libre ', 1, 'Comment ecrit-on "Si dieu le veux" ?'),
@@ -100,7 +100,7 @@ INSERT INTO `question` (`ID_QUESTION`, `ID_CONSIGNE`, `TAG`, `TYPE_QUESTION`, `N
 -- Contenu de la table `questionnaire`
 --
 
-INSERT INTO `questionnaire` (`ID_QUESTIONNAIRE`, `ID_CONSIGNE`, `TITRE`, `DESCRIPTION_QUESTIONNAIRE`, `DATE_OUVERTURE`, `DATE_FERMETURE`, `ETAT`) VALUES
+INSERT INTO `QUESTIONNAIRE` (`ID_QUESTIONNAIRE`, `ID_CONSIGNE`, `TITRE`, `DESCRIPTION_QUESTIONNAIRE`, `DATE_OUVERTURE`, `DATE_FERMETURE`, `ETAT`) VALUES
 (1, 1, 'Questionnaire 1', 'Questionnaire Maths \r\n', '2019-03-11 14:00:00', '2019-03-11 15:00:00', 'En cours'),
 (2, 2, 'Questionnaire 2', 'Questionnaire Anglais', '2019-03-12 09:00:00', '2019-03-12 11:00:00', 'Fermé'),
 (3, 3, 'Questionnaire 3', 'Questionnaire Arabe', '2019-03-01 09:00:00', '2019-03-01 10:00:00', 'Archivé'),
@@ -112,7 +112,7 @@ INSERT INTO `questionnaire` (`ID_QUESTIONNAIRE`, `ID_CONSIGNE`, `TITRE`, `DESCRI
 -- Contenu de la table `reliee_a`
 --
 
-INSERT INTO `reliee_a` (`ID_REPONSESP`, `REP_ID_REPONSESP`) VALUES
+INSERT INTO `RELIEE_A` (`ID_REPONSESP`, `REP_ID_REPONSESP`) VALUES
 (7, 8),
 (9, 10),
 (11, 12);
@@ -121,7 +121,7 @@ INSERT INTO `reliee_a` (`ID_REPONSESP`, `REP_ID_REPONSESP`) VALUES
 -- Contenu de la table `reponse_choisie`
 --
 
-INSERT INTO `reponse_choisie` (`ID_REPONSEC`, `ID_USER`, `ID_QUESTION`, `EST_JUSTE_C`) VALUES
+INSERT INTO `REPONSE_CHOISIE` (`ID_REPONSEC`, `ID_USER`, `ID_QUESTION`, `EST_JUSTE_C`) VALUES
 (16, 8, 1, 1),
 (17, 8, 1, 1),
 (18, 8, 13, 1),
@@ -139,7 +139,7 @@ INSERT INTO `reponse_choisie` (`ID_REPONSEC`, `ID_USER`, `ID_QUESTION`, `EST_JUS
 -- Contenu de la table `reponse_proposee`
 --
 
-INSERT INTO `reponse_proposee` (`ID_REPONSESP`, `ID_QUESTION`, `EST_JUSTE_P`, `COLONNE`, `CONTENU`) VALUES
+INSERT INTO `REPONSE_PROPOSEE` (`ID_REPONSESP`, `ID_QUESTION`, `EST_JUSTE_P`, `COLONNE`, `CONTENU`) VALUES
 (1, 1, 1, NULL, '35,12'),
 (2, 1, 0, NULL, '12'),
 (3, 1, 1, NULL, 'sqrt(1234)'),
@@ -168,7 +168,7 @@ INSERT INTO `reponse_proposee` (`ID_REPONSESP`, `ID_QUESTION`, `EST_JUSTE_P`, `C
 -- Contenu de la table `user`
 --
 
-INSERT INTO `user` (`LOGIN`, `PASSWORD`, `NOM`, `PRENOM`, `EMAIL`, `ROLE`, `ID_USER`, `MATRICULE`, `INTERN_EXT`, `MATIERE`, `PROMO`, `TD`, `GROUPE`) VALUES
+INSERT INTO `USER` (`LOGIN`, `PASSWORD`, `NOM`, `PRENOM`, `EMAIL`, `ROLE`, `ID_USER`, `MATRICULE`, `INTERN_EXT`, `MATIERE`, `PROMO`, `TD`, `GROUPE`) VALUES
 ('lucky', '123', 'Fabresse', 'Luc', 'luc.fabresse@imt-lille-douai.fr', 'Enseignant', 6, '1234', 1, 'C', NULL, NULL, NULL),
 ('Reminou', '456', 'Pinot', 'Remy', 'remy.pinot@imt-lille-douai.fr', 'Enseignant', 7, '5678', 1, 'SGBD', NULL, NULL, NULL),
 ('toto', '789', 'Malidin', 'Thomas', 'thomas.malidin@etu.imt-lille-douai.fr', 'Etudiant', 8, NULL, NULL, NULL, '2020', '6', '2'),
