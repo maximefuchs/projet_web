@@ -1,12 +1,12 @@
 <tr>
 	<th>Matricule :</th>
-	<td><?php echo $user['MATRICULE'] ?></td>
+	<td><?php echo $user->matricule(); ?></td>
 </tr>
 <tr>
 	<th>Intervenant externe :</th>
-	<td><?php echo $user['INTERN_EXT'] ?></td>
+	<td><?php echo $user->int_ext(); ?></td>
 </tr>
 <tr>
 	<th>Matiere :</th>
-	<td><?php echo $user['MATIERE'] ?></td>
+	<td><?php echo $user->matiere(); ?></td>
 </tr>

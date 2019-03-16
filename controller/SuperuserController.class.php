@@ -16,7 +16,7 @@ class SuperuserController extends UserController{
 		} else {
 			$userId = $request->readGet('userId');
 			$this->user = User::getUserById($userId);
-			$_SESSION['ID_SUPERUSER'] = $this->user['ID_USER'];
+			$_SESSION['ID_SUPERUSER'] = $this->user->id();
 			//var_dump($this->user);
 		}
 

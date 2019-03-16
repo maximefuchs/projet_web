@@ -15,7 +15,7 @@ class UserController extends Controller{
 		} else {
 			$userId = $request->readGet('userId');
 			$this->user = User::getUserById($userId);
-			$_SESSION['ID_USER'] = $this->user['ID_USER'];
+			$_SESSION['ID_USER'] = $this->user->id();
 			//var_dump($this->user);
 		}
 	}

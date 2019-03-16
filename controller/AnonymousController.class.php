@@ -46,7 +46,7 @@ class AnonymousController extends Controller{
 			$prenom = $request->readPost('prenom');
 			$mail = $request->readPost('mail');
 			$user = User::create($login, $mdp, $mail, $nom, $prenom);
-			if(!isset($user['user_id'])) {
+			if(is_null($user->id())) {
 				$view = new AnonymousView($this,'inscription');
 				$view->setArg('inscErrorText', 'Impossible de finaliser l\'inscription');
 				$view->render();
@@ -60,7 +60,7 @@ class AnonymousController extends Controller{
 		$login = $request->readPost('connLogin');
 		$mdp = $request->readPost('connPassword');
 		$user = User::tryLogin($login, $mdp);
-		if(!isset($user['ID_USER'])){
+		if(is_null($user->id())){
 			$view = new AnonymousView($this, 'connexion');
 			$view->setArg('connErrorText', 'Utilisateur introuvable');
 			$view->render();
@@ -71,12 +71,12 @@ class AnonymousController extends Controller{
 
 	public function connexion($user){
 		$newRequest = new Request();
-		if($user['ID_USER'] == 8){ // user avec id 8 (= Thomas Malidin) est superUtilisateur
+		if($user->id() == 8){ // user avec id 8 (= Thomas Malidin) est superUtilisateur
 			$newRequest->writeGet('controller','superuser');
-			$newRequest->writeGet('userId',$user['ID_USER']);
+			$newRequest->writeGet('userId',$user->id());
 		} else {
 			$newRequest->writeGet('controller','user');
-			$newRequest->writeGet('userId',$user['ID_USER']);
+			$newRequest->writeGet('userId',$user->id());
 		}
 		$controller = Dispatcher::dispatch($newRequest);
 		$controller->execute();

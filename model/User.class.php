@@ -3,21 +3,40 @@
 class User extends Model{
 
 	protected static $table_name = 'user';
+	// utilisation de variable pour éviter d'avoir à changer plusieurs fois si on
+	// change le nom d'une colonne
 	protected static $colId = 'ID_USER';
 	protected static $colLogin = 'LOGIN';
 	protected static $colMdp = 'PASSWORD';
 	protected static $colNom = 'NOM';
 	protected static $colPrenom = 'PRENOM';
-	protected static $colEmail = 'EMAIL';
-	protected static $colRole = 'ROLE';
+	protected static $colMail = 'EMAIL';
+	protected static $colType = 'TYPE';
 	protected static $colMatricule = 'MATRICULE';
 	protected static $colIntExt = 'INTERN_EXT';
 	protected static $colMatiere = 'MATIERE';
 	protected static $colPromo = 'PROMO';
-	protected static $colDateSortie = 'DATE_SORITE';
-	protected static $colDateEntree = 'DATE_ENTREE';
 	protected static $colTD = 'TD';
 	protected static $colGroupe = 'GROUPE';
+
+	//getters
+	public function id() { return $this->props[self::$colId]; }
+	public function login() { return $this->props[self::$colLogin]; }
+	public function mdp() { return $this->props[self::$colMdp]; }
+	public function nom() { return $this->props[self::$colNom]; }
+	public function prenom() { return $this->props[self::$colPrenom]; }
+	public function mail() { return $this->props[self::$colMail]; }
+	public function role() { return $this->props[self::$colType]; }
+	public function isSuperAdmin() { return $this->id()==8;}
+	public function matricule() { return $this->props[self::$colMatricule]; }
+	public function int_ext() { return $this->props[self::$colIntExt]; }
+	public function matiere() { return $this->props[self::$colMatiere]; }
+	public function promo() { return $this->props[self::$colPromo]; }
+	public function td() { return $this->props[self::$colTD]; }
+	public function grp_demiPromo() { return $this->props[self::$colGroupe]; }
+
+
+
 
 
 
@@ -71,12 +90,5 @@ class User extends Model{
 		$user = $r->fetch();
 		return $user;
 	}
-
-	public function id() { return $this->props[$colId]; }
-	public function login() { return $this->props['LOGIN']; }
-	public function mdp() { return $this->props['ID']; }
-	//public function id() { return $this->props['ID']; }
-	public function role() { return $this->props['ROLE']; }
-	public function isSuperAdmin() { return $this->id()==8;}
 }
 	?>

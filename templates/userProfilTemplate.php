@@ -16,7 +16,7 @@
 	</tr>
 	<tr>
 		<th>Email :</th>
-		<td><?php echo $user->email(); ?></td>
+		<td><?php echo $user->mail(); ?></td>
 	</tr>
 	<?php require_once('profil'.$type.'.php'); ?>
 </table>
