@@ -8,7 +8,7 @@ Model::addSqlQuery('USER_GET_WITH_LOGIN_AND_PASSWORD',
 
 //à modifier
 Model::addSqlQuery('USER_CREATE',
-	'INSERT INTO `user` (`user_id`, `user_login`, `user_motdepasse`, `user_mail`, `user_nom`, `user_prenom`) VALUES (NULL, :login, :mdp, :email, :nom, :prenom)');
+	'INSERT INTO `user` (`id_user`, `login`, `password`, `email`, `nom`, `prenom`, `type`, `promo`, `groupe`, `td`, `matricule`,`matiere`,`intern_ext`) VALUES (NULL, :login, :mdp, :email, :nom, :prenom, :type, :promo, :groupe, :td, :matricule, :matiere, :intern_ext)');
 
 Model::addSqlQuery('USER_CONNECT',
 	'SELECT * FROM USER WHERE LOGIN=:login and PASSWORD=:mdp');

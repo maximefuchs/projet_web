@@ -45,7 +45,19 @@ class AnonymousController extends Controller{
 			$nom = $request->readPost('nom');
 			$prenom = $request->readPost('prenom');
 			$mail = $request->readPost('mail');
-			$user = User::create($login, $mdp, $mail, $nom, $prenom);
+			$role= $request->readPost('role');
+			if($role=='Etudiant'){
+				$promo=$request->readPost('Promo');
+				$groupe=$request->readPost('Groupe');
+				$td=$request->readPost('td');
+				$user = User::create($login, $mdp, $mail, $nom, $prenom,$role,$promo, $groupe, $td, $matricule=null, $matiere_enseignee=null, $int_ext=null);
+			} else if ($role == 'Enseignant'){
+				$matricule=$request->readPost('Matricule');
+				$matiere_enseignee=$request->readPost('Mat_enseignee');
+				$int_ext=$request->readPost('Int_Ext');
+				$user = User::create($login, $mdp, $mail, $nom, $prenom,$role,$promo=null, $groupe=null, $td=null, $matricule, $matiere_enseignee, $int_ext);
+			}
+
 			if(!isset($user['user_id'])) {
 				$view = new AnonymousView($this,'inscription');
 				$view->setArg('inscErrorText', 'Impossible de finaliser l\'inscription');

@@ -23,14 +23,21 @@ class User extends Model{
 	}
 
 //ajout d'un nouvel utilisateur, et connexion directe
-	public static function create($login, $mdp, $mail, $nom, $prenom){
+	public static function create($login, $mdp, $mail, $nom, $prenom,$role,$promo, $groupe, $td, $matricule, $matiere_enseignee, $int_ext){
 
 		$array = array( ':login' => $login,
 			':email' => $mail,
 			':mdp' => $mdp,
 			':nom' => $nom,
-			':prenom' => $prenom);
-		//var_dump($array);
+			':prenom' => $prenom,
+			':type' => $role
+			':promo' => $promo,
+			':groupe' => $groupe,
+			':td' => $td,
+			':matricule' => $matricule,
+			':matiere' => $matiere_enseignee,
+			':intern_ext' => $int_ext);
+		var_dump($array);
 		$sth = parent::exec('USER_CREATE',$array);
 		$user = static::tryLogin($login, $mdp);
 		return $user;
