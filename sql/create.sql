@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Mar 12, 2019 at 05:33 PM
+-- Generation Time: Mar 16, 2019 at 12:56 PM
 -- Server version: 5.7.25
 -- PHP Version: 7.3.1
 
@@ -11,7 +11,7 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 --
--- Database: `ProjetWEB`
+-- Database: `projet_web`
 --
 
 -- --------------------------------------------------------
@@ -156,8 +156,6 @@ CREATE TABLE `USER` (
   `INTERN_EXT` tinyint(1) DEFAULT NULL,
   `MATIERE` varchar(30) DEFAULT NULL,
   `PROMO` varchar(10) DEFAULT NULL,
-  `DATE_SORTIE` date DEFAULT NULL,
-  `DATE_ENTREE` date DEFAULT NULL,
   `TD` varchar(2) DEFAULT NULL,
   `GROUPE` varchar(2) DEFAULT NULL,
   `LOGIN` varchar(50) NOT NULL,
