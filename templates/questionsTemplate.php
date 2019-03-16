@@ -1,2 +1,5 @@
 <?php $questions = $args['questions'];
-var_dump($questions); ?>
+foreach ($questions as $q) {
+	require('questionTemplate.php');
+}
+?>

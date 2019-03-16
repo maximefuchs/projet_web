@@ -4,6 +4,22 @@ class Question extends Model{
 
 	protected static $table_name = 'question';
 
+	protected static $colId = 'ID_QUESTION';
+	protected static $colIdConsigne = 'ID_CONSIGNE';
+	protected static $colTag = 'TAG';
+	protected static $colType = 'TYPE_QUESTION';
+	protected static $colNbRep = 'NB_REPONSES';
+	protected static $colDesQu = 'DESCRIPTION_QUESTION';
+
+
+	// getters
+	public function id() { return $this->props[self::$colId]; }
+	public function idconsigne() { return $this->props[self::$colIdConsigne]; }
+	public function tag() { return $this->props[self::$colTag]; }
+	public function type() { return $this->props[self::$colType]; }
+	public function nombre_reponses() { return $this->props[self::$colNbRep]; }
+	public function description_question() { return $this->props[self::$colDesQu]; }
+
 	public function __construct(){
 		parent::__construct();
 	}

@@ -1,2 +1,4 @@
 <?php $users = $args['users'];
-var_dump($users); ?>
+foreach ($users as $user) {
+	require('userTemplate.php');
+} ?>
