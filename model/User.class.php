@@ -56,8 +56,7 @@ class User extends Model{
 		$r = parent::exec('USER_IS_LOGIN_USED',
 			array(':login' => $login));
 		$us = $r->fetch();
-		// var_dump($us);
-		return isset($us['user_login']);
+		return !is_null($us);
 	}
 
 //ajout d'un nouvel utilisateur, et connexion directe

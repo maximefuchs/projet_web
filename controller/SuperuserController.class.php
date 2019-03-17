@@ -5,6 +5,7 @@ class SuperuserController extends UserController{
 	static $users;
 	static $questions;
 	static $questionnaires;
+	static $reponses;
 
 	public function __construct($request){
 		parent::__construct($request);
@@ -24,6 +25,8 @@ class SuperuserController extends UserController{
 		self::$users = User::getList();
 		self::$questions = Question::getList(); 
 		self::$questionnaires = Questionnaire::getList(); 
+		self::$reponses = Reponse::getList(); 
+
 	}
 
 	public function defaultAction($request){
@@ -58,6 +61,13 @@ class SuperuserController extends UserController{
 		//affichage du template questionsTemplate dans le content
 		$view = new SuperUserView($this, 'questions',
 				array('user' => $this->user, 'questions' => self::$questions));
+		$view->render();
+	}
+
+	public function reponsesAction($request){
+		//affichage du template questionsTemplate dans le content
+		$view = new SuperUserView($this, 'reponses',
+				array('user' => $this->user, 'reponses' => self::$reponses));
 		$view->render();
 	}
 
