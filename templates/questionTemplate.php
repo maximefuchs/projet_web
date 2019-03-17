@@ -1,6 +1,9 @@
-<div style="padding: 10px;">
-	<span><?php echo $q->id(); ?></span><br>
-	<i>#<?php echo $q->tag(); ?></i><br><b><?php echo $q->type(); ?></b><br>
-	<span style="font-size: 20px;"><?php echo $q->description_question(); ?></span><br>
-	<span style="margin-left: 2%;">Nombre de réponses : <?php echo $q->nombre_reponses(); ?></span>
-</div>
+<?php
+		echo "<tr>";
+		echo "<td>". $q->id(). "</td>";
+		echo "<td>". $q->type(). "</td>";
+		echo "<td>". $q->tag(). "</td>";
+		echo "<td>". $q->description_question(). "</td>";
+		echo "<td>". $q->nombre_reponses(). "</td>";
+		echo "</tr>";
+ ?>
