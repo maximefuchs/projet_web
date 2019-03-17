@@ -31,9 +31,9 @@ class UserController extends Controller{
 		$view->render();
 	}
 
-	public function questionnaireAction($request){
+	public function questionnairesAction($request){
 		self::$quest=Questionnaire::getQuestionnairesByUserId($this->user->id());
-		$view = new UserView($this, 'userQuestionnaires', array('user' => $this->user, 'questionnaires' => self::$quest));
+		$view = new UserView($this, 'questionnaires', array('user' => $this->user, 'questionnaires' => self::$quest));
 		$view->render();
 	}
 
