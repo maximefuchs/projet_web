@@ -1,5 +1,8 @@
 <div class="container">
   <h2>Listes de utilisateurs</h2>
+	<p>Rechercher parmis les utilisateurs</p>
+  <input class="form-control" id="myInput" type="text" placeholder="Recherche..">
+  <br>
   <table class="table table-hover">
     <thead>
       <tr>
@@ -18,7 +21,7 @@
         <th>Matière enseignée</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody id="myTable">
 			<?php $users = $args['users'];
 			foreach ($users as $user) {
 				echo "<tr>";
@@ -40,3 +43,13 @@
     </tbody>
   </table>
 </div>
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
