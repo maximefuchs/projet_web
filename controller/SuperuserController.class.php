@@ -71,7 +71,11 @@ class SuperuserController extends UserController{
 		$view->render();
 	}
 
+	public function questionsEtreponsesAction($request){
+		$view = new SuperUserView($this, 'questionsEtreponses',
+				array('user' => $this->user, 'reponses' => self::$reponses, 'questions' => self::$questions));
+		$view->render();
+	}
+
 }
-
-
  ?>
