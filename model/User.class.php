@@ -57,7 +57,10 @@ class User extends Model{
 			array(':login' => $login));
 		$us = $r->fetch();
 		// var_dump($us);
-		return isset($us['user_login']);
+		if ($us==false)
+			return false;
+		else
+			return true;
 	}
 
 //ajout d'un nouvel utilisateur, et connexion directe

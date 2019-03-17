@@ -56,6 +56,7 @@ class AnonymousController extends Controller{
 				$matiere_enseignee=$request->readPost('Mat_enseignee');
 				$int_ext=$request->readPost('Int_Ext');
 				$user = User::create($login, $mdp, $mail, $nom, $prenom,$role,$promo=null, $groupe=null, $td=null, $matricule, $matiere_enseignee, $int_ext);
+
 			}
 			if(is_null($user->id())) {
 				$view = new AnonymousView($this,'inscription');
@@ -71,7 +72,7 @@ class AnonymousController extends Controller{
 		$login = $request->readPost('connLogin');
 		$mdp = $request->readPost('connPassword');
 		$user = User::tryLogin($login, $mdp);
-		if(is_null($user->id())){
+		if(!$user){
 			$view = new AnonymousView($this, 'connexion');
 			$view->setArg('connErrorText', 'Utilisateur introuvable');
 			$view->render();
