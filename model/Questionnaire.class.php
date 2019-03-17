@@ -1,16 +1,16 @@
-<?php 
+<?php
 
 class Questionnaire extends Model{
 
-	protected static $table_name = 'questionnaire';
+	 static $table_name = 'questionnaire';
 
-	protected static $colId = 'ID_QUESTIONNAIRE';
-	protected static $colIdConsigne = 'ID_CONSIGNE';
-	protected static $colTitre = 'TITRE';
-	protected static $colDescQue = 'DESCRIPTION_QUESTIONNAIRE';
-	protected static $colDateOuv = 'DATE_OUVERTURE';
-	protected static $colDateFerm = 'DATE_FERMETURE';
-	protected static $colEtat = 'ETAT';
+	 static $colId = 'ID_QUESTIONNAIRE';
+	 static $colIdConsigne = 'ID_CONSIGNE';
+	 static $colTitre = 'TITRE';
+	 static $colDescQue = 'DESCRIPTION_QUESTIONNAIRE';
+	 static $colDateOuv = 'DATE_OUVERTURE';
+	 static $colDateFerm = 'DATE_FERMETURE';
+	 static $colEtat = 'ETAT';
 
 	// getters
 	public function id() { return $this->props[self::$colId]; }
