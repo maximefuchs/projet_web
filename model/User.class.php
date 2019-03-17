@@ -56,24 +56,29 @@ class User extends Model{
 		$r = parent::exec('USER_IS_LOGIN_USED',
 			array(':login' => $login));
 		$us = $r->fetch();
-		return !is_null($us);
+
+		// si le login existe, $us est une instance de user, donc pas un boolen
+		// si le login n'existe pas, $us = false
+		if($us != false)
+			return true;
+		else
+			return false;
 	}
 
 //ajout d'un nouvel utilisateur, et connexion directe
-	public static function create($login, $mdp, $mail, $nom, $prenom,$role,$promo, $groupe, $td, $matricule, $matiere_enseignee, $int_ext){
+	public static function create($login, $mdp, $mail, $nom, $prenom, $role, $promo, $groupe, $td, $matricule, $matiere_enseignee, $int_ext){
 		$array = array( ':login' => $login,
 			':email' => $mail,
 			':mdp' => $mdp,
 			':nom' => $nom,
 			':prenom' => $prenom,
-			':type' => $role,
+			':role' => $role,
 			':promo' => $promo,
 			':groupe' => $groupe,
 			':td' => $td,
 			':matricule' => $matricule,
 			':matiere' => $matiere_enseignee,
 			':intern_ext' => $int_ext);
-		//var_dump($array);
 		$sth = parent::exec('USER_CREATE',$array);
 		$user = static::tryLogin($login, $mdp);
 		return $user;

@@ -8,58 +8,58 @@ if(isset($args['inscErrorText']))
 		<tr>
 			<tr>
 				<th>Login* :</th>
-				<td><input type="text" name="inscLogin"/></td>
+				<td><input type="text" name="inscLogin" required/></td>
 			</tr>
 			<tr>
 				<th>Mot de passe* :</th>
-				<td><input type="password" name="inscPassword"/></td>
+				<td><input type="password" name="inscPassword" required/></td>
 			</tr>
 			<tr>
 				<th>Nom* :</th>
-				<td><input type="text" name="nom"/></td>
+				<td><input type="text" name="nom" required/></td>
 			</tr>
 			<tr>
 				<th>Prénom* :</th>
-				<td><input type="text" name="prenom"/></td>
+				<td><input type="text" name="prenom" required/></td>
 			</tr>
 			<tr>
 				<th>Mail :</th>
-				<td><input type="text" name="mail"/></td>
+				<td><input type="text" name="mail" required/></td>
 			</tr>
 
 			<tr>
 				<th> Rôle : </th>
 				<td>
 					<input onclick="afficherPourEtudiant(); enleverPourEnseignant();"
-					type="radio" name="role" value="Etudiant">Etudiant
+					type="radio" name="role" value="Etudiant" required>Etudiant
 					<input onclick="afficherPourEnseignant(); enleverPourEtudiant();"
-					type="radio" name="role" value="Enseignant">Enseignant
+					type="radio" name="role" value="Enseignant" required>Enseignant
 				</td>
 			</tr>
 
 			<tr class="eleve">
 				<th>Promo :</th>
-				<td><input type="text" name="Promo"></td>
+				<td><input class="eleveInput" type="text" name="Promo"></td>
 			</tr>
 
 			<tr class="eleve">
 				<th>Groupe de demi promo :</th>
-				<td><input type="text" name="Groupe"></td>
+				<td><input class="eleveInput" type="text" name="Groupe"></td>
 			</tr>
 
 			<tr class="eleve">
 				<th>Td :</th>
-				<td><input type="text" name="td"></td>
+				<td><input class="eleveInput" type="text" name="td"></td>
 			</tr>
 
 			<tr class="enseignant">
 				<th>Matricule :</th>
-				<td><input type="text" name="Matricule"></td>
+				<td><input class="enseignantInput" type="text" name="Matricule"></td>
 			</tr>
 
 			<tr class="enseignant">
 				<th>Matière enseignée :</th>
-				<td><input type="text" name="Mat_enseignee"></td>
+				<td><input class="enseignantInput" type="text" name="Mat_enseignee"></td>
 			</tr>
 
 			<tr class="enseignant">
