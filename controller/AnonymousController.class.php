@@ -58,7 +58,7 @@ class AnonymousController extends Controller{
 				$user = User::create($login, $mdp, $mail, $nom, $prenom,$role,$promo=null, $groupe=null, $td=null, $matricule, $matiere_enseignee, $int_ext);
 
 			}
-			if(is_null($user->id())) {
+			if(!$user) {
 				$view = new AnonymousView($this,'inscription');
 				$view->setArg('inscErrorText', 'Impossible de finaliser l\'inscription');
 				$view->render();

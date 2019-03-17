@@ -56,7 +56,6 @@ class User extends Model{
 		$r = parent::exec('USER_IS_LOGIN_USED',
 			array(':login' => $login));
 		$us = $r->fetch();
-		// var_dump($us);
 		if ($us==false)
 			return false;
 		else
