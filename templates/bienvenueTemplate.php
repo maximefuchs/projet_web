@@ -1,3 +1,1 @@
-<link rel="stylesheet" href="css/accueil.css" type="text/css"
-	media="screen" title="style1" charset="utf-8" />
-<!-- <h1 style="text-align: center;">BIENVENUE</h1>  -->
+<h1 style="text-align: center; color: white;margin: 20px; padding: 10px; border: 2px solid white;">BIENVENUE</h1> 

@@ -4,25 +4,68 @@ html{
 	background-size: cover;
 	background-repeat: no-repeat;
 }
-#menuA{
-	font-size: 50px;
+#menu{
+	position: sticky;
+	font-size: 30px;
+	float: left;
+	padding: 20px;
+	margin: 20px; 
 }
-#menuA a{
+#menu a{
 	text-decoration: none;
 }
 
-#menuA a li{
-	display: inline-block;
+#menu a li{
+	display: block;
 	border: 3px solid white;
 	list-style-type: none;
 	text-align: center;
 	background-color: white;
-	padding: 10px;
 	color: black;
-	margin: 5%;
-	filter: blur(20px);
+	padding: 20px;
+	width: 100%;
+	filter: blur(5px);
+	transition: filter 0.2s;
+	margin-bottom: 10px;
+}
+#menu a li:hover{
+	filter: none;
+	cursor: pointer;
+}
+#footer{
+	position: fixed;
+	bottom:5%;
+	left: 1%;
+}
+#footer a{
+	text-decoration: none;
+	padding: 10px;
+	background-color: black;
+	color: white;
+	filter: blur(2px);
 	transition: filter 0.2s;
 }
-#menuA a li:hover{
+#footer a:hover{
 	filter: none;
 }
+
+@keyframes goToRight{
+	from{margin-left: 5%;}
+	to{margin-left: 20%; opacity: 0;}
+}
+
+@keyframes comesFromRight{
+	from{margin-left: 20%; opacity: 0;}
+	to{margin-left: 5%; opacity: 1;}
+}
+
+
+
+#content{
+	display: inline-block;
+	margin: 5%;
+	color: white;
+	animation-name: comesFromRight;
+	animation-duration: 0.3s;
+}
+
