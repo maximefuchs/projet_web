@@ -23,9 +23,9 @@ class SuperuserController extends UserController{
 
 		//chargement du contenu des tables dans les variables
 		self::$users = User::getList();
-		self::$questions = Question::getList(); 
-		self::$questionnaires = Questionnaire::getList(); 
-		self::$reponses = Reponse::getList(); 
+		self::$questions = Question::getList();
+		self::$questionnaires = Questionnaire::getList();
+		self::$reponses = Reponse::getList();
 
 	}
 

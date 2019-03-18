@@ -1,8 +1,8 @@
-<?php 
+<?php
 
 class Question extends Model{
 
-	static $table_name = 'question';
+	static $table_name = 'QUESTION';
 
 	static $colId = 'ID_QUESTION';
 	static $colIdConsigne = 'ID_CONSIGNE';
@@ -43,9 +43,9 @@ class Question extends Model{
 	//chercher une question avec son id
 	public static function getQuestionById($id){
 		$q = parent::exec('GET_QUESTION_BY_ID', array(':id_q' => $id));
-		return $q->fetch(); 
+		return $q->fetch();
 	}
-	
+
 	// récupérer toutes les questions d'un questionnaires
 	public static function getQuestionsDeQuestionnaireId($id_questionnaire){
 		$questions = parent::exec('GET_QUESTIONS_BY_QUESTIONNAIRE',

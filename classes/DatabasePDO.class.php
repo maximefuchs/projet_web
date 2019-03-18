@@ -1,12 +1,15 @@
 <?php
 
 class DatabasePDO{
+	// static $DB_NAME = 'thomas_malidin_delabriere';
+	// static $DB_USER = 'thomas.malidin.delabriere';
+	// static $DB_PWD = '4kqoRj3g';
 	static $DB_HOST = 'localhost';
 	static $DB_NAME = 'projet_web';
 	static $DB_USER = 'root';
 	static $DB_PWD = 'root';
 
-	static $PDO = NULL;	
+	static $PDO = NULL;
 
 	private function __construct(){}
 	public static function getPDO(){
@@ -23,7 +26,7 @@ class DatabasePDO{
 		}
 
 		return self::$PDO;
-	} 
+	}
 }
 
 ?>

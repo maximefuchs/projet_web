@@ -1,7 +1,7 @@
-<?php 
+<?php
 
-class connexionView extends View {
-	
+class ConnexionView extends View {
+
 }
 
  ?>

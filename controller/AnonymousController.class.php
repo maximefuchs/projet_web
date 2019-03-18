@@ -30,7 +30,7 @@ class AnonymousController extends Controller{
 	}
 
 	public function connexionAction($request){
-		$view = new connexionView($this, 'connexion');
+		$view = new ConnexionView($this, 'connexion');
 		$view->render();
 	}
 
