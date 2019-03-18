@@ -1,0 +1,28 @@
+html{
+	font-family: Helvetica, sans-serif;
+	background: url("https://images.pexels.com/photos/159519/back-to-school-paper-colored-paper-stationery-159519.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+#menuA{
+	font-size: 50px;
+}
+#menuA a{
+	text-decoration: none;
+}
+
+#menuA a li{
+	display: inline-block;
+	border: 3px solid white;
+	list-style-type: none;
+	text-align: center;
+	background-color: white;
+	padding: 10px;
+	color: black;
+	margin: 5%;
+	filter: blur(20px);
+	transition: filter 0.2s;
+}
+#menuA a li:hover{
+	filter: none;
+}
