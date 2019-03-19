@@ -15,6 +15,10 @@ class Request {
 		if(isset($_GET['controller'])){
 			return $_GET['controller'];
 		} else {
+			session_start();
+			if(isset($_SESSION['ID_USER'])){
+				return 'User';
+			}
 			return 'Anonymous';
 		}
 	}
