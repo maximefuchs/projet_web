@@ -11,6 +11,7 @@ class View extends MyObject {
 		$this->templateNames = array();
 		$this->templateNames['head'] = 'head';
 		$this->templateNames['top'] = 'top';
+		$this->templateNames['bandeauMenu'] = 'bandeauMenu';
 		$this->templateNames['menu'] = 'menu';
 		$this->templateNames['foot'] = 'foot';
 		$this->templateNames['content'] = $templateName;
@@ -24,17 +25,15 @@ class View extends MyObject {
 
 	public function render() {
 		$this->loadTemplate($this->templateNames['head'], $this->args);
-		//echo "1<br>";
 		$this->loadTemplate($this->templateNames['top'], $this->args);
-		//echo "2<br>";
+		$this->loadTemplate($this->templateNames['bandeauMenu'], $this->args);
+		echo "<ul class='menu' id='mySidenav'>";
 		$this->loadTemplate($this->templateNames['menu'], $this->args);
-		//echo "3<br>";
+		echo "</ul>";
 		echo "<div id='content'>";
 		$this->loadTemplate($this->templateNames['content'], $this->args);
 		echo "</div>";
-		//echo "4<br>";
 		$this->loadTemplate($this->templateNames['foot'], $this->args);
-		//echo "5<br>";
 	}
 
 	public function loadTemplate($name,$args=NULL) {

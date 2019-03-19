@@ -40,3 +40,12 @@ function enleverPourEnseignant(){
 		inputEltEnseignant[i].required = false;
 	}
 }
+
+//fonctions pour le menu
+function openNav() {
+  		document.getElementById("mySidenav").style.width = "250px";
+  	}
+
+  	function closeNav() {
+  		document.getElementById("mySidenav").style.width = "0";
+  	}

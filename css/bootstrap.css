@@ -1265,7 +1265,8 @@ a.bg-danger:focus,a.bg-danger:hover{
 }
 ol,ul{
 	margin-top:0;
-	margin-bottom:10px
+	padding: 0;
+	margin-bottom:10px;
 }
 ol ol,ol ul,ul ol,ul ul{
 	margin-bottom:0
