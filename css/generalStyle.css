@@ -16,27 +16,43 @@ IMG.displayed {
 }
 .bandeauMenu{
 	margin: 0;
-  padding: 0;
-  overflow: hidden;
+	padding: 0;
+	overflow: hidden;
 	top:0;
 	position: sticky;
 	font-size: 30px;
 	color: white;
 	background-color: black;
 }
+.bandeauMenu span, .bandeauMenu div a{
+	padding: 10px;
+}
 .bandeauMenu span{
 	cursor: pointer;
+	float: left;
+}
+.bandeauMenu span:hover{
+	background-color: #555;
 }
 .bandeauMenu div{
 	float: right;
 }
 .bandeauMenu div a{
-	display: block;
+	display: inline-block;
 	text-decoration: none;
+	text-align: center;
 	color: white;
 	transition: 0.5s;
 }
 .bandeauMenu div a:hover{
 	background-color: white;
 	color: black;
+}
+.bandeauMenu i{
+	font-size: 15px;
+	margin-left: 10%;
+	bottom: 5px;
+	position: absolute;
+	text-align: center;
+	float: left;
 }
