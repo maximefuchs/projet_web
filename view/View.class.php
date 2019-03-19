@@ -28,6 +28,8 @@ class View extends MyObject {
 		$this->loadTemplate($this->templateNames['top'], $this->args);
 		$this->loadTemplate($this->templateNames['bandeauMenu'], $this->args);
 		echo "<ul class='menu' id='mySidenav'>";
+		echo "<a href='javascript:void(0)' class='closebtn' onclick='closeNav()'>
+	&times;</a>";
 		$this->loadTemplate($this->templateNames['menu'], $this->args);
 		echo "</ul>";
 		echo "<div id='content'>";

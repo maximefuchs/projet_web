@@ -41,9 +41,9 @@ function enleverPourEnseignant(){
 	}
 }
 
-//fonctions pour le menu
+//fonctions pour afficher le menu
 function openNav() {
-  		document.getElementById("mySidenav").style.width = "250px";
+  		document.getElementById("mySidenav").style.width = "20%";
   	}
 
   	function closeNav() {

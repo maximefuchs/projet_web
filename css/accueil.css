@@ -28,7 +28,8 @@ html{
   transition: 0.3s;
 }
 .menu a li:hover{
-  color: #f1f1f1;
+  background-color: #f1f1f1;
+  color: black;
 }
 .menu .closebtn{
   position: absolute;
