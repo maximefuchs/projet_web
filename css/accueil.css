@@ -2,7 +2,7 @@ html{
 	font-family: Helvetica, sans-serif;
 	background: url("https://images.pexels.com/photos/593158/pexels-photo-593158.jpeg?cs=srgb&dl=abstract-architecture-building-exterior-593158.jpg&fm=jpg");
 	background-size: cover;
-	background-repeat: no-repeat;
+	background-repeat: repeat-y;
 }
 #menu{
 	position: sticky;
@@ -75,5 +75,16 @@ html{
 #content input{
 	color: black;
 	margin: 5px;
+}
+#content input[type=submit]{
+	padding: 5px;
+	color: white;
+	background-color: transparent;
+	border: 1px solid white;
+	transition: background-color 0.3s;
+}
+#content input[type=submit]:hover{
+	color: black;
+	background-color: white;
 }
 

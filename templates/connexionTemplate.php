@@ -6,15 +6,12 @@ if(isset($args['connErrorText']))
 <form action="index.php" method="post">
 	<table>
 		<tr>
-			<th>Login* :</th>
-			<td><input type="text" name="connLogin"/></td>
+			<td><input type="text" name="connLogin" placeholder="Login"/></td>
 		</tr>
 		<tr>
-			<th>Mot de passe* :</th>
-			<td><input type="password" name="connPassword"/></td>
+			<td><input type="password" name="connPassword" placeholder="Mot de passe"/></td>
 		</tr>
 		<tr>
-			<th />
 			<td><input type="submit" value="Connexion" /></td>
 		</tr>
 	</table>
