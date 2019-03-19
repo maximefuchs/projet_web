@@ -1,6 +1,6 @@
 html{
 	font-family: Helvetica, sans-serif;
-	background: url("https://images.pexels.com/photos/159519/back-to-school-paper-colored-paper-stationery-159519.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+	background: url("https://images.pexels.com/photos/593158/pexels-photo-593158.jpeg?cs=srgb&dl=abstract-architecture-building-exterior-593158.jpg&fm=jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 }
@@ -24,7 +24,7 @@ html{
 	color: black;
 	padding: 20px;
 	width: 100%;
-	filter: blur(5px);
+	filter: blur(3px);
 	transition: filter 0.2s;
 	margin-bottom: 10px;
 }
@@ -67,5 +67,13 @@ html{
 	color: white;
 	animation-name: comesFromRight;
 	animation-duration: 0.3s;
+}
+
+#content .panel-body{
+	color: black;
+}
+#content input{
+	color: black;
+	margin: 5px;
 }
 
