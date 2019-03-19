@@ -78,9 +78,10 @@ html{
 #content .panel-body{
 	color: black;
 }
-#content input{
+#content input, textarea{
 	color: black;
 	margin: 5px;
+	resize: none;
 }
 #content input[type=submit]{
 	padding: 5px;
@@ -93,4 +94,3 @@ html{
 	color: black;
 	background-color: white;
 }
-
