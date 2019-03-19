@@ -85,9 +85,9 @@ code,kbd,pre,samp{
 	font-size:1em
 }
 button,input,optgroup,select,textarea{
-	color:inherit;
+	color:black;
 	font:inherit;
-	margin:0
+	margin:5px;
 }
 button{
 	overflow:visible
@@ -5836,4 +5836,3 @@ td.visible-print,th.visible-print{
 }
 
 }
-

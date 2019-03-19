@@ -9,7 +9,7 @@ html{
 	font-size: 30px;
 	float: left;
 	padding: 20px;
-	margin: 20px; 
+	margin: 20px;
 }
 #menu a{
 	text-decoration: none;
@@ -72,9 +72,10 @@ html{
 #content .panel-body{
 	color: black;
 }
-#content input{
+#content input, textarea{
 	color: black;
 	margin: 5px;
+	resize: none;
 }
 #content input[type=submit]{
 	padding: 5px;
@@ -87,4 +88,3 @@ html{
 	color: black;
 	background-color: white;
 }
-
