@@ -1,16 +1,11 @@
-body{
-	background-color: #eaf2ff;
-	padding: 0;
-	margin: 0;
-}
 header{
 	text-align: center;
-	width: 100%;
+	color: white;
 }
 .error{
 	color: red;
 }
-#content{
+/*#content{
 	padding: 5%;
 }
 #menu {
@@ -36,7 +31,6 @@ header{
 	color: white;
 }
 #footer{
-	margin:10px;
 	bottom: 0;
 	width: 100%;
 	text-align: center;
@@ -53,7 +47,7 @@ header{
 	background: black;
 	color: white;
 	opacity: 0.7;
-}
+}*/
 .eleve, .enseignant{
 	visibility: collapse;
 }

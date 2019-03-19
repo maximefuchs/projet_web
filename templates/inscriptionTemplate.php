@@ -7,28 +7,22 @@ if(isset($args['inscErrorText']))
 	<table>
 		<tr>
 			<tr>
-				<th>Login* :</th>
-				<td><input type="text" name="inscLogin" required maxlength="50" /></td>
+				<td><input type="text" name="inscLogin" required maxlength="50" placeholder="Login" /></td>
 			</tr>
 			<tr>
-				<th>Mot de passe* :</th>
-				<td><input type="password" name="inscPassword" required minlength="8" maxlength="50" /></td>
+				<td><input type="password" name="inscPassword" required minlength="8" maxlength="50" placeholder="Mot de passe" /></td>
 			</tr>
 			<tr>
-				<th>Nom* :</th>
-				<td><input type="text" name="nom" required maxlength="30" /></td>
+				<td><input type="text" name="nom" required maxlength="30" placeholder="Nom" /></td>
 			</tr>
 			<tr>
-				<th>Prénom* :</th>
-				<td><input type="text" name="prenom" required maxlength="30" /></td>
+				<td><input type="text" name="prenom" required maxlength="30" placeholder="Prénom" /></td>
 			</tr>
 			<tr>
-				<th>Mail :</th>
-				<td><input type="text" name="mail" required maxlength="100" /></td>
+				<td><input type="text" name="mail" required maxlength="100" placeholder="Email" /></td>
 			</tr>
 
 			<tr>
-				<th> Rôle : </th>
 				<td>
 					<input onclick="afficherPourEtudiant(); enleverPourEnseignant();"
 					type="radio" name="role" value="Etudiant" required>Etudiant
@@ -38,37 +32,30 @@ if(isset($args['inscErrorText']))
 			</tr>
 
 			<tr class="eleve">
-				<th>Promo :</th>
-				<td><input class="eleveInput" type="number" name="Promo"></td>
+				<td><input class="eleveInput" type="number" name="Promo" placeholder="Promo"/></td>
 			</tr>
 
 			<tr class="eleve">
-				<th>Groupe de demi promo :</th>
-				<td><input class="eleveInput" type="number" name="Groupe"></td>
+				<td><input class="eleveInput" type="number" name="Groupe" placeholder="Groupe de demi promo" /></td>
 			</tr>
 
 			<tr class="eleve">
-				<th>Td :</th>
-				<td><input class="eleveInput" type="number" name="td"></td>
+				<td><input class="eleveInput" type="number" name="td" placeholder="Groupe TD"/></td>
 			</tr>
 
 			<tr class="enseignant">
-				<th>Matricule :</th>
-				<td><input class="enseignantInput" type="number" name="Matricule" maxlength="10"></td>
+				<td><input class="enseignantInput" type="number" name="Matricule" maxlength="10" placeholder="Matricule" /></td>
 			</tr>
 
 			<tr class="enseignant">
-				<th>Matière enseignée :</th>
-				<td><input class="enseignantInput" type="text" name="Mat_enseignee" maxlength="30"></td>
+				<td><input class="enseignantInput" type="text" name="Mat_enseignee" maxlength="30" placeholder="Matière enseignée"/></td>
 			</tr>
 
 			<tr class="enseignant">
-				<th>Intervenant externe :</th>
 				<td><input type="checkbox" name="Int_Ext"></td>
 			</tr>
 
 			<tr>
-				<th />
 				<td><input type="submit" value="Creer mon compte" /></td>
 			</tr>
 		</table>
