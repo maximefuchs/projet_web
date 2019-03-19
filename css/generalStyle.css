@@ -22,7 +22,7 @@ IMG.displayed {
 	position: sticky;
 	font-size: 30px;
 	color: white;
-	background-color: black;
+	background-color: #222;
 }
 .bandeauMenu span, .bandeauMenu div a{
 	padding: 10px;
@@ -45,7 +45,7 @@ IMG.displayed {
 	transition: 0.5s;
 }
 .bandeauMenu div a:hover{
-	background-color: white;
+	background-color: #CCC;
 	color: black;
 }
 .bandeauMenu i{

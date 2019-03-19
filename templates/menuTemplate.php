@@ -1,2 +1,4 @@
-<a href="index.php?action=inscription"><li>Inscription</li></a>
-<a href="index.php?action=connexion"><li>Connexion</li></a>
+<?php 
+$array = array('inscription', 'connexion');
+require_once("fonctionAfficherMenu.php");
+ ?>

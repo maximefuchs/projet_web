@@ -43,7 +43,7 @@ function enleverPourEnseignant(){
 
 //fonctions pour afficher le menu
 function openNav() {
-  		document.getElementById("mySidenav").style.width = "20%";
+  		document.getElementById("mySidenav").style.width = "30%";
   	}
 
   	function closeNav() {

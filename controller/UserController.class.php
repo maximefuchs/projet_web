@@ -21,7 +21,6 @@ class UserController extends Controller{
 			$userId = $request->readGet('userId');
 			$this->user = User::getUserById($userId);
 			$_SESSION['ID_USER'] = $this->user->id();
-
 		}
 	}
 

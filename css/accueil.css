@@ -94,3 +94,6 @@ html{
 	color: black;
 	background-color: white;
 }
+#selected{
+	text-decoration: underline;
+}

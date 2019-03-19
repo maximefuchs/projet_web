@@ -1,2 +1,4 @@
-<a href="#"><li>Questionnaires</li></a>
-<a href="#"><li>Scores</li></a>
+<?php 
+//array_push($array, '');
+require_once("fonctionAfficherMenu.php");
+ ?>
