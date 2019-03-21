@@ -84,11 +84,6 @@ code,kbd,pre,samp{
 	font-family:monospace,monospace;
 	font-size:1em
 }
-button,input,optgroup,select,textarea{
-	color:black;
-	font:inherit;
-	margin:5px;
-}
 button{
 	overflow:visible
 }

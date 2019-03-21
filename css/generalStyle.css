@@ -1,29 +1,42 @@
+/* VARIABLES CSS */
+
 :root {
-	--bg-color: #444;
+	--blue-color: #383549;
+	--grey-color: #6D6659;
+	--yellow-color: #E8D6A7;
+	--orange-color: #EFA267;
+	--green-color: #ACB57C;
 }
+
+/* ANIMATION */
+@keyframes comesFromRight{
+	from{padding-left: 25%; opacity: 0;}
+	to{padding-left: 5%; opacity: 1;}
+}
+
+
 html, body{
 	margin: 0;
 	padding: 0;
+}
+html{
+	font-family: Helvetica, sans-serif;
+	background: url("https://images.pexels.com/photos/593158/pexels-photo-593158.jpeg?cs=srgb&dl=abstract-architecture-building-exterior-593158.jpg&fm=jpg");
+	background-size: cover;
+	background-repeat: repeat-y;
 }
 header{
 	margin: 0;
 	padding: 10px;
 	text-align: center;
 	color: white;
-	background-color: var(--bg-color); 
+	background-color: var(--blue-color);
 }
-.error{
-	color: red;
-}
-.eleve, .enseignant{
-	visibility: collapse;
-}
-IMG.displayed {
-	width: 500px;
-	display: block;
-	margin-left: auto;
-	margin-right: auto 
-}
+
+
+
+
+/* BANDEAU MENU CSS */
 .bandeauMenu{
 	margin: 0;
 	padding: 0;
@@ -32,7 +45,7 @@ IMG.displayed {
 	position: sticky;
 	font-size: 30px;
 	color: white;
-	background-color: var(--bg-color);
+	background-color: var(--blue-color);
 }
 .bandeauMenu span, .bandeauMenu div a{
 	padding: 10px;
@@ -40,9 +53,11 @@ IMG.displayed {
 .bandeauMenu span{
 	cursor: pointer;
 	float: left;
+	transition: 0.3s;
 }
 .bandeauMenu span:hover{
-	background-color: #555;
+	background-color: var(--yellow-color);
+	color: black;
 }
 .bandeauMenu div{
 	float: right;
@@ -52,10 +67,10 @@ IMG.displayed {
 	text-decoration: none;
 	text-align: center;
 	color: white;
-	transition: 0.5s;
+	transition: 0.3s;
 }
 .bandeauMenu div a:hover{
-	background-color: #CCC;
+	background-color: var(--yellow-color);
 	color: black;
 }
 .bandeauMenu i{
@@ -65,4 +80,107 @@ IMG.displayed {
 	position: absolute;
 	text-align: center;
 	float: left;
+}
+
+
+
+
+
+/* MENU GAUCHE CSS*/
+.menu{
+	height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: var(--yellow-color);
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+.menu a{
+	text-decoration: none;
+}
+
+.menu a li{
+  padding: 8px 8px 8px 32px;
+  font-size: 25px;
+  color: var(--blue-color);
+  display: block;
+  transition: 0.3s;
+}
+.menu a li:hover{
+  background-color: var(--orange-color);
+  color: white;
+}
+.menu .closebtn{
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+#selected-element{
+	text-decoration: underline;
+}
+
+
+
+
+
+
+/* FOOTER CSS */
+#footer{
+	position: fixed;
+	top:5%;
+	right: 1%;
+}
+#footer a{
+	text-decoration: none;
+	padding: 10px;
+	background-color: black;
+	color: white;
+	filter: blur(2px);
+	transition: filter 0.2s;
+}
+#footer a:hover{
+	filter: none;
+}
+
+
+
+
+
+/* CONTENT CSS */
+.content{
+	text-align: center;
+	padding: 3%;
+	color: white;
+	animation-name: comesFromRight;
+	animation-duration: 0.3s;
+	margin: auto;
+	width: 95%;
+}
+
+.content .panel-body{
+	color: black;
+}
+.content input, 
+.content textarea, 
+.content table{
+	margin: 5px 0;
+	resize: none;
+	width: 100%;
+}
+.content input[type=submit]{
+	padding: 5px;
+	color: white;
+	background-color: transparent;
+	border: 1px solid white;
+	transition: background-color 0.3s;
+}
+.content input[type=submit]:hover{
+	color: black;
+	background-color: white;
 }

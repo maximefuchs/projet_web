@@ -3,7 +3,7 @@
 foreach ($array as $key) {
 	echo "<a ";
 	if($key == Request::getActionName())
-		echo "id='selected' ";
+		echo "id='selected-element' ";
 	echo "href='index.php?controller=";
 	echo Request::getController();
 	echo "&action=".$key."'><li>";

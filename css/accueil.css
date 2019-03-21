@@ -1,108 +1,43 @@
-html{
-	font-family: Helvetica, sans-serif;
-	background: url("https://images.pexels.com/photos/593158/pexels-photo-593158.jpeg?cs=srgb&dl=abstract-architecture-building-exterior-593158.jpg&fm=jpg");
-	background-size: cover;
-	background-repeat: repeat-y;
-}
-.menu{
-	height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
-}
-.menu a{
-	text-decoration: none;
+
+/* VARIABLES CSS */
+
+:root {
+	--blue-color: #383549;
+	--grey-color: #6D6659;
+	--yellow-color: #E8D6A7;
+	--orange-color: #EFA267;
+	--green-color: #ACB57C;
 }
 
-.menu a li{
-  padding: 8px 8px 8px 32px;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
-}
-.menu a li:hover{
-  background-color: #f1f1f1;
-  color: black;
-}
-.menu .closebtn{
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-}
-#footer{
-	position: fixed;
-	top:5%;
-	right: 1%;
-}
-#footer a{
-	text-decoration: none;
-	padding: 10px;
-	background-color: black;
-	color: white;
-	filter: blur(2px);
-	transition: filter 0.2s;
-}
-#footer a:hover{
-	filter: none;
-}
 
+
+/* ANIMATIONS */
 @keyframes goToRight{
 	from{margin-left: 5%;}
 	to{margin-left: 20%; opacity: 0;}
 }
 
-@keyframes comesFromRight{
-	from{padding-left: 25%; opacity: 0;}
-	to{padding-left: 5%; opacity: 1;}
+
+
+
+
+
+/* PAGE BIENVENUE */
+IMG.displayed {
+	width: 500px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto 
 }
 
 
 
-.content{
-	text-align: center;
-	padding: 3%;
-	color: white;
-	animation-name: comesFromRight;
-	animation-duration: 0.3s;
-	margin: auto;
-	width: 95%;
-}
 
-.content .panel-body{
-	color: black;
-}
-.content input, 
-.content textarea, 
-.content table{
-	margin: 5px;
-	resize: none;
-	width: 100%;
-}
-.content input[type=submit]{
-	padding: 5px;
-	color: white;
-	background-color: transparent;
-	border: 1px solid white;
-	transition: background-color 0.3s;
-}
-.content input[type=submit]:hover{
-	color: black;
-	background-color: white;
-}
-#selected{
-	text-decoration: underline;
-}
 
+
+/* CONNEXION DANS LE MENU*/
 .connexionInMenu{
+	color: var(--blue-color);
 	padding: 1%;
 	text-align: center;
 }
@@ -112,18 +47,29 @@ html{
 .connexionInMenu input[type=password]{
 	padding: 3%;
 	width: 100%;
+	margin: 5px 0;
 }
 .connexionInMenu input[type=submit]{
 	padding: 2% 3%;
 	background-color: transparent;
-	color: #333;
-	border: 2px solid #333;
-	transition: 0.5s;
+	color: var(--blue-color);
+	border: 2px solid var(--blue-color);
+	transition: 0.3s;
 }
 .connexionInMenu input[type=submit]:hover{
-	background-color: white;
-	border-color: white;
+	color: white;
+	background-color: var(--orange-color);
+	border-color: var(--orange-color);
 }
+.error{
+	color: red;
+}
+
+
+
+
+
+/* INSCRIPTION CSS */
 .inscription input[type=radio],
 .inscription input[type=checkbox]{
 	width: auto;
@@ -131,6 +77,13 @@ html{
 }
 .inscription{
 	width: 40%;
+	padding: 3%;
 	margin: auto;
+	background-color: #AAA;
 }
+.eleve, .enseignant{
+	visibility: collapse;
+}
+
+
 
