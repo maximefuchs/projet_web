@@ -61,6 +61,7 @@ class Questionnaire extends Model{
 		}
 		//Calcul l'état du questionnaire en fonction du jour actuel
 		public static function defEtat($ouv, $ferm){
+			date_default_timezone_set('Europe/Paris');
 			$date1=new DateTime($ouv); //DateTime() permet la comparaison de date
 			$date2=new DateTime($ferm);
 			$aujour=new DateTime("now"); //Date et heure du jour
