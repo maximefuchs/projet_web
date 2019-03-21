@@ -37,7 +37,7 @@ class View extends MyObject {
 		$this->loadTemplate($this->templateNames['menu'], $this->args);
 		echo "</ul>";
 
-		echo "<div id='content'>";
+		echo "<div class='content'>";
 		$this->loadTemplate($this->templateNames['content'], $this->args);
 		echo "</div>";
 

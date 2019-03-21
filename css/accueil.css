@@ -61,39 +61,76 @@ html{
 }
 
 @keyframes comesFromRight{
-	from{margin-left: 20%; opacity: 0;}
-	to{margin-left: 5%; opacity: 1;}
+	from{padding-left: 25%; opacity: 0;}
+	to{padding-left: 5%; opacity: 1;}
 }
 
 
 
-#content{
-	display: inline-block;
-	margin: 5%;
+.content{
+	text-align: center;
+	padding: 3%;
 	color: white;
 	animation-name: comesFromRight;
 	animation-duration: 0.3s;
+	margin: auto;
+	width: 95%;
 }
 
-#content .panel-body{
+.content .panel-body{
 	color: black;
 }
-#content input, textarea{
-	color: black;
+.content input, 
+.content textarea, 
+.content table{
 	margin: 5px;
 	resize: none;
+	width: 100%;
 }
-#content input[type=submit]{
+.content input[type=submit]{
 	padding: 5px;
 	color: white;
 	background-color: transparent;
 	border: 1px solid white;
 	transition: background-color 0.3s;
 }
-#content input[type=submit]:hover{
+.content input[type=submit]:hover{
 	color: black;
 	background-color: white;
 }
 #selected{
 	text-decoration: underline;
 }
+
+.connexionInMenu{
+	padding: 1%;
+	text-align: center;
+}
+.connexionInMenu form, 
+.connexionInMenu table, 
+.connexionInMenu input[type=text],
+.connexionInMenu input[type=password]{
+	padding: 3%;
+	width: 100%;
+}
+.connexionInMenu input[type=submit]{
+	padding: 2% 3%;
+	background-color: transparent;
+	color: #333;
+	border: 2px solid #333;
+	transition: 0.5s;
+}
+.connexionInMenu input[type=submit]:hover{
+	background-color: white;
+	border-color: white;
+}
+.inscription input[type=radio],
+.inscription input[type=checkbox]{
+	width: auto;
+	margin: 8px;
+}
+.inscription{
+	width: 40%;
+	margin: auto;
+}
+

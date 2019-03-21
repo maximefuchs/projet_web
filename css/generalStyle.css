@@ -1,6 +1,16 @@
+:root {
+	--bg-color: #444;
+}
+html, body{
+	margin: 0;
+	padding: 0;
+}
 header{
+	margin: 0;
+	padding: 10px;
 	text-align: center;
 	color: white;
+	background-color: var(--bg-color); 
 }
 .error{
 	color: red;
@@ -22,7 +32,7 @@ IMG.displayed {
 	position: sticky;
 	font-size: 30px;
 	color: white;
-	background-color: #222;
+	background-color: var(--bg-color);
 }
 .bandeauMenu span, .bandeauMenu div a{
 	padding: 10px;
