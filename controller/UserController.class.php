@@ -14,9 +14,9 @@ class UserController extends Controller{
 			$this->user = User::getUserById($_SESSION['ID_USER']);
 			//var_dump($this->user);
 			//ValidateQuestionnaire
-			// if(isset($_POST['titreQuestaire'])){
-			// 	$this->methodName = "validateQuestionnaire";
-			// }
+			if(isset($_POST['titreQuestaire'])){
+				$this->methodName = "validateQuestionnaire";
+			}
 		} else {
 			$userId = $request->readGet('userId');
 			$this->user = User::getUserById($userId);
@@ -44,39 +44,23 @@ class UserController extends Controller{
 		$view->render();
 	}
 
-	// public function validateQuestionnaire($request){
-	// 	$login = $request->readPost('inscLogin');
-	// 	if(User::isLoginUsed($login)) {
-	// 		$view = new AnonymousView($this, 'inscription');
-	// 		$view->setArg('inscErrorText','Login déjà utilisé');
-	// 		$view->render();
-	// 	} else {
-	// 		$mdp = $request->readPost('inscPassword');
-	// 		$nom = $request->readPost('nom');
-	// 		$prenom = $request->readPost('prenom');
-	// 		$mail = $request->readPost('mail');
-	// 		$role= $request->readPost('role');
-	// 		if($role=='Etudiant'){
-	// 			$promo=$request->readPost('Promo');
-	// 			$groupe=$request->readPost('Groupe');
-	// 			$td=$request->readPost('td');
-	// 			$user = User::create($login, $mdp, $mail, $nom, $prenom,$role,$promo, $groupe, $td, $matricule=null, $matiere_enseignee=null, $int_ext=null);
-	// 		} else if ($role == 'Enseignant'){
-	// 			$matricule=$request->readPost('Matricule');
-	// 			$matiere_enseignee=$request->readPost('Mat_enseignee');
-	// 			$int_ext=$request->readPost('Int_Ext');
-	// 			$user = User::create($login, $mdp, $mail, $nom, $prenom,$role,$promo=null, $groupe=null, $td=null, $matricule, $matiere_enseignee, $int_ext);
-	//
-	// 		}
-	// 		if(!$user) {
-	// 			$view = new AnonymousView($this,'inscription');
-	// 			$view->setArg('inscErrorText', 'Impossible de finaliser l\'inscription');
-	// 			$view->render();
-	// 		} else {
-	// 			$this->connexion($user);
-	// 		}
-	// 	}
-	// }
+	public function validateQuestionnaire($request){
+			$titreQ = $request->readPost('titreQuestaire');
+			$descriptionQ = $request->readPost('descripQuestaire');
+			$dateO = $request->readPost('date_ouverture');
+			$heureO = $request->readPost('time_ouverture');
+			$dateF = $request->readPost('date_fermeture');
+			$heureF = $request->readPost('time_fermeture');
+			$questionnaire = Questionnaire::create($titreQ, $descriptionQ, $dateO, $heureO, $dateF,$heureF, $consigne="1");
+			// if(!$questionnaire) {
+			// 	$view = new UserView($this,'nouveauQuestionnaire');
+			// 	$view->setArg('questaireErrorText', 'Impossible de finaliser la création du questionnaire');
+			// 	$view->render();
+			// } else {
+			$view = new UserView($this, 'userBienvenue', array('user' => $this->user));
+			$view->render();
+			// }
+		}
 
 }
 

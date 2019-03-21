@@ -1,30 +1,48 @@
-<h2>Nouveau Questionnaire</h2>
+<div id="newQuestionnaire">
 
-<?php
-//Gestion des erreurs dans le validateQuestionnaire à faire...
-// if(isset($args['inscErrorText']))
-// 	echo '<span class="error">' . $args['inscErrorText'] . '</span>';
-$users = $args['users'];
-?>
-<form action="index.php?controller=user" method="post">
-	<table>
-		<tr>
-			<tr>
-				<td><input type="text" name="titreQuestaire" required maxlength="100" placeholder="Titre..." /></td>
-			</tr>
-			<tr>
-				<td><textarea name="descripQuestaire" required placeholder="Description questionnaire" rows="3" cols="40"></textarea></td>
-			</tr>
-			<tr>
-				<td><input type="date" name="date_ouverture" required/>
-        <input type="time" name="time_ouverture" required/></td>
-			</tr>
-			<tr>
-			     <td><input type="date" name="date_fermeture" required/>
-           <input type="time" name="time_ouverture" required placeholder="Time"/></td>
-			</tr>
-			<tr>
-				<td><input type="submit" value="Creer mon compte" /></td>
-			</tr>
-		</table>
-	</form>
+
+	<h2>Nouveau Questionnaire</h2>
+
+	<!-- <?php
+	//Gestion des erreurs dans le validateQuestionnaire à faire...
+	if(isset($args['questaireErrorText']))
+		echo '<span class="error">' . $args['questaireErrorText'] . '</span>';
+	$users = $args['users'];
+	?> -->
+	<form action="index.php?controller=user" method="post">
+		<table>
+				<tr>
+					<td><input type="text" name="titreQuestaire" required maxlength="100" placeholder="Titre" /></td>
+				</tr>
+				<tr>
+					<td><textarea name="descripQuestaire" required rows="3" cols="40"placeholder="Description" onkeyup="adjust_textarea(this)"></textarea></td>
+				</tr>
+				<tr>
+					<td id="date">
+						<input type="date" name="date_ouverture" required placeholder="Date ouverture"/>
+					</td>
+					<td id="date">
+						<input type="time" name="time_ouverture" required placeholder="Heure ouverture"/>
+					</td>
+				</tr>
+				<tr>
+					<td id="date">
+						<input type="date" name="date_fermeture" required placeholder="Date fermeture"/>
+					</td>
+					<td>
+						<input type="time" name="time_fermeture" required placeholder="Heure fermeture"/>
+					</td>
+				</tr>
+				<tr>
+					<td><input type="submit" value="Creer questionnaire" /></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<script type="text/javascript">
+//auto expand textarea
+function adjust_textarea(h) {
+    h.style.height = "20px";
+    h.style.height = (h.scrollHeight)+"px";
+}
+</script>

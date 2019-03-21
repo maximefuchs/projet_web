@@ -45,6 +45,33 @@ class Questionnaire extends Model{
 		return $questionnaires->fetchAll();
 	}
 
+	//ajout d'un nouveau questionnaire
+		public static function create($titreQ, $descriptionQ, $dateO, $heureO, $dateF,$heureF, $consigne){
+			$dateOuverture=$dateO.' '.$heureO;
+			$dateFermeture=$dateF.' '.$heureF;
+			$etat=self::defEtat($dateOuverture, $dateFermeture);
+			$array = array(':id_c' => $consigne,
+				':titre' => $titreQ,
+				':des_qu' => $descriptionQ,
+				':d_o' => $dateOuverture,
+				':d_f' => $dateFermeture,
+				':etat' => $etat);
+			$sth = parent::exec('QUESTIONNAIRE_CREATE',$array);
+			return $sth; //Je ne sais pas ce qu'il faut renvoyer 
+		}
+		//Calcul l'état du questionnaire en fonction du jour actuel
+		public static function defEtat($ouv, $ferm){
+			$date1=new DateTime($ouv); //DateTime() permet la comparaison de date
+			$date2=new DateTime($ferm);
+			$aujour=new DateTime("now"); //Date et heure du jour
+			if ($date1>$aujour)
+				return "Non commencé";
+			else if ($date1<$aujour && $aujour<$date2)
+				return "En cours";
+			else
+				return "Terminé";
+			}
+
 }
 
  ?>

@@ -2,7 +2,7 @@
 
 //gestion d'affichage des erreurs
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
-ini_set("display_errors", 1); error_reporting(1);
+ini_set("display_errors", 1);error_reporting(1);
 // define __ROOT_DIR constant which contains the absolute path on disk
 // of the directory that contains this file (index.php)
 // e.g. for http://eden.imt-lille-douai.fr/~luc.fabresse/index.php
