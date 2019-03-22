@@ -12,6 +12,10 @@ class Questionnaire extends Model{
 	static $colDateFerm = 'DATE_FERMETURE';
 	static $colEtat = 'ETAT';
 	static $colIdUser = 'ID_USER';
+	static $colPromo = 'PROMO';
+	static $colGroupe = 'GROUPE';
+	static $colTD = 'TD';
+
 
 	// getters
 	public function id() { return $this->props[self::$colId]; }
@@ -21,6 +25,9 @@ class Questionnaire extends Model{
 	public function date_ouverture() { return $this->props[self::$colDateOuv]; }
 	public function date_fermeture() { return $this->props[self::$colDateFerm]; }
 	public function etat() { return $this->props[self::$colEtat]; }
+	public function promo() { return $this->props[self::$colPromo]; }
+	public function groupe() { return $this->props[self::$colGroupe]; }
+	public function td() { return $this->props[self::$colTD]; }
 
 
 	public function __construct(){

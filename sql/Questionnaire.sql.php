@@ -10,6 +10,6 @@ Model::addSqlQuery('GET_QUESTIONNAIRE_BY_ID',
 	'SELECT * FROM '.Questionnaire::$table_name.' WHERE '.Questionnaire::$colId.' = :id_q');
 
 Model::addSqlQuery('GET_QUESTIONNAIRES_BY_IDUSER',
-	'SELECT Q.* FROM '.Questionnaire::$table_name.' Q JOIN CREER C ON Q.'.Questionnaire::$colId.'=C.ID_QUESTIONNAIRE WHERE C.ID_USER=:id_user');
+	'SELECT * FROM '.Questionnaire::$table_name.' WHERE '.Questionnaire::$colIdUser.'=:id_user');
 
 	?>
