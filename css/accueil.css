@@ -30,6 +30,31 @@ IMG.displayed {
 	margin-right: auto 
 }
 
+
+
+
+
+
+/* CONNEXION DANS LE MENU*/
+.connexionInMenu{
+	color: var(--blue-color);
+	padding: 1%;
+	text-align: center;
+}
+.connexionInMenu form, 
+.connexionInMenu table, 
+.connexionInMenu input[type=text],
+.connexionInMenu input[type=password]{
+	padding: 3%;
+	width: 100%;
+	margin: 5px 0;
+}
+.connexionInMenu input[type=submit]{
+	padding: 2% 3%;
+	background-color: transparent;
+	color: var(--blue-color);
+	border: 2px solid var(--blue-color);
+	transition: 0.3s;
 }
 .connexionInMenu input[type=submit]:hover{
 	color: white;
@@ -56,4 +81,9 @@ IMG.displayed {
 	margin: auto;
 	background-color: #AAA;
 }
+.eleve, .enseignant{
+	visibility: collapse;
+}
+
+
 
