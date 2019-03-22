@@ -1,177 +1,59 @@
-html{
-	font-family: Helvetica, sans-serif;
-	background: url("https://images.pexels.com/photos/593158/pexels-photo-593158.jpeg?cs=srgb&dl=abstract-architecture-building-exterior-593158.jpg&fm=jpg");
-	background-size: cover;
-	background-repeat: repeat-y;
-}
-.menu{
-	height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
-}
-.menu a{
-	text-decoration: none;
+
+/* VARIABLES CSS */
+
+:root {
+	--blue-color: #383549;
+	--grey-color: #6D6659;
+	--yellow-color: #E8D6A7;
+	--orange-color: #EFA267;
+	--green-color: #ACB57C;
 }
 
-.menu a li{
-  padding: 8px 8px 8px 32px;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
-}
-.menu a li:hover{
-  background-color: #f1f1f1;
-  color: black;
-}
-.menu .closebtn{
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-}
-#footer{
-	position: fixed;
-	top:5%;
-	right: 1%;
-}
-#footer a{
-	text-decoration: none;
-	padding: 10px;
-	background-color: black;
-	color: white;
-	filter: blur(2px);
-	transition: filter 0.2s;
-}
-#footer a:hover{
-	filter: none;
-}
 
+
+/* ANIMATIONS */
 @keyframes goToRight{
 	from{margin-left: 5%;}
 	to{margin-left: 20%; opacity: 0;}
 }
 
-@keyframes comesFromRight{
-	from{margin-left: 20%; opacity: 0;}
-	to{margin-left: 5%; opacity: 1;}
-}
 
 
 
-#content{
-	display: inline-block;
-	margin : 3% 5% 0% 5%;
-	color: white;
-	animation-name: comesFromRight;
-	animation-duration: 0.3s;
-	width: 90%;
-}
-
-#content .panel-body{
-	color: black;
-}
-#content input{
-	color: black;
-	margin: 5px;
-}
-#content input[type=submit]{
-	padding: 5px;
-	color: white;
-	background-color: transparent;
-	border: 1px solid white;
-	transition: background-color 0.3s;
-}
-#content input[type=submit]:hover{
-	color: black;
-	background-color: white;
-}
-#selected{
-	text-decoration: underline;
-}
-/* Formulaire nouveau questionnaire  */
-#newQuestionnaire{
-	font-family: 'Open Sans Condensed', arial, sans;
-	width: 700px;
-	padding: 30px;
-	background: #FFFFFF;
-	margin: 50px auto;
-	box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
-	-moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
-	-webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
-
-}
-#newQuestionnaire h2{
-	background: #4D4D4D;
-	text-transform: uppercase;
-	font-family: 'Open Sans Condensed', sans-serif;
-	color: #797979;
-	font-size: 18px;
-	font-weight: 100;
-	padding: 20px;
-	margin: -30px -30px 30px -30px;
-}
-#date{
-	width: 50%;
-}
 
 
-
-#newQuestionnaire input[type="text"],
-#newQuestionnaire input[type="email"],
-#newQuestionnaire input[type="number"],
-#newQuestionnaire input[type="search"],
-#newQuestionnaire input[type="url"],
-#newQuestionnaire input[type="password"],
-#newQuestionnaire textarea,#newQuestionnaire input[type="time"],
-#newQuestionnaire input[type="date"],
-#newQuestionnaire input[type="datetime"],
-#newQuestionnaire select
-{
-	box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	outline: none;
+/* PAGE BIENVENUE */
+IMG.displayed {
+	width: 500px;
 	display: block;
-	width: 100%;
-	padding: 7px;
-	border: none;
-	border-bottom: 1px solid #ddd;
-	background: transparent;
-	margin-bottom: 10px;
-	font: 16px Arial, Helvetica, sans-serif;
-	height: 45px;
+	margin-left: auto;
+	margin-right: auto 
 }
-#newQuestionnaire textarea{
-	resize:none;
-	overflow: hidden;
+
 }
-#newQuestionnaire input[type="button"],
-#newQuestionnaire input[type="submit"]{
-	-moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
-	-webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
-	box-shadow: inset 0px 1px 0px 0px #45D6D6;
-	background-color: #2CBBBB;
-	border: 1px solid #27A0A0;
-	display: inline-block;
-	cursor: pointer;
-	color: #FFFFFF;
-	font-family: 'Open Sans Condensed', sans-serif;
-	font-size: 14px;
-	padding: 8px 18px;
-	text-decoration: none;
-	text-transform: uppercase;
+.connexionInMenu input[type=submit]:hover{
+	color: white;
+	background-color: var(--orange-color);
+	border-color: var(--orange-color);
 }
-#newQuestionnaire input[type="button"]:hover,
-#newQuestionnaire input[type="submit"]:hover {
-	background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
-	background-color:#34CACA;
+.error{
+	color: red;
 }
+
+
+
+
+
+/* INSCRIPTION CSS */
+.inscription input[type=radio],
+.inscription input[type=checkbox]{
+	width: auto;
+	margin: 8px;
+}
+.inscription{
+	width: 40%;
+	padding: 3%;
+	margin: auto;
+	background-color: #AAA;
+}
+

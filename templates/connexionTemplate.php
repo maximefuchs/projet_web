@@ -12,7 +12,7 @@ if(isset($args['connErrorText']))
 			<td><input type="password" name="connPassword" placeholder="Mot de passe"/></td>
 		</tr>
 		<tr>
-			<td><input type="submit" value="Connexion" /></td>
+			<td><input type="submit" value="Me connecter" /></td>
 		</tr>
 	</table>
 </form>

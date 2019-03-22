@@ -1,4 +1,7 @@
 <?php 
-$array = array('inscription', 'connexion');
+$array = array('inscription');
 require_once("fonctionAfficherMenu.php");
- ?>
+echo "<div class='connexionInMenu'>";
+require_once("connexionTemplate.php");
+echo "</div>";
+?>
