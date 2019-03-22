@@ -11,6 +11,7 @@ class Questionnaire extends Model{
 	static $colDateOuv = 'DATE_OUVERTURE';
 	static $colDateFerm = 'DATE_FERMETURE';
 	static $colEtat = 'ETAT';
+	static $colIdUser = 'ID_USER';
 
 	// getters
 	public function id() { return $this->props[self::$colId]; }
@@ -46,16 +47,18 @@ class Questionnaire extends Model{
 	}
 
 	//ajout d'un nouveau questionnaire
-	public static function create($titreQ, $descriptionQ, $dateO, $dateF, $consigne,$etat){
+	public static function create($titreQ, $descriptionQ, $dateO, $dateF, $consigne,$etat,$userID){
 		// $etat=self::defEtat($dateO, $dateF);
 		$array = array(':id_c' => $consigne,
+		':userId'=>$userID,
 		':titre' => $titreQ,
 		':des_qu' => $descriptionQ,
 		':d_o' => $dateO,
 		':d_f' => $dateF,
 		':etat' => $etat);
-		$sth = parent::exec('QUESTIONNAIRE_CREATE',$array);
-		return $sth; //Je ne sais pas ce qu'il faut renvoyer
+	$sth=	parent::exec('QUESTIONNAIRE_CREATE',$array);
+		//$id_questionnaire=parent::exec('QUESTIONNAIRE_GET_LAST_ID_CREATED',)
+		return $sth; //bool
 	}
 	//Calcul l'état du questionnaire en fonction du jour actuel
 	public static function defEtat($ouv, $ferm){
@@ -73,6 +76,10 @@ class Questionnaire extends Model{
 			else
 			return "Terminé";
 		}
+	}
+
+	public static function associerQuestionnaireUser($userId){
+
 	}
 
 }

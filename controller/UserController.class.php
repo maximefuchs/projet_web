@@ -55,15 +55,15 @@ class UserController extends Controller{
 				$view->setArg('dateErrorText', 'Date incohérente');
 				$view->render();
 			} else {
-			$questionnaire = Questionnaire::create($titreQ, $descriptionQ, $dateO, $dateF, $consigne="1",$etat);
-			// if(!$questionnaire) {
-			// 	$view = new UserView($this,'nouveauQuestionnaire');
-			// 	$view->setArg('questaireErrorText', 'Impossible de finaliser la création du questionnaire');
-			// 	$view->render();
-			// } else {
+			$questionnaire = Questionnaire::create($titreQ, $descriptionQ, $dateO, $dateF, $consigne="1",$etat,$this->user->id());
+			if(!$questionnaire) {
+				$view = new UserView($this,'nouveauQuestionnaire',array('user' => $this->user));
+				$view->setArg('questaireErrorText', 'Impossible de finaliser la création du questionnaire');
+				$view->render();
+			} else {
 			$view = new UserView($this, 'userBienvenue', array('user' => $this->user));
 			$view->render();
-			// }
+			}
 		}
 	}
 
