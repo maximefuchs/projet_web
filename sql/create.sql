@@ -1,25 +1,25 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.4.1
--- http://www.phpmyadmin.net
+-- version 4.8.5
+-- https://www.phpmyadmin.net/
 --
--- Client :  localhost
--- Généré le :  Ven 22 Mars 2019 à 16:48
--- Version du serveur :  5.7.11
--- Version de PHP :  5.6.18
+-- Host: localhost:8889
+-- Generation Time: Mar 22, 2019 at 06:09 PM
+-- Server version: 5.7.25
+-- PHP Version: 7.3.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 --
--- Base de données :  `projet_web`
+-- Database: `projet_web`
 --
-CREATE DATABASE IF NOT EXISTS `projet_web` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+CREATE DATABASE IF NOT EXISTS `projet_web` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `projet_web`;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `comparee_a`
+-- Table structure for table `comparee_a`
 --
 
 DROP TABLE IF EXISTS `comparee_a`;
@@ -31,7 +31,7 @@ CREATE TABLE `comparee_a` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `consigne`
+-- Table structure for table `consigne`
 --
 
 DROP TABLE IF EXISTS `consigne`;
@@ -45,19 +45,7 @@ CREATE TABLE `consigne` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `creer`
---
-
-DROP TABLE IF EXISTS `creer`;
-CREATE TABLE `creer` (
-  `ID_USER` int(11) NOT NULL,
-  `ID_QUESTIONNAIRE` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `est_compose`
+-- Table structure for table `est_compose`
 --
 
 DROP TABLE IF EXISTS `est_compose`;
@@ -69,7 +57,7 @@ CREATE TABLE `est_compose` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `participe`
+-- Table structure for table `participe`
 --
 
 DROP TABLE IF EXISTS `participe`;
@@ -81,7 +69,7 @@ CREATE TABLE `participe` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `question`
+-- Table structure for table `question`
 --
 
 DROP TABLE IF EXISTS `question`;
@@ -97,12 +85,13 @@ CREATE TABLE `question` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `questionnaire`
+-- Table structure for table `questionnaire`
 --
 
 DROP TABLE IF EXISTS `questionnaire`;
 CREATE TABLE `questionnaire` (
   `ID_QUESTIONNAIRE` int(11) NOT NULL,
+  `ID_USER` int(11) NOT NULL,
   `ID_CONSIGNE` int(11) NOT NULL,
   `TITRE` varchar(100) NOT NULL,
   `DESCRIPTION_QUESTIONNAIRE` text NOT NULL,
@@ -117,7 +106,7 @@ CREATE TABLE `questionnaire` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `reliee_a`
+-- Table structure for table `reliee_a`
 --
 
 DROP TABLE IF EXISTS `reliee_a`;
@@ -129,7 +118,7 @@ CREATE TABLE `reliee_a` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `reponse_choisie`
+-- Table structure for table `reponse_choisie`
 --
 
 DROP TABLE IF EXISTS `reponse_choisie`;
@@ -143,7 +132,7 @@ CREATE TABLE `reponse_choisie` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `reponse_proposee`
+-- Table structure for table `reponse_proposee`
 --
 
 DROP TABLE IF EXISTS `reponse_proposee`;
@@ -158,7 +147,7 @@ CREATE TABLE `reponse_proposee` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `user`
+-- Table structure for table `user`
 --
 
 DROP TABLE IF EXISTS `user`;
@@ -179,67 +168,61 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Index pour les tables exportées
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `comparee_a`
+-- Indexes for table `comparee_a`
 --
 ALTER TABLE `comparee_a`
   ADD PRIMARY KEY (`ID_REPONSEC`,`ID_REPONSESP`),
   ADD KEY `FK_COMPAREE_A2` (`ID_REPONSESP`);
 
 --
--- Index pour la table `consigne`
+-- Indexes for table `consigne`
 --
 ALTER TABLE `consigne`
   ADD PRIMARY KEY (`ID_CONSIGNE`);
 
 --
--- Index pour la table `creer`
---
-ALTER TABLE `creer`
-  ADD PRIMARY KEY (`ID_USER`,`ID_QUESTIONNAIRE`),
-  ADD KEY `FK_CREER2` (`ID_QUESTIONNAIRE`);
-
---
--- Index pour la table `est_compose`
+-- Indexes for table `est_compose`
 --
 ALTER TABLE `est_compose`
   ADD PRIMARY KEY (`ID_QUESTION`,`ID_QUESTIONNAIRE`),
   ADD KEY `FK_EST_COMPOSE2` (`ID_QUESTIONNAIRE`);
 
 --
--- Index pour la table `participe`
+-- Indexes for table `participe`
 --
 ALTER TABLE `participe`
   ADD PRIMARY KEY (`ID_USER`,`ID_QUESTIONNAIRE`),
   ADD KEY `FK_PARTICIPE` (`ID_QUESTIONNAIRE`);
 
 --
--- Index pour la table `question`
+-- Indexes for table `question`
 --
 ALTER TABLE `question`
   ADD PRIMARY KEY (`ID_QUESTION`),
   ADD KEY `FK_DEFINI_QUESTION` (`ID_CONSIGNE`);
 
 --
--- Index pour la table `questionnaire`
+-- Indexes for table `questionnaire`
 --
 ALTER TABLE `questionnaire`
   ADD PRIMARY KEY (`ID_QUESTIONNAIRE`),
   ADD KEY `TITRE_FK` (`TITRE`),
-  ADD KEY `FK_DEFINI_QUESTIONNAIRE` (`ID_CONSIGNE`);
+  ADD KEY `FK_DEFINI_QUESTIONNAIRE` (`ID_CONSIGNE`),
+  ADD KEY `ID_USER` (`ID_USER`);
 
 --
--- Index pour la table `reliee_a`
+-- Indexes for table `reliee_a`
 --
 ALTER TABLE `reliee_a`
   ADD PRIMARY KEY (`ID_REPONSESP`,`REP_ID_REPONSESP`),
   ADD KEY `FK_RELIEE_A2` (`REP_ID_REPONSESP`);
 
 --
--- Index pour la table `reponse_choisie`
+-- Indexes for table `reponse_choisie`
 --
 ALTER TABLE `reponse_choisie`
   ADD PRIMARY KEY (`ID_REPONSEC`),
@@ -247,14 +230,14 @@ ALTER TABLE `reponse_choisie`
   ADD KEY `FK_EST_REPONDU` (`ID_QUESTION`);
 
 --
--- Index pour la table `reponse_proposee`
+-- Indexes for table `reponse_proposee`
 --
 ALTER TABLE `reponse_proposee`
   ADD PRIMARY KEY (`ID_REPONSESP`),
   ADD KEY `FK_PROPOSE` (`ID_QUESTION`);
 
 --
--- Index pour la table `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`ID_USER`),
@@ -262,99 +245,98 @@ ALTER TABLE `user`
   ADD KEY `USER_NOM_FK` (`NOM`);
 
 --
--- AUTO_INCREMENT pour les tables exportées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `consigne`
+-- AUTO_INCREMENT for table `consigne`
 --
 ALTER TABLE `consigne`
-  MODIFY `ID_CONSIGNE` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID_CONSIGNE` int(11) NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT pour la table `question`
+-- AUTO_INCREMENT for table `question`
 --
 ALTER TABLE `question`
-  MODIFY `ID_QUESTION` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `ID_QUESTION` int(11) NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT pour la table `questionnaire`
+-- AUTO_INCREMENT for table `questionnaire`
 --
 ALTER TABLE `questionnaire`
-  MODIFY `ID_QUESTIONNAIRE` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ID_QUESTIONNAIRE` int(11) NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT pour la table `reponse_choisie`
+-- AUTO_INCREMENT for table `reponse_choisie`
 --
 ALTER TABLE `reponse_choisie`
-  MODIFY `ID_REPONSEC` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `ID_REPONSEC` int(11) NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT pour la table `reponse_proposee`
+-- AUTO_INCREMENT for table `reponse_proposee`
 --
 ALTER TABLE `reponse_proposee`
-  MODIFY `ID_REPONSESP` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `ID_REPONSESP` int(11) NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT pour la table `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `ID_USER` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID_USER` int(11) NOT NULL AUTO_INCREMENT;
+
 --
--- Contraintes pour les tables exportées
+-- Constraints for dumped tables
 --
 
 --
--- Contraintes pour la table `comparee_a`
+-- Constraints for table `comparee_a`
 --
 ALTER TABLE `comparee_a`
   ADD CONSTRAINT `FK_COMPAREE_A` FOREIGN KEY (`ID_REPONSEC`) REFERENCES `reponse_choisie` (`ID_REPONSEC`),
   ADD CONSTRAINT `FK_COMPAREE_A2` FOREIGN KEY (`ID_REPONSESP`) REFERENCES `reponse_proposee` (`ID_REPONSESP`);
 
 --
--- Contraintes pour la table `creer`
---
-ALTER TABLE `creer`
-  ADD CONSTRAINT `FK_CREER` FOREIGN KEY (`ID_USER`) REFERENCES `user` (`ID_USER`),
-  ADD CONSTRAINT `FK_CREER2` FOREIGN KEY (`ID_QUESTIONNAIRE`) REFERENCES `questionnaire` (`ID_QUESTIONNAIRE`);
-
---
--- Contraintes pour la table `est_compose`
+-- Constraints for table `est_compose`
 --
 ALTER TABLE `est_compose`
   ADD CONSTRAINT `FK_EST_COMPOSE` FOREIGN KEY (`ID_QUESTION`) REFERENCES `question` (`ID_QUESTION`),
   ADD CONSTRAINT `FK_EST_COMPOSE2` FOREIGN KEY (`ID_QUESTIONNAIRE`) REFERENCES `questionnaire` (`ID_QUESTIONNAIRE`);
 
 --
--- Contraintes pour la table `participe`
+-- Constraints for table `participe`
 --
 ALTER TABLE `participe`
   ADD CONSTRAINT `FK_PARTICIPE` FOREIGN KEY (`ID_QUESTIONNAIRE`) REFERENCES `questionnaire` (`ID_QUESTIONNAIRE`),
   ADD CONSTRAINT `FK_PARTICIPE2` FOREIGN KEY (`ID_USER`) REFERENCES `user` (`ID_USER`);
 
 --
--- Contraintes pour la table `question`
+-- Constraints for table `question`
 --
 ALTER TABLE `question`
   ADD CONSTRAINT `FK_DEFINI_QUESTION` FOREIGN KEY (`ID_CONSIGNE`) REFERENCES `consigne` (`ID_CONSIGNE`);
 
 --
--- Contraintes pour la table `questionnaire`
+-- Constraints for table `questionnaire`
 --
 ALTER TABLE `questionnaire`
   ADD CONSTRAINT `FK_DEFINI_QUESTIONNAIRE` FOREIGN KEY (`ID_CONSIGNE`) REFERENCES `consigne` (`ID_CONSIGNE`);
 
 --
--- Contraintes pour la table `reliee_a`
+-- Constraints for table `reliee_a`
 --
 ALTER TABLE `reliee_a`
   ADD CONSTRAINT `FK_RELIEE_A` FOREIGN KEY (`ID_REPONSESP`) REFERENCES `reponse_proposee` (`ID_REPONSESP`),
   ADD CONSTRAINT `FK_RELIEE_A2` FOREIGN KEY (`REP_ID_REPONSESP`) REFERENCES `reponse_proposee` (`ID_REPONSESP`);
 
 --
--- Contraintes pour la table `reponse_choisie`
+-- Constraints for table `reponse_choisie`
 --
 ALTER TABLE `reponse_choisie`
   ADD CONSTRAINT `FK_CHOISIT` FOREIGN KEY (`ID_USER`) REFERENCES `user` (`ID_USER`),
   ADD CONSTRAINT `FK_EST_REPONDU` FOREIGN KEY (`ID_QUESTION`) REFERENCES `question` (`ID_QUESTION`);
 
 --
--- Contraintes pour la table `reponse_proposee`
+-- Constraints for table `reponse_proposee`
 --
 ALTER TABLE `reponse_proposee`
   ADD CONSTRAINT `FK_PROPOSE` FOREIGN KEY (`ID_QUESTION`) REFERENCES `question` (`ID_QUESTION`);

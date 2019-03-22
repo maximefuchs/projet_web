@@ -3,12 +3,14 @@
 
 	<h2>Nouveau Questionnaire</h2>
 
-	<!-- <?php
+	<?php
 	//Gestion des erreurs dans le validateQuestionnaire à faire...
-	if(isset($args['questaireErrorText']))
-		echo '<span class="error">' . $args['questaireErrorText'] . '</span>';
+	// if(isset($args['questaireErrorText']))
+	// 	echo '<span class="error">' . $args['questaireErrorText'] . '</span>';
+	if(isset($args['dateErrorText']))
+		echo '<span class="error">' . $args['dateErrorText'] . '</span>';
 	$users = $args['users'];
-	?> -->
+	?>
 	<form action="index.php?controller=user" method="post">
 		<table>
 				<tr>
@@ -18,6 +20,7 @@
 					<td><textarea name="descripQuestaire" required rows="3" cols="40"placeholder="Description" onkeyup="adjust_textarea(this)"></textarea></td>
 				</tr>
 				<tr>
+
 					<td id="date">
 						<input type="date" name="date_ouverture" required placeholder="Date ouverture"/>
 					</td>
@@ -26,6 +29,7 @@
 					</td>
 				</tr>
 				<tr>
+					
 					<td id="date">
 						<input type="date" name="date_fermeture" required placeholder="Date fermeture"/>
 					</td>

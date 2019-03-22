@@ -11,6 +11,7 @@
         <th>Description</th>
 				<th>Date ouverture</th>
         <th>Date fermeture</th>
+        <th>Etat</th>
       </tr>
     </thead>
     <tbody id="myTable">
