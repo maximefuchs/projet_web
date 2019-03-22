@@ -73,7 +73,7 @@ class AnonymousController extends Controller{
 		$mdp = $request->readPost('connPassword');
 		$user = User::tryLogin($login, $mdp);
 		if(!$user){
-			$view = new AnonymousView($this, 'connexion');
+			$view = new AnonymousView($this, 'bienvenue');
 			$view->setArg('connErrorText', 'Utilisateur introuvable');
 			$view->render();
 		} else {

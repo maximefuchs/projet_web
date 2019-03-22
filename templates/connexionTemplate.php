@@ -1,7 +1,9 @@
 <h2>Connexion</h2>
 <?php
-if(isset($args['connErrorText']))
+if(isset($args['connErrorText'])){
 	echo '<span class="error">' . $args['connErrorText'] . '</span>';
+	echo "<script>openNav();</script>";
+}
 ?>
 <form action="index.php" method="post">
 	<table>
