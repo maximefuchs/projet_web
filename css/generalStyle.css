@@ -5,7 +5,7 @@
 	--grey-color: #6D6659;
 	--yellow-color: #E8D6A7;
 	--orange-color: #EFA267;
-	--green-color: #ACB57C;
+	--green-color: #7CB588;
 }
 
 /* ANIMATION */
@@ -120,6 +120,12 @@ header{
   right: 25px;
   font-size: 36px;
   margin-left: 50px;
+}
+.closebtn{
+	transition: 0.4s;
+}
+.closebtn:hover{
+	color: white;
 }
 #selected-element{
 	text-decoration: underline;
