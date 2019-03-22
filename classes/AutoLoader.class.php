@@ -20,9 +20,6 @@ class AutoLoader extends MyObject {
 			}
 		}
 	}
-
-	//LOAD RIGHT SQL FILE
-
 }
 
 $__LOADER = new AutoLoader();

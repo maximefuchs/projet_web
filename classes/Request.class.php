@@ -6,7 +6,7 @@ class Request {
 
 	public static function getCurrentRequest(){
 		if(is_null(self::$request)){
-				self::$request = new Request();
+			self::$request = new Request();
 		}
 		return self::$request;
 	}
@@ -15,7 +15,8 @@ class Request {
 		if(isset($_GET['controller'])){
 			return $_GET['controller'];
 		} else {
-			session_start();
+			if(!isset($_SESSION))
+				session_start();
 			if(isset($_SESSION['ID_USER'])){
 				if($_SESSION['ID_USER'] == 3)
 					return 'Superuser';

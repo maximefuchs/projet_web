@@ -87,7 +87,7 @@ class AnonymousController extends Controller{
 			$newRequest->writeGet('controller','superuser');
 			$newRequest->writeGet('userId',$user->id());
 		} else {
-			$newRequest->writeGet('controller','user');
+			$newRequest->writeGet('controller', strtolower($user->role()));
 			$newRequest->writeGet('userId',$user->id());
 		}
 		$controller = Dispatcher::dispatch($newRequest);
