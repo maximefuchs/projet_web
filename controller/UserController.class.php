@@ -47,11 +47,15 @@ class UserController extends Controller{
 	public function validateQuestionnaire($request){
 			$titreQ = $request->readPost('titreQuestaire');
 			$descriptionQ = $request->readPost('descripQuestaire');
-			$dateO = $request->readPost('date_ouverture');
-			$heureO = $request->readPost('time_ouverture');
-			$dateF = $request->readPost('date_fermeture');
-			$heureF = $request->readPost('time_fermeture');
-			$questionnaire = Questionnaire::create($titreQ, $descriptionQ, $dateO, $heureO, $dateF,$heureF, $consigne="1");
+			$dateO = $request->readPost('date_ouverture').' '.$request->readPost('time_ouverture');
+			$dateF = $request->readPost('date_fermeture').' '.$request->readPost('time_fermeture');
+			$etat=Questionnaire::defEtat($dateO,$dateF);
+			if($etat == false) { //etat peut-être soit false soit une chaine de caractère
+				$view = new UserView($this,'nouveauQuestionnaire',array('user' => $this->user));
+				$view->setArg('dateErrorText', 'Date incohérente');
+				$view->render();
+			} else {
+			$questionnaire = Questionnaire::create($titreQ, $descriptionQ, $dateO, $dateF, $consigne="1",$etat);
 			// if(!$questionnaire) {
 			// 	$view = new UserView($this,'nouveauQuestionnaire');
 			// 	$view->setArg('questaireErrorText', 'Impossible de finaliser la création du questionnaire');
@@ -61,6 +65,7 @@ class UserController extends Controller{
 			$view->render();
 			// }
 		}
+	}
 
 }
 
