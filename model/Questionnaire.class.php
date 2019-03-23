@@ -42,51 +42,66 @@ class Questionnaire extends Model{
 
 	public static function getQuestionnaireById($id){
 		$q = parent::exec('GET_QUESTIONNAIRE_BY_ID',
-		array(':id_q'=>$id));
+			array(':id_q'=>$id));
 		return $q->fetch();
 	}
 
 	// recuperer les questionnaires d'un utilisateur
 	public static function getQuestionnairesByUserId($userId){
 		$questionnaires = parent::exec('GET_QUESTIONNAIRES_BY_IDUSER',
-		array(':id_user'=>$userId));
+			array(':id_user'=>$userId));
 		return $questionnaires->fetchAll();
 	}
 
 	//ajout d'un nouveau questionnaire
-	public static function create($titreQ, $descriptionQ, $dateO, $dateF, $consigne,$etat,$userID){
-		// $etat=self::defEtat($dateO, $dateF);
+	public static function create($consigne, $userID, $titreQ, $descriptionQ, $dateO, $heureO, $dateF, $heureF){
+		// gérer les dates
+		date_default_timezone_set('Europe/Paris');
+		$hO = explode(':',$heureO);
+		$dO = new DateTime($dateO);
+		$dO->setTime($hO[0], $hO[1]);
+		$hF = explode(':',$heureF);
+		$dF = new DateTime($dateF);
+		$dF->setTime($hF[0], $hF[1]);
+		$etat=self::defEtat($dO, $dF);
+
+
 		$array = array(':id_c' => $consigne,
-		':userId'=>$userID,
-		':titre' => $titreQ,
-		':des_qu' => $descriptionQ,
-		':d_o' => $dateO,
-		':d_f' => $dateF,
-		':etat' => $etat);
-	$sth=	parent::exec('QUESTIONNAIRE_CREATE',$array);
+			':userId'=>$userID,
+			':titre' => $titreQ,
+			':des_qu' => $descriptionQ,
+			':d_o' => $dO->format('Y-m-d H:i:s'), //dateTime to String
+			':d_f' => $dF->format('Y-m-d H:i:s'),
+			':etat' => $etat);
+		$sth=	parent::exec('QUESTIONNAIRE_CREATE',$array);
 		//$id_questionnaire=parent::exec('QUESTIONNAIRE_GET_LAST_ID_CREATED',)
 		return $sth; //bool
 	}
 	//Calcul l'état du questionnaire en fonction du jour actuel
 	public static function defEtat($ouv, $ferm){
-		date_default_timezone_set('Europe/Paris');
-		$date1=new DateTime($ouv); //DateTime() permet la comparaison de date
-		$date2=new DateTime($ferm);
 		$aujour=new DateTime("now"); //Date et heure du jour
-		if($date1>$date2){
+		if($ouv>$ferm){
 			return false;
 		} else{
-			if ($date1>$aujour)
-			return "Non commencé";
-			else if ($date1<$aujour && $aujour<$date2)
-			return "En cours";
+			if ($ouv>$aujour)
+				return "Non commencé";
+			else if ($ouv<$aujour && $aujour<$ferm)
+				return "En cours";
 			else
-			return "Terminé";
+				return "Terminé";
 		}
 	}
 
 	public static function associerQuestionnaireUser($userId){
 
+	}
+
+	// parametres est un array
+	// ex array('PROMO' => 2020, 'TD' => 6);
+	public static function getQuestionnaireByEtudiant($promo, $groupe, $td){ 
+		$questionnaires = parent::exec('GET_QUESTIONNAIRES_BY_ETUDIANT',
+			array(':promo'=>$promo, ':groupe'=>$groupe, ':td'=>$td));
+		return $questionnaires->fetchAll();
 	}
 
 }

@@ -30,7 +30,9 @@ class EnseignantController extends UserController{
 			$heureO = $request->readPost('time_ouverture');
 			$dateF = $request->readPost('date_fermeture');
 			$heureF = $request->readPost('time_fermeture');
-			$questionnaire = Questionnaire::create($titreQ, $descriptionQ, $dateO, $heureO, $dateF,$heureF, $consigne="1");
+			$consigne = 1; //ajout d'une selection d'une consigne à faire
+			$userID = $this->user->id();
+			$questionnaire = Questionnaire::create($consigne, $userID, $titreQ, $descriptionQ, $dateO, $heureO, $dateF,$heureF);
 			// if(!$questionnaire) {
 			// 	$view = new UserView($this,'nouveauQuestionnaire');
 			// 	$view->setArg('questaireErrorText', 'Impossible de finaliser la création du questionnaire');

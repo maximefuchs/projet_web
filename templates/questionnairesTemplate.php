@@ -12,6 +12,9 @@
 				<th>Date ouverture</th>
         <th>Date fermeture</th>
         <th>Etat</th>
+        <th>Promo</th>
+        <th>Groupe</th>
+        <th>TD</th>
       </tr>
     </thead>
     <tbody id="myTable">

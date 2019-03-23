@@ -6,5 +6,8 @@
 		echo "<td>". $q->date_ouverture(). "</td>";
 		echo "<td>". $q->date_fermeture(). "</td>";
 		echo "<td>". $q->etat(). "</td>";
+		echo "<td>". $q->promo(). "</td>";
+		echo "<td>". $q->groupe(). "</td>";
+		echo "<td>". $q->td(). "</td>";
 		echo "</tr>";
  ?>

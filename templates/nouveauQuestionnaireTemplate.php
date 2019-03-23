@@ -9,9 +9,9 @@
 	// 	echo '<span class="error">' . $args['questaireErrorText'] . '</span>';
 	if(isset($args['dateErrorText']))
 		echo '<span class="error">' . $args['dateErrorText'] . '</span>';
-	$users = $args['users'];
+	$user = $args['user'];
 	?>
-	<form action="index.php?controller=user" method="post">
+	<form action="index.php" method="post">
 		<table>
 				<tr>
 					<td><input type="text" name="titreQuestaire" required maxlength="100" placeholder="Titre" /></td>

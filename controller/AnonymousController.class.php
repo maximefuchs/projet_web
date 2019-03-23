@@ -83,13 +83,8 @@ class AnonymousController extends Controller{
 
 	public function connexion($user){
 		$newRequest = new Request();
-		if($user->isSuperAdmin()){
-			$newRequest->writeGet('controller','superuser');
-			$newRequest->writeGet('userId',$user->id());
-		} else {
-			$newRequest->writeGet('controller', strtolower($user->role()));
-			$newRequest->writeGet('userId',$user->id());
-		}
+		$newRequest->writeGet('controller', strtolower($user->getRole()));
+		$newRequest->writeGet('userId',$user->id());
 		$controller = Dispatcher::dispatch($newRequest);
 		$controller->execute();
 	}

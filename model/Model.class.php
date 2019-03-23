@@ -16,7 +16,9 @@ class Model extends MyObject{
 
 	static function exec($key,$values=NULL){
 		$sql = self::$queries[$key];
-		//var_dump($sql);
+		// var_dump($key);
+		// var_dump($sql);
+		// var_dump($values);
 		if(!is_null($values)){
 			$requete = static::db()->prepare($sql);
 			// foreach ($values as $key => &$value) {

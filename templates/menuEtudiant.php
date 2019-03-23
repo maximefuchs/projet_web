@@ -1,4 +1,4 @@
 <?php 
-//array_push($array, '');
+array_push($array, 'Questionnaires');
 require_once("fonctionAfficherMenu.php");
  ?>

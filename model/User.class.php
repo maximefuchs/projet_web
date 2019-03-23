@@ -28,7 +28,12 @@ class User extends Model{
 	public function mail() { return $this->props[self::$colMail]; }
 	public function role() { return $this->props[self::$colRole]; }
 	// on définit le super admin comme le user avec id 3 (= Thomas Malidin)
-	public function isSuperAdmin() { return $this->id()==3;}
+	public function getRole() { 
+		if ($this->id()==3){
+			return "Superuser";
+		}
+		return $this->role();
+	}
 	public function matricule() { return $this->props[self::$colMatricule]; }
 	public function int_ext() { return $this->props[self::$colIntExt]; }
 	public function matiere() { return $this->props[self::$colMatiere]; }

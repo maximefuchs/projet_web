@@ -18,10 +18,8 @@ class Request {
 			if(!isset($_SESSION))
 				session_start();
 			if(isset($_SESSION['ID_USER'])){
-				if($_SESSION['ID_USER'] == 3)
-					return 'Superuser';
-				else
-					return 'User';
+				$user = User::getUserById($_SESSION['ID_USER']);
+				return $user->getRole(); //renvoie si le user est Superuser, Etudiant ou Enseignant
 			}
 			return 'Anonymous';
 		}
