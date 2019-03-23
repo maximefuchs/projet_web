@@ -96,8 +96,6 @@ class Questionnaire extends Model{
 
 	}
 
-	// parametres est un array
-	// ex array('PROMO' => 2020, 'TD' => 6);
 	public static function getQuestionnaireByEtudiant($promo, $groupe, $td){ 
 		$questionnaires = parent::exec('GET_QUESTIONNAIRES_BY_ETUDIANT',
 			array(':promo'=>$promo, ':groupe'=>$groupe, ':td'=>$td));

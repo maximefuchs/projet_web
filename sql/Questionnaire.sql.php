@@ -14,7 +14,7 @@ Model::addSqlQuery('GET_QUESTIONNAIRES_BY_IDUSER',
 
 Model::addSqlQuery('GET_QUESTIONNAIRES_BY_ETUDIANT',
 	'SELECT * FROM '.Questionnaire::$table_name.' WHERE 
-	('.Questionnaire::$colPromo.'=:promo)
-	OR ('.Questionnaire::$colPromo.'=:promo, '.Questionnaire::$colTD.'=:td) 
-	OR ('.Questionnaire::$colPromo.'=:promo, '.Questionnaire::$colGroupe.'=:groupe)');
+	('.Questionnaire::$colPromo.'=:promo AND '.Questionnaire::$colTD.' IS NULL AND '.Questionnaire::$colGroupe.' IS NULL)
+	OR ('.Questionnaire::$colPromo.'=:promo AND '.Questionnaire::$colTD.'=:td) 
+	OR ('.Questionnaire::$colPromo.'=:promo AND '.Questionnaire::$colGroupe.'=:groupe)');
 	?>
