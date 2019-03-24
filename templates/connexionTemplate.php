@@ -8,7 +8,7 @@ if(isset($args['connErrorText'])){
 <form action="index.php" method="post">
 	<table>
 		<tr>
-			<td><input type="text" name="connLogin" placeholder="Login"/></td>
+			<td><input id="login" type="text" name="connLogin" placeholder="Login"/></td>
 		</tr>
 		<tr>
 			<td><input type="password" name="connPassword" placeholder="Mot de passe"/></td>

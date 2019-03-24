@@ -8,7 +8,7 @@
 		<table>
 			<tr>
 				<tr>
-					<td><input type="text" name="inscLogin" required maxlength="50" placeholder="Login" /></td>
+					<td><input type="text" name="inscLogin" required maxlength="50" placeholder="Login" autofocus/></td>
 				</tr>
 				<tr>
 					<td><input type="password" name="inscPassword" required minlength="8" maxlength="50" placeholder="Mot de passe" /></td>

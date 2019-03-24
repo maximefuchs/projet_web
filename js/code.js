@@ -45,6 +45,7 @@ function enleverPourEnseignant(){
 var menuIsOpen = false;
 function openNav() {
 	document.getElementById("mySidenav").style.width = "30%";
+	document.getElementById("login").focus();
 	menuIsOpen = true;
 }
 
@@ -56,7 +57,7 @@ function closeNav() {
 document.onkeydown = checkKey;
 function checkKey(e) {
     e = e || window.event;
-    if (e.keyCode == '77') {
+    if (e.keyCode == '17') { // keycode pour ctrl
     	if(menuIsOpen)
         closeNav();
     	else
