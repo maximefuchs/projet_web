@@ -28,12 +28,13 @@ class View extends MyObject {
 		$this->loadTemplate($this->templateNames['top'], $this->args);
 
 		echo "<ul class='bandeauMenu'>";
+		echo "<span onclick='openNav()'>&#9776; MENU</span>";
 		$this->loadTemplate($this->templateNames['bandeauMenu'], $this->args);
 		echo "</ul>";
 
 		echo "<ul class='menu' id='mySidenav'>";
 		echo "<a href='javascript:void(0)' class='closebtn' onclick='closeNav()'>
-	&times;</a>";
+		&times;</a>";
 		$this->loadTemplate($this->templateNames['menu'], $this->args);
 		echo "</ul>";
 
@@ -54,8 +55,9 @@ class View extends MyObject {
 			}
 			else
 				throw new Exception('undefined template "' . $name .'"');
+		}
 	}
-}
 
 
-?>
+?><!-- 
+<span onclick='openNav()'>&#9776; MENU<p style="font-size: 5px"><br>Appuyer sur M</p></span> -->

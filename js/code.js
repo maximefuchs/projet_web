@@ -42,10 +42,24 @@ function enleverPourEnseignant(){
 }
 
 //fonctions pour afficher le menu
+var menuIsOpen = false;
 function openNav() {
 	document.getElementById("mySidenav").style.width = "30%";
+	menuIsOpen = true;
 }
 
 function closeNav() {
 	document.getElementById("mySidenav").style.width = "0";
+	menuIsOpen = false;
+}
+
+document.onkeydown = checkKey;
+function checkKey(e) {
+    e = e || window.event;
+    if (e.keyCode == '77') {
+    	if(menuIsOpen)
+        closeNav();
+    	else
+    		openNav();
+    }
 }
