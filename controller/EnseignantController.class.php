@@ -38,7 +38,7 @@ class EnseignantController extends UserController{
 			if($promo == "tous"){
 				$questionnaire = Questionnaire::create($consigne, $userID, $titreQ, $descriptionQ, $dateO, $heureO, $dateF,$heureF,$promo=null,$groupe=null,$TD=null);
 			} else {
-				$tous=$request->readPost('toutePromo');
+				$tous=$request->readPost('tous');
 				if($tous == 'on'){
 					$questionnaire = Questionnaire::create($consigne, $userID, $titreQ, $descriptionQ, $dateO, $heureO, $dateF,$heureF,$promo,$groupe=null,$TD=null);
 				} else {
