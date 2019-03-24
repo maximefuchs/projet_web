@@ -28,7 +28,7 @@ class User extends Model{
 	public function mail() { return $this->props[self::$colMail]; }
 	public function role() { return $this->props[self::$colRole]; }
 	// on définit le super admin comme le user avec id 3 (= Thomas Malidin)
-	public function getRole() { 
+	public function getRole() {
 		if ($this->id()==3){
 			return "Superuser";
 		}
@@ -104,6 +104,11 @@ class User extends Model{
 			array(':id' => $id));
 		$user = $r->fetch();
 		return $user;
+	}
+
+	public static function getAllPromo(){
+		$r=parent::exec('USER_GET_ALL_PROMO');
+		return $r->fetchAll();
 	}
 }
 	?>

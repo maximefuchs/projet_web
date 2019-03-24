@@ -1,8 +1,9 @@
-<?php 
+<?php
 
 class EnseignantController extends UserController{
 
 	static $questionnaires;
+	static $promos;
 
 	public function __construct($request){
 		parent::__construct($request);
@@ -12,6 +13,7 @@ class EnseignantController extends UserController{
 		}
 
 		self::$questionnaires = Questionnaire::getQuestionnairesByUserId($this->user->id());
+		self::$promos=User::getAllPromo();
 	}
 
 	public function questionnairesAction($request){
@@ -19,7 +21,7 @@ class EnseignantController extends UserController{
 		$view->render();
 	}
 	public function nouveauQuestionnaireAction($request){
-		$view = new UserView($this, 'nouveauQuestionnaire', array('user' => $this->user));
+		$view = new UserView($this, 'nouveauQuestionnaire', array('user' => $this->user, 'promos'=>self::$promos));
 		$view->render();
 	}
 
@@ -32,7 +34,17 @@ class EnseignantController extends UserController{
 			$heureF = $request->readPost('time_fermeture');
 			$consigne = 1; //ajout d'une selection d'une consigne à faire
 			$userID = $this->user->id();
-			$questionnaire = Questionnaire::create($consigne, $userID, $titreQ, $descriptionQ, $dateO, $heureO, $dateF,$heureF);
+			$promo=$request->readPost('Promo');
+			$groupeTD=$request->readPost('Visibilité');
+			if($groupeTD=Groupe){
+				$groupe=$request->readPost('Groupe');
+				$questionnaire = Questionnaire::create($consigne, $userID, $titreQ, $descriptionQ, $dateO, $heureO, $dateF,$heureF,$promo,$groupe,$TD=null);
+			} else {
+				$TD=$request->readPost('TD');
+				$questionnaire = Questionnaire::create($consigne, $userID, $titreQ, $descriptionQ, $dateO, $heureO, $dateF,$heureF,$promo,$groupe=null,$TD);
+
+			}
+
 			// if(!$questionnaire) {
 			// 	$view = new UserView($this,'nouveauQuestionnaire');
 			// 	$view->setArg('questaireErrorText', 'Impossible de finaliser la création du questionnaire');

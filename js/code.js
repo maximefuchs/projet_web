@@ -64,3 +64,29 @@ function checkKey(e) {
     		openNav();
     }
 }
+
+//fonction pour bloquer un champ de texte (groupe/Td)
+function SupprimerPourTD(){
+	var groupe = document.getElementsByClassName("groupe");
+	for(var i = 0; i< groupe.length; i++){
+		groupe[i].disabled=false;
+		groupe[i].setAttribute('style','background: #ffffff;');
+	}
+	var td = document.getElementsByClassName("td");
+	for(var i = 0; i< td.length; i++){
+		td[i].disabled=true;
+		td[i].setAttribute('style','background: #dddddd;');
+	}
+}
+function SupprimerPourGroupe(){
+	var td = document.getElementsByClassName("td");
+	for(var i = 0; i< td.length; i++){
+		td[i].disabled=false;
+		td[i].setAttribute('style','background: #ffffff;');
+	}
+	var groupe = document.getElementsByClassName("groupe");
+	for(var i = 0; i< groupe.length; i++){
+		groupe[i].disabled=true;
+		groupe[i].setAttribute('style','background: #dddddd;');
+	}
+}
