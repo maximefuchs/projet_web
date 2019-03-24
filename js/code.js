@@ -56,14 +56,14 @@ function closeNav() {
 
 document.onkeydown = checkKey;
 function checkKey(e) {
-    e = e || window.event;
-    if (e.keyCode == '17') { // keycode pour ctrl
+	e = e || window.event;
+    if (e.keyCode == '222') { // keycode pour ²
     	if(menuIsOpen)
-        closeNav();
+    		closeNav();
     	else
     		openNav();
     }
-}
+  }
 
 //fonction pour bloquer un champ de texte (groupe/Td)
 function SupprimerPourTD(){
@@ -89,4 +89,29 @@ function SupprimerPourGroupe(){
 		groupe[i].disabled=true;
 		groupe[i].setAttribute('style','background: #dddddd;');
 	}
+}
+
+var pourToute = false;
+function pourToutePromo(){
+	if(!pourToute){
+		var groupe = document.getElementsByClassName("groupe");
+		for(var i = 0; i< groupe.length; i++){
+			groupe[i].disabled=true;
+			groupe[i].setAttribute('style','background: #dddddd;');
+		}
+		var td = document.getElementsByClassName("td");
+		for(var i = 0; i< td.length; i++){
+			td[i].disabled=true;
+			td[i].setAttribute('style','background: #dddddd;');
+		}
+		document.getElementById("radioGpe").disabled = true;
+		document.getElementById("radioTd").disabled = true;
+	} else {
+		var radioGpe = document.getElementById("radioGpe");
+		radioGpe.disabled = false;
+		document.getElementById("radioTd").disabled = false;
+		radioGpe.checked = true;
+		SupprimerPourTD();
+	}
+	pourToute = !pourToute;
 }

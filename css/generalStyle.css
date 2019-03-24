@@ -344,6 +344,7 @@ margin-right: 10px;
 	text-align: left;
 	border: 3px solid var(--blue-color);
 	transition: 0.3s;
+	font-weight: normal;
 }
 .unQuestionnaire:hover{
 	border-color: var(--yellow-color);

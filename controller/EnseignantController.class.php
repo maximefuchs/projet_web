@@ -26,23 +26,31 @@ class EnseignantController extends UserController{
 	}
 
 	public function validateQuestionnaire($request){
-			$titreQ = $request->readPost('titreQuestaire');
-			$descriptionQ = $request->readPost('descripQuestaire');
-			$dateO = $request->readPost('date_ouverture');
-			$heureO = $request->readPost('time_ouverture');
-			$dateF = $request->readPost('date_fermeture');
-			$heureF = $request->readPost('time_fermeture');
+		$titreQ = $request->readPost('titreQuestaire');
+		$descriptionQ = $request->readPost('descripQuestaire');
+		$dateO = $request->readPost('date_ouverture');
+		$heureO = $request->readPost('time_ouverture');
+		$dateF = $request->readPost('date_fermeture');
+		$heureF = $request->readPost('time_fermeture');
 			$consigne = 1; //ajout d'une selection d'une consigne à faire
 			$userID = $this->user->id();
 			$promo=$request->readPost('Promo');
-			$groupeTD=$request->readPost('Visibilité');
-			if($groupeTD=Groupe){
-				$groupe=$request->readPost('Groupe');
-				$questionnaire = Questionnaire::create($consigne, $userID, $titreQ, $descriptionQ, $dateO, $heureO, $dateF,$heureF,$promo,$groupe,$TD=null);
+			if($promo == "tous"){
+				$questionnaire = Questionnaire::create($consigne, $userID, $titreQ, $descriptionQ, $dateO, $heureO, $dateF,$heureF,$promo=null,$groupe=null,$TD=null);
 			} else {
-				$TD=$request->readPost('TD');
-				$questionnaire = Questionnaire::create($consigne, $userID, $titreQ, $descriptionQ, $dateO, $heureO, $dateF,$heureF,$promo,$groupe=null,$TD);
-
+				$tous=$request->readPost('toutePromo');
+				if($tous == 'on'){
+					$questionnaire = Questionnaire::create($consigne, $userID, $titreQ, $descriptionQ, $dateO, $heureO, $dateF,$heureF,$promo,$groupe=null,$TD=null);
+				} else {
+					$groupeTD=$request->readPost('visibilite');
+					if($groupeTD == "groupe"){
+						$groupe=$request->readPost('groupe');
+						$questionnaire = Questionnaire::create($consigne, $userID, $titreQ, $descriptionQ, $dateO, $heureO, $dateF,$heureF,$promo,$groupe,$TD=null);
+					} else {
+						$TD=$request->readPost('td');
+						$questionnaire = Questionnaire::create($consigne, $userID, $titreQ, $descriptionQ, $dateO, $heureO, $dateF,$heureF,$promo,$groupe=null,$TD);
+					}
+				}
 			}
 
 			// if(!$questionnaire) {
@@ -58,7 +66,7 @@ class EnseignantController extends UserController{
 
 
 
-}
+	}
 
 
-?>
+	?>

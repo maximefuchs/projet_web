@@ -22,6 +22,6 @@ Model::addSqlQuery('USER_IS_LOGIN_USED',
 	'SELECT * FROM '.User::$table_name.' WHERE '.User::$colLogin.'=:login');
 
 Model::addSqlQuery('USER_GET_ALL_PROMO',
-	'SELECT DISTINCT '.User::$colPromo.' FROM '.User::$table_name.' WHERE '.User::$colRole.'="Etudiant"');
+	'SELECT DISTINCT '.User::$colPromo.' FROM '.User::$table_name.' WHERE '.User::$colRole.'="Etudiant" ORDER BY '.User::$colPromo);
 
 ?>
