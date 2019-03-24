@@ -1,8 +1,8 @@
-<?php 
+<?php
 
 class EtudiantController extends UserController{
 
-	static $questionnaires; 
+	static $questionnaires;
 
 	public function __construct($request){
 		parent::__construct($request);
@@ -13,7 +13,7 @@ class EtudiantController extends UserController{
 	public function questionnairesAction($request){
 		$view = new UserView($this, 'questionnaires', array('user' => $this->user, 'questionnaires' => self::$questionnaires));
 		$view->render();
-	}
+	} 
 
 
 }

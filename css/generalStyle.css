@@ -89,37 +89,37 @@ header{
 /* MENU GAUCHE CSS*/
 .menu{
 	height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: var(--yellow-color);
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
+	width: 0;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	background-color: var(--yellow-color);
+	overflow-x: hidden;
+	transition: 0.5s;
+	padding-top: 60px;
 }
 .menu a{
 	text-decoration: none;
 }
 
 .menu a li{
-  padding: 8px 8px 8px 32px;
-  font-size: 25px;
-  color: var(--blue-color);
-  display: block;
-  transition: 0.3s;
+	padding: 8px 8px 8px 32px;
+	font-size: 25px;
+	color: var(--blue-color);
+	display: block;
+	transition: 0.3s;
 }
 .menu a li:hover{
-  background-color: var(--orange-color);
-  color: white;
+	background-color: var(--orange-color);
+	color: white;
 }
 .menu .closebtn{
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
+	position: absolute;
+	top: 0;
+	right: 25px;
+	font-size: 36px;
+	margin-left: 50px;
 }
 .closebtn{
 	transition: 0.4s;
@@ -172,8 +172,8 @@ header{
 .content .panel-body{
 	color: black;
 }
-.content input, 
-.content textarea, 
+.content input,
+.content textarea,
 .content table{
 	margin: 5px 0;
 	resize: none;
@@ -198,43 +198,53 @@ header{
 
 
 /* FORMULAIRE NOUVEAU QUESTIONNAIRE  */
-#newQuestionnaire{
+.newQuestionnaire{
 	font-family: 'Open Sans Condensed', arial, sans;
 	width: 700px;
 	padding: 30px;
+	color: black;
 	background: #FFFFFF;
 	margin: 50px auto;
 	box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
 	-moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
 	-webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
+}
 
-}
-#newQuestionnaire h2{
-	background: #4D4D4D;
-	text-transform: uppercase;
-	font-family: 'Open Sans Condensed', sans-serif;
-	color: #797979;
-	font-size: 18px;
-	font-weight: 100;
-	padding: 20px;
-	margin: -30px -30px 30px -30px;
-}
+
+
 #date{
 	width: 50%;
 }
+.newQuestionnaire td{
+padding: 0px;
+margin-right: 10px;
+}
+.newQuestionnaire select{
+	margin: 10px;
+}
 
 
+.newQuestionnaire input[type="text"]:focus,
+.newQuestionnaire input[type="email"]:focus,
+.newQuestionnaire input[type="password"]:focus,
+.newQuestionnaire input[type="date"]:focus,
+.newQuestionnaire input[type="datetime"]:focus,
+.newQuestionnaire input[type="time"]:focus,
+.newQuestionnaire select:focus,
+.newQuestionnaire textarea:focus{
+	border: 3px solid #555;
+}
 
-#newQuestionnaire input[type="text"],
-#newQuestionnaire input[type="email"],
-#newQuestionnaire input[type="number"],
-#newQuestionnaire input[type="search"],
-#newQuestionnaire input[type="url"],
-#newQuestionnaire input[type="password"],
-#newQuestionnaire textarea,#newQuestionnaire input[type="time"],
-#newQuestionnaire input[type="date"],
-#newQuestionnaire input[type="datetime"],
-#newQuestionnaire select
+.newQuestionnaire input[type="text"],
+.newQuestionnaire input[type="email"],
+.newQuestionnaire input[type="number"],
+.newQuestionnaire input[type="search"],
+.newQuestionnaire input[type="url"],
+.newQuestionnaire input[type="password"],
+.newQuestionnaire textarea,.newQuestionnaire input[type="time"],
+.newQuestionnaire input[type="date"],
+.newQuestionnaire input[type="datetime"],
+.newQuestionnaire select
 {
 	box-sizing: border-box;
 	-webkit-box-sizing: border-box;
@@ -243,25 +253,25 @@ header{
 	display: block;
 	width: 100%;
 	padding: 7px;
-	border: none;
-	border-bottom: 1px solid #ddd;
+	border: 3px solid #ccc;
+	-webkit-transition: 0.5s;
+	transition: 0.5s;
 	background: transparent;
 	margin-bottom: 10px;
 	font: 16px Arial, Helvetica, sans-serif;
 	height: 45px;
 }
-#newQuestionnaire textarea{
+.newQuestionnaire textarea{
 	resize:none;
 	overflow: hidden;
+	height: 100px;
 }
-#newQuestionnaire input[type="button"],
-#newQuestionnaire input[type="submit"]{
-	-moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
-	-webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
-	box-shadow: inset 0px 1px 0px 0px #45D6D6;
-	background-color: #2CBBBB;
-	border: 1px solid #27A0A0;
-	display: inline-block;
+.newQuestionnaire input[type="button"],
+.newQuestionnaire input[type="submit"]{
+	-moz-box-shadow: inset 0px 1px 0px 0px var(--orange-color);
+	-webkit-box-shadow: inset 0px 1px 0px 0px var(--orange-color);
+	box-shadow: inset 0px 1px 0px 0px var(--orange-color);
+	background-color: var(--orange-color);
 	cursor: pointer;
 	color: #FFFFFF;
 	font-family: 'Open Sans Condensed', sans-serif;
@@ -270,12 +280,62 @@ header{
 	text-decoration: none;
 	text-transform: uppercase;
 }
-#newQuestionnaire input[type="button"]:hover,
-#newQuestionnaire input[type="submit"]:hover {
-	background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
-	background-color:#34CACA;
+.newQuestionnaire input[type="button"]:hover,
+.newQuestionnaire input[type="submit"]:hover {
+	background:linear-gradient(to bottom, var(--orange-color) 10%, var(--yellow-color));
+	background-color:var(--orange-color);
 }
+.entete{
+	background: #4D4D4D;
+	font-family: 'Open Sans Condensed', sans-serif;
+	color: #797979;
+	font-size: 10px;
+	font-weight: 100;
+	padding: 20px;
+	margin: -30px -30px 30px -30px;
+}
+.entete h2{
+	margin:auto;
+}
+.titreVisi{
+	width: 100%;
+	display: inline-block;
 
+}
+.titre, .visi, .dispo{
+	display: inline-block;
+	padding: 10px;
+	text-align: left;
+}
+.titre{
+	width: 50%;
+	float: left;
+}
+.visi{
+	width: 50%;
+	float: right;
+	margin: auto;
+}
+.visit input[type="text"]{
+	width: 150%;
+}
+.dispo{
+	width: 100%;
+}
+.dispo input[type="date"],.dispo input[type="time"]{
+	width: 80%;
+}
+.dispo #titre {
+	display: inline-block;
+
+
+}
+.dispo #ouv{
+	float:left;
+}
+.dispo #ferm{
+	float:right;
+}
 .unQuestionnaire{
 	padding: 1%;
 	margin: 1%;

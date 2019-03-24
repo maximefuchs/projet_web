@@ -36,7 +36,7 @@ class Questionnaire extends Model{
 
 	static function afficheDate($string){
 		$afficher = "";
-		$mois = array('janvier', 'fevrier', 'mars', 'avril', 'mai', 'juin', 
+		$mois = array('janvier', 'fevrier', 'mars', 'avril', 'mai', 'juin',
 		'juillet', 'aout', 'septembre', 'octobre', 'novembre', 'decembre');
 		$s = explode(" ", $string);
 		$date = $s[0];
@@ -54,7 +54,7 @@ class Questionnaire extends Model{
 		//EMPLACEMENT DE CETTE FONCTION?????
 		parent::exec('UPDATE_ETAT_QUESTIONNAIRES');
 
-		
+
 		$questionnaires = parent::exec('QUESTIONNAIRE_LIST');
 		return $questionnaires->fetchAll();
 	}
@@ -73,7 +73,7 @@ class Questionnaire extends Model{
 	}
 
 	//ajout d'un nouveau questionnaire
-	public static function create($consigne, $userID, $titreQ, $descriptionQ, $dateO, $heureO, $dateF, $heureF){
+	public static function create($consigne, $userID, $titreQ, $descriptionQ, $dateO, $heureO, $dateF, $heureF,$promo,$groupe,$td){
 		// gérer les dates
 		date_default_timezone_set('Europe/Paris');
 		$hO = explode(':',$heureO);
@@ -91,9 +91,11 @@ class Questionnaire extends Model{
 			':des_qu' => $descriptionQ,
 			':d_o' => $dO->format('Y-m-d H:i:s'), //dateTime to String
 			':d_f' => $dF->format('Y-m-d H:i:s'),
-			':etat' => $etat);
+			':etat' => $etat,
+			'promo'=>$promo,
+			'groupe'=>$groupe,
+			'td'=>$td);
 		$sth=	parent::exec('QUESTIONNAIRE_CREATE',$array);
-		//$id_questionnaire=parent::exec('QUESTIONNAIRE_GET_LAST_ID_CREATED',)
 		return $sth; //bool
 	}
 	//Calcul l'état du questionnaire en fonction du jour actuel
@@ -115,11 +117,12 @@ class Questionnaire extends Model{
 
 	}
 
-	public static function getQuestionnaireByEtudiant($promo, $groupe, $td){ 
+	public static function getQuestionnaireByEtudiant($promo, $groupe, $td){
 		$questionnaires = parent::exec('GET_QUESTIONNAIRES_BY_ETUDIANT',
 			array(':promo'=>$promo, ':groupe'=>$groupe, ':td'=>$td));
 		return $questionnaires->fetchAll();
 	}
+
 
 }
 
