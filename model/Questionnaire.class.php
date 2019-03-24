@@ -34,6 +34,20 @@ class Questionnaire extends Model{
 		parent::__construct();
 	}
 
+	static function afficheDate($string){
+		$afficher = "";
+		$mois = array('janvier', 'fevrier', 'mars', 'avril', 'mai', 'juin', 
+		'juillet', 'aout', 'septembre', 'octobre', 'novembre', 'decembre');
+		$s = explode(" ", $string);
+		$date = $s[0];
+		$heure = $s[1];
+		$date = explode("-", $date);
+		$afficher= $date[2]." ".$mois[intval($date[1])-1]." ".$date[0];
+		$heure = explode(":", $heure);
+		$afficher = $afficher." à ".$heure[0]."h".$heure[1];
+		return $afficher;
+	}
+
 	// récupérer tous les questionnaires
 	public static function getList(){
 		$questionnaires = parent::exec('QUESTIONNAIRE_LIST');

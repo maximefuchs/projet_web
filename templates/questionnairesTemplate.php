@@ -1,9 +1,9 @@
 <div class="container">
   <h2>Liste des questionnaires</h2>
-	<p><span class="glyphicon glyphicon-search"></span>Rechercher parmis les questionnaires</p>
+  <p><span class="glyphicon glyphicon-search"></span>Rechercher parmis les questionnaires</p>
   <input class="form-control" id="myInput" type="text" placeholder="Recherche..">
   <br>
-  <table class="table table-hover">
+  <!-- <table class="table table-hover">
     <thead>
       <tr>
         <th>ID</th>
@@ -18,20 +18,44 @@
       </tr>
     </thead>
     <tbody id="myTable">
-			<?php $questionnaires = $args['questionnaires'];
-			foreach ($questionnaires as $q) {
-				require('questionnaireTemplate.php');
-			} ?>
+			<?php 
+   //    $questionnaires = $args['questionnaires'];
+			// foreach ($questionnaires as $q) {
+			// 	require('questionnaireTemplate.php');
+			// } 
+      ?>
     </tbody>
-  </table>
-</div>
-<script>
-$(document).ready(function(){
-  $("#myInput").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#myTable tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+  </table> -->
+  <table id="myTable">
+    <!-- <thead>
+      <tr>
+        <th>Q1</th>
+        <th>Q2</th>
+      </tr>
+    </thead> -->
+    <tbody>
+      <tr>
+        <?php $questionnaires = $args['questionnaires'];
+        $compteur = 0;
+        foreach ($questionnaires as $q) 
+        {
+          require('questionnaireTemplate.php');
+          $compteur++;
+          if($compteur%2==0){
+            echo "</tr><tr>";
+          }
+        } 
+        ?>
+      </tr>
+    </tbody>
+  </div>
+  <script>
+    $(document).ready(function(){
+      $("#myInput").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#myTable th").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
     });
-  });
-});
-</script>
+  </script>
