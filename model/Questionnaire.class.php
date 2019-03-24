@@ -50,6 +50,11 @@ class Questionnaire extends Model{
 
 	// récupérer tous les questionnaires
 	public static function getList(){
+
+		//EMPLACEMENT DE CETTE FONCTION?????
+		parent::exec('UPDATE_ETAT_QUESTIONNAIRES');
+
+		
 		$questionnaires = parent::exec('QUESTIONNAIRE_LIST');
 		return $questionnaires->fetchAll();
 	}

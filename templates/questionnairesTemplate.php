@@ -27,12 +27,6 @@
     </tbody>
   </table> -->
   <table id="myTable">
-    <!-- <thead>
-      <tr>
-        <th>Q1</th>
-        <th>Q2</th>
-      </tr>
-    </thead> -->
     <tbody>
       <tr>
         <?php $questionnaires = $args['questionnaires'];

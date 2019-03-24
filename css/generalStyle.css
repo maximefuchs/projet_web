@@ -279,10 +279,10 @@ header{
 .unQuestionnaire{
 	padding: 1%;
 	margin: 1%;
-	background-color: var(--orange-color);
+	background-color: var(--blue-color);
+	color: white;
 	text-align: left;
-	border: 3px solid var(--grey-color);
-	border-radius: 5px;
+	border: 3px solid var(--blue-color);
 	transition: 0.3s;
 }
 .unQuestionnaire:hover{
