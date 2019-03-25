@@ -5,6 +5,7 @@
 	// if(isset($args['questaireErrorText']))
 	// 	echo '<span class="error">' . $args['questaireErrorText'] . '</span>';
 	$user = $args['user'];
+  $type= $args['type'];
 	?>
 	<form action="index.php" method="post">
 		<div class="entete">
@@ -22,10 +23,12 @@
 						<td>Type de question*</td>
 						<td>
 							<select name="TypeQuestion" style="width: 140px">
-								<option value="QCM">QCM</option>
-                <option value="QCU">QCU</option>
-                <option value="Libre">Libre</option>
-                <option value="Assignement">Assignement</option>
+                <?php  foreach ($type as $t)
+                {
+                  $typ=$t->type();
+                  echo "<option value=\"$typ\">$typ</option>";
+                }
+                ?>
 							</select>
 						</td>
 					</tr>
@@ -33,7 +36,7 @@
 						<td>Description</td>
 					</tr>
 					<tr>
-						<td style="width:80%"><textarea name="descripQuestaire" required rows="3" cols="40" placeholder="Description" onkeyup="adjust_textarea(this)" autofocus ></textarea></td>
+						<td style="width:80%"><textarea name="descripQuestion" required rows="3" cols="40" placeholder="Description" onkeyup="adjust_textarea(this)" autofocus ></textarea></td>
 					</tr>
 				</table>
 			</div>

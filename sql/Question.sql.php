@@ -3,6 +3,9 @@
 Model::addSqlQuery('QUESTION_LIST',
 	'SELECT * FROM '.Question::$table_name.' ORDER BY '.Question::$colTag);
 
+Model::addSqlQuery('QUESTION_TYPE',
+		'SELECT DISTINCT '.Question::$colType.' FROM '.Question::$table_name);
+
 Model::addSqlQuery('QUESTION_CREATE',
 	'INSERT INTO '.Question::$table_name.' ('.Question::$colId.', '.Question::$colIdConsigne.', '.Question::$colTag.', '.Question::$colType.', '.Question::$colNbRep.', '.Question::$colDesQu.') VALUES (NULL, :id_c, :tag, :type, :nb_r, :des_ques)');
 

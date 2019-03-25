@@ -4,6 +4,7 @@ class EnseignantController extends UserController{
 
 	static $questionnaires;
 	static $promos;
+	static $type_question;
 
 	public function __construct($request){
 		parent::__construct($request);
@@ -11,9 +12,15 @@ class EnseignantController extends UserController{
 		if(isset($_POST['titreQuestaire'])){
 			$this->methodName = "validateQuestionnaire";
 		}
+		if(isset($_POST['TypeQuestion'])){
+			$this->methodName = "validateQuestion";
+		}
+
 
 		self::$questionnaires = Questionnaire::getQuestionnairesByUserId($this->user->id());
 		self::$promos=User::getAllPromo();
+		self::$type_question=Question::getType();
+
 	}
 
 	public function questionnairesAction($request){
@@ -58,14 +65,26 @@ class EnseignantController extends UserController{
 		// 	$view->setArg('questaireErrorText', 'Impossible de finaliser la création du questionnaire');
 		// 	$view->render();
 		// } else {
-		$view = new UserView($this, 'nouvelleQuestion', array('user' => $this->user));
+		$view = new UserView($this, 'nouvelleQuestion', array('user' => $this->user, 'type'=>self::$type_question));
 		$view->render();
 		// }
 	}
-
+//Inutile pour le moment...
 	public function nouvelleQuestionAction($request){
 		$view = new UserView($this, 'nouvelleQuestion', array('user' => $this->user));
 		$view->render();
+	}
+
+	public function validateQuestion($request){
+		$typeQ = $request->readPost('TypeQuestion');
+		$descriptionQ = $request->readPost('descripQuestion');
+		$tag = $request->readPost('Tag');
+		$NbReponses = $request->readPost('NbrRep');
+		$consigne = 1; //ajout d'une selection d'une consigne à faire
+		$question = Question::create($consigne, $tag, $typeQ,$NbReponses, $descriptionQ);
+		$view = new UserView($this, 'nouvelleQuestion', array('user' => $this->user, 'type'=>self::$type_question));
+		$view->render();
+		// }
 	}
 
 

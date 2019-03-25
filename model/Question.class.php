@@ -30,6 +30,12 @@ class Question extends Model{
 		return $questions->fetchAll();
 	}
 
+	//Récupération de tous les types de questions
+	public static function getType(){
+		$type = parent::exec('QUESTION_TYPE');
+		return $type->fetchAll();
+	}
+
 	// création d'une nouvelle question
 	public static function create($id_consigne, $tag, $type, $nb_reponse, $description_question){
 		$array = array(':id_c' => $id_consigne,
