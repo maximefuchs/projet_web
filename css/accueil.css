@@ -1,16 +1,4 @@
 
-/* VARIABLES CSS */
-
-:root {
-	--blue-color: #383549;
-	--grey-color: #6D6659;
-	--yellow-color: #E8D6A7;
-	--orange-color: #EFA267;
-	--green-color: #7CB588;
-}
-
-
-
 /* ANIMATIONS */
 @keyframes goToRight{
 	from{margin-left: 5%;}

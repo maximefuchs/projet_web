@@ -59,5 +59,4 @@ class View extends MyObject {
 	}
 
 
-?><!-- 
-<span onclick='openNav()'>&#9776; MENU<p style="font-size: 5px"><br>Appuyer sur M</p></span> -->
+?>
