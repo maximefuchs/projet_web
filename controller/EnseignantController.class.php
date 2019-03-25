@@ -86,7 +86,6 @@ class EnseignantController extends UserController{
 		$question=Question::create($consigne, $tag, $typeQ,$NbReponses, $descriptionQ);
 		// var_dump($question);
 		$id_question=DatabasePDO::getPDO()->lastInsertId();
-		var_dump("questionnaire=",$_SESSION['id_questionnaire'],"question=",$id_question);
 		Question::associerQuestionQuestionnaire($_SESSION['id_questionnaire'],$id_question);
 		$view = new UserView($this, 'nouvelleQuestion', array('user' => $this->user, 'type'=>self::$type_question));
 		$view->render();
