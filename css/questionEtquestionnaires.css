@@ -67,7 +67,7 @@ margin-right: 10px;
 .newQuestionnaire textarea{
 	resize:none;
 	overflow: hidden;
-	height: 100px;
+	height: 40px;
 }
 .newQuestionnaire input[type="button"],
 .newQuestionnaire input[type="submit"]{
