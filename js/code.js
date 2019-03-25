@@ -57,7 +57,7 @@ function closeNav() {
 document.onkeydown = checkKey;
 function checkKey(e) {
 	e = e || window.event;
-    if (e.keyCode == '222') { // keycode pour ²
+    if (e.keyCode == '27') { // keycode pour esc
     	if(menuIsOpen)
     		closeNav();
     	else

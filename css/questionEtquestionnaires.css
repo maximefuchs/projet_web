@@ -1,0 +1,154 @@
+
+
+/* FORMULAIRE NOUVEAU QUESTIONNAIRE  */
+.newQuestionnaire{
+	font-family: 'Open Sans Condensed', arial, sans;
+	width: 700px;
+	padding: 30px;
+	color: black;
+	background: #FFFFFF;
+	margin: 50px auto;
+	box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+	-moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+	-webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
+}
+
+
+
+#date{
+	width: 50%;
+}
+.newQuestionnaire td{
+padding: 0px;
+margin-right: 10px;
+}
+.newQuestionnaire select{
+	margin: 10px;
+}
+
+
+.newQuestionnaire input[type="text"]:focus,
+.newQuestionnaire input[type="email"]:focus,
+.newQuestionnaire input[type="password"]:focus,
+.newQuestionnaire input[type="date"]:focus,
+.newQuestionnaire input[type="datetime"]:focus,
+.newQuestionnaire input[type="time"]:focus,
+.newQuestionnaire select:focus,
+.newQuestionnaire textarea:focus{
+	border: 3px solid #555;
+}
+
+.newQuestionnaire input[type="text"],
+.newQuestionnaire input[type="email"],
+.newQuestionnaire input[type="number"],
+.newQuestionnaire input[type="search"],
+.newQuestionnaire input[type="url"],
+.newQuestionnaire input[type="password"],
+.newQuestionnaire textarea,.newQuestionnaire input[type="time"],
+.newQuestionnaire input[type="date"],
+.newQuestionnaire input[type="datetime"],
+.newQuestionnaire select
+{
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	outline: none;
+	display: block;
+	width: 100%;
+	padding: 7px;
+	border: 3px solid #ccc;
+	-webkit-transition: 0.5s;
+	transition: 0.5s;
+	background: transparent;
+	margin-bottom: 10px;
+	font: 16px Arial, Helvetica, sans-serif;
+	height: 45px;
+}
+.newQuestionnaire textarea{
+	resize:none;
+	overflow: hidden;
+	height: 100px;
+}
+.newQuestionnaire input[type="button"],
+.newQuestionnaire input[type="submit"]{
+	-moz-box-shadow: inset 0px 1px 0px 0px var(--orange-color);
+	-webkit-box-shadow: inset 0px 1px 0px 0px var(--orange-color);
+	box-shadow: inset 0px 1px 0px 0px var(--orange-color);
+	background-color: var(--orange-color);
+	cursor: pointer;
+	color: #FFFFFF;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 14px;
+	padding: 8px 18px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+.newQuestionnaire input[type="button"]:hover,
+.newQuestionnaire input[type="submit"]:hover {
+	background:linear-gradient(to bottom, var(--orange-color) 10%, var(--yellow-color));
+	background-color:var(--orange-color);
+}
+.entete{
+	background: #4D4D4D;
+	font-family: 'Open Sans Condensed', sans-serif;
+	color: #797979;
+	font-size: 10px;
+	font-weight: 100;
+	padding: 20px;
+	margin: -30px -30px 30px -30px;
+}
+.entete h2{
+	margin:auto;
+}
+.titreVisi{
+	width: 100%;
+	display: inline-block;
+
+}
+.titre, .visi, .dispo{
+	display: inline-block;
+	padding: 10px;
+	text-align: left;
+}
+.titre{
+	width: 50%;
+	float: left;
+}
+.visi{
+	width: 50%;
+	float: right;
+	margin: auto;
+}
+.visit input[type="text"]{
+	width: 150%;
+}
+.dispo{
+	width: 100%;
+}
+.dispo input[type="date"],.dispo input[type="time"]{
+	width: 80%;
+}
+.dispo #titre {
+	display: inline-block;
+
+
+}
+.dispo #ouv{
+	float:left;
+}
+.dispo #ferm{
+	float:right;
+}
+.unQuestionnaire{
+	padding: 1%;
+	margin: 1%;
+	background-color: var(--blue-color);
+	color: white;
+	text-align: left;
+	border: 3px solid var(--blue-color);
+	transition: 0.3s;
+	font-weight: normal;
+}
+.unQuestionnaire:hover{
+	border-color: var(--yellow-color);
+}
