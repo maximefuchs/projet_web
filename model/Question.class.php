@@ -58,6 +58,9 @@ class Question extends Model{
 									array(':id_q' => $id_questionnaire));
 		return $questions->fetchAll();
 	}
+	public static function associerQuestionQuestionnaire($id_questionnaire, $id_question){
+		parent::exec('ASSOCIER_QUESTIONS_QUESTIONNAIRE', array(':QuestionId'=>$id_question,':QuestionnaireId'=>$id_questionnaire));
+	}
 }
 
  ?>

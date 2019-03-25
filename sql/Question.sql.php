@@ -15,4 +15,8 @@ Model::addSqlQuery('GET_QUESTION_BY_ID',
 Model::addSqlQuery('GET_QUESTIONS_BY_QUESTIONNAIRE',
 	'SELECT Q.* FROM '.Question::$table_name.' Q JOIN EST_COMPOSE EC ON Q.'.Question::$colId.'=EC.ID_QUESTION WHERE ID_QUESTIONNAIRE = :id_q');
 
+	Model::addSqlQuery('ASSOCIER_QUESTIONS_QUESTIONNAIRE',
+		'INSERT INTO EST_COMPOSE ('.Question::$colId.', '.Questionnaire::$colId.') VALUES (:QuestionId,:QuestionnaireId);');
+
+
 	?>

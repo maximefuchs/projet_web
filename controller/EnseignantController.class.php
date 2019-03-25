@@ -59,7 +59,8 @@ class EnseignantController extends UserController{
 				}
 			}
 		}
-
+		$_SESSION['id_questionnaire']=DatabasePDO::getPDO()->lastInsertId();
+		// var_dump("questionnaireeeeeee=",self::$id_questaire);
 		// if(!$questionnaire) {
 		// 	$view = new UserView($this,'nouveauQuestionnaire');
 		// 	$view->setArg('questaireErrorText', 'Impossible de finaliser la création du questionnaire');
@@ -80,8 +81,13 @@ class EnseignantController extends UserController{
 		$descriptionQ = $request->readPost('descripQuestion');
 		$tag = $request->readPost('Tag');
 		$NbReponses = $request->readPost('NbrRep');
+		// var_dump($typeQ,$descriptionQ,$tag);
 		$consigne = 1; //ajout d'une selection d'une consigne à faire
-		$question = Question::create($consigne, $tag, $typeQ,$NbReponses, $descriptionQ);
+		$question=Question::create($consigne, $tag, $typeQ,$NbReponses, $descriptionQ);
+		// var_dump($question);
+		$id_question=DatabasePDO::getPDO()->lastInsertId();
+		var_dump("questionnaire=",$_SESSION['id_questionnaire'],"question=",$id_question);
+		Question::associerQuestionQuestionnaire($_SESSION['id_questionnaire'],$id_question);
 		$view = new UserView($this, 'nouvelleQuestion', array('user' => $this->user, 'type'=>self::$type_question));
 		$view->render();
 		// }
