@@ -60,6 +60,7 @@ class Questionnaire extends Model{
 		return $q->fetch();
 	}
 
+
 	// recuperer les questionnaires d'un utilisateur
 	public static function getQuestionnairesByUserId($userId){
 		$questionnaires = parent::exec('GET_QUESTIONNAIRES_BY_IDUSER',
@@ -106,10 +107,6 @@ class Questionnaire extends Model{
 			else
 				return "Terminé";
 		}
-	}
-
-	public static function associerQuestionnaireUser($userId){
-
 	}
 
 	public static function getQuestionnaireByEtudiant($promo, $groupe, $td){

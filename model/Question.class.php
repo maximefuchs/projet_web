@@ -30,6 +30,12 @@ class Question extends Model{
 		return $questions->fetchAll();
 	}
 
+	//Récupération de tous les types de questions
+	public static function getType(){
+		$type = parent::exec('QUESTION_TYPE');
+		return $type->fetchAll();
+	}
+
 	// création d'une nouvelle question
 	public static function create($id_consigne, $tag, $type, $nb_reponse, $description_question){
 		$array = array(':id_c' => $id_consigne,
@@ -51,6 +57,9 @@ class Question extends Model{
 		$questions = parent::exec('GET_QUESTIONS_BY_QUESTIONNAIRE',
 									array(':id_q' => $id_questionnaire));
 		return $questions->fetchAll();
+	}
+	public static function associerQuestionQuestionnaire($id_questionnaire, $id_question){
+		parent::exec('ASSOCIER_QUESTIONS_QUESTIONNAIRE', array(':QuestionId'=>$id_question,':QuestionnaireId'=>$id_questionnaire));
 	}
 }
 

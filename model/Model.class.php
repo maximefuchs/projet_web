@@ -25,14 +25,14 @@ class Model extends MyObject{
 			// 	$requete->bindParam($key, $value);
 			// }
 			$requete->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, get_called_class());
-			$requete->execute($values); 
+			$requete->execute($values);
 			// mettre values en paramètre effectue les mêmes opérations que ce qui est commenté l.22 à 24
 			return $requete;
 		} else {
 			return static::query($sql);
 		}
 	}
-	
+
 	public static function addSqlQuery($key, $value){
 		self::$queries[$key] = $value;
 	}

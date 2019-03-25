@@ -21,5 +21,10 @@ Model::addSqlQuery('GET_QUESTIONNAIRES_BY_ETUDIANT',
 Model::addSqlQuery('UPDATE_ETAT_QUESTIONNAIRES',
 'UPDATE '.Questionnaire::$table_name.' SET '.Questionnaire::$colEtat.' = \'Terminé\' WHERE '.Questionnaire::$colDateFerm.' < NOW();'.
 'UPDATE '.Questionnaire::$table_name.' SET '.Questionnaire::$colEtat.' = \'En cours\' WHERE '.Questionnaire::$colDateOuv.' < NOW() AND '.Questionnaire::$colDateFerm.' > NOW();'.
-'UPDATE '.Questionnaire::$table_name.' SET '.Questionnaire::$colEtat.' = \'Non commencé\' WHERE '.Questionnaire::$colDateOuv.' > NOW();')
+'UPDATE '.Questionnaire::$table_name.' SET '.Questionnaire::$colEtat.' = \'Non commencé\' WHERE '.Questionnaire::$colDateOuv.' > NOW();');
+
+Model::addSqlQuery('GET_ID_DERNIER_QUESTIONNAIRE',
+	'SELECT MAX('.Questionnaire::$colId.') FROM '.Questionnaire::$table_name);
+
+
 	?>
