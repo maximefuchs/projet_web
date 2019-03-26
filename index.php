@@ -28,4 +28,5 @@ try {
 	echo 'Error : ' . $e->getMessage() . "<br>";
 }
 var_dump($_POST);
+var_dump($_SESSION);
 ?>
