@@ -1,21 +1,28 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
--- https://www.phpmyadmin.net/
+-- version 4.5.4.1
+-- http://www.phpmyadmin.net
 --
--- Host: localhost:8889
--- Generation Time: Mar 22, 2019 at 06:11 PM
--- Server version: 5.7.25
--- PHP Version: 7.3.1
+-- Client :  localhost
+-- Généré le :  Mar 26 Mars 2019 à 08:09
+-- Version du serveur :  5.7.11
+-- Version de PHP :  5.6.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 --
--- Database: `projet_web`
+-- Base de données :  `projet_web`
 --
+CREATE DATABASE IF NOT EXISTS `projet_web` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `projet_web`;
 
 --
--- Dumping data for table `comparee_a`
+-- Vider la table avant d'insérer `comparee_a`
+--
+
+TRUNCATE TABLE `comparee_a`;
+--
+-- Contenu de la table `comparee_a`
 --
 
 INSERT INTO `comparee_a` (`ID_REPONSEC`, `ID_REPONSESP`) VALUES
@@ -33,7 +40,12 @@ INSERT INTO `comparee_a` (`ID_REPONSEC`, `ID_REPONSESP`) VALUES
 (27, 23);
 
 --
--- Dumping data for table `consigne`
+-- Vider la table avant d'insérer `consigne`
+--
+
+TRUNCATE TABLE `consigne`;
+--
+-- Contenu de la table `consigne`
 --
 
 INSERT INTO `consigne` (`ID_CONSIGNE`, `TEMPS`, `BAREME`, `RETOUR`) VALUES
@@ -44,7 +56,12 @@ INSERT INTO `consigne` (`ID_CONSIGNE`, `TEMPS`, `BAREME`, `RETOUR`) VALUES
 (5, 60, 20, 1);
 
 --
--- Dumping data for table `est_compose`
+-- Vider la table avant d'insérer `est_compose`
+--
+
+TRUNCATE TABLE `est_compose`;
+--
+-- Contenu de la table `est_compose`
 --
 
 INSERT INTO `est_compose` (`ID_QUESTION`, `ID_QUESTIONNAIRE`) VALUES
@@ -58,7 +75,12 @@ INSERT INTO `est_compose` (`ID_QUESTION`, `ID_QUESTIONNAIRE`) VALUES
 (12, 6);
 
 --
--- Dumping data for table `participe`
+-- Vider la table avant d'insérer `participe`
+--
+
+TRUNCATE TABLE `participe`;
+--
+-- Contenu de la table `participe`
 --
 
 INSERT INTO `participe` (`ID_USER`, `ID_QUESTIONNAIRE`) VALUES
@@ -68,33 +90,51 @@ INSERT INTO `participe` (`ID_USER`, `ID_QUESTIONNAIRE`) VALUES
 (5, 5);
 
 --
--- Dumping data for table `question`
+-- Vider la table avant d'insérer `question`
+--
+
+TRUNCATE TABLE `question`;
+--
+-- Contenu de la table `question`
 --
 
 INSERT INTO `question` (`ID_QUESTION`, `ID_CONSIGNE`, `TAG`, `TYPE_QUESTION`, `NB_REPONSES`, `DESCRIPTION_QUESTION`) VALUES
 (1, 1, 'Maths', 'QCM', 4, 'Quelle est la racine carrée de 1234'),
-(2, 1, 'Anglais', 'Libre', 1, 'Quelle est la couleur du cheval blanc d\'Henri IV ?'),
-(9, 3, 'Arabe', 'Libre ', 1, 'Comment ecrit-on \"Si dieu le veux\" ?'),
-(10, 4, 'Francais', 'Assigne', 6, 'Relier les elt correspondant ?'),
+(2, 1, 'Anglais', 'LIBRE', 1, 'Quelle est la couleur du cheval blanc d\'Henri IV ?'),
+(9, 3, 'Arabe', 'LIBRE', 1, 'Comment ecrit-on "Si dieu le veux" ?'),
+(10, 4, 'Francais', 'ASSIGNE', 6, 'Relier les elt correspondant ?'),
 (11, 5, 'ISIS', 'QCU', 4, 'Quelle est l\'IP du proxy de l\'école'),
-(12, 3, 'Automatisme', 'Libre', 1, 'Quel est le nom du logiciel pour les systèmes embarqués ? '),
+(12, 3, 'Automatisme', 'LIBRE', 1, 'Quel est le nom du logiciel pour les systèmes embarqués ? '),
 (13, 3, 'Maths', 'QCU', 4, '4x4'),
-(14, 3, 'Maths', 'Libre', 1, 'Théorème Triangle');
+(14, 3, 'Maths', 'LIBRE', 1, 'Théorème Triangle');
 
 --
--- Dumping data for table `questionnaire`
+-- Vider la table avant d'insérer `questionnaire`
+--
+
+TRUNCATE TABLE `questionnaire`;
+--
+-- Contenu de la table `questionnaire`
 --
 
 INSERT INTO `questionnaire` (`ID_QUESTIONNAIRE`, `ID_USER`, `ID_CONSIGNE`, `TITRE`, `DESCRIPTION_QUESTIONNAIRE`, `DATE_OUVERTURE`, `DATE_FERMETURE`, `ETAT`, `PROMO`, `GROUPE`, `TD`) VALUES
-(1, 1, 1, 'Questionnaire 1', 'Questionnaire Maths \r\n', '2019-03-11 14:00:00', '2019-03-11 15:00:00', 'En cours', 2020, 1, NULL),
-(2, 1, 2, 'Questionnaire 2', 'Questionnaire Anglais', '2019-03-12 09:00:00', '2019-03-12 11:00:00', 'Fermé', NULL, NULL, NULL),
-(3, 1, 3, 'Questionnaire 3', 'Questionnaire Arabe', '2019-03-01 09:00:00', '2019-03-01 10:00:00', 'Archivé', 2019, NULL, 3),
-(4, 2, 4, 'Questionnaire 4', 'Questionnaire Francais', '2019-03-10 06:00:00', '2019-03-10 15:00:00', 'Corrigé', NULL, NULL, NULL),
-(5, 2, 5, 'Questionnaire 5', 'Questionnaire ISIC', '2019-03-10 08:00:00', '2019-03-10 09:00:00', 'Non corrigé', 2020, 1, NULL),
-(6, 2, 3, 'Questionnaire 6', 'Questionnaire OAPI', '2019-03-11 14:00:00', '2019-03-11 15:00:00', 'En cours', 2020, NULL, 1);
+(1, 1, 1, 'Questionnaire 1', 'Questionnaire Maths \r\n', '2019-03-11 14:00:00', '2019-03-11 15:00:00', 'Terminé', 2020, 1, NULL),
+(2, 1, 2, 'Questionnaire 2', 'Questionnaire Anglais', '2019-03-12 09:00:00', '2019-03-12 11:00:00', 'Terminé', NULL, NULL, NULL),
+(3, 1, 3, 'Questionnaire 3', 'Questionnaire Arabe', '2019-03-01 09:00:00', '2019-03-01 10:00:00', 'Terminé', 2019, NULL, 3),
+(4, 2, 4, 'Questionnaire 4', 'Questionnaire Francais', '2019-03-10 06:00:00', '2019-03-10 15:00:00', 'Terminé', NULL, NULL, NULL),
+(5, 2, 5, 'Questionnaire 5', 'Questionnaire ISIC', '2019-03-10 08:00:00', '2019-03-10 09:00:00', 'Terminé', 2020, 1, NULL),
+(6, 2, 3, 'Questionnaire 6', 'Questionnaire OAPI', '2019-03-11 14:00:00', '2019-03-11 15:00:00', 'Terminé', 2020, NULL, 1),
+(12, 1, 1, 'Questionnaire Tinder', 'Etre un charo', '2019-03-26 10:00:00', '2019-03-27 10:00:00', 'Non commencé', 2020, NULL, NULL),
+(13, 2, 1, 'lala', 'Teletubies', '2019-03-20 10:32:00', '2019-03-23 12:25:00', 'Terminé', NULL, NULL, NULL),
+(14, 2, 1, 'Projet web', 'Verifier les connaissances.', '2019-03-24 20:10:00', '2019-03-24 20:15:00', 'Terminé', 2020, NULL, NULL);
 
 --
--- Dumping data for table `reliee_a`
+-- Vider la table avant d'insérer `reliee_a`
+--
+
+TRUNCATE TABLE `reliee_a`;
+--
+-- Contenu de la table `reliee_a`
 --
 
 INSERT INTO `reliee_a` (`ID_REPONSESP`, `REP_ID_REPONSESP`) VALUES
@@ -103,7 +143,12 @@ INSERT INTO `reliee_a` (`ID_REPONSESP`, `REP_ID_REPONSESP`) VALUES
 (11, 12);
 
 --
--- Dumping data for table `reponse_choisie`
+-- Vider la table avant d'insérer `reponse_choisie`
+--
+
+TRUNCATE TABLE `reponse_choisie`;
+--
+-- Contenu de la table `reponse_choisie`
 --
 
 INSERT INTO `reponse_choisie` (`ID_REPONSEC`, `ID_USER`, `ID_QUESTION`, `EST_JUSTE_C`) VALUES
@@ -121,7 +166,12 @@ INSERT INTO `reponse_choisie` (`ID_REPONSEC`, `ID_USER`, `ID_QUESTION`, `EST_JUS
 (27, 5, 14, 0);
 
 --
--- Dumping data for table `reponse_proposee`
+-- Vider la table avant d'insérer `reponse_proposee`
+--
+
+TRUNCATE TABLE `reponse_proposee`;
+--
+-- Contenu de la table `reponse_proposee`
 --
 
 INSERT INTO `reponse_proposee` (`ID_REPONSESP`, `ID_QUESTION`, `EST_JUSTE_P`, `COLONNE`, `CONTENU`) VALUES
@@ -150,7 +200,12 @@ INSERT INTO `reponse_proposee` (`ID_REPONSESP`, `ID_QUESTION`, `EST_JUSTE_P`, `C
 (23, 14, 0, NULL, 'FAUX');
 
 --
--- Dumping data for table `user`
+-- Vider la table avant d'insérer `user`
+--
+
+TRUNCATE TABLE `user`;
+--
+-- Contenu de la table `user`
 --
 
 INSERT INTO `user` (`LOGIN`, `PASSWORD`, `NOM`, `PRENOM`, `EMAIL`, `ROLE`, `ID_USER`, `MATRICULE`, `INTERN_EXT`, `MATIERE`, `PROMO`, `TD`, `GROUPE`) VALUES
@@ -159,4 +214,5 @@ INSERT INTO `user` (`LOGIN`, `PASSWORD`, `NOM`, `PRENOM`, `EMAIL`, `ROLE`, `ID_U
 ('toto', '789', 'Malidin', 'Thomas', 'thomas.malidin@etu.imt-lille-douai.fr', 'Etudiant', 3, NULL, NULL, NULL, 2020, 6, 2),
 ('Mymy', '147', 'Barrau', 'Myriam', 'myriam.barrau@etu.imt-lille-douai.fr', 'Etudiant', 4, NULL, NULL, NULL, 2019, 5, 1),
 ('Clara', '258', 'Fournier', 'Clara', 'clara.fournier@etu.imt-lille-douai.fr', 'Etudiant', 5, NULL, NULL, NULL, 2021, 7, 1),
-('coco', '159', 'Devaux', 'Coline', 'coco@etu.imt-lille-douai.fr', 'Etudiant', 6, NULL, NULL, NULL, 159, 1, 1);
+('coco', '159', 'Devaux', 'Coline', 'coco@etu.imt-lille-douai.fr', 'Etudiant', 6, NULL, NULL, NULL, 159, 1, 1),
+('max', 'azerty123', 'Fuchs', 'Maxime', 'm.f@mail.com', 'Etudiant', 7, NULL, NULL, NULL, 2020, 6, 1);
