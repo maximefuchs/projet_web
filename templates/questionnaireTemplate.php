@@ -1,6 +1,6 @@
 <th>
 	<a href=
-	<?php echo "'index.php?action=questionsEtreponses&idQuestionnaire=".$q->id()."'"; ?>>
+	<?php echo "'index.php?action=repondreQuestionnaire&idQuestionnaire=".$q->id()."'"; ?>>
 		<div class="unQuestionnaire">
 			<div style="float: right">
 				<span><?php echo "Ouverture : ".Questionnaire::afficheDate($q->date_ouverture()); ?></span><br>

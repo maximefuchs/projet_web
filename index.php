@@ -27,4 +27,5 @@ try {
 } catch (Exception $e) {
 	echo 'Error : ' . $e->getMessage() . "<br>";
 }
+var_dump($_POST);
 ?>
