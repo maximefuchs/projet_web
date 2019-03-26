@@ -18,11 +18,11 @@
       </tr>
     </thead>
     <tbody id="myTable">
-			<?php 
+			<?php
    //    $questionnaires = $args['questionnaires'];
 			// foreach ($questionnaires as $q) {
 			// 	require('questionnaireTemplate.php');
-			// } 
+			// }
       ?>
     </tbody>
   </table> -->
@@ -31,14 +31,14 @@
       <tr>
         <?php $questionnaires = $args['questionnaires'];
         $compteur = 0;
-        foreach ($questionnaires as $q) 
+        foreach ($questionnaires as $q)
         {
           require('questionnaireTemplate.php');
           $compteur++;
           if($compteur%2==0){
             echo "</tr><tr>";
           }
-        } 
+        }
         ?>
       </tr>
     </tbody>
@@ -47,6 +47,7 @@
     $(document).ready(function(){
       $("#myInput").on("keyup", function() {
         var value = $(this).val().toLowerCase();
+
         $("#myTable th").filter(function() {
           $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
         });

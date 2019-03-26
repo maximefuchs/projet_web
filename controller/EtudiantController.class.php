@@ -13,14 +13,8 @@ class EtudiantController extends UserController{
 	public function questionnairesAction($request){
 		$view = new UserView($this, 'questionnaires', array('user' => $this->user, 'questionnaires' => self::$questionnaires));
 		$view->render();
-	} 
-
-	public function questionsEtreponsesAction($request){
-		$questions = Question::getQuestionsDeQuestionnaireId($request->readGet('idQuestionnaire'));
-		$view = new UserView($this, 'questionsEtreponses',
-				array('user' => $this->user, 'questions' => $questions, 'reponses' => Reponse::getList()));
-		$view->render();
 	}
+
 
 
 }

@@ -60,17 +60,17 @@
 						</td>
 					</tr>
 					<tr>
-						<td><input id="radioGpe" type="radio" name="visibilite" value="groupe" 
+						<td><input id="radioGpe" type="radio" name="visibilite" value="groupe"
 							onclick="SupprimerPourTD();"></td>
 						<td>Groupe</td>
-						<td><input class="groupe" type="text" name="groupe" 
+						<td><input class="groupe" type="text" name="groupe"
 							disabled placeholder="Groupe 1 ou 2" style="background-color: #ddd"></td>
 						</tr>
 						<tr>
-							<td><input id="radioTd" type="radio" name="visibilite" value="td" 
+							<td><input id="radioTd" type="radio" name="visibilite" value="td"
 								onclick="SupprimerPourGroupe();"></td>
 							<td>TD</td>
-							<td><input  class="td" type="text" name="td" 
+							<td><input  class="td" type="text" name="td"
 								disabled placeholder="TD 1,2,3,..." style="background-color: #ddd"></td>
 							</tr>
 						</table>
