@@ -4,6 +4,10 @@ class EtudiantController extends UserController{
 
 	public function __construct($request){
 		parent::__construct($request);
+
+		if(isset($_GET['ValiderReponses'])){
+			$this->validerReponses();
+		}
 	}
 
 	public function questionnairesAction($request){
@@ -18,13 +22,18 @@ class EtudiantController extends UserController{
 		$view = new UserView($this, 'repondreQuestionnaire', 
 			array('user' => $this->user, 
 				'questions' => $questions, 
-				'reponses' => $reponses
+				'reponses' => $reponses,
+				'idQu' => $idQuestionnaire
 			));
 		$view->render();
 	}
 
 	public function getQuByEtudiant(){
 		return Questionnaire::getQuestionnaireByEtudiant($this->user->promo(),$this->user->grp_demiPromo(),$this->user->td());
+	}
+
+	public function validerReponses(){
+		
 	}
 
 

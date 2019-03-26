@@ -13,7 +13,7 @@
 			case 'QCM':
 			echo "<table border=1 frame=hsides rules=rows>";
 			foreach ($reps_associees as $r) {
-				echo "<tr><td><input type='checkbox' name='QCM".$q->id()."r".$r->id()."'></td> ";
+				echo "<tr><td><input type='checkbox' name='QCM_".$q->id()."r".$r->id()."'></td> ";
 				echo "<td>".$r->contenu()."</td>";
 				echo "</tr>";
 			}
@@ -22,7 +22,7 @@
 			case 'QCU':
 			echo "<table border=1 frame=hsides rules=rows>";
 			foreach ($reps_associees as $r) {
-				echo "<tr><td><input type='radio' value='".$r->id()."' name='QCU".$q->id()."'></td> ";
+				echo "<tr><td><input type='radio' value='".$r->id()."' name='QCU_".$q->id()."'></td> ";
 				echo "<td>".$r->contenu()."</td>";
 				echo "</tr>";
 			}
@@ -30,7 +30,7 @@
 
 			case 'LIBRE':	
 			echo "<table border=1 frame=hsides rules=rows>";
-			echo "<tr><input type='text' name='LIBRE".$q->id()."'></tr>";
+			echo "<tr><input type='text' name='LIBRE_".$q->id()."'></tr>";
 			break;
 
 			case 'ASSIGNE':
@@ -45,15 +45,14 @@
 			}
 			for($i = 0; $i<count($rep_droite); $i++){
 				echo "<tr>";
-				echo "<td>".$rep_gauche[$i]->contenu()."</td>";
-				echo "<td>".($i+1)."</td>";
-				echo "<td><input type='number' name='".$q->id()."assigne".$i."' style='width:40px;'></td>";
+				echo "<td>".$rep_gauche[$i]->contenu()." ".$rep_gauche[$i]->id()."</td>";
+				echo "<td><input type='number' name='ASSIGNE_".$q->id()."_".$rep_droite[$i]->id()."' style='width:40px;'></td>";
 				echo "<td>".$rep_droite[$i]->contenu()."</td>";
 				echo "</tr>";
 			}
 			break;
 		}
-		echo"</table>
-		</div>
-		</div>";
 		?>
+	</table>
+</div>
+</div>

@@ -14,5 +14,6 @@
 		require('QetRTemplate.php');
 	}
 	?>
-	<input type="submit" name="Valider les réponses">
+	<input type="submit" name="ValiderReponses">
+<!-- <?php //echo "'Valider".$this->args['idQu']."'" ?> -->
 </form>
