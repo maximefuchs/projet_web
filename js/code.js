@@ -2,7 +2,7 @@
 function afficherPourEtudiant(){
 	var eleEleves = document.getElementsByClassName("eleve");
 	for(var i = 0; i< eleEleves.length; i++){
-		eleEleves[i].setAttribute('style', 'visibility: visible;');
+		eleEleves[i].setAttribute('style', 'display: block;');
 	}
 	var inputEltEleve = document.getElementsByClassName("eleveInput");
 	for(var i = 0; i<inputEltEleve.length; i++){
@@ -12,7 +12,7 @@ function afficherPourEtudiant(){
 function enleverPourEtudiant(){
 	var eleEleves = document.getElementsByClassName("eleve");
 	for(var i = 0; i< eleEleves.length; i++){
-		eleEleves[i].setAttribute('style', 'visibility: collapse;');
+		eleEleves[i].setAttribute('style', 'display:none;');
 	}
 	var inputEltEleve = document.getElementsByClassName("eleveInput");
 	for(var i = 0; i<inputEltEleve.length; i++){
@@ -23,7 +23,7 @@ function enleverPourEtudiant(){
 function afficherPourEnseignant(){
 	var eleEnseignant = document.getElementsByClassName("enseignant");
 	for(var i = 0; i< eleEnseignant.length; i++){
-		eleEnseignant[i].setAttribute('style', 'visibility: visible;');
+		eleEnseignant[i].setAttribute('style', 'display: block;');
 	}
 	var inputEltEnseignant = document.getElementsByClassName("enseignantInput");
 	for(var i = 0; i<inputEltEnseignant.length; i++){
@@ -33,7 +33,7 @@ function afficherPourEnseignant(){
 function enleverPourEnseignant(){
 	var eleEnseignant = document.getElementsByClassName("enseignant");
 	for(var i = 0; i< eleEnseignant.length; i++){
-		eleEnseignant[i].setAttribute('style', 'visibility: collapse;');
+		eleEnseignant[i].setAttribute('style', 'display:none;');
 	}
 	var inputEltEnseignant = document.getElementsByClassName("enseignantInput");
 	for(var i = 0; i<inputEltEnseignant.length; i++){
