@@ -31,8 +31,8 @@ class Question extends Model{
 	}
 
 	//Récupération de tous les types de questions
-	public static function getType(){
-		$type = parent::exec('QUESTION_TYPE');
+	public static function getTypes(){
+		$type = parent::exec('QUESTION_TYPES');
 		return $type->fetchAll();
 	}
 

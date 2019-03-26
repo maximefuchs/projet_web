@@ -19,7 +19,7 @@ class EnseignantController extends UserController{
 
 		self::$questionnaires = Questionnaire::getQuestionnairesByUserId($this->user->id());
 		self::$promos=User::getAllPromo();
-		self::$type_question=Question::getType();
+		self::$type_question=Question::getTypes();
 
 	}
 
@@ -66,13 +66,13 @@ class EnseignantController extends UserController{
 		// 	$view->setArg('questaireErrorText', 'Impossible de finaliser la création du questionnaire');
 		// 	$view->render();
 		// } else {
-		$view = new UserView($this, 'nouvelleQuestion', array('user' => $this->user, 'type'=>self::$type_question));
+		$view = new UserView($this, 'remplirQuestion', array('user' => $this->user, 'type'=>self::$type_question));
 		$view->render();
 		// }
 	}
 //Inutile pour le moment...
 	public function nouvelleQuestionAction($request){
-		$view = new UserView($this, 'nouvelleQuestion', array('user' => $this->user));
+		$view = new UserView($this, 'remplirQuestion', array('user' => $this->user));
 		$view->render();
 	}
 

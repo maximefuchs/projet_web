@@ -22,6 +22,7 @@ html, body{
 html{
 	font-family: Helvetica, sans-serif;
 	background: url("https://images.pexels.com/photos/593158/pexels-photo-593158.jpeg?cs=srgb&dl=abstract-architecture-building-exterior-593158.jpg&fm=jpg");
+	background-attachment: fixed;
 	background-size: cover;
 	background-repeat: repeat-y;
 }

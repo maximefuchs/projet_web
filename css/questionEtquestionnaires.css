@@ -1,45 +1,50 @@
 /*Tooltip */
 .tooltip {
-  position: relative;
-  display: inline-block;
-  border-bottom: 1px dotted black;
+	position: relative;
+	display: inline-block;
+	border-bottom: 1px dotted black;
 }
 
 .tooltip .tooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-  position: absolute;
-  z-index: 7;
-  bottom: 100%;
-  left: 50%;
-  margin-left: -60px;
+	visibility: hidden;
+	width: 120px;
+	background-color: black;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px 0;
+	position: absolute;
+	z-index: 7;
+	bottom: 100%;
+	left: 50%;
+	margin-left: -60px;
 
-  /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
-  opacity: 0;
-  transition: opacity 1s;
+	/* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
+	opacity: 0;
+	transition: opacity 1s;
 }
 
 .tooltip:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1;
+	visibility: visible;
+	opacity: 1;
 }
 
 /* FORMULAIRE NOUVEAU QUESTIONNAIRE  */
-.newQuestionnaire{
+.newQuestionnaire, .newQuestion{
 	font-family: 'Open Sans Condensed', arial, sans;
 	width: 700px;
 	padding: 20px;
 	color: black;
 	background: #FFFFFF;
-	margin: 50px auto;
 	box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
 	-moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
 	-webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
+}
+.newQuestionnaire{
+	margin: 50px auto;
+}
+.newQuestion{
+	margin: 20px auto;
 }
 
 
@@ -47,36 +52,37 @@
 #date{
 	width: 50%;
 }
-.newQuestionnaire td{
-padding: 0px;
-margin-right: 10px;
+.newQuestionnaire td, .newQuestion td{
+	padding: 0px;
+	margin-right: 10px;
 }
-.newQuestionnaire select{
+.newQuestionnaire select, .newQuestion select{
 	margin: 10px;
 }
 
 
-.newQuestionnaire input[type="text"]:focus,
-.newQuestionnaire input[type="email"]:focus,
-.newQuestionnaire input[type="password"]:focus,
-.newQuestionnaire input[type="date"]:focus,
-.newQuestionnaire input[type="datetime"]:focus,
-.newQuestionnaire input[type="time"]:focus,
-.newQuestionnaire select:focus,
-.newQuestionnaire textarea:focus{
+.newQuestionnaire input[type="text"]:focus, .newQuestion input[type="text"]:focus,
+.newQuestionnaire input[type="email"]:focus, .newQuestion input[type="email"]:focus,
+.newQuestionnaire input[type="password"]:focus, .newQuestion input[type="password"]:focus,
+.newQuestionnaire input[type="date"]:focus, .newQuestion input[type="date"]:focus,
+.newQuestionnaire input[type="datetime"]:focus, .newQuestion input[type="datetime"]:focus,
+.newQuestionnaire input[type="time"]:focus, .newQuestion input[type="time"]:focus,
+.newQuestionnaire select:focus, .newQuestion select:focus,
+.newQuestionnaire textarea:focus, .newQuestion textarea:focus{
 	border: 3px solid #555;
 }
 
-.newQuestionnaire input[type="text"],
-.newQuestionnaire input[type="email"],
-.newQuestionnaire input[type="number"],
-.newQuestionnaire input[type="search"],
-.newQuestionnaire input[type="url"],
-.newQuestionnaire input[type="password"],
-.newQuestionnaire textarea,.newQuestionnaire input[type="time"],
-.newQuestionnaire input[type="date"],
-.newQuestionnaire input[type="datetime"],
-.newQuestionnaire select
+.newQuestionnaire input[type="text"], .newQuestion input[type="text"],
+.newQuestionnaire input[type="email"], .newQuestion input[type="email"],
+.newQuestionnaire input[type="number"], .newQuestion input[type="number"],
+.newQuestionnaire input[type="search"], .newQuestion input[type="search"],
+.newQuestionnaire input[type="url"], .newQuestion input[type="url"],
+.newQuestionnaire input[type="password"], .newQuestion input[type="password"],
+.newQuestionnaire textarea, .newQuestion textarea,
+.newQuestionnaire input[type="time"], .newQuestion input[type="time"],
+.newQuestionnaire input[type="date"], .newQuestion input[type="date"],
+.newQuestionnaire input[type="datetime"], .newQuestion input[type="datetime"],
+.newQuestionnaire select, .newQuestion select
 {
 	box-sizing: border-box;
 	-webkit-box-sizing: border-box;
@@ -93,13 +99,13 @@ margin-right: 10px;
 	font: 16px Arial, Helvetica, sans-serif;
 	height: 45px;
 }
-.newQuestionnaire textarea{
+.newQuestionnaire textarea, .newQuestion textarea{
 	resize:none;
 	overflow: hidden;
 	height: 40px;
 }
-.newQuestionnaire input[type="button"],
-.newQuestionnaire input[type="submit"]{
+.newQuestionnaire input[type="button"], .newQuestion input[type="button"],
+.newQuestionnaire input[type="submit"], .newQuestion input[type="submit"]{
 	-moz-box-shadow: inset 0px 1px 0px 0px var(--orange-color);
 	-webkit-box-shadow: inset 0px 1px 0px 0px var(--orange-color);
 	box-shadow: inset 0px 1px 0px 0px var(--orange-color);
@@ -112,8 +118,8 @@ margin-right: 10px;
 	text-decoration: none;
 	text-transform: uppercase;
 }
-.newQuestionnaire input[type="button"]:hover,
-.newQuestionnaire input[type="submit"]:hover {
+.newQuestionnaire input[type="button"]:hover, .newQuestion input[type="button"]:hover,
+.newQuestionnaire input[type="submit"]:hover, .newQuestion input[type="submit"]:hover {
 	background:linear-gradient(to bottom, var(--orange-color) 10%, var(--yellow-color));
 	background-color:var(--orange-color);
 }
@@ -200,4 +206,23 @@ margin-right: 10px;
 }
 #qEtr input[type=text]{
 	width: 60%;
+}
+
+
+
+#questionsPourQuestionnaire button{
+	position: sticky;
+	top: 20px;
+	color: white;
+	background-color: transparent;
+	border: 2px solid var(--yellow-color);
+	transition: 0.3s;
+}
+
+#questionsPourQuestionnaire button:hover{
+	background-color: var(--yellow-color);
+	color: black;
+}
+#questionsPourQuestionnaire button:focus{
+	outline: none;
 }
