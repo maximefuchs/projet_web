@@ -49,6 +49,11 @@ class Reponse extends Model{
 			array(':id_question' => $id_question));
 		return $questions->fetchAll();
 	}
+
+	public static function getReponseByIdQuestionnaire($id_questionnaire){
+		$questions = parent::exec('GET_REPONSE_BY_IDQUESTIONNAIRE', array(':id_questionnaire' => $id_questionnaire));
+		return $questions->fetchAll();
+	}
 }
 
 

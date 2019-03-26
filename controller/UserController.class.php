@@ -30,9 +30,13 @@ class UserController extends Controller{
 		$view->render();
 	}
 	public function questionsEtreponsesAction($request){
-		$questions = Question::getQuestionsDeQuestionnaireId($request->readGet('idQuestionnaire'));
+		$idQuestionnaire = $request->readGet('idQuestionnaire');
+		$questions = Question::getQuestionsDeQuestionnaireId($idQuestionnaire);
+		$reponses = Reponse::getReponseByIdQuestionnaire($idQuestionnaire));
 		$view = new UserView($this, 'questionsEtreponses',
-				array('user' => $this->user, 'questions' => $questions, 'reponses' => Reponse::getList()));
+				array('user' => $this->user, 
+					'questions' => $questions, 
+					'reponses' => $reponses);
 		$view->render();
 	}
 

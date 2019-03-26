@@ -12,4 +12,7 @@ Model::addSqlQuery('GET_REPONSE_BY_ID',
 Model::addSqlQuery('GET_REPONSE_BY_IDQUESTION',
 	'SELECT * FROM '.Reponse::$table_name.' WHERE '.Reponse::$colIdQuestion.'=:id_question');
 
+Model::addSqlQuery('GET_REPONSE_BY_IDQUESTIONNAIRE',
+	'SELECT R.* FROM '.Reponse::$table_name.' R JOIN '.Question::$table_name.' QN ON R.'.Reponse::$colIdQuestion.'= QN.'.Question::$colId.' JOIN EST_COMPOSE EC ON QN.'.Question::$colID.'=EC.'.Question::$colId.' WHERE EC.'.Questionnaire::$colId.'=:id_questionnaire');
+
 	?>
