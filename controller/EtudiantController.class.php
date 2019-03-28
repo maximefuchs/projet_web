@@ -5,9 +5,9 @@ class EtudiantController extends UserController{
 	public function __construct($request){
 		parent::__construct($request);
 
-		if(isset($_POST['ValiderReponses'])){
-			$this->validerReponses($request);
-		}
+		// if(isset($_POST['ValiderReponses'])){
+		// 	$this->validerReponses($request);
+		// }
 	}
 
 	public function questionnairesAction($request){
@@ -41,8 +41,42 @@ class EtudiantController extends UserController{
 		// 
 // 
 		foreach ($_POST as $key => $value) {
-			$r = reponseChoisieEstJuste($key, $value);
+			$explode = explode("_", $key);
+			$type = $explode[0];
+
+
+			// pour les questions de type différent de QCM on peut savoir directement si la question a été repondue juste dans son intégralité
+			// pour un QCM, il faut récupérer tous les éléments, cochés ou non, pour savoir si l'élève a bien coché toutes les bonnes réponses
+			$QCM = false;
+			$repQCM= array();
+			$nbQuestions;
+			$compteur = 0;
+
+			if($type == 'QCM'){
+				$repQCM[$key] = $value;
+				$compteur++;
+				if($QCM){
+					if($compteur == $nbQuestions){
+						$r = $this->correctionQCM($repQCM);
+						$compteur = 0;
+						$repQCM = array();
+						$QCM = false;
+					}
+				} else {
+					$nbQuestions = explode(":",$explode[2])[1];
+					$QCM = true;
+				}
+
+			} else { // si ce n'est pas un QCM, on va directement chercher la réponse
+				$r = $this->correction($key, $value);
+			}
+
 		}
+
+	}
+
+
+	public function correctionQCM($reponses){
 
 	}
 
@@ -50,22 +84,12 @@ class EtudiantController extends UserController{
 	// retourne si la/les réponse(s) pour la question est/sont juste(s)
 	// retourne id question
 	// permettra l'insertion dans la table reponse choisie
-	public function reponseChoisieEstJuste($key, $value){
+	public function correction($key, $value){
 		$explode = explode("_", $key);
 		$type = $explode[0];
 
-		$question = true;
+		$r = true;
 		switch ($type) {
-
-			case 'QCM':
-			$idQu = explode(":", $explode[1])[1];
-			$idR = explode(":", $explode[2])[1];
-					// gérer les bonnes réponses non données
-			$estJuste = explode(":", $explode[3])[1];
-			if( ! ($estJuste == 1 && $value == 'on') ){
-				$question = false;
-			}
-			break;
 
 			case 'QCU':
 					# code...

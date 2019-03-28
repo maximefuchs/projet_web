@@ -17,12 +17,14 @@
 				<td>
 				<input type='hidden' 
 				name='QCM_qId:".$q->id().
+				"_nbRep:".$q->nombre_reponses().
 				"_rId:".$r->id().
 				"_juste:".$r->estJuste().
 				"'
 				value='off'>";
 				echo "<input type='checkbox' 
 				name='QCM_qId:".$q->id().
+				"_nbRep:".$q->nombre_reponses().
 				"_rId:".$r->id().
 				"_juste:".$r->estJuste().
 				"'
@@ -43,7 +45,8 @@
 			echo "<table border=1 frame=hsides rules=rows>";
 			foreach ($reps_associees as $r) {
 				echo "<tr><td><input type='radio' 
-				value='rId:".$r->id()."' 
+				value='rId:".$r->id().
+				"_juste:".$r->estJuste()."' 
 				name='QCU_qId:".$q->id()."'></td> ";
 				echo "<td>".$r->contenu()."</td>";
 				echo "</tr>";
@@ -52,7 +55,9 @@
 
 			case 'LIBRE':	
 			echo "<table border=1 frame=hsides rules=rows>";
-			echo "<tr><input type='text' name='LIBRE_qId:".$q->id()."'></tr>";
+			echo "<tr><input type='text' 
+			name='LIBRE_qId:".$q->id().
+			"_rep:".$reps_associees[0]->contenu()."'></tr>";
 			break;
 
 			case 'ASSIGNE':
