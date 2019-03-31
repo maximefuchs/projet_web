@@ -28,7 +28,7 @@ class EnseignantController extends UserController{
 		$view->render();
 	}
 	public function nouveauQuestionnaireAction($request){
-		$view = new UserView($this, 'nouveauQuestionnaire', array('user' => $this->user, 'promos'=>self::$promos));
+		$view = new UserView($this, 'nouveauQuestionnairebis', array('user' => $this->user, 'promos'=>self::$promos));
 		$view->render();
 	}
 

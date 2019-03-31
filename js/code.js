@@ -57,36 +57,34 @@ function closeNav() {
 document.onkeydown = checkKey;
 function checkKey(e) {
 	e = e || window.event;
-    if (e.keyCode == '27') { // keycode pour esc
-    	if(menuIsOpen)
-    		closeNav();
-    	else
-    		openNav();
-    }
-  }
+	if (e.keyCode == '27') { // keycode pour esc
+		if(menuIsOpen)
+		closeNav();
+		else
+		openNav();
+	}
+}
 
 //fonction pour bloquer un champ de texte (groupe/Td)
 function SupprimerPourTD(){
 	var groupe = document.getElementsByClassName("groupe");
 	for(var i = 0; i< groupe.length; i++){
-		groupe[i].disabled=false;
 		groupe[i].setAttribute('style','background: #ffffff;');
 	}
 	var td = document.getElementsByClassName("td");
 	for(var i = 0; i< td.length; i++){
-		td[i].disabled=true;
+		td[i].value="";
 		td[i].setAttribute('style','background: #dddddd;');
 	}
 }
 function SupprimerPourGroupe(){
 	var td = document.getElementsByClassName("td");
 	for(var i = 0; i< td.length; i++){
-		td[i].disabled=false;
 		td[i].setAttribute('style','background: #ffffff;');
 	}
 	var groupe = document.getElementsByClassName("groupe");
 	for(var i = 0; i< groupe.length; i++){
-		groupe[i].disabled=true;
+		groupe[i].value="";
 		groupe[i].setAttribute('style','background: #dddddd;');
 	}
 }
@@ -104,14 +102,57 @@ function pourToutePromo(){
 			td[i].disabled=true;
 			td[i].setAttribute('style','background: #dddddd;');
 		}
-		document.getElementById("radioGpe").disabled = true;
-		document.getElementById("radioTd").disabled = true;
 	} else {
-		var radioGpe = document.getElementById("radioGpe");
-		radioGpe.disabled = false;
-		document.getElementById("radioTd").disabled = false;
-		radioGpe.checked = true;
-		SupprimerPourTD();
+		var groupe = document.getElementsByClassName("groupe");
+		for(var i = 0; i< groupe.length; i++){
+			groupe[i].disabled=false;
+			groupe[i].setAttribute('style','background: #ffffff;');
+		}
+		var td = document.getElementsByClassName("td");
+		for(var i = 0; i< td.length; i++){
+			td[i].disabled=false;
+			td[i].setAttribute('style','background: #ffffff;');
+		}
 	}
 	pourToute = !pourToute;
+}
+
+function disabledChamps(){
+	var selectBox = document.getElementById("inputPromo");
+	var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+	if(selectedValue=="tous"){
+		var groupe = document.getElementsByClassName("groupe");
+		for(var i = 0; i< groupe.length; i++){
+			groupe[i].disabled=true;
+			groupe[i].setAttribute('style','background: #dddddd;');
+		}
+		var td = document.getElementsByClassName("td");
+		for(var i = 0; i< td.length; i++){
+			td[i].disabled=true;
+			td[i].setAttribute('style','background: #dddddd;');
+		}
+		var divPromo=document.getElementsByClassName("allprom");
+		for(var i = 0; i< divPromo.length; i++){
+			divPromo[i].setAttribute('style','display: none;');
+		}
+	} else {
+		var groupe = document.getElementsByClassName("groupe");
+		for(var i = 0; i< groupe.length; i++){
+			if(!pourToute){
+				groupe[i].disabled=false;
+				groupe[i].setAttribute('style','background: #ffffff;');
+			}
+		}
+		var td = document.getElementsByClassName("td");
+		for(var i = 0; i< td.length; i++){
+			if(!pourToute){
+				td[i].disabled=false;
+				td[i].setAttribute('style','background: #ffffff;');
+			}
+		}
+		var divPromo=document.getElementsByClassName("allprom");
+		for(var i = 0; i< divPromo.length; i++){
+			divPromo[i].setAttribute('style','display: contents;');
+		}
+	}
 }
