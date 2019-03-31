@@ -115,6 +115,16 @@ class Questionnaire extends Model{
 		return $questionnaires->fetchAll();
 	}
 
+	public static function setParticipation($idUser, $idQuestionnaire){
+		$array = array(':idUser' => $idUser,
+									':idQuestionnaire' => $idQuestionnaire);
+		parent::exec('SET_PARTICIPATION', $array);
+	}
+
+	public static function aParticipe($idUser, $idQuestionnaire){
+		
+	}
+
 
 }
 

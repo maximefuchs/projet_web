@@ -17,6 +17,10 @@ class EtudiantController extends UserController{
 
 	public function repondreQuestionnaireAction($request){
 		$idQuestionnaire = $request->readGet('idQuestionnaire');
+
+		
+
+
 		$questions = Question::getQuestionsDeQuestionnaireId($idQuestionnaire);
 		$reponses = Reponse::getReponseByIdQuestionnaire($idQuestionnaire);
 		$view = new UserView($this, 'repondreQuestionnaire', 
@@ -111,6 +115,7 @@ class EtudiantController extends UserController{
 				Reponse::setRepForQuestion($this->user->id(), $qId, $estJuste);
 			}
 
+			Questionnaire::setParticipation($this->user->id(), $_POST['idQuestionnaire']);
 
 		}
 

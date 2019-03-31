@@ -26,5 +26,11 @@ Model::addSqlQuery('UPDATE_ETAT_QUESTIONNAIRES',
 Model::addSqlQuery('GET_ID_DERNIER_QUESTIONNAIRE',
 	'SELECT MAX('.Questionnaire::$colId.') FROM '.Questionnaire::$table_name);
 
+Model::addSqlQuery('SET_PARTICIPATION',
+	'INSERT INTO PARTICIPE (ID_USER, ID_QUESTIONNAIRE) VALUES (:idUser, :idQuestionnaire)');
+
+
+Model::addSqlQuery('USER_A_PARTICIPE_QUESTIONNAIRE',
+	'SELECT Q.* FROM '.Questionnaire::$table_name.'');
 
 	?>

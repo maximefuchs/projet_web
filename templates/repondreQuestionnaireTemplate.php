@@ -16,6 +16,6 @@
 		require('QetRTemplate.php');
 	}
 	?>
+	<input type="hidden" name="idQuestionnaire" value=<?php echo "'".$this->args['idQu']."'"; ?>>
 	<input type="submit" name="ValiderReponses">
-<!-- <?php //echo "'Valider".$this->args['idQu']."'" ?> -->
 </form>
