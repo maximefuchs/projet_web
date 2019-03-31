@@ -5,7 +5,7 @@
 	// if(isset($args['questaireErrorText']))
 	// 	echo '<span class="error">' . $args['questaireErrorText'] . '</span>';
 	if(isset($args['dateErrorText']))
-		echo '<span class="error">' . $args['dateErrorText'] . '</span>';
+	echo '<span class="error">' . $args['dateErrorText'] . '</span>';
 	$user = $args['user'];
 	$promos= $args['promos'];
 	?>
@@ -18,88 +18,86 @@
 				</tr>
 			</table>
 		</div>
-		<div class="titreVisi">
-			<div class="titre">
-				<table>
-					<tr>
-						<td>Titre</td>
-					</tr>
-					<tr>
-						<td><input type="text" name="titreQuestaire" required maxlength="100" placeholder="Titre" autofocus /></td>
-					</tr>
-					<tr>
-						<td>Description</td>
-					</tr>
-					<tr>
-						<td><textarea name="descripQuestaire" required rows="3" cols="40" placeholder="Description" onkeyup="adjust_textarea(this)"></textarea></td>
-					</tr>
-				</table>
+		<div class="form-row titre">
+			<div class="form-group col-sm-6">
+				<label for="inputTitre">Titre*</label>
+				<input type="text" name="titreQuestaire" class="form-control" id="inputTitre" placeholder="Titre" required maxlength="100" autofocus>
 			</div>
-			<div class="visi">
-				<table>
-					<tr>
-						<td>Promo*</td>
-						<td>
-							<select name="Promo" style="width: 80px">
-								<option value="tous">Tous</option>
-								<?php  foreach ($promos as $p)
-								{
-									$prom=$p->promo();
-									echo "<option value=\"$prom\">$prom</option>";
-								}
-								?>
-							</select>
-						</td>
-					</tr>
-					<tr>
-						<td width="30">
-							<input type="checkbox" name="tous" onclick="pourToutePromo();">
-						</td>
-						<td>
-							Toute la promo
-						</td>
-					</tr>
-					<tr>
-						<td><input id="radioGpe" type="radio" name="visibilite" value="groupe"
-							onclick="SupprimerPourTD();"></td>
-						<td>Groupe</td>
-						<td><input class="groupe" type="text" name="groupe"
-							disabled placeholder="Groupe 1 ou 2" style="background-color: #ddd"></td>
-						</tr>
-						<tr>
-							<td><input id="radioTd" type="radio" name="visibilite" value="td"
-								onclick="SupprimerPourGroupe();"></td>
-							<td>TD</td>
-							<td><input  class="td" type="text" name="td"
-								disabled placeholder="TD 1,2,3,..." style="background-color: #ddd"></td>
-							</tr>
-						</table>
-					</div>
-				</div>
-				<div class="dispo">
-					<table>
-						<tr id="titre">
-							<td id="ouv">Ouverture</td>
-							<td id="ferm">Fermeture</td>
-						</tr>
-						<tr id="date">
-							<td>Date</td>
-							<td><input type="date" name="date_ouverture" required placeholder="Date ouverture"/></td>
-							<td><input type="date" name="date_fermeture" required placeholder="Date fermeture"/></td>
-						</tr>
-						<tr id="date">
-							<td>Heure</td>
-							<td><input type="time" name="time_ouverture" required placeholder="Heure ouverture"/></td>
-							<td><input type="time" name="time_fermeture" required placeholder="Heure fermeture"/></td>
-						</tr>
-					</table>
-				</div>
-			</form>
+			<div class="form-group col-sm-6">
+				<label for="inputDescription">Description*</label>
+				<input type="text" name="descripQuestaire" class="form-control" id="inputDescription" placeholder="Description">
+			</div>
 		</div>
-		<script type="text/javascript">
+		<div class="promos">
+
+
+			<div class="form-row">
+				<div class="form-group col-sm-4">
+					<label for="inputPromo">Promo*</label>
+					<select name="Promo" class="form-control tous" id="inputPromo" onchange="disabledChamps();">
+						<option value="tous">Tous</option>
+						<?php  foreach ($promos as $p)
+						{
+							$prom=$p->promo();
+							echo "<option value=\"$prom\">$prom</option>";
+						}
+						?>
+					</select>
+				</div>
+				<div class="form-group col-sm-4">
+					<label for="inputGroupe">Groupe</label>
+					<input type="text" name="groupe" class="form-control groupe" id="inputGroupe" placeholder="Groupe" onfocus="SupprimerPourTD();" disabled style="background: #ddd;">
+				</div>
+				<div class="form-group col-sm-4">
+					<label for="inputTD">TD</label>
+					<input type="text" name="td" class="form-control td" id="inputTD" placeholder="TD" onfocus="SupprimerPourGroupe();" disabled style="background: #ddd;">
+				</div>
+			</div>
+			<div class="form-group allprom" style="display: none;">
+				<div class="form-check">
+					<label class="form-check-label" for="allPromos">
+						Toute le promo
+					</label>
+					<input class="form-check-input" name="tous" type="checkbox" id="allPromos" onclick="pourToutePromo();">
+				</div>
+			</div>
+		</div>
+		<div class="dateTime">
+			<div class="form-row">
+				<div class="form-group col-sm-2">
+				</div>
+				<div class="form-group col-sm-5">
+					<label for="inputOuverture">Ouverture</label>
+				</div>
+				<div class="form-group col-sm-5">
+					<label for="inputFermeture">Fermeture</label>
+				</div>
+			</div>
+			<div class="form-row">
+				<label for="inputOuverture" class="col-sm-2 col-form-label">Date</label>
+				<div class="col-sm-5">
+					<input type="date" name="date_ouverture" class="form-control" id="inputOuverture" placeholder="Date ouverture" >
+				</div>
+				<div class="col-sm-5">
+					<input type="date" name="date_fermeture" class="form-control" id="inputFermeture" placeholder="Date fermeture" >
+				</div>
+			</div>
+			<div class="form-row">
+				<label for="inputOuverture" class="col-sm-2 col-form-label">Heure</label>
+				<div class="col-sm-5">
+					<input type="time" name="time_ouverture" class="form-control" id="inputOuverture" placeholder="Heure ouverture">
+				</div>
+				<div class="col-sm-5">
+					<input type="time" name="time_fermeture" class="form-control " id="inputFermeture" placeholder="Heure fermeture">
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+<!-- <script type="text/javascript">
 //auto expand textarea
 function adjust_textarea(h) {
-	h.style.height = "20px";
-	h.style.height = (h.scrollHeight)+"px";
+h.style.height = "20px";
+h.style.height = (h.scrollHeight)+"px";
 }
-</script>
+</script> -->
