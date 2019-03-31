@@ -73,7 +73,10 @@
 			for($i = 0; $i<count($rep_droite); $i++){
 				echo "<tr>";
 				echo "<td>".$rep_gauche[$i]->contenu()." ".$rep_gauche[$i]->id()."</td>";
-				echo "<td><input type='number' name='ASSIGNE_qId:".$q->id()."_rDrId:".$rep_droite[$i]->id()."' style='width:40px;'></td>";
+				echo "<td><input type='number' 
+				name='ASSIGNE_qId:".$q->id().
+				"_nbRep:".$q->nombre_reponses().
+				"_rDrId:".$rep_droite[$i]->id()."' style='width:40px;'></td>";
 				echo "<td>".$rep_droite[$i]->contenu()."</td>";
 				echo "</tr>";
 			}

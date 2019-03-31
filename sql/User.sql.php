@@ -6,7 +6,6 @@ Model::addSqlQuery('USER_LIST',
 Model::addSqlQuery('USER_GET_WITH_LOGIN_AND_PASSWORD',
 	'SELECT * FROM '.User::$table_name.' WHERE '.User::$colLogin.'=:login');
 
-//à modifier
 Model::addSqlQuery('USER_CREATE',
 	'INSERT INTO '.User::$table_name.' ('.User::$colId.', '.User::$colLogin.', '.User::$colMdp.', '.User::$colMail.', '.User::$colNom.', '.User::$colPrenom.', '.User::$colRole.', '.User::$colPromo.', '.User::$colGroupe.', '.User::$colTD.', '.User::$colMatricule.', '.User::$colMatiere.', '.User::$colIntExt.') VALUES (NULL, :login, :mdp, :email, :nom, :prenom, :role, :promo, :groupe, :td, :matricule, :matiere, :intern_ext)');
 

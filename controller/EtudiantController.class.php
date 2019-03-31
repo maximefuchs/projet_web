@@ -33,17 +33,18 @@ class EtudiantController extends UserController{
 	}
 
 	public function validerReponses($request){
-		$QidsEtRidsAssociees = $_SESSION['QetR'];
 
-// 
-		// 
-		// d'abord regrouper les reponses par question puis les traiter
-		// 
-// 
 		$QCM = false;
 		$repQCM= array();
-		$nbQuestions = 0;
-		$compteur = 0;
+		$nbQuestionsQCM = 0;
+		$compteurQCM = 0;
+
+		$ASSIGNE = false;
+		$repASSIGNE= array();
+		$nbQuestionsASSIGNE = 0;
+		$compteurASSIGNE = 0;
+		$qId_ASSIGNE = -1;
+
 		foreach ($_POST as $key => $value) {
 			$explode = explode("_", $key);
 			$type = $explode[0];
@@ -53,76 +54,125 @@ class EtudiantController extends UserController{
 			// pour un QCM, il faut récupérer tous les éléments, cochés ou non, pour savoir si l'élève a bien coché toutes les bonnes réponses
 
 			if($type == 'QCM'){
+				$qId = explode(":", $explode[1])[1];
+
 				$repQCM[$key] = $value;
-				$compteur++;
+				$compteurQCM++;
 				if($QCM){
-					if($compteur == $nbQuestions){
+					if($compteurQCM == $nbQuestionsQCM){
 						$r = $this->correctionQCM($repQCM);
-						$compteur = 0;
+						$compteurQCM = 0;
 						$repQCM = array();
 						$QCM = false;
+
+
+						$estJuste;
+						if($r){ $estJuste=1; } else { $estJuste=0; }
+						Reponse::setRepForQuestion($this->user->id(), $qId, $estJuste);
 					}
 				} else {
-					$nbQuestions = explode(":",$explode[2])[1];
+					$nbQuestionsQCM = explode(":",$explode[2])[1];
 					$QCM = true;
 				}
 
-			} else { // si ce n'est pas un QCM, on va directement chercher la réponse
-			$r = $this->correction($key, $value);
+			} elseif ($type == 'ASSIGNE') {
+				$qId = explode(":", $explode[1])[1];
+
+				$repASSIGNE[$key] = $value;
+				$compteurASSIGNE++;
+				if($ASSIGNE){
+					if($compteurASSIGNE == $nbQuestionsASSIGNE){
+						$r = $this->correctionASSIGNE($repASSIGNE, $qId_ASSIGNE);
+						$compteurASSIGNE = 0;
+						$repASSIGNE = array();
+						$ASSIGNE = false;
+						$qId_ASSIGNE = -1;
+
+
+						$estJuste;
+						if($r){ $estJuste=1; } else { $estJuste=0; }
+						Reponse::setRepForQuestion($this->user->id(), $qId, $estJuste);
+					}
+				} else {
+					$nbQuestionsASSIGNE = (explode(":",$explode[2])[1])/2; 
+					// on divise par deux car par exemple, 6 reponses peuvent être liées à la quetion mais le post n'aura que 3 réponses pour cette question
+					$ASSIGNE = true;
+					$qId_ASSIGNE = explode(":",$explode[1])[1];
+				}				
+
+			} elseif ($type == 'QCU' || $type == 'LIBRE') { 
+				// si ce n'est pas un QCM ou un assignme, on va directement chercher la réponse
+				$qId = explode(":", $explode[1])[1];
+				$r = $this->correctionSimple($key, $value);
+
+
+				$estJuste;
+				if($r){ $estJuste=1; } else { $estJuste=0; }
+				Reponse::setRepForQuestion($this->user->id(), $qId, $estJuste);
+			}
+
+
 		}
+
 
 	}
 
-}
 
-
-public function correctionQCM($reponses){
-	$r = true;
-	foreach ($reponses as $key => $value) {
+	public function correctionQCM($reponses){
+		$r = true;
+		foreach ($reponses as $key => $value) {
 			// valeur dans le post :
 			// 'QCM_qId:1_nbRep:4_rId:1_juste:1' => string 'off' (length=3)
   		// 'QCM_qId:1_nbRep:4_rId:2_juste:0' => string 'on' (length=2)
-		$juste = explode(":",explode("_", $key)[4])[1];
-		if( ($juste == 1 && $value == 'off') || ($juste == 0 && $value == 'on') )
-			$r = false; 
+			$juste = explode(":",explode("_", $key)[4])[1];
+			if( ($juste == 1 && $value == 'off') || ($juste == 0 && $value == 'on') )
+				$r = false; 
+		}
+		return $r;
 	}
-	if($r)
-		var_dump('QCM :true');
-	else
-		var_dump('QCM :false');
-	return $r;
-}
+
+
+	public function correctionASSIGNE($reponses, $qId){
+		$r = true;
+		// 'ASSIGNE_qId:10_nbRep:6_rDrId:8' => string '7' (length=1)
+		$coupleReps = RelieeA::getReponsesLieesByQuestion($qId);
+		foreach ($coupleReps as $unAssignement) {
+			$idRep = $unAssignement->idRep();
+			$idRepAss = $unAssignement->idRepAss();
+			foreach ($reponses as $key => $value) {
+				$idRepAssDonnee = explode(":",explode("_", $key)[3])[1];
+				if($idRepAss == $idRepAssDonnee){
+					if($idRep != $value)
+						$r = false;
+				}
+			}
+		}
+		return $r;
+	}
 
 
 	// retourne si la/les réponse(s) pour la question est/sont juste(s)
 	// retourne id question
 	// permettra l'insertion dans la table reponse choisie
-public function correction($key, $value){
-	$explode = explode("_", $key);
-	$type = $explode[0];
+	public function correctionSimple($key, $value){
+		$explode = explode("_", $key);
+		$type = $explode[0];
 
-	$r = true;
-	switch ($type) {
+		$r = true;
+		switch ($type) {
 
-		case 'QCU':
-		// 'QCU_qId:13' => string 'rId:18_juste:1' (length=14)
-		$r = (explode(":", $value)[2] == 1);
-		break;
+			case 'QCU':
+			// 'QCU_qId:13' => string 'rId:18_juste:1' (length=14)
+			$r = (explode(":", $value)[2] == 1);
+			break;
 
-		case 'LIBRE':
-  	// 'LIBRE_qId:14_rep:Pythagore' => string 'Py' (length=2)
-		$r = (explode(":", $key)[2] == $value);
-		break;
-
-		case 'ASSIGNE':
-					# code...
-		break;
+			case 'LIBRE':
+	  	// 'LIBRE_qId:14_rep:Pythagore' => string 'Py' (length=2)
+			$r = (explode(":", $key)[2] == $value);
+			break;
+		}
+		return $r;
 	}
-	if($r)
-		var_dump($type.' :true');
-	else
-		var_dump($type.' :false');
-}
 
 
 
