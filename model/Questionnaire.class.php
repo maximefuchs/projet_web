@@ -122,7 +122,10 @@ class Questionnaire extends Model{
 	}
 
 	public static function aParticipe($idUser, $idQuestionnaire){
-		
+		$q = parent::exec('USER_A_PARTICIPE_QUESTIONNAIRE', 
+			array(':idUser' => $idUser,
+						':idQuestionnaire' => $idQuestionnaire));
+		return $q->fetch();
 	}
 
 

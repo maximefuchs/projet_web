@@ -27,6 +27,6 @@ try {
 } catch (Exception $e) {
 	echo 'Error : ' . $e->getMessage() . "<br>";
 }
-var_dump($_POST);
-var_dump($_SESSION);
+// (var_dump($_POST);
+// var_dump($_SESSION);)
 ?>

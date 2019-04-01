@@ -31,6 +31,8 @@ Model::addSqlQuery('SET_PARTICIPATION',
 
 
 Model::addSqlQuery('USER_A_PARTICIPE_QUESTIONNAIRE',
-	'SELECT Q.* FROM '.Questionnaire::$table_name.'');
+	'SELECT Q.* FROM '.Questionnaire::$table_name.' Q JOIN PARTICIPE P ON 
+	Q.'.Questionnaire::$colId.' = P.'.Questionnaire::$colId.
+	' WHERE P.'.User::$colId.' = :idUser AND Q.'.Questionnaire::$colId.' = :idQuestionnaire');
 
 	?>
