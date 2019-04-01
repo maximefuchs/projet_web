@@ -94,6 +94,7 @@ margin-right: 10px;
 	resize:none;
 	overflow: hidden;
 	height: 40px;
+  overflow-y: scroll;
 }
 .newQuestionnaire input[type="button"],
 .newQuestionnaire input[type="submit"]{
