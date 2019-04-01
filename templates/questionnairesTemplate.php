@@ -1,6 +1,6 @@
 <div class="container">
   <h2>Liste des questionnaires</h2>
-  <p><span class="glyphicon glyphicon-search"></span>Rechercher parmis les questionnaires</p>
+  <p>&#128269;</span>Rechercher parmis les questionnaires</p>
   <input class="form-control" id="myInput" type="text" placeholder="Recherche..">
   <br>
   <table id="myTable">

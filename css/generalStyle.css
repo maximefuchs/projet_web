@@ -134,8 +134,8 @@ header{
 .closebtn:hover{
 	color: white;
 }
-#selected-element{
-	text-decoration: underline;
+#selected-element li{
+	background-color: var(--green-color);
 }
 
 

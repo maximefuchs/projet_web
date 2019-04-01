@@ -1,6 +1,6 @@
 <div class="container">
   <h2>Liste des réponses</h2>
-	<p><span class="glyphicon glyphicon-search"></span>Rechercher parmis les réponses</p>
+	<p>&#128269;</span>Rechercher parmis les réponses</p>
   <input class="form-control" id="myInput" type="text" placeholder="Recherche..">
   <br>
   <table class="table table-hover">

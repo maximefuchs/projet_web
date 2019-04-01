@@ -1,6 +1,6 @@
 <div class="container">
   <h2>Liste de utilisateurs</h2>
-	<p><span class="glyphicon glyphicon-search"></span> Rechercher parmis les utilisateurs</p>
+	<p>&#128269;</span> Rechercher parmis les utilisateurs</p>
   <input class="form-control" id="myInput" type="text" placeholder="Recherche..">
   <br>
   <table class="table table-hover">
