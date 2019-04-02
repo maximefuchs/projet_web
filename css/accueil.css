@@ -15,7 +15,7 @@ IMG.displayed {
 	width: 500px;
 	display: block;
 	margin-left: auto;
-	margin-right: auto 
+	margin-right: auto
 }
 .compteur{
 	font-size: 25px;
@@ -32,8 +32,8 @@ IMG.displayed {
 	padding: 1%;
 	text-align: center;
 }
-.connexionInMenu form, 
-.connexionInMenu table, 
+.connexionInMenu form,
+.connexionInMenu table,
 .connexionInMenu input[type=text],
 .connexionInMenu input[type=password]{
 	padding: 3%;
@@ -73,7 +73,5 @@ IMG.displayed {
 	background-color: #AAA;
 }
 .eleve, .enseignant{
-	visibility: collapse;
+	display:none;
 }
-
-
