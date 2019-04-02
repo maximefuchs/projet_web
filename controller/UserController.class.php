@@ -12,12 +12,12 @@ class UserController extends Controller{
 		$userId = NULL;
 		if(isset($_SESSION['ID_USER'])){
 			$this->user = User::getUserById($_SESSION['ID_USER']);
-			//var_dump($this->user);
 		} else {
 			$userId = $request->readGet('userId');
 			$this->user = User::getUserById($userId);
 			$_SESSION['ID_USER'] = $this->user->id();
 		}
+
 	}
 
 	public function defaultAction($request){
@@ -34,9 +34,9 @@ class UserController extends Controller{
 		$questions = Question::getQuestionsDeQuestionnaireId($idQuestionnaire);
 		$reponses = Reponse::getReponseByIdQuestionnaire($idQuestionnaire);
 		$view = new UserView($this, 'questionsEtreponses',
-				array('user' => $this->user, 
-					'questions' => $questions, 
-					'reponses' => $reponses));
+			array('user' => $this->user, 
+				'questions' => $questions, 
+				'reponses' => $reponses));
 		$view->render();
 	}
 

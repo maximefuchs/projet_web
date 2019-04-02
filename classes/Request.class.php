@@ -48,6 +48,7 @@ class Request {
 	function writePost($code, $value){
 		$_POST[$code] = $value;
 	}
+
 }
 
 

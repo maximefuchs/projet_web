@@ -18,8 +18,7 @@ IMG.displayed {
 	margin-right: auto 
 }
 .compteur{
-	background-color: var(--yellow-color);
-	border-radius: 5px;
+	font-size: 25px;
 }
 
 

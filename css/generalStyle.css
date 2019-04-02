@@ -19,6 +19,9 @@ html, body{
 	margin: 0;
 	padding: 0;
 }
+#body{
+	background-color: transparent;
+}
 html{
 	font-family: Helvetica, sans-serif;
 	background: url("https://images.pexels.com/photos/593158/pexels-photo-593158.jpeg?cs=srgb&dl=abstract-architecture-building-exterior-593158.jpg&fm=jpg");
@@ -105,6 +108,7 @@ header{
 	overflow-x: hidden;
 	transition: 0.5s;
 	padding-top: 60px;
+	padding-inline-start: 0;
 }
 .menu a{
 	text-decoration: none;
