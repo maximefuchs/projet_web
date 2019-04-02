@@ -4,7 +4,6 @@
   //Gestion des erreurs dans le validateQuestionnaire à faire...
   // if(isset($args['questaireErrorText']))
   // 	echo '<span class="error">' . $args['questaireErrorText'] . '</span>';
-  $user = $args['user'];
   $type= $args['type'];
   ?>
   <form action="index.php" method="post">
@@ -95,6 +94,9 @@
 <button type="button" class="btn btn-success Assignementbtn" value="add new Assignement" style="display:none;">+</button>
   </form>
 </div>
+
+
+
 <script type="text/javascript">
 var nbreponsesQCM=1;
 var nbreponsesQCU=1;

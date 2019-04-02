@@ -5,7 +5,7 @@
 	// if(isset($args['questaireErrorText']))
 	// 	echo '<span class="error">' . $args['questaireErrorText'] . '</span>';
 	if(isset($args['dateErrorText']))
-	echo '<span class="error">' . $args['dateErrorText'] . '</span>';
+		echo '<span class="error">' . $args['dateErrorText'] . '</span>';
 	$user = $args['user'];
 	$promos= $args['promos'];
 	?>
@@ -73,6 +73,9 @@
 					<label for="inputFermeture">Fermeture</label>
 				</div>
 			</div>
+			<?php 
+			date_default_timezone_set('Europe/Paris'); 
+			?>
 			<div class="form-row">
 				<label for="inputOuverture" class="col-sm-2 col-form-label">Date</label>
 				<div class="col-sm-5">
