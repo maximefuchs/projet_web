@@ -3,7 +3,7 @@
 Model::addSqlQuery('QUESTION_LIST',
 	'SELECT * FROM '.Question::$table_name.' ORDER BY '.Question::$colTag);
 
-Model::addSqlQuery('QUESTION_TYPE',
+Model::addSqlQuery('QUESTION_TYPES',
 		'SELECT DISTINCT '.Question::$colType.' FROM '.Question::$table_name);
 
 Model::addSqlQuery('QUESTION_CREATE',

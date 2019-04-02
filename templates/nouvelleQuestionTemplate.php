@@ -1,4 +1,4 @@
-<div class="newQuestionnaire">
+<div class="newQuestion">
 
   <?php
   //Gestion des erreurs dans le validateQuestionnaire à faire...
@@ -80,7 +80,7 @@
         <input type="text" id="inputReponse" name="Assignement_1_2" class="form-control" required>
       </div>
       <div class="col-sm-1">
-      <label for"icon"></label>
+      <label for="icon"></label>
         <h3 id="icon">&#10234;</h3>
       </div>
       <div class="col-sm-5">
