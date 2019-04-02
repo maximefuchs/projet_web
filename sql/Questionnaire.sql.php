@@ -16,7 +16,8 @@ Model::addSqlQuery('GET_QUESTIONNAIRES_BY_ETUDIANT',
 	'SELECT * FROM '.Questionnaire::$table_name.' WHERE
 	('.Questionnaire::$colPromo.'=:promo AND '.Questionnaire::$colTD.' IS NULL AND '.Questionnaire::$colGroupe.' IS NULL)
 	OR ('.Questionnaire::$colPromo.'=:promo AND '.Questionnaire::$colTD.'=:td)
-	OR ('.Questionnaire::$colPromo.'=:promo AND '.Questionnaire::$colGroupe.'=:groupe)');
+	OR ('.Questionnaire::$colPromo.'=:promo AND '.Questionnaire::$colGroupe.'=:groupe)
+	OR ('.Questionnaire::$colPromo.' IS NULL AND '.Questionnaire::$colTD.' IS NULL AND '.Questionnaire::$colGroupe.' IS NULL)');
 
 Model::addSqlQuery('UPDATE_ETAT_QUESTIONNAIRES',
 'UPDATE '.Questionnaire::$table_name.' SET '.Questionnaire::$colEtat.' = \'Terminé\' WHERE '.Questionnaire::$colDateFerm.' < NOW();'.

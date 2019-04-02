@@ -110,7 +110,7 @@ header{
 	padding-top: 60px;
 	padding-inline-start: 0;
 }
-.menu a{
+.menu a:hover{
 	text-decoration: none;
 }
 
@@ -119,6 +119,7 @@ header{
 	font-size: 25px;
 	color: var(--blue-color);
 	display: block;
+	text-overflow: hidden;
 	transition: 0.3s;
 }
 .menu a li:hover{
@@ -139,7 +140,7 @@ header{
 	color: white;
 }
 #selected-element li{
-	background-color: var(--green-color);
+	background-color: var(--orange-color);
 }
 
 
