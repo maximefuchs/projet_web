@@ -1,6 +1,6 @@
 <th>
 	<a href=
-	<?php echo "'index.php?action=repondreQuestionnaire&idQuestionnaire=".$q->id()."'"; ?>>
+	<?php echo "'index.php?action=clickQuestionnaire&idQuestionnaire=".$q->id()."'"; ?>>
 		<div class="unQuestionnaire">
 			<div style="float: right">
 				<span><?php echo "Ouverture : ".Questionnaire::afficheDate($q->date_ouverture()); ?></span><br>
@@ -10,7 +10,7 @@
 			<h4><?php echo $q->titre(); ?></h4>
 			<p><?php echo $q->description_questionnaire(); ?></p>
 			<i>
-				Destiné à  
+				Destiné à
 				<?php
 				if(!is_null($q->promo()))
 					echo ' la promo '.$q->promo();
