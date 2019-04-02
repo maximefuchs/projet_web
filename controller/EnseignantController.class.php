@@ -66,7 +66,7 @@ class EnseignantController extends UserController{
 		// 	$view->setArg('questaireErrorText', 'Impossible de finaliser la création du questionnaire');
 		// 	$view->render();
 		// } else {
-		$view = new UserView($this, 'nouvelleQuestion', array('user' => $this->user, 'type'=>self::$type_question));
+		$view = new UserView($this, 'nouvelleQuestionbis', array('user' => $this->user, 'type'=>self::$type_question));
 		$view->render();
 		// }
 	}
