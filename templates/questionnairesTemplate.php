@@ -7,6 +7,7 @@
     <tbody>
       <tr>
         <?php $questionnaires = $args['questionnaires'];
+        $user=$args['user'];
         $compteur = 0;
         foreach ($questionnaires as $q)
         {

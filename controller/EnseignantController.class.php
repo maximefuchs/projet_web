@@ -92,6 +92,10 @@ class EnseignantController extends UserController{
 		// }
 	}
 
+	public function clickQuestionnaireAction($request){
+		$view = new UserView($this, 'modifQuestionnaire', array('user' => $this->user));
+		$view->render();
+	}
 
 }
 
