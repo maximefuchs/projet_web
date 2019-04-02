@@ -12,7 +12,6 @@
       <table>
         <tr>
           <td><h2>Nouvelle Question</h2></td>
-          <td><input type="submit" value="Créer" style="width:70%"/></td>
         </tr>
       </table>
     </div>
@@ -75,6 +74,21 @@
     </div>
   </div>
   <div class="Assignement" style="display:none;">
+    <div class="form-row">
+      <div class="col-sm-5">
+        <label for="inputReponse">Réponse</label>
+        <input type="text" id="inputReponse" name="Reponse1" class="form-control" required>
+      </div>
+      <div class="col-sm-1">
+      <label for"icon"></label>
+        <h3 id="icon">&#10234;</h3>
+      </div>
+      <div class="col-sm-5">
+        <label for="inputReponse">Réponse</label>
+        <input type="text" id="inputReponse" name="Reponse1" class="form-control" required>
+      </div>
+      <button type="button" class="close">&times;</button>
+    </div>
   </div>
 <button type="button" class="btn btn-success QCMbtn" value="add new QCM" style="">+</button>
 <button type="button" class="btn btn-success QCUbtn" value="add new QCU" style="display:none;" >+</button>
@@ -87,13 +101,13 @@ var nbreponsesQCU=1;
 var nbreponsesAssignement=1;
 
 function addReponsesQCM($elem){
-  $elem.append($('<div class=\"form-row\"><div class=\"col-sm-9\"><label for=\"inputReponse\">Réponse</label><input type=\"text\" id=\"inputReponse\" name=\"Reponse'+nbreponsesQCM+'\" class=\"form-control\" required></div><div class=\"form-check col-sm-2\"><label for=\"inputEstJuste\">Est Juste</label><br><input type=\"checkbox\" class=\"form-check-input\" id=\"inputEstJuste\" name=\"EstJuste'+nbreponsesQCM+'\" required></div><button type=\"button\" class=\"close\">&times;</button></div>'));
+  $elem.append($('<div class=\"form-row\"><div class=\"col-sm-9\"><label for=\"inputReponse\">Réponse</label><input type=\"text\" id=\"inputReponse\" name=\"QCM_'+nbreponsesQCM+'\" class=\"form-control\" required></div><div class=\"form-check col-sm-2\"><label for=\"inputEstJuste\">Est Juste</label><br><input type=\"checkbox\" class=\"form-check-input\" id=\"inputEstJuste\" name=\"EstJusteQCM_'+nbreponsesQCM+'\" required></div><button type=\"button\" class=\"close\">&times;</button></div>'));
 }
 function addReponsesQCU($elem){
-$elem.append($('<div class=\"form-row\"><div class=\"col-sm-9\"><label for=\"inputReponse\">Réponse</label><input type=\"text\" id=\"inputReponse\" name=\"Reponse'+nbreponsesQCU+'\" class=\"form-control\" required></div><div class=\"form-check col-sm-2\"><label for=\"inputEstJuste\">Est Juste</label><br><input type=\"radio\" class=\"form-check-input\" id=\"inputEstJuste\" name=\"EstJuste\" required></div><button type=\"button\" class=\"close\">&times;</button></div>'));
+$elem.append($('<div class=\"form-row\"><div class=\"col-sm-9\"><label for=\"inputReponse\">Réponse</label><input type=\"text\" id=\"inputReponse\" name=\"QCU_'+nbreponsesQCU+'\" class=\"form-control\" required></div><div class=\"form-check col-sm-2\"><label for=\"inputEstJuste\">Est Juste</label><br><input type=\"radio\" class=\"form-check-input\" id=\"inputEstJuste\" name=\"EstJusteQCU\" required></div><button type=\"button\" class=\"close\">&times;</button></div>'));
 }
 function addReponsesAssignement($elem){
-$elem.append($('<div class=\"form-row\"><div class=\"col-sm-9\"><label for=\"inputReponse\">Réponse</label><input type=\"text\" id=\"inputReponse\" name=\"Reponse'+nbreponsesAssignement+'\" class=\"form-control\" required></div><div class=\"form-check col-sm-2\"><label for=\"inputEstJuste\">Est Juste</label><br><input type=\"radio\" class=\"form-check-input\" id=\"inputEstJuste\" name=\"EstJuste\" required></div><button type=\"button\" class=\"close\">&times;</button></div>'));
+$elem.append($('<div class=\"form-row\"><div class=\"col-sm-5\"><label for=\"inputReponse\">Réponse</label><input type=\"text\" id=\"inputReponse\" name=\"Assignement_'+nbreponsesAssignement+'_1\" class=\"form-control\" required></div><div class=\"col-sm-1\"><label for\"icon\"></label><h3 id=\"icon\">&#10234;</h3></div><div class=\"col-sm-5\"><label for=\"inputReponse\">Réponse</label><input type=\"text\" id=\"inputReponse\" name=\"Assignement_'+nbreponsesAssignement+'_2\" class=\"form-control\" required></div><button type=\"button\" class=\"close\">&times;</button></div>'));
 }
 
 function changeType(){

@@ -76,28 +76,21 @@
 			<div class="form-row">
 				<label for="inputOuverture" class="col-sm-2 col-form-label">Date</label>
 				<div class="col-sm-5">
-					<input type="date" name="date_ouverture" class="form-control" id="inputOuverture" placeholder="Date ouverture" >
+					<input type="date" name="date_ouverture" class="form-control" id="inputOuverture" placeholder="Date ouverture" value="<?php echo date('Y-m-d'); ?>" />
 				</div>
 				<div class="col-sm-5">
-					<input type="date" name="date_fermeture" class="form-control" id="inputFermeture" placeholder="Date fermeture" >
+					<input type="date" name="date_fermeture" class="form-control" id="inputFermeture" placeholder="Date fermeture" value="<?php echo date('Y-m-d'); ?>" />
 				</div>
 			</div>
 			<div class="form-row">
 				<label for="inputOuverture" class="col-sm-2 col-form-label">Heure</label>
 				<div class="col-sm-5">
-					<input type="time" name="time_ouverture" class="form-control" id="inputOuverture" placeholder="Heure ouverture">
+					<input type="time" name="time_ouverture" class="form-control" id="inputOuverture" placeholder="Heure ouverture" value="00:00">
 				</div>
 				<div class="col-sm-5">
-					<input type="time" name="time_fermeture" class="form-control " id="inputFermeture" placeholder="Heure fermeture">
+					<input type="time" name="time_fermeture" class="form-control " id="inputFermeture" placeholder="Heure fermeture" value="23:00">
 				</div>
 			</div>
 		</div>
 	</form>
 </div>
-<!-- <script type="text/javascript">
-//auto expand textarea
-function adjust_textarea(h) {
-h.style.height = "20px";
-h.style.height = (h.scrollHeight)+"px";
-}
-</script> -->
