@@ -25,12 +25,12 @@ class AnonymousController extends Controller{
 	}
 
 	public function inscriptionAction($request){
-		$view = new InscriptionView($this, 'inscription');
+		$view = new AnonymousView($this, 'inscription');
 		$view->render();
 	}
 
 	public function connexionAction($request){
-		$view = new ConnexionView($this, 'connexion');
+		$view = new AnonymousView($this, 'connexion');
 		$view->render();
 	}
 
