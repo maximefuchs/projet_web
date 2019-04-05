@@ -3,23 +3,19 @@
   <p>&#128269;</span>Rechercher parmis les questionnaires</p>
   <input class="form-control" id="myInput" type="text" placeholder="Recherche..">
   <br>
-  <table id="myTable">
-    <tbody>
-      <tr>
-        <?php $questionnaires = $args['questionnaires'];
-        $user=$args['user'];
-        $compteur = 0;
-        foreach ($questionnaires as $q)
-        {
-          require('questionnaireTemplate.php');
-          $compteur++;
-          if($compteur%2==0){
-            echo "</tr><tr>";
-          }
+  <div class="row justify-content-around">
+      <?php $questionnaires = $args['questionnaires'];
+      $user=$args['user'];
+      $compteur = 0;
+      foreach ($questionnaires as $q)
+      {
+        require('questionnaireTemplate.php');
+        $compteur++;
+        if($compteur%2==0){
+          echo "</div><br><div class='row justify-content-around'>";
         }
-        ?>
-      </tr>
-    </tbody>
+      }
+      ?>
   </div>
   <script>
     $(document).ready(function(){

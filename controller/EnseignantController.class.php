@@ -32,6 +32,19 @@ class EnseignantController extends UserController{
 		$view->render();
 	}
 
+	public function modifierQuestionnaireAction($request){
+		$view = new UserView($this, 'todo', array('user' => $this->user));
+		$view->render();
+	}
+
+	public function voirResultatsQuestionnaireAction($request){
+		$resultats = User::getResultatsByQuestionnaire($request->readGet('idQuestionnaire'));
+		$view = new UserView($this, 'notesQuestionnaire', 
+			array('user' => $this->user, 
+				'resultats' => $resultats));
+		$view->render();
+	}
+
 	public function validateQuestionnaire($request){
 		$titreQ = $request->readPost('titreQuestaire');
 		$descriptionQ = $request->readPost('descripQuestaire');
@@ -92,9 +105,10 @@ class EnseignantController extends UserController{
 		// }
 	}
 
-	public function clickQuestionnaireAction($request){
-		$view = new UserView($this, 'modifQuestionnaire', array('user' => $this->user));
-		$view->render();
+	public function resultatsAction($request){
+		// remplir les variables que l'on transmet
+//		$view = new UserView($this, 'resulatsQuestionnaires', );
+		$view ->render();
 	}
 
 }

@@ -2,7 +2,7 @@
 
 class User extends Model{
 
-	static $table_name = 'USER';
+	static $table_name = 'user';
 	// utilisation de variable pour éviter d'avoir à changer plusieurs fois si on
 	// change le nom d'une colonne
 	static $colId = 'ID_USER';
@@ -18,6 +18,8 @@ class User extends Model{
 	static $colPromo = 'PROMO';
 	static $colTD = 'TD';
 	static $colGroupe = 'GROUPE';
+// pour la récuperation des notes pour un questionnaire
+	static $colNote = 'NOTE';
 
 	//getters
 	public function id() { return $this->props[self::$colId]; }
@@ -40,6 +42,8 @@ class User extends Model{
 	public function promo() { return $this->props[self::$colPromo]; }
 	public function td() { return $this->props[self::$colTD]; }
 	public function grp_demiPromo() { return $this->props[self::$colGroupe]; }
+	
+	public function note() { return $this->props[self::$colNote]; }
 
 
 
@@ -110,5 +114,11 @@ class User extends Model{
 		$r=parent::exec('USER_GET_ALL_PROMO');
 		return $r->fetchAll();
 	}
+
+	public static function getResultatsByQuestionnaire($idQuestionnaire){
+		$r = parent::exec('GET_RESULTATS_BY_QUESTIONNAIRE', array('id_questionnaire' => $idQuestionnaire));
+		return $r->fetchAll();
+	}
+
 }
-	?>
+?>

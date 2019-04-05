@@ -2,7 +2,7 @@
 
 class RelieeA extends Model {
 
-	static $table_name = 'RELIEE_A';
+	static $table_name = 'reliee_a';
 	// utilisation de variable pour éviter d'avoir à changer plusieurs fois si on
 	// change le nom d'une colonne
 	static $colIdRepProp = 'ID_REPONSESP';

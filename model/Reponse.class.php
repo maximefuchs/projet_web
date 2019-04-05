@@ -2,7 +2,7 @@
 
 class Reponse extends Model{
 
-	static $table_name = 'REPONSE_PROPOSEE';
+	static $table_name = 'reponse_proposee';
 
 	static $colId = 'ID_REPONSESP';
 	static $colIdQuestion = 'ID_QUESTION';

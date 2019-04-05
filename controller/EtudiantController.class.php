@@ -15,7 +15,8 @@ class EtudiantController extends UserController{
 		$view->render();
 	}
 
-	public function clickQuestionnaireAction($request){
+
+	public function repondreQuestionnaireAction($request){
 		$idQuestionnaire = $request->readGet('idQuestionnaire');
 		$aParticipe = Questionnaire::aParticipe($this->user->id(), $idQuestionnaire);
 		if($aParticipe != false){ 
@@ -26,7 +27,7 @@ class EtudiantController extends UserController{
 		} else {
 			$questions = Question::getQuestionsDeQuestionnaireId($idQuestionnaire);
 			$reponses = Reponse::getReponseByIdQuestionnaire($idQuestionnaire);
-			$view = new UserView($this, 'clickQuestionnaire', 
+			$view = new UserView($this, 'repondreQuestionnaire', 
 				array('user' => $this->user, 
 					'questions' => $questions, 
 					'reponses' => $reponses,
@@ -34,6 +35,11 @@ class EtudiantController extends UserController{
 				));
 			$view->render();
 		}
+	}
+
+	public function resultatUserQuestionnaireAction($request){
+		$view = new UserView($this, 'todo', array('user' => $this->user));
+		$view->render();
 	}
 
 	public function getQuByEtudiant(){

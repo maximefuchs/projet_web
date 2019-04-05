@@ -2,7 +2,7 @@
 
 class Question extends Model{
 
-	static $table_name = 'QUESTION';
+	static $table_name = 'question';
 
 	static $colId = 'ID_QUESTION';
 	static $colIdConsigne = 'ID_CONSIGNE';

@@ -1,14 +1,8 @@
-<th>
-	<a href=
-	<?php echo "'index.php?action=clickQuestionnaire&idQuestionnaire=".$q->id()."'"; ?>>
-		<div class="unQuestionnaire">
-			<div style="float: right">
-				<span><?php echo "Ouverture : ".Questionnaire::afficheDate($q->date_ouverture()); ?></span><br>
-				<span><?php echo "Fermeture : ".Questionnaire::afficheDate($q->date_fermeture()); ?></span><br>
-				<span><?php echo "Etat : ".$q->etat(); ?></span>
-			</div>
+<div class="col-6">
+	<div class="unQuestionnaire">
+		<div class="separtionDansQuesitonnaire">
 			<h4><?php echo $q->titre(); ?></h4>
-			<p><?php echo $q->description_questionnaire(); ?></p>
+			<span><?php echo $q->description_questionnaire(); ?></span><br>
 			<i>
 				Destiné à
 				<?php
@@ -23,5 +17,17 @@
 				?>
 			</i>
 		</div>
-	</a>
-</th>
+		<div class="separtionDansQuesitonnaire">
+			<span><?php echo "Ouverture : ".Questionnaire::afficheDate($q->date_ouverture()); ?></span><br>
+			<span><?php echo "Fermeture : ".Questionnaire::afficheDate($q->date_fermeture()); ?></span><br>
+			<span><?php echo "Etat : ".$q->etat(); ?></span>
+		</div>
+		<div style="padding: 10px;">
+			<?php 
+			$role = $this->args['user']->getRole();
+			if($role == 'Etudiant' || $role == 'Enseignant' )
+				require("optionQuestionnaire".$role.".php");
+			?>
+		</div>
+	</div>
+</div>

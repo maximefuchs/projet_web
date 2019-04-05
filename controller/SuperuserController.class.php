@@ -77,10 +77,5 @@ class SuperuserController extends UserController{
 		$view->render();
 	}
 
-	public function clickQuestionnaireAction($request){
-		$view = new SuperUserView($this, 'vousEtesSuper', array('user' => $this->user));
-		$view->render();
-	}
-
 }
  ?>
