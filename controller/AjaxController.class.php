@@ -9,7 +9,8 @@ class AjaxController extends Controller{
 	public function defaultAction($request){}
 
 	public function questionNewAction($request){
-		$view = new AjaxView($this, 'nouvelleQuestion', array('type'=>Question::getTypes()));
+		$num = $request->readGet('num');
+		$view = new AjaxView($this, 'nouvelleQuestion', array('types'=>Question::getTypes(), 'num' => $num));
 		$view->render();
 	}
 

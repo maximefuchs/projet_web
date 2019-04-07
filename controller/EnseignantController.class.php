@@ -4,7 +4,7 @@ class EnseignantController extends UserController{
 
 	static $questionnaires;
 	static $promos;
-	static $type_question;
+	static $types_question;
 
 	public function __construct($request){
 		parent::__construct($request);
@@ -19,7 +19,7 @@ class EnseignantController extends UserController{
 
 		self::$questionnaires = Questionnaire::getQuestionnairesByUserId($this->user->id());
 		self::$promos=User::getAllPromo();
-		self::$type_question=Question::getTypes();
+		self::$types_question=Question::getTypes();
 
 	}
 
@@ -72,14 +72,19 @@ class EnseignantController extends UserController{
 				}
 			}
 		}
-		$_SESSION['id_questionnaire']=DatabasePDO::getPDO()->lastInsertId();
+		$idQuestionnaire = DatabasePDO::getPDO()->lastInsertId();
+		$_SESSION['id_questionnaire']=$idQuestionnaire;
 		// var_dump("questionnaireeeeeee=",self::$id_questaire);
 		// if(!$questionnaire) {
 		// 	$view = new UserView($this,'nouveauQuestionnaire');
 		// 	$view->setArg('questaireErrorText', 'Impossible de finaliser la création du questionnaire');
 		// 	$view->render();
 		// } else {
-		$view = new UserView($this, 'remplirQuestion', array('user' => $this->user, 'type'=>self::$type_question));
+		$view = new UserView($this, 'remplirQuestion', 
+			array('user' => $this->user, 
+				'types'=>self::$types_question,
+				'idQuestionnaire' => $idQuestionnaire,
+				'num' => 1));
 		$view->render();
 		// }
 	}
@@ -100,7 +105,7 @@ class EnseignantController extends UserController{
 		// var_dump($question);
 		$id_question=DatabasePDO::getPDO()->lastInsertId();
 		Question::associerQuestionQuestionnaire($_SESSION['id_questionnaire'],$id_question);
-		$view = new UserView($this, 'nouvelleQuestion', array('user' => $this->user, 'type'=>self::$type_question));
+		$view = new UserView($this, 'nouvelleQuestion', array('user' => $this->user, 'types'=>self::$types_question));
 		$view->render();
 		// }
 	}

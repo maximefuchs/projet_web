@@ -186,21 +186,3 @@ header{
 .content .panel-body{
 	color: black;
 }
-.content input,
-.content textarea,
-.content table{
-	margin: 5px 0;
-	resize: none;
-	width: 100%;
-}
-.content input[type=submit]{
-	padding: 5px;
-	color: white;
-	background-color: transparent;
-	border: 1px solid white;
-	transition: background-color 0.3s;
-}
-.content input[type=submit]:hover{
-	color: black;
-	background-color: white;
-}
