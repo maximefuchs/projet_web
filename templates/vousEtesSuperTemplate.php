@@ -1,1 +1,0 @@
-<p>Vous êtes super utilisateur. Vous ne pouvez pas accéder à cette fonctionnalité.</p>

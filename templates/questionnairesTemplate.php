@@ -3,7 +3,8 @@
   <p>&#128269;</span>Rechercher parmis les questionnaires</p>
   <input class="form-control" id="myInput" type="text" placeholder="Recherche..">
   <br>
-  <div class="row justify-content-around">
+  <div id="mesQuestionnaires">
+    <div class="row justify-content-around">
       <?php $questionnaires = $args['questionnaires'];
       $user=$args['user'];
       $compteur = 0;
@@ -16,13 +17,14 @@
         }
       }
       ?>
+    </div>
   </div>
   <script>
     $(document).ready(function(){
       $("#myInput").on("keyup", function() {
         var value = $(this).val().toLowerCase();
 
-        $("#myTable th").filter(function() {
+        $("#mesQuestionnaires .unQuestionnaire").filter(function() {
           $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
         });
       });

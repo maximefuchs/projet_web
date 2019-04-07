@@ -1,0 +1,1 @@
+<p><?php echo $this->args['errorText']; ?></p>

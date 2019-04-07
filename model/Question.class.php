@@ -20,6 +20,9 @@ class Question extends Model{
 	public function nombre_reponses() { return $this->props[self::$colNbRep]; }
 	public function description_question() { return $this->props[self::$colDesQu]; }
 
+// getters pour des queries selectionnant également d'autres champs
+	public function estJuste() { return $this->props['EST_JUSTE_C'];}
+
 	public function __construct(){
 		parent::__construct();
 	}
@@ -60,6 +63,12 @@ class Question extends Model{
 	}
 	public static function associerQuestionQuestionnaire($id_questionnaire, $id_question){
 		parent::exec('ASSOCIER_QUESTIONS_QUESTIONNAIRE', array(':QuestionId'=>$id_question,':QuestionnaireId'=>$id_questionnaire));
+	}
+
+	public static function getResultatUserQuestionnaire($idUser, $idQuestionnaire){
+		$r = parent::exec('GET_RESULTAT_USER_QUESTIONNAIRE',
+			array(':idQuestionnaire' => $idQuestionnaire, ':idUser' => $idUser));
+		return $r->fetchAll();
 	}
 }
 

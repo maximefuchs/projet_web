@@ -17,7 +17,7 @@
         <th>Groupe</th>
         <th>TD</th>
 				<th>Matricule</th>
-        <th>Interne/Externe</th>
+        <th>Interne / Externe</th>
         <th>Matière enseignée</th>
       </tr>
     </thead>

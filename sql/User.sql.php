@@ -26,9 +26,10 @@ Model::addSqlQuery('USER_GET_ALL_PROMO',
 Model::addSqlQuery('GET_RESULTATS_BY_QUESTIONNAIRE',
 	'SELECT u.'.User::$colNom.', u.'.User::$colPrenom.', SUM(rc.EST_JUSTE_C) '.User::$colNote.'
 	FROM '.User::$table_name.' u
-	JOIN reponse_choisie rc ON u.'.User::$colId.' = rc.'.User::$colId.'
-	JOIN est_compose ec ON rc.'.Question::$colId.' = ec.'.Question::$colId.'
-	WHERE ec.'.Questionnaire::$colId.' = :id_questionnaire
-	GROUP BY rc.'.User::$colId);
+	JOIN reponse_choisie rc ON u.'.User::$colId.' = rc.'.User::$colId.
+	'	JOIN est_compose ec ON rc.'.Question::$colId.' = ec.'.Question::$colId.
+	'	WHERE ec.'.Questionnaire::$colId.' = :id_questionnaire
+	GROUP BY rc.'.User::$colId.
+	' ORDER BY '.User::$colNote.' DESC');
 
 ?>

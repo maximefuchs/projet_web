@@ -1,7 +1,7 @@
 <div class="col-6">
 	<div class="unQuestionnaire">
 		<div class="separtionDansQuesitonnaire">
-			<h4><?php echo $q->titre(); ?></h4>
+			<span><h4><?php echo $q->titre(); ?></h4></span>
 			<span><?php echo $q->description_questionnaire(); ?></span><br>
 			<i>
 				Destiné à
@@ -20,7 +20,7 @@
 		<div class="separtionDansQuesitonnaire">
 			<span><?php echo "Ouverture : ".Questionnaire::afficheDate($q->date_ouverture()); ?></span><br>
 			<span><?php echo "Fermeture : ".Questionnaire::afficheDate($q->date_fermeture()); ?></span><br>
-			<span><?php echo "Etat : ".$q->etat(); ?></span>
+			<span>Etat : <b id=<?php echo "'etat".$q->id()."'"; ?>><?php echo $q->etat(); ?></b></span>
 		</div>
 		<div style="padding: 10px;">
 			<?php 

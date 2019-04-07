@@ -1,1 +1,0 @@
-<p>Vous avez déjà répondu à ce questionnaire.</p>

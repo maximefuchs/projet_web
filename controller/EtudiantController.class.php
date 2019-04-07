@@ -22,8 +22,8 @@ class EtudiantController extends UserController{
 		if($aParticipe != false){ 
 			// false si le user n'a pas encore repondu
 			// donc si pas de false, cela signifie qu'il y a un élément et donc que l'utilisateur a déjà répondu
-			$view = new UserView($this, 'dejaRepondu', array('user' => $this->user));
-			$view->render();
+			$view = new UserView($this, 'error', 
+				array('user' => $this->user, 'errorText' => 'Vous avez déjà répondu à ce questionnaire.'));
 		} else {
 			$questions = Question::getQuestionsDeQuestionnaireId($idQuestionnaire);
 			$reponses = Reponse::getReponseByIdQuestionnaire($idQuestionnaire);
@@ -33,12 +33,18 @@ class EtudiantController extends UserController{
 					'reponses' => $reponses,
 					'idQu' => $idQuestionnaire
 				));
-			$view->render();
 		}
+		$view->render();
 	}
 
 	public function resultatUserQuestionnaireAction($request){
-		$view = new UserView($this, 'todo', array('user' => $this->user));
+		$res = Question::getResultatUserQuestionnaire($this->user->id(), $request->readGet('idQuestionnaire'));
+		if(sizeof($res) == 0){
+			$view = new UserView($this, 'error', 
+				array('user' => $this->user, 'errorText' => "Vous n'avez pas répondu à ce questionnaire."));
+		} else {
+			$view = new UserView($this, 'resUnQuestionnaire', array('user' => $this->user, 'res' => $res));
+		}
 		$view->render();
 	}
 
