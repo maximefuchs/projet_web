@@ -1,4 +1,4 @@
-<form action="index.php" method="post">
+<form action="index.php?action=resultatUserQuestionnaire&idQuestionnaire=<?php echo $args['idQu']; ?>" method="post">
 
 	<?php 
 	$questions = $this->args['questions'];

@@ -128,6 +128,11 @@ class Questionnaire extends Model{
 		return $q->fetch();
 	}
 
+// on ne supprime que le questionnaire. On garde les questions.
+	public static function supprimer($idQuestionnaire){
+		parent::exec('DELETE_QUESTIONNAIRE', array(':idQuestionnaire' => $idQuestionnaire));
+	}
+
 
 }
 

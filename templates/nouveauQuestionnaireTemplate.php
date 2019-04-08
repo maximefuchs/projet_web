@@ -10,11 +10,11 @@
 	$promos= $args['promos'];
 	?>
 	<form action="index.php" method="post">
-		<div class="entete">
-			<table>
+		<div>
+			<table class="table">
 				<tr>
 					<td><h2>Nouveau Questionnaire</h2></td>
-					<td><input type="submit" value="Créer" /></td>
+					<td><input class="btn btn-light" type="submit" value="Créer"></td>
 				</tr>
 			</table>
 		</div>
@@ -55,10 +55,10 @@
 			</div>
 			<div class="form-group allprom" style="display: none;">
 				<div class="form-check">
-					<label class="form-check-label" for="allPromos">
-						Toute le promo
-					</label>
-					<input class="form-check-input" name="tous" type="checkbox" id="allPromos" onclick="pourToutePromo();">
+						<label class="form-check-label" for="allPromos">
+							Toute la promo
+						</label>
+						<input name="tous" type="checkbox" id="allPromos" onclick="pourToutePromo();">
 				</div>
 			</div>
 		</div>

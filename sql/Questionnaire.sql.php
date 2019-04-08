@@ -36,4 +36,8 @@ Model::addSqlQuery('USER_A_PARTICIPE_QUESTIONNAIRE',
 	Q.'.Questionnaire::$colId.' = P.'.Questionnaire::$colId.
 	' WHERE P.'.User::$colId.' = :idUser AND Q.'.Questionnaire::$colId.' = :idQuestionnaire');
 
+Model::addSqlQuery('DELETE_QUESTIONNAIRE',
+	'DELETE FROM est_compose WHERE  est_compose.'.Questionnaire::$colId.' = :idQuestionnaire ;
+	DELETE FROM participe WHERE participe.'.Questionnaire::$colId.' = :idQuestionnaire ;
+	DELETE FROM '.Questionnaire::$table_name.' WHERE '.Questionnaire::$colId.' = :idQuestionnaire');
 	?>

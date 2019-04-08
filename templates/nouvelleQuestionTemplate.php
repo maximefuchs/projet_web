@@ -21,8 +21,7 @@
         <select name="TypeQuestion<?php echo "__".$num; ?>" class="form-control" id="inputType<?php echo "__".$num; ?>" onchange="changeType(this, <?php echo $num; ?>);">
           <?php  foreach ($types as $t)
           {
-            $typ=$t->type();
-            echo "<option value=\"$typ\">$typ</option>";
+            echo "<option value=\"$t\">$t</option>";
           }
           ?>
         </select>

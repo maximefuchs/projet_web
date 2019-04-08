@@ -2,8 +2,6 @@
 
 class EnseignantController extends UserController{
 
-	static $questionnaires;
-	static $promos;
 	static $types_question;
 
 	public function __construct($request){
@@ -16,23 +14,30 @@ class EnseignantController extends UserController{
 			$this->methodName = "validateQuestion";
 		}
 
-
-		self::$questionnaires = Questionnaire::getQuestionnairesByUserId($this->user->id());
-		self::$promos=User::getAllPromo();
-		self::$types_question=Question::getTypes();
+		// self::$types_question=Question::getTypes();
+		self::$types_question=array('QCM', 'QCU', 'ASSIGNE', 'LIBRE');
 
 
 		if(isset($_POST['addQuestions'])){
 			$this->validateQuestions($request);
 		}
+
+		if(isset($_POST['suppression'])){
+			$this->supprimerQuestionnaire($request);
+		}
 	}
 
 	public function questionnairesAction($request){
-		$view = new UserView($this, 'questionnaires', array('user' => $this->user, 'questionnaires' => self::$questionnaires));
+		$questionnaires = Questionnaire::getQuestionnairesByUserId($this->user->id());
+		$view = new UserView($this, 'questionnaires', 
+			array('user' => $this->user, 
+				'questionnaires' => $questionnaires));
 		$view->render();
 	}
 	public function nouveauQuestionnaireAction($request){
-		$view = new UserView($this, 'nouveauQuestionnaire', array('user' => $this->user, 'promos'=>self::$promos));
+		$view = new UserView($this, 'nouveauQuestionnaire', 
+			array('user' => $this->user, 
+				'promos' => User::getAllPromo()));
 		$view->render();
 	}
 
@@ -124,7 +129,7 @@ class EnseignantController extends UserController{
 			$consigne = 1;
 
 			$rep = $this->recuperReponse($num, $type);
-			var_dump($rep);
+			// var_dump($rep);
 
 			$NbReponses = $rep['NbReponses'];
 			Question::create($consigne, $tag, $type, $NbReponses, $description);
@@ -222,6 +227,11 @@ class EnseignantController extends UserController{
 			}
 			break;
 		}
+	}
+
+	public function supprimerQuestionnaire($request){
+		$idQuestionnaire = $request->readPost('idQuestionnaire');
+		Questionnaire::supprimer($idQuestionnaire);
 	}
 
 

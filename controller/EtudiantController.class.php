@@ -19,12 +19,17 @@ class EtudiantController extends UserController{
 	public function repondreQuestionnaireAction($request){
 		$idQuestionnaire = $request->readGet('idQuestionnaire');
 		$aParticipe = Questionnaire::aParticipe($this->user->id(), $idQuestionnaire);
-		if($aParticipe != false){ 
+		$q = Questionnaire::getQuestionnaireById($idQuestionnaire);
+		if($q->etat() != 'En cours'){ 
+			// sécurité
+			$view = new UserView($this, 'error', 
+				array('user' => $this->user, 'errorText' => 'Etat de ce questionnaire : '.$q->etat()));
+		} elseif ($aParticipe != false) {
 			// false si le user n'a pas encore repondu
 			// donc si pas de false, cela signifie qu'il y a un élément et donc que l'utilisateur a déjà répondu
 			$view = new UserView($this, 'error', 
 				array('user' => $this->user, 'errorText' => 'Vous avez déjà répondu à ce questionnaire.'));
-		} else {
+		}	else {
 			$questions = Question::getQuestionsDeQuestionnaireId($idQuestionnaire);
 			$reponses = Reponse::getReponseByIdQuestionnaire($idQuestionnaire);
 			$view = new UserView($this, 'repondreQuestionnaire', 
