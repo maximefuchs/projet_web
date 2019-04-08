@@ -175,7 +175,7 @@ class EnseignantController extends UserController{
 				if($type == 'QCM')
 					$estJuste = isset($_POST['EstJuste'.$type.'_'.$c.'__'.$num]);
 				else
-					$estJuste = isset($_POST['EstJuste'.$type.'__'.$num]);					
+					$estJuste = ($_POST['EstJuste'.$type.'__'.$num] == $c);					
 				array_push($sontJustes, $estJuste);
 				$c++;
 			}
@@ -199,11 +199,13 @@ class EnseignantController extends UserController{
 			$ASSIGNE = $rep['ASSIGNE'];
 			$ASSIGNE_G = $ASSIGNE['ASSIGNE_G'];
 			$ASSIGNE_D = $ASSIGNE['ASSIGNE_D'];
-			for($i=0;i<sizeof($ASSIGNE_G);$i++){
+			for($i=0;$i<sizeof($ASSIGNE_G);$i++){
 				Reponse::create($idQuestion, 1, 0, $ASSIGNE_G[$i]);
+				$id_rG=DatabasePDO::getPDO()->lastInsertId();
 				Reponse::create($idQuestion, 1, 1, $ASSIGNE_D[$i]);
+				$id_rD=DatabasePDO::getPDO()->lastInsertId();
 
-						// REMPLIR LA TABLE RELIEE A 
+				Reponse::addInRelieeA($id_rG, $id_rD);
 			}
 			break;
 			

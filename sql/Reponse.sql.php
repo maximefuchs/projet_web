@@ -19,6 +19,9 @@ Model::addSqlQuery('GET_COUPLE_REPONSES_BY_IDQUESTION',
 	'SELECT RA.* FROM '.RelieeA::$table_name.' RA JOIN '.Reponse::$table_name.' RP ON RA.'.RelieeA::$colIdRepProp.' = RP.'.RelieeA::$colIdRepProp.' JOIN '.Question::$table_name.' Q ON RP.'.Question::$colId.' = Q.'.Question::$colId.' WHERE Q.'.Question::$colId.' = :id_question');
 
 Model::addSqlQuery('SET_REP_QUESTION_FOR_USER',
-	'INSERT INTO REPONSE_CHOISIE (ID_REPONSEC, ID_USER, ID_QUESTION, EST_JUSTE_C) VALUES (NULL, :idUser, :idQuestion, :estJuste)');
+	'INSERT INTO reponse_choisie (ID_REPONSEC, ID_USER, ID_QUESTION, EST_JUSTE_C) VALUES (NULL, :idUser, :idQuestion, :estJuste)');
+
+Model::addSqlQuery('ADD_IN_RELIEE_A',
+	'INSERT INTO reliee_a (ID_REPONSESP, REP_ID_REPONSESP) VALUES (:id_rG, :id_rD)');
 
 ?>

@@ -62,6 +62,10 @@ class Reponse extends Model{
 		parent::exec('SET_REP_QUESTION_FOR_USER', $array);
 	}
 
+	public static function addInRelieeA($id_rG, $id_rD){
+		parent::exec('ADD_IN_RELIEE_A', array(':id_rG' => $id_rG, ':id_rD' => $id_rD));
+	}
+
 
 }
 
