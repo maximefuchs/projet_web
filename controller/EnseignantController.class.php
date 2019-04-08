@@ -21,6 +21,10 @@ class EnseignantController extends UserController{
 		self::$promos=User::getAllPromo();
 		self::$types_question=Question::getTypes();
 
+
+		if(isset($_POST['addQuestions'])){
+			$this->validateQuestions($request);
+		}
 	}
 
 	public function questionnairesAction($request){
@@ -110,11 +114,76 @@ class EnseignantController extends UserController{
 		// }
 	}
 
-	public function resultatsAction($request){
-		// remplir les variables que l'on transmet
-//		$view = new UserView($this, 'resulatsQuestionnaires', );
-		$view ->render();
+	public function validateQuestions($request){
+		$idQuestionnaire = $request->readPost('idQuestionnaire');
+		$num = 1;
+		while (isset($_POST['TypeQuestion__'.$num])) {
+			$type = $_POST['TypeQuestion__'.$num];
+			$description = $_POST['descripQuestion__'.$num];
+			$tag = $_POST['Tag__'.$num];
+			$consigne = 1;
+			
+			$rep = $this->recuperReponse($num, $type);
+			var_dump($rep);
+
+			$NbReponses = $rep['NbReponses'];
+			// Question::create($consigne, $tag, $type, $NbReponses, $description);
+			// $id_question=DatabasePDO::getPDO()->lastInsertId();
+			// Question::associerQuestionQuestionnaire($idQuestionnaire, $id_question);
+
+			$num++;
+		}
 	}
+
+	public function recuperReponse($num, $type){
+		$rep = array();
+		switch ($type) {
+			case 'LIBRE':
+			$contenu = $_POST['LIBRE__'.$num];
+			$rep['LIBRE'] = $contenu;
+			$rep['NbReponses'] = 1;
+			break;
+
+			case 'ASSIGNE':
+			$c = 1;
+			$ASSIGNE = array();
+			$ASSIGNE_G = array();
+			$ASSIGNE_D = array();
+			while(isset($_POST['ASSIGNE_'.$c.'_1__'.$num])){
+				$rG = $_POST['ASSIGNE_'.$c.'_1__'.$num];
+				array_push($ASSIGNE_G, $rG);
+				$rD = $_POST['ASSIGNE_'.$c.'_2__'.$num];
+				array_push($ASSIGNE_D, $rD);
+				$c++;
+			}
+			$ASSIGNE['ASSIGNE_G'] = $ASSIGNE_G;
+			$ASSIGNE['ASSIGNE_D'] = $ASSIGNE_D;
+			$rep['ASSIGNE'] = $ASSIGNE;
+			$rep['NbReponses'] = ($c-1)*2;
+			break;
+			
+			// QCU et QCM
+			default:
+			$c = 1;
+			$QC = array();
+			$contenuReps = array();
+			$sontJustes = array();
+			while(isset($_POST[$type.'_'.$c.'__'.$num])){
+				$contenu = $_POST[$type.'_'.$c.'__'.$num];
+				array_push($contenuReps, $contenu);
+				$estJuste = isset($_POST['EstJuste'.$type.'_'.$c.'__'.$num]);
+				array_push($sontJustes, $estJuste);
+				$c++;
+			}
+			$QC['contenuReps'] = $contenuReps;
+			$QC['sontJustes'] = $sontJustes;
+			$rep[$type] = $QC;
+			$rep['NbReponses'] = $c-1;
+			break;
+		}
+		return $rep;
+	}
+
 
 }
 

@@ -13,10 +13,14 @@
 		});
 	});
 </script>
+
+<button id="ajouterQuestion" class="btn btn-secondary sticky-top" style="z-index: 10000; top: 10px;">
+	Ajouter une question
+</button>
 <form action="index.php" method="post">
 	<section id="questionsPourQuestionnaire">
-		<button id="ajouterQuestion" class="btn btn-secondary">Ajouter une question</button>
 		<?php require("nouvelleQuestionTemplate.php"); ?>
 	</section>
+	<input type="hidden" name="idQuestionnaire" value="<?php echo $args['idQuestionnaire']; ?>">
 	<input class="btn btn-primary" type="submit" name="addQuestions" value="Valider">
 </form>
