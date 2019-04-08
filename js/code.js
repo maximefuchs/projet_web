@@ -59,9 +59,9 @@ function checkKey(e) {
 	e = e || window.event;
 	if (e.keyCode == '27') { // keycode pour esc
 		if(menuIsOpen)
-		closeNav();
+			closeNav();
 		else
-		openNav();
+			openNav();
 	}
 }
 
@@ -70,22 +70,26 @@ function SupprimerPourTD(){
 	var groupe = document.getElementsByClassName("groupe");
 	for(var i = 0; i< groupe.length; i++){
 		groupe[i].setAttribute('style','background: #ffffff;');
+		groupe[i].required = true;
 	}
 	var td = document.getElementsByClassName("td");
 	for(var i = 0; i< td.length; i++){
 		td[i].value="";
 		td[i].setAttribute('style','background: #dddddd;');
+		td[i].required = false;
 	}
 }
 function SupprimerPourGroupe(){
 	var td = document.getElementsByClassName("td");
 	for(var i = 0; i< td.length; i++){
 		td[i].setAttribute('style','background: #ffffff;');
+		td[i].required = true;
 	}
 	var groupe = document.getElementsByClassName("groupe");
 	for(var i = 0; i< groupe.length; i++){
 		groupe[i].value="";
 		groupe[i].setAttribute('style','background: #dddddd;');
+		groupe[i].required = false;
 	}
 }
 
@@ -95,17 +99,20 @@ function pourToutePromo(){
 		var groupe = document.getElementsByClassName("groupe");
 		for(var i = 0; i< groupe.length; i++){
 			groupe[i].disabled=true;
+			groupe[i].required = false;
 			groupe[i].setAttribute('style','background: #dddddd;');
 		}
 		var td = document.getElementsByClassName("td");
 		for(var i = 0; i< td.length; i++){
 			td[i].disabled=true;
+			td[i].required = false;
 			td[i].setAttribute('style','background: #dddddd;');
 		}
 	} else {
 		var groupe = document.getElementsByClassName("groupe");
 		for(var i = 0; i< groupe.length; i++){
 			groupe[i].disabled=false;
+			groupe[i].required = true;
 			groupe[i].setAttribute('style','background: #ffffff;');
 		}
 		var td = document.getElementsByClassName("td");
@@ -124,11 +131,13 @@ function disabledChamps(){
 		var groupe = document.getElementsByClassName("groupe");
 		for(var i = 0; i< groupe.length; i++){
 			groupe[i].disabled=true;
+			groupe[i].required = false;
 			groupe[i].setAttribute('style','background: #dddddd;');
 		}
 		var td = document.getElementsByClassName("td");
 		for(var i = 0; i< td.length; i++){
 			td[i].disabled=true;
+			td[i].required = false;
 			td[i].setAttribute('style','background: #dddddd;');
 		}
 		var divPromo=document.getElementsByClassName("allprom");
@@ -140,6 +149,7 @@ function disabledChamps(){
 		for(var i = 0; i< groupe.length; i++){
 			if(!pourToute){
 				groupe[i].disabled=false;
+				groupe[i].required = true;
 				groupe[i].setAttribute('style','background: #ffffff;');
 			}
 		}

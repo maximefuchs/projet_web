@@ -71,8 +71,7 @@ class EnseignantController extends UserController{
 			if($tous == 'on'){
 				$questionnaire = Questionnaire::create($consigne, $userID, $titreQ, $descriptionQ, $dateO, $heureO, $dateF,$heureF,$promo,$groupe=null,$TD=null);
 			} else {
-				$groupeTD=$request->readPost('visibilite');
-				if($groupeTD == "groupe"){
+				if($request->readPost('groupe') != ''){
 					$groupe=$request->readPost('groupe');
 					$questionnaire = Questionnaire::create($consigne, $userID, $titreQ, $descriptionQ, $dateO, $heureO, $dateF,$heureF,$promo,$groupe,$TD=null);
 				} else {

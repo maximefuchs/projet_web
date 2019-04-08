@@ -58,7 +58,8 @@
 						<label class="form-check-label" for="allPromos">
 							Toute la promo
 						</label>
-						<input name="tous" type="checkbox" id="allPromos" onclick="pourToutePromo();">
+						<input name="tous" type="hidden" id="allPromos" value="off">
+						<input name="tous" type="checkbox" id="allPromos" onclick="pourToutePromo();" value="on">
 				</div>
 			</div>
 		</div>

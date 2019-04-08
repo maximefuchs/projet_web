@@ -17,5 +17,5 @@
 	}
 	?>
 	<input type="hidden" name="idQuestionnaire" value=<?php echo "'".$this->args['idQu']."'"; ?>>
-	<input type="submit" name="ValiderReponses">
+	<input class="btn btn-light" type="submit" name="ValiderReponses">
 </form>
