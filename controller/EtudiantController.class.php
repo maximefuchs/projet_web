@@ -39,6 +39,7 @@ class EtudiantController extends UserController{
 
 	public function resultatUserQuestionnaireAction($request){
 		$res = Question::getResultatUserQuestionnaire($this->user->id(), $request->readGet('idQuestionnaire'));
+		// var_dump($res);
 		if(sizeof($res) == 0){
 			$view = new UserView($this, 'error', 
 				array('user' => $this->user, 'errorText' => "Vous n'avez pas répondu à ce questionnaire."));

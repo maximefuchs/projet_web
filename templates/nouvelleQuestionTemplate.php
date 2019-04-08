@@ -61,7 +61,7 @@
       <div class="form-check col-sm-2">
         <label for="inputEstJuste<?php echo "__".$num; ?>">Est Juste</label>
         <br>
-        <input type="radio" class="form-check-input" id="inputEstJuste<?php echo "__".$num; ?>" name="EstJusteQCU_1<?php echo "__".$num; ?>">
+        <input type="radio" class="form-check-input" id="inputEstJuste<?php echo "__".$num; ?>" name="EstJusteQCU<?php echo "__".$num; ?>">
       </div>
       <button type="button" class="close">&times;</button>
     </div>
@@ -106,7 +106,7 @@
   $elem.append($("<div class='form-row'><div class='col-sm-9'><label for='inputReponse__"+num+"'>Réponse</label><input type='text' id='inputReponse__"+num+"'' name='QCM_"+nbreponsesQCM_<?php echo $num;?>+"__"+num+"' class='form-control' required></div><div class='form-check col-sm-2'><label for='inputEstJuste__"+num+"'>Est Juste</label><br><input type='checkbox' class='form-check-input' id='inputEstJuste__"+num+"' name='EstJusteQCM_"+nbreponsesQCM_<?php echo $num;?>+"__"+num+"'></div><button type='button' class='close'>&times;</button></div>"));
 }
 function addReponsesQCU($elem){
-  $elem.append($("<div class='form-row'><div class='col-sm-9'><label for='inputReponse__"+num+"'>Réponse</label><input type='text' id='inputReponse__"+num+"' name='QCU_"+nbreponsesQCU_<?php echo $num;?>+"__"+num+"' class='form-control' required></div><div class='form-check col-sm-2'><label for='inputEstJuste__"+num+"'>Est Juste</label><br><input type='radio' class='form-check-input' id='inputEstJuste__"+num+"' name='EstJusteQCU_"+nbreponsesQCU_<?php echo $num;?>+"__"+num+"' required></div><button type='button' class='close'>&times;</button></div>"));
+  $elem.append($("<div class='form-row'><div class='col-sm-9'><label for='inputReponse__"+num+"'>Réponse</label><input type='text' id='inputReponse__"+num+"' name='QCU_"+nbreponsesQCU_<?php echo $num;?>+"__"+num+"' class='form-control' required></div><div class='form-check col-sm-2'><label for='inputEstJuste__"+num+"'>Est Juste</label><br><input type='radio' class='form-check-input' id='inputEstJuste__"+num+"' name='EstJusteQCU__"+num+"' required></div><button type='button' class='close'>&times;</button></div>"));
 }
 function addReponsesAssignement($elem){
   $elem.append($("<div class='form-row'><div class='col-sm-5'><label for='inputReponse__"+num+"'>Réponse</label><input type='text' id='inputReponse__"+num+"' name='ASSIGNE_"+nbreponsesAssignement_<?php echo $num;?>+"_1__"+num+"' class='form-control' required></div><div class='col-sm-1'><label for'icon__"+num+"'></label><h3 id='icon__"+num+"'>&#10234;</h3></div><div class='col-sm-5'><label for='inputReponse__"+num+"'>Réponse</label><input type='text' id='inputReponse__"+num+"' name='ASSIGNE_"+nbreponsesAssignement_<?php echo $num;?>+"_2__"+num+"' class='form-control' required></div><button type='button' class='close'>&times;</button></div>"));

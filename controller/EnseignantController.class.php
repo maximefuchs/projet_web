@@ -122,15 +122,16 @@ class EnseignantController extends UserController{
 			$description = $_POST['descripQuestion__'.$num];
 			$tag = $_POST['Tag__'.$num];
 			$consigne = 1;
-			
+
 			$rep = $this->recuperReponse($num, $type);
 			var_dump($rep);
 
 			$NbReponses = $rep['NbReponses'];
-			// Question::create($consigne, $tag, $type, $NbReponses, $description);
-			// $id_question=DatabasePDO::getPDO()->lastInsertId();
-			// Question::associerQuestionQuestionnaire($idQuestionnaire, $id_question);
+			Question::create($consigne, $tag, $type, $NbReponses, $description);
+			$id_question=DatabasePDO::getPDO()->lastInsertId();
+			Question::associerQuestionQuestionnaire($idQuestionnaire, $id_question);
 
+			$this->enregistrerReponses($id_question, $type, $rep);
 			$num++;
 		}
 	}
@@ -171,7 +172,10 @@ class EnseignantController extends UserController{
 			while(isset($_POST[$type.'_'.$c.'__'.$num])){
 				$contenu = $_POST[$type.'_'.$c.'__'.$num];
 				array_push($contenuReps, $contenu);
-				$estJuste = isset($_POST['EstJuste'.$type.'_'.$c.'__'.$num]);
+				if($type == 'QCM')
+					$estJuste = isset($_POST['EstJuste'.$type.'_'.$c.'__'.$num]);
+				else
+					$estJuste = isset($_POST['EstJuste'.$type.'__'.$num]);					
 				array_push($sontJustes, $estJuste);
 				$c++;
 			}
@@ -183,6 +187,42 @@ class EnseignantController extends UserController{
 		}
 		return $rep;
 	}
+
+	public function enregistrerReponses($idQuestion, $type, $rep){
+		switch ($type) {
+			case 'LIBRE':
+			$contenu =$rep['LIBRE'];
+			Reponse::create($idQuestion, 1, NULL, $contenu);
+			break;
+
+			case 'ASSIGNE':
+			$ASSIGNE = $rep['ASSIGNE'];
+			$ASSIGNE_G = $ASSIGNE['ASSIGNE_G'];
+			$ASSIGNE_D = $ASSIGNE['ASSIGNE_D'];
+			for($i=0;i<sizeof($ASSIGNE_G);$i++){
+				Reponse::create($idQuestion, 1, 0, $ASSIGNE_G[$i]);
+				Reponse::create($idQuestion, 1, 1, $ASSIGNE_D[$i]);
+
+						// REMPLIR LA TABLE RELIEE A 
+			}
+			break;
+			
+			// QCU et QCM
+			default:
+			$QC = $rep[$type];
+			$contenuReps = $QC['contenuReps'];
+			$sontJustes = $QC['sontJustes'];
+			for($i=0;$i<sizeof($contenuReps);$i++){
+				if($sontJustes[$i])
+					Reponse::create($idQuestion, 1, NULL, $contenuReps[$i]);
+				else
+					Reponse::create($idQuestion, 0, NULL, $contenuReps[$i]);
+			}
+			break;
+		}
+	}
+
+
 
 
 }

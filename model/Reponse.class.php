@@ -22,13 +22,13 @@ class Reponse extends Model{
 		parent::__construct();
 	}
 
-	// récupération de toutes les questions
+	// récupération de toutes les reponses
 	public static function getList(){
 		$reponses = parent::exec('REPONSE_LIST');
 		return $reponses->fetchAll();
 	}
 
-	// création d'une nouvelle question
+	// création d'une nouvelle reponses
 	public static function create($idQuestion, $estJuste, $colonne, $contenu){
 		$array = array(':id_question' => $idQuestion,
 			':estJuste' => $estJuste,
@@ -37,7 +37,7 @@ class Reponse extends Model{
 		parent::exec('REPONSE_CREATE', $array);
 	}
 
-	//chercher une question avec son id
+	//chercher une reponse avec son id
 	public static function getReponseById($id){
 		$q = parent::exec('GET_REPONSE_BY_ID', array(':id_r' => $id));
 		return $q->fetch(); 
