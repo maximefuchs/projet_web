@@ -1,4 +1,5 @@
-<footer id="footer">
+<footer class="d-flex justify-content-end text-light fixed-bottom" style="z-index: -1;font-size: 10px;">
+Maxime Fuchs, Thomas Malidin-Delabrière, Alix Moret
 </footer>
 </body>
 </html>

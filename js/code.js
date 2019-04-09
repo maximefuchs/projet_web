@@ -44,8 +44,10 @@ function enleverPourEnseignant(){
 //fonctions pour afficher le menu
 var menuIsOpen = false;
 function openNav() {
-	document.getElementById("mySidenav").style.width = "20%";
-	document.getElementById("login").focus();
+	document.getElementById("mySidenav").style.width = "30%";
+	var login = document.getElementById("login");
+	if(login != null)
+		login.focus();
 	menuIsOpen = true;
 }
 

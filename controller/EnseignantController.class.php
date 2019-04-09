@@ -47,9 +47,12 @@ class EnseignantController extends UserController{
 	}
 
 	public function voirResultatsQuestionnaireAction($request){
-		$resultats = User::getResultatsByQuestionnaire($request->readGet('idQuestionnaire'));
+		$idQuestionnaire = $request->readGet('idQuestionnaire');
+		$resultats = User::getResultatsByQuestionnaire($idQuestionnaire);
+		$nbQuestions = Questionnaire::getNbQuestionsQuestionnaire($idQuestionnaire)->nb_q();
 		$view = new UserView($this, 'notesQuestionnaire', 
-			array('user' => $this->user, 
+			array('user' => $this->user,
+				'nbQuestions' => $nbQuestions,
 				'resultats' => $resultats));
 		$view->render();
 	}

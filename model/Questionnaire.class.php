@@ -16,6 +16,8 @@ class Questionnaire extends Model{
 	static $colGroupe = 'GROUPE';
 	static $colTD = 'TD';
 
+	static$colNbQuestions = 'NB_Q';
+
 
 	// getters
 	public function id() { return $this->props[self::$colId]; }
@@ -28,6 +30,8 @@ class Questionnaire extends Model{
 	public function promo() { return $this->props[self::$colPromo]; }
 	public function groupe() { return $this->props[self::$colGroupe]; }
 	public function td() { return $this->props[self::$colTD]; }
+
+	public function nb_q() { return $this->props[self::$colNbQuestions]; }
 
 
 	public function __construct(){
@@ -131,6 +135,11 @@ class Questionnaire extends Model{
 // on ne supprime que le questionnaire. On garde les questions.
 	public static function supprimer($idQuestionnaire){
 		parent::exec('DELETE_QUESTIONNAIRE', array(':idQuestionnaire' => $idQuestionnaire));
+	}
+
+	public static function getNbQuestionsQuestionnaire($idQuestionnaire){
+		$nb = parent::exec('GET_NB_QUESTIONS_BY_QUESTIONNAIRE', array(':id_q' => $idQuestionnaire));
+		return $nb->fetch();
 	}
 
 

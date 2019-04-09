@@ -17,6 +17,11 @@ abstract class Controller extends MyObject{
 		$m = $this->methodName;
 		$this->$m($this->request);
 	}
+	
+	public function error($request){
+		$view = new ErrorView($this, 'error', array('errorText' => "Vous n'avez pas accès à cette page"));
+		$view->render();
+	}
 
 
 }

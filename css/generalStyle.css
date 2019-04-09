@@ -121,7 +121,8 @@ header{
 	font-size: 25px;
 	color: var(--blue-color);
 	display: block;
-	text-overflow: hidden;
+	overflow: hidden;
+	white-space: nowrap;
 	transition: 0.3s;
 }
 .menu a li:hover{
@@ -145,28 +146,6 @@ header{
 	background-color: var(--orange-color);
 }
 
-
-
-
-
-
-/* FOOTER CSS */
-#footer{
-	position: fixed;
-	top:5%;
-	right: 1%;
-}
-#footer a{
-	text-decoration: none;
-	padding: 10px;
-	background-color: black;
-	color: white;
-	filter: blur(2px);
-	transition: filter 0.2s;
-}
-#footer a:hover{
-	filter: none;
-}
 
 
 

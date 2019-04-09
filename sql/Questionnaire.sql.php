@@ -40,4 +40,7 @@ Model::addSqlQuery('DELETE_QUESTIONNAIRE',
 	'DELETE FROM est_compose WHERE  est_compose.'.Questionnaire::$colId.' = :idQuestionnaire ;
 	DELETE FROM participe WHERE participe.'.Questionnaire::$colId.' = :idQuestionnaire ;
 	DELETE FROM '.Questionnaire::$table_name.' WHERE '.Questionnaire::$colId.' = :idQuestionnaire');
+
+Model::addSqlQuery('GET_NB_QUESTIONS_BY_QUESTIONNAIRE',
+	'SELECT COUNT(ID_QUESTION) '.Questionnaire::$colNbQuestions.' FROM est_compose WHERE ID_QUESTIONNAIRE = :id_q GROUP BY ID_QUESTIONNAIRE')
 	?>

@@ -11,7 +11,8 @@ class EtudiantController extends UserController{
 	}
 
 	public function questionnairesAction($request){
-		$view = new UserView($this, 'questionnaires', array('user' => $this->user, 'questionnaires' => $this->getQuByEtudiant()));
+		$questionnaires = Questionnaire::getQuestionnaireByEtudiant($this->user->promo(),$this->user->grp_demiPromo(),$this->user->td());
+		$view = new UserView($this, 'questionnaires', array('user' => $this->user, 'questionnaires' => $questionnaires));
 		$view->render();
 	}
 
@@ -52,10 +53,6 @@ class EtudiantController extends UserController{
 			$view = new UserView($this, 'resUnQuestionnaire', array('user' => $this->user, 'res' => $res));
 		}
 		$view->render();
-	}
-
-	public function getQuByEtudiant(){
-		return Questionnaire::getQuestionnaireByEtudiant($this->user->promo(),$this->user->grp_demiPromo(),$this->user->td());
 	}
 
 	public function validerReponses($request){

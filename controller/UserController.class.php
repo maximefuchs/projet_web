@@ -18,7 +18,11 @@ class UserController extends Controller{
 			$_SESSION['ID_USER'] = $this->user->id();
 		}
 
+		// sécurité
+		if ($this->user->getRole() != ucfirst(Request::getController()))
+			$this->methodName = 'error';
 	}
+
 
 	public function defaultAction($request){
 		$view = new UserView($this, 'userBienvenue', array('user' => $this->user));
