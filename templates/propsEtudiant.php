@@ -14,13 +14,15 @@ foreach ($questionnaires as $q) {
 <div class="container">
 	<div class="row">
 		<div class="col-sm-5">
-			<h1><span class="badge badge-dark"><?php echo sizeof($questionnaires);?></span></h1>
+			<h1>
+				<a class="badge badge-dark" href="?action=Questionnaires"><?php echo sizeof($questionnaires);?></a>
+			</h1>
 			<h3>questionnaires concernés</h3>
 		</div>
 		<div class="col-sm-2"></div>
 		<div class="col-sm-5">
 			<h1>
-				<span class="compteur badge badge-dark"><?php echo $aRepondre; ?></span>
+				<a class="compteur badge badge-dark" href="?action=questionnaires&afaire"><?php echo $aRepondre; ?></a>
 			</h1>
 			<h3>en attente de réponse</h3>
 		</div>

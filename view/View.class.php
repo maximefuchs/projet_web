@@ -25,12 +25,15 @@ class View extends MyObject {
 
 	public function render() {
 		$this->loadTemplate($this->templateNames['head'], $this->args);
-		// $this->loadTemplate($this->templateNames['top'], $this->args);
 
 		echo "<ul class='bandeauMenu'>";
 		echo "<span onclick='openNav()'>&#9776; MENU</span>";
 		$this->loadTemplate($this->templateNames['bandeauMenu'], $this->args);
 		echo "</ul>";
+		
+		echo "<header>";
+		$this->loadTemplate($this->templateNames['top'], $this->args);
+		echo "</header>";
 
 		echo "<ul class='menu' id='mySidenav'>";
 		echo "<a href='javascript:void(0)' class='closebtn' onclick='closeNav()'>

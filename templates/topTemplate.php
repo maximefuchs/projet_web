@@ -1,3 +1,1 @@
-<header>
-	<h1>PROJET WEB</h1>
-</header>
+<h3>PROJET WEB</h3>
