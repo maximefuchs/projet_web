@@ -70,8 +70,7 @@ IMG.displayed {
 	width: 40%;
 	padding: 3%;
 	margin: auto;
-	background-color: #AAA;
 }
-.eleve, .enseignant{
+.enseignant{
 	display:none;
 }

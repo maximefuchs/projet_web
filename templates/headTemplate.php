@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>PROJET WEB</title>
-	<link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/b/b0/IMT_logo_2017.png" type="image/x-icon" />
+	<link rel="shortcut icon" href="assets/logo_mines.png" type="image/x-icon" />
 	<link rel="stylesheet" href="css/generalStyle.css" type="text/css" media="screen" title="style1" charset="utf-8" />
 	<link rel="stylesheet" href="css/accueil.css" type="text/css" media="screen" title="style1" charset="utf-8" />
 	<link rel="stylesheet" href="css/questionEtquestionnaires.css" type="text/css" media="screen" title="style1" charset="utf-8" />

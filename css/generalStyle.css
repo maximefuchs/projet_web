@@ -2,10 +2,18 @@
 
 :root {
 	--blue-color: #383549;
+	--blue-tr-color: rgba(56, 53, 73, 0.6);
 	--grey-color: #6D6659;
 	--yellow-color: #E8D6A7;
 	--orange-color: #EFA267;
 	--green-color: #7CB588;
+}
+
+/* DEBUG */
+pre{
+	background: lightgrey;
+	border-radius: 10px;
+	padding: 10px;
 }
 
 /* ANIMATION */
@@ -13,7 +21,6 @@
 	from{padding-left: 25%; opacity: 0;}
 	to{padding-left: 5%; opacity: 1;}
 }
-
 
 html, body{
 	margin: 0;
@@ -61,8 +68,8 @@ header{
 	position: sticky;
 	font-size: 30px;
 	color: white;
-	background-color: var(--blue-color);
-	border-bottom: 2px solid var(--yellow-color);
+	background-color: var(--blue-tr-color);
+	/*border-bottom: 2px solid var(--yellow-color);*/
 	z-index: 10000;
 }
 .bandeauMenu span, .bandeauMenu div a{
@@ -170,7 +177,8 @@ header{
 	color: white;
 	animation-name: comesFromRight;
 	animation-duration: 0.3s;
-	margin: auto;
+	margin-left: auto;
+	margin-right: auto;
 	width: 95%;
 }
 

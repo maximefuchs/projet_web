@@ -25,7 +25,7 @@ class View extends MyObject {
 
 	public function render() {
 		$this->loadTemplate($this->templateNames['head'], $this->args);
-		$this->loadTemplate($this->templateNames['top'], $this->args);
+		// $this->loadTemplate($this->templateNames['top'], $this->args);
 
 		echo "<ul class='bandeauMenu'>";
 		echo "<span onclick='openNav()'>&#9776; MENU</span>";

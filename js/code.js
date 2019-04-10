@@ -1,58 +1,34 @@
 
 function afficherPourEtudiant(){
-	var eleEleves = document.getElementsByClassName("eleve");
-	for(var i = 0; i< eleEleves.length; i++){
-		eleEleves[i].setAttribute('style', 'display: block;');
-	}
-	var inputEltEleve = document.getElementsByClassName("eleveInput");
-	for(var i = 0; i<inputEltEleve.length; i++){
-		inputEltEleve[i].required = true;
-	}
+	$(".eleve").css("display", "block");
+	$(".eleveInput").prop('required',true);
 }
 function enleverPourEtudiant(){
-	var eleEleves = document.getElementsByClassName("eleve");
-	for(var i = 0; i< eleEleves.length; i++){
-		eleEleves[i].setAttribute('style', 'display:none;');
-	}
-	var inputEltEleve = document.getElementsByClassName("eleveInput");
-	for(var i = 0; i<inputEltEleve.length; i++){
-		inputEltEleve[i].required = false;
-	}
+	$(".eleve").css("display", "none");
+	$(".eleveInput").prop('required', false);
 }
 
 function afficherPourEnseignant(){
-	var eleEnseignant = document.getElementsByClassName("enseignant");
-	for(var i = 0; i< eleEnseignant.length; i++){
-		eleEnseignant[i].setAttribute('style', 'display: block;');
-	}
-	var inputEltEnseignant = document.getElementsByClassName("enseignantInput");
-	for(var i = 0; i<inputEltEnseignant.length; i++){
-		inputEltEnseignant[i].required = true;
-	}
+	$(".enseignant").css("display", "block");
+	$(".enseignantInput").prop('required',true);
 }
 function enleverPourEnseignant(){
-	var eleEnseignant = document.getElementsByClassName("enseignant");
-	for(var i = 0; i< eleEnseignant.length; i++){
-		eleEnseignant[i].setAttribute('style', 'display:none;');
-	}
-	var inputEltEnseignant = document.getElementsByClassName("enseignantInput");
-	for(var i = 0; i<inputEltEnseignant.length; i++){
-		inputEltEnseignant[i].required = false;
-	}
+	$(".enseignant").css("display", "none");
+	$(".enseignantInput").prop('required',false);
 }
 
 //fonctions pour afficher le menu
 var menuIsOpen = false;
 function openNav() {
-	document.getElementById("mySidenav").style.width = "30%";
-	var login = document.getElementById("login");
+	$("#mySidenav").css('width',"30%");
+	var login = $("#login");
 	if(login != null)
 		login.focus();
 	menuIsOpen = true;
 }
 
 function closeNav() {
-	document.getElementById("mySidenav").style.width = "0";
+	$("#mySidenav").css('width',"0");
 	menuIsOpen = false;
 }
 
@@ -69,102 +45,37 @@ function checkKey(e) {
 
 //fonction pour bloquer un champ de texte (groupe/Td)
 function SupprimerPourTD(){
-	var groupe = document.getElementsByClassName("groupe");
-	for(var i = 0; i< groupe.length; i++){
-		groupe[i].setAttribute('style','background: #ffffff;');
-		groupe[i].required = true;
-	}
-	var td = document.getElementsByClassName("td");
-	for(var i = 0; i< td.length; i++){
-		td[i].value="";
-		td[i].setAttribute('style','background: #dddddd;');
-		td[i].required = false;
-	}
+	$(".groupe").css('background', '#fff').prop('required', true);
+	$(".td").css('background', '#ddd').prop('required',false).val('');
 }
 function SupprimerPourGroupe(){
-	var td = document.getElementsByClassName("td");
-	for(var i = 0; i< td.length; i++){
-		td[i].setAttribute('style','background: #ffffff;');
-		td[i].required = true;
-	}
-	var groupe = document.getElementsByClassName("groupe");
-	for(var i = 0; i< groupe.length; i++){
-		groupe[i].value="";
-		groupe[i].setAttribute('style','background: #dddddd;');
-		groupe[i].required = false;
-	}
+	$(".td").css('background', '#fff').prop('required', true);
+	$(".groupe").css('background', '#ddd').prop('required',false).val('');
 }
 
 var pourToute = false;
 function pourToutePromo(){
 	if(!pourToute){
-		var groupe = document.getElementsByClassName("groupe");
-		for(var i = 0; i< groupe.length; i++){
-			groupe[i].disabled=true;
-			groupe[i].required = false;
-			groupe[i].setAttribute('style','background: #dddddd;');
-		}
-		var td = document.getElementsByClassName("td");
-		for(var i = 0; i< td.length; i++){
-			td[i].disabled=true;
-			td[i].required = false;
-			td[i].setAttribute('style','background: #dddddd;');
-		}
+		$(".groupe").prop('disabled', true).prop('required', false).css('background','#ddd');
+		$(".td").prop('disabled', true).prop('required', false).css('background','#ddd');
 	} else {
-		var groupe = document.getElementsByClassName("groupe");
-		for(var i = 0; i< groupe.length; i++){
-			groupe[i].disabled=false;
-			groupe[i].required = true;
-			groupe[i].setAttribute('style','background: #ffffff;');
-		}
-		var td = document.getElementsByClassName("td");
-		for(var i = 0; i< td.length; i++){
-			td[i].disabled=false;
-			td[i].setAttribute('style','background: #ffffff;');
-		}
+		$(".groupe").prop('disabled', false).prop('required', true).css('background','#fff');
+		$(".td").prop('disabled', false).css('background','#fff');
 	}
 	pourToute = !pourToute;
 }
 
 function disabledChamps(){
-	var selectBox = document.getElementById("inputPromo");
-	var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+	var selectedValue = $("#inputPromo option:selected").val();
 	if(selectedValue=="tous"){
-		var groupe = document.getElementsByClassName("groupe");
-		for(var i = 0; i< groupe.length; i++){
-			groupe[i].disabled=true;
-			groupe[i].required = false;
-			groupe[i].setAttribute('style','background: #dddddd;');
-		}
-		var td = document.getElementsByClassName("td");
-		for(var i = 0; i< td.length; i++){
-			td[i].disabled=true;
-			td[i].required = false;
-			td[i].setAttribute('style','background: #dddddd;');
-		}
-		var divPromo=document.getElementsByClassName("allprom");
-		for(var i = 0; i< divPromo.length; i++){
-			divPromo[i].setAttribute('style','display: none;');
-		}
+		$(".groupe").prop('disabled', true).prop('required', false).css('background','#ddd');
+		$(".td").prop('disabled', true).prop('required', false).css('background','#ddd');
+		$(".allprom").css('display', 'none');
 	} else {
-		var groupe = document.getElementsByClassName("groupe");
-		for(var i = 0; i< groupe.length; i++){
-			if(!pourToute){
-				groupe[i].disabled=false;
-				groupe[i].required = true;
-				groupe[i].setAttribute('style','background: #ffffff;');
-			}
+		if(!pourToute){
+			$(".groupe").prop('disabled', false).prop('required', true).css('background','#fff');
+			$(".td").prop('disabled', false).css('background','#fff');
 		}
-		var td = document.getElementsByClassName("td");
-		for(var i = 0; i< td.length; i++){
-			if(!pourToute){
-				td[i].disabled=false;
-				td[i].setAttribute('style','background: #ffffff;');
-			}
-		}
-		var divPromo=document.getElementsByClassName("allprom");
-		for(var i = 0; i< divPromo.length; i++){
-			divPromo[i].setAttribute('style','display: contents;');
-		}
+		$(".allprom").css('display','contents');
 	}
 }
