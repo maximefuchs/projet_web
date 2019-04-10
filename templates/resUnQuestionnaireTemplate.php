@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table text-light">
 	<thead>
 		<tr>
 			<th scope="col">Intitutlé de la question</th>

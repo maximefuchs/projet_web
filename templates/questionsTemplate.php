@@ -3,7 +3,7 @@
 	<p>&#128269;</span>Rechercher parmis les questions</p>
   <input class="form-control" id="myInput" type="text" placeholder="Recherche..">
   <br>
-  <table class="table table-hover">
+  <table class="table text-light">
     <thead>
       <tr>
         <th>ID</th>

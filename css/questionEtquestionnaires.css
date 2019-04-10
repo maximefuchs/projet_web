@@ -32,8 +32,8 @@
 /* FORMULAIRE NOUVEAU QUESTIONNAIRE  */
 .newQuestionnaire, .newQuestion{
 	font-family: 'Open Sans Condensed', arial, sans;
-	width: 700px;
 	padding: 20px;
+	width: 75%;
 	color: black;
 	background: #FFFFFF;
 	box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
@@ -42,11 +42,9 @@
 }
 .newQuestionnaire{
 	margin: 50px auto;
-	width: 100%;
 }
 .newQuestion{
 	margin: 20px auto;
-	width: 100%;
 }
 
 
@@ -120,11 +118,11 @@
 	padding: 8px 18px;
 	text-decoration: none;
 	text-transform: uppercase;
+	transition: 0.3s;
 }
 .newQuestionnaire input[type="button"]:hover, .newQuestion input[type="button"]:hover,
 .newQuestionnaire input[type="submit"]:hover, .newQuestion input[type="submit"]:hover {
-	background:linear-gradient(to bottom, var(--orange-color) 10%, var(--yellow-color));
-	background-color:var(--orange-color);
+	opacity: 0.7;
 }
 .entete{
 	background: #4D4D4D;

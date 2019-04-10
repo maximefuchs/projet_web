@@ -1,3 +1,3 @@
 <header>
-	<h1>Projet web : questionnaires</h1>
+	<h1>PROJET WEB</h1>
 </header>

@@ -12,7 +12,7 @@
 						array_push($reps_associees, $r);
 					}
 				}
-				require('questionEtreponse.php');
+				require('QetRTemplate.php');
 			}
 			?>
 		</table>

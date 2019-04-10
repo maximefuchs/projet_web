@@ -2,7 +2,7 @@
 <div class="container">
 <h2>Vos Informations</h2>
 <h4><?php $type = $user->role(); echo $type;?></h4>
-<table class=table table-hover>
+<table class="table text-light">
 	<tr>
 		<th>Login : </th>
 		<td><?php echo $user->login(); ?></td>
