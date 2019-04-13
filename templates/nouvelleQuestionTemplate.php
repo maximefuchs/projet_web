@@ -33,7 +33,7 @@
       </div>
       <div class="form-group col-sm-3">
         <label for="inputTag<?php echo "__".$num; ?>">Tag*</label>
-        <input class="form-control" id="inputTag<?php echo "__".$num; ?>" type="text" name="Tag<?php echo "__".$num; ?>" placeholder="Maths, Physique, ..." required></td>
+        <input class="form-control" id="inputTag<?php echo "__".$num; ?>" type="text" name="Tag<?php echo "__".$num; ?>" placeholder="Maths, Physique, ..." required>
       </div>
     </div>
   </div>
@@ -113,7 +113,6 @@ function addReponsesAssignement($elem){
 
 function changeType(selectBox, num){
   var selectedValue = selectBox.options[selectBox.selectedIndex].value;
-  console.log(selectedValue);
   switch(selectedValue){
 
     case 'QCM':

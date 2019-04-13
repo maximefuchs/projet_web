@@ -57,6 +57,8 @@ class EtudiantController extends UserController{
 
 	public function validerReponses($request){
 
+		$idQuestionnaire = (integer) $request->readPost('idQuestionnaire');
+
 		$QCM = false;
 		$repQCM= array();
 		$nbQuestionsQCM = 0;
@@ -91,7 +93,7 @@ class EtudiantController extends UserController{
 
 						$estJuste;
 						if($r){ $estJuste=1; } else { $estJuste=0; }
-						Reponse::setRepForQuestion($this->user->id(), $qId, $estJuste);
+						Reponse::setRepForQuestion($this->user->id(), $qId, $idQuestionnaire, $estJuste);
 					}
 				} else {
 					$nbQuestionsQCM = explode(":",$explode[2])[1];
@@ -114,7 +116,7 @@ class EtudiantController extends UserController{
 
 						$estJuste;
 						if($r){ $estJuste=1; } else { $estJuste=0; }
-						Reponse::setRepForQuestion($this->user->id(), $qId, $estJuste);
+						Reponse::setRepForQuestion($this->user->id(), $qId, $idQuestionnaire, $estJuste);
 					}
 				} else {
 					$nbQuestionsASSIGNE = (explode(":",$explode[2])[1])/2; 
@@ -131,10 +133,10 @@ class EtudiantController extends UserController{
 
 				$estJuste;
 				if($r){ $estJuste=1; } else { $estJuste=0; }
-				Reponse::setRepForQuestion($this->user->id(), $qId, $estJuste);
+				Reponse::setRepForQuestion($this->user->id(), $qId, $idQuestionnaire, $estJuste);
 			}
 
-			Questionnaire::setParticipation($this->user->id(), $_POST['idQuestionnaire']);
+			Questionnaire::setParticipation($this->user->id(), $idQuestionnaire);
 
 		}
 

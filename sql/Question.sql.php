@@ -19,7 +19,13 @@ Model::addSqlQuery('ASSOCIER_QUESTIONS_QUESTIONNAIRE',
 	'INSERT INTO EST_COMPOSE ('.Question::$colId.', '.Questionnaire::$colId.') VALUES (:QuestionId,:QuestionnaireId);');
 
 Model::addSqlQuery('GET_RESULTAT_USER_QUESTIONNAIRE',
-	'SELECT q.*, rc.EST_JUSTE_C FROM reponse_choisie rc JOIN est_compose ec ON rc.'.Question::$colId.' = ec.'.Question::$colId.' JOIN '.Question::$table_name.' q ON rc.'.Question::$colId.' = q.'.Question::$colId.' WHERE ec.'.Questionnaire::$colId.' = :idQuestionnaire AND rc.'.User::$colId.' = :idUser');
+	'SELECT q.*, rc.EST_JUSTE_C'.
+	' FROM reponse_choisie rc'.
+	' JOIN est_compose ec ON rc.'.Question::$colId.' = ec.'.Question::$colId.
+	' JOIN '.Question::$table_name.' q ON rc.'.Question::$colId.' = q.'.Question::$colId.
+	' WHERE ec.'.Questionnaire::$colId.' = :idQuestionnaire'.
+	' AND rc.'.User::$colId.' = :idUser'.
+	' AND rc.'.Questionnaire::$colId.' = :idQuestionnaire');
 
 
 	?>

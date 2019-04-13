@@ -11,7 +11,10 @@ class AjaxController extends Controller{
 		self::$types = array('QCM', 'QCU', 'ASSIGNE', 'LIBRE');
 	}
 
-	public function defaultAction($request){}
+	public function defaultAction($request){
+		$view = new ErrorView($this, 'error', array('errorText' => 'Absence de nom d\'action'));
+		$view->render();
+	}
 
 	public function questionNewAction($request){
 		$num = $request->readGet('num');
@@ -19,11 +22,15 @@ class AjaxController extends Controller{
 		$view->render();
 	}
 
-	public function helloAction($request){
-		$view = new AjaxView($this, 'bienvenue');
+	public function questionOldAction($request){
+		$num = $request->readGet('num');
+		$idQuestion = $request->readGet('idQ');
+		$question = Question::getQuestionById($idQuestion);
+		$view = new AjaxView($this, 'ancienneQuestion', 
+			array('question' => $question, 'num' => $num));
 		$view->render();
 	}
 }
 
 
- ?>
+?>

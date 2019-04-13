@@ -22,6 +22,13 @@
         }
       }
       ?>
+      <?php if(Request::getController() == 'enseignant'){
+        echo "<div class='col-6'>
+        <a href='?action=nouveauQuestionnaire' class='btn btn-secondary row' style='margin-top: 30px;'>
+          Ajouter un questionnaire
+        </a>
+      </div>";
+      } ?>
     </div>
   </div>
 </div>

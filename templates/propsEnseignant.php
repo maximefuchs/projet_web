@@ -15,7 +15,7 @@ foreach ($questionnaires as $q) {
 	foreach ($resultats as $r) {
 		$m += $r->note();
 	}
-	$m = $m/$nbParticipants;
+	$m = ($nbParticipants == 0)?0:$m/$nbParticipants;
 	$m = $m*20/$nb;
 	$moyenne += $m;
 

@@ -29,7 +29,7 @@
 	opacity: 1;
 }
 
-/* FORMULAIRE NOUVEAU QUESTIONNAIRE  */
+/* FORMULAIRE NOUVEAU QUESTIONNAIRE NOUVELLE QUESTION  */
 .newQuestionnaire, .newQuestion{
 	font-family: 'Open Sans Condensed', arial, sans;
 	padding: 20px;
@@ -158,7 +158,14 @@
   padding: 5px;
   border-bottom: 3px solid #888;	
 }
-
+#ancienneQuestion .closebtn{
+	font-size: 25px;
+	color: white;
+}
+#ancienneQuestion .closebtn:hover{
+	opacity: 0.7;
+	text-decoration: none;
+}
 
 
 /*	AFFICHAGE QUESTION AVEC REPONSES 	*/

@@ -16,7 +16,7 @@ class Questionnaire extends Model{
 	static $colGroupe = 'GROUPE';
 	static $colTD = 'TD';
 
-	static$colNbQuestions = 'NB_Q';
+	static $colNbQuestions = 'NB_Q';
 
 
 	// getters

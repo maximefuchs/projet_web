@@ -10,9 +10,6 @@ class EnseignantController extends UserController{
 		if(isset($_POST['titreQuestaire'])){
 			$this->methodName = "validateQuestionnaire";
 		}
-		if(isset($_POST['TypeQuestion'])){
-			$this->methodName = "validateQuestion";
-		}
 
 		// self::$types_question=Question::getTypes();
 		self::$types_question=array('QCM', 'QCU', 'ASSIGNE', 'LIBRE');
@@ -95,7 +92,8 @@ class EnseignantController extends UserController{
 			array('user' => $this->user, 
 				'types'=>self::$types_question,
 				'idQuestionnaire' => $idQuestionnaire,
-				'num' => 1));
+				'num' => 1,
+				'questions' => Question::getList()));
 		$view->render();
 		// }
 	}
@@ -105,40 +103,28 @@ class EnseignantController extends UserController{
 		$view->render();
 	}
 
-	public function validateQuestion($request){
-		$typeQ = $request->readPost('TypeQuestion');
-		$descriptionQ = $request->readPost('descripQuestion');
-		$tag = $request->readPost('Tag');
-		$NbReponses = $request->readPost('NbrRep');
-		// var_dump($typeQ,$descriptionQ,$tag);
-		$consigne = 1; //ajout d'une selection d'une consigne à faire
-		$question=Question::create($consigne, $tag, $typeQ,$NbReponses, $descriptionQ);
-		// var_dump($question);
-		$id_question=DatabasePDO::getPDO()->lastInsertId();
-		Question::associerQuestionQuestionnaire($_SESSION['id_questionnaire'],$id_question);
-		$view = new UserView($this, 'nouvelleQuestion', array('user' => $this->user, 'types'=>self::$types_question));
-		$view->render();
-		// }
-	}
-
 	public function validateQuestions($request){
 		$idQuestionnaire = $request->readPost('idQuestionnaire');
 		$num = 1;
 		while (isset($_POST['TypeQuestion__'.$num])) {
 			$type = $_POST['TypeQuestion__'.$num];
-			$description = $_POST['descripQuestion__'.$num];
-			$tag = $_POST['Tag__'.$num];
-			$consigne = 1;
+			if($type == 'OLD'){
+				$id_question = (integer) $_POST['idQuestion__'.$num];
+			} else {
+				$description = $_POST['descripQuestion__'.$num];
+				$tag = $_POST['Tag__'.$num];
+				$consigne = 1;
 
-			$rep = $this->recuperReponse($num, $type);
+				$rep = $this->recuperReponse($num, $type);
 			// var_dump($rep);
 
-			$NbReponses = $rep['NbReponses'];
-			Question::create($consigne, $tag, $type, $NbReponses, $description);
-			$id_question=DatabasePDO::getPDO()->lastInsertId();
-			Question::associerQuestionQuestionnaire($idQuestionnaire, $id_question);
+				$NbReponses = $rep['NbReponses'];
+				Question::create($consigne, $tag, $type, $NbReponses, $description);
+				$id_question=DatabasePDO::getPDO()->lastInsertId();
 
-			$this->enregistrerReponses($id_question, $type, $rep);
+				$this->enregistrerReponses($id_question, $idQuestionnaire, $type, $rep);
+			}
+			Question::associerQuestionQuestionnaire($idQuestionnaire, $id_question);
 			$num++;
 		}
 	}
@@ -195,11 +181,11 @@ class EnseignantController extends UserController{
 		return $rep;
 	}
 
-	public function enregistrerReponses($idQuestion, $type, $rep){
+	public function enregistrerReponses($idQuestion, $idQuestionnaire, $type, $rep){
 		switch ($type) {
 			case 'LIBRE':
 			$contenu =$rep['LIBRE'];
-			Reponse::create($idQuestion, 1, NULL, $contenu);
+			Reponse::create($idQuestion, $idQuestionnaire, 1, NULL, $contenu);
 			break;
 
 			case 'ASSIGNE':
@@ -207,9 +193,9 @@ class EnseignantController extends UserController{
 			$ASSIGNE_G = $ASSIGNE['ASSIGNE_G'];
 			$ASSIGNE_D = $ASSIGNE['ASSIGNE_D'];
 			for($i=0;$i<sizeof($ASSIGNE_G);$i++){
-				Reponse::create($idQuestion, 1, 0, $ASSIGNE_G[$i]);
+				Reponse::create($idQuestion, $idQuestionnaire, 1, 0, $ASSIGNE_G[$i]);
 				$id_rG=DatabasePDO::getPDO()->lastInsertId();
-				Reponse::create($idQuestion, 1, 1, $ASSIGNE_D[$i]);
+				Reponse::create($idQuestion, $idQuestionnaire, 1, 1, $ASSIGNE_D[$i]);
 				$id_rD=DatabasePDO::getPDO()->lastInsertId();
 
 				Reponse::addInRelieeA($id_rG, $id_rD);
@@ -223,9 +209,9 @@ class EnseignantController extends UserController{
 			$sontJustes = $QC['sontJustes'];
 			for($i=0;$i<sizeof($contenuReps);$i++){
 				if($sontJustes[$i])
-					Reponse::create($idQuestion, 1, NULL, $contenuReps[$i]);
+					Reponse::create($idQuestion, $idQuestionnaire, 1, NULL, $contenuReps[$i]);
 				else
-					Reponse::create($idQuestion, 0, NULL, $contenuReps[$i]);
+					Reponse::create($idQuestion, $idQuestionnaire, 0, NULL, $contenuReps[$i]);
 			}
 			break;
 		}

@@ -24,12 +24,13 @@ Model::addSqlQuery('USER_GET_ALL_PROMO',
 	'SELECT DISTINCT '.User::$colPromo.' FROM '.User::$table_name.' WHERE '.User::$colRole.'="Etudiant" ORDER BY '.User::$colPromo);
 
 Model::addSqlQuery('GET_RESULTATS_BY_QUESTIONNAIRE',
-	'SELECT u.'.User::$colNom.', u.'.User::$colPrenom.', SUM(rc.EST_JUSTE_C) '.User::$colNote.'
-	FROM '.User::$table_name.' u
-	JOIN reponse_choisie rc ON u.'.User::$colId.' = rc.'.User::$colId.
+	'SELECT u.'.User::$colNom.', u.'.User::$colPrenom.', SUM(rc.EST_JUSTE_C) '.User::$colNote.
+	'	FROM '.User::$table_name.' u'.
+	' JOIN reponse_choisie rc ON u.'.User::$colId.' = rc.'.User::$colId.
 	'	JOIN est_compose ec ON rc.'.Question::$colId.' = ec.'.Question::$colId.
-	'	WHERE ec.'.Questionnaire::$colId.' = :id_questionnaire
-	GROUP BY rc.'.User::$colId.
+	'	WHERE ec.'.Questionnaire::$colId.' = :id_questionnaire'.
+	' AND rc.'.Questionnaire::$colId.' = :id_questionnaire'.
+	' GROUP BY rc.'.User::$colId.
 	' ORDER BY '.User::$colNote.' DESC');
 
 ?>
