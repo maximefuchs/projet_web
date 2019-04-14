@@ -43,6 +43,15 @@ class EnseignantController extends UserController{
 		$view->render();
 	}
 
+	public function voirQuestionnaireAction($request){
+		$idQuestionnaire = $request->readGet('idQuestionnaire');
+		$questions = Question::getQuestionsDeQuestionnaireId($idQuestionnaire);
+		$reponses = Reponse::getReponseByIdQuestionnaire($idQuestionnaire);
+		$view = new UserView($this, 'questionsEtreponses',
+			array('user' => $this->user, 'reponses' => $reponses, 'questions' => $questions));
+		$view->render();
+	}
+
 	public function voirResultatsQuestionnaireAction($request){
 		$idQuestionnaire = $request->readGet('idQuestionnaire');
 		$resultats = User::getResultatsByQuestionnaire($idQuestionnaire);
@@ -122,7 +131,7 @@ class EnseignantController extends UserController{
 				Question::create($consigne, $tag, $type, $NbReponses, $description);
 				$id_question=DatabasePDO::getPDO()->lastInsertId();
 
-				$this->enregistrerReponses($id_question, $idQuestionnaire, $type, $rep);
+				$this->enregistrerReponses($id_question, $type, $rep);
 			}
 			Question::associerQuestionQuestionnaire($idQuestionnaire, $id_question);
 			$num++;
@@ -181,11 +190,11 @@ class EnseignantController extends UserController{
 		return $rep;
 	}
 
-	public function enregistrerReponses($idQuestion, $idQuestionnaire, $type, $rep){
+	public function enregistrerReponses($idQuestion, $type, $rep){
 		switch ($type) {
 			case 'LIBRE':
 			$contenu =$rep['LIBRE'];
-			Reponse::create($idQuestion, $idQuestionnaire, 1, NULL, $contenu);
+			Reponse::create($idQuestion, 1, NULL, $contenu);
 			break;
 
 			case 'ASSIGNE':
@@ -193,9 +202,9 @@ class EnseignantController extends UserController{
 			$ASSIGNE_G = $ASSIGNE['ASSIGNE_G'];
 			$ASSIGNE_D = $ASSIGNE['ASSIGNE_D'];
 			for($i=0;$i<sizeof($ASSIGNE_G);$i++){
-				Reponse::create($idQuestion, $idQuestionnaire, 1, 0, $ASSIGNE_G[$i]);
+				Reponse::create($idQuestion, 1, 0, $ASSIGNE_G[$i]);
 				$id_rG=DatabasePDO::getPDO()->lastInsertId();
-				Reponse::create($idQuestion, $idQuestionnaire, 1, 1, $ASSIGNE_D[$i]);
+				Reponse::create($idQuestion, 1, 1, $ASSIGNE_D[$i]);
 				$id_rD=DatabasePDO::getPDO()->lastInsertId();
 
 				Reponse::addInRelieeA($id_rG, $id_rD);
@@ -209,9 +218,9 @@ class EnseignantController extends UserController{
 			$sontJustes = $QC['sontJustes'];
 			for($i=0;$i<sizeof($contenuReps);$i++){
 				if($sontJustes[$i])
-					Reponse::create($idQuestion, $idQuestionnaire, 1, NULL, $contenuReps[$i]);
+					Reponse::create($idQuestion, 1, NULL, $contenuReps[$i]);
 				else
-					Reponse::create($idQuestion, $idQuestionnaire, 0, NULL, $contenuReps[$i]);
+					Reponse::create($idQuestion, 0, NULL, $contenuReps[$i]);
 			}
 			break;
 		}

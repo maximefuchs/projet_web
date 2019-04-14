@@ -1,4 +1,4 @@
-<a class="btn btn-outline-light btnRep" role="button"
+<a class="btn btn-light btnRep" role="button"
 id='<?php echo "repondre".$q->id(); ?>'
 href='<?php echo "index.php?action=repondreQuestionnaire&idQuestionnaire=".$q->id(); ?>'>Répondre</a>
 <a class="btn btn-outline-light" role="button"

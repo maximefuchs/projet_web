@@ -31,9 +31,8 @@ class Reponse extends Model{
 	}
 
 	// création d'une nouvelle reponses
-	public static function create($idQuestion, $idQuestionnaire, $estJuste, $colonne, $contenu){
+	public static function create($idQuestion, $estJuste, $colonne, $contenu){
 		$array = array(':id_question' => $idQuestion,
-			':idQuestionnaire' => $idQuestionnaire,
 			':estJuste' => $estJuste,
 			':colonne' => $colonne,
 			':contenu' => $contenu);

@@ -1,4 +1,4 @@
-<div class="col-6">
+<div class="col-6 q">
 	<div class="unQuestionnaire">
 		<div class="separtionDansQuesitonnaire">
 			<span><h4><?php echo $q->titre(); ?></h4></span>

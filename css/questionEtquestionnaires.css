@@ -146,7 +146,6 @@
 
 .unQuestionnaire{
 	background-color: var(--blue-color);
-	color: white;
 	border: 3px solid var(--blue-color);
 	transition: 0.3s;
 	font-weight: normal;
@@ -173,17 +172,3 @@
 	background-color: var(--blue-color);
 	padding: 20px
 }
-#qEtr table{
-	text-align: left;
-}
-#qEtr table tr td{
-	padding: 10px;
-}
-#qEtr input{
-	width: auto;
-}
-#qEtr input[type=text]{
-	width: 60%;
-}
-
-
