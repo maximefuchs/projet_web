@@ -10,7 +10,7 @@ $nbQ = $args['nbQuestions'];?>
 		</tr>
 	</thead>
 	<tbody>
-		<?php 
+		<?php
 		$total = 0;
 		$rang = 1;
 		foreach ($resultats as $r) {
