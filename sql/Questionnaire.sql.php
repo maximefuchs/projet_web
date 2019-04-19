@@ -28,11 +28,11 @@ Model::addSqlQuery('GET_ID_DERNIER_QUESTIONNAIRE',
 	'SELECT MAX('.Questionnaire::$colId.') FROM '.Questionnaire::$table_name);
 
 Model::addSqlQuery('SET_PARTICIPATION',
-	'INSERT INTO PARTICIPE (ID_USER, ID_QUESTIONNAIRE) VALUES (:idUser, :idQuestionnaire)');
+	'INSERT INTO participe (ID_USER, ID_QUESTIONNAIRE) VALUES (:idUser, :idQuestionnaire)');
 
 
 Model::addSqlQuery('USER_A_PARTICIPE_QUESTIONNAIRE',
-	'SELECT Q.* FROM '.Questionnaire::$table_name.' Q JOIN PARTICIPE P ON 
+	'SELECT Q.* FROM '.Questionnaire::$table_name.' Q JOIN participe P ON 
 	Q.'.Questionnaire::$colId.' = P.'.Questionnaire::$colId.
 	' WHERE P.'.User::$colId.' = :idUser AND Q.'.Questionnaire::$colId.' = :idQuestionnaire');
 

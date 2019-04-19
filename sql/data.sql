@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Dim 14 Avril 2019 à 13:34
+-- Généré le :  Ven 19 Avril 2019 à 13:04
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.18
 
@@ -13,8 +13,6 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `projet_web`
 --
-CREATE DATABASE IF NOT EXISTS `projet_web` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `projet_web`;
 
 --
 -- Vider la table avant d'insérer `consigne`
@@ -125,7 +123,7 @@ TRUNCATE TABLE `questionnaire`;
 
 INSERT INTO `questionnaire` (`ID_QUESTIONNAIRE`, `ID_USER`, `ID_CONSIGNE`, `TITRE`, `DESCRIPTION_QUESTIONNAIRE`, `DATE_OUVERTURE`, `DATE_FERMETURE`, `ETAT`, `PROMO`, `GROUPE`, `TD`) VALUES
 (29, 1, 1, 'Le langage C', 'Test sur les pointeurs', '2019-04-08 00:00:00', '2019-04-28 23:00:00', 'En cours', NULL, NULL, NULL),
-(30, 2, 1, 'SGBD 2A', 'Modèles MCD et MLD', '2019-04-09 00:00:00', '2019-04-14 23:00:00', 'En cours', 2020, NULL, NULL),
+(30, 2, 1, 'SGBD 2A', 'Modèles MCD et MLD', '2019-04-09 00:00:00', '2019-04-14 23:00:00', 'Terminé', 2020, NULL, NULL),
 (37, 2, 1, 'PowerAMC', 'Utilisation du logiciel', '2019-04-08 00:00:00', '2019-04-08 23:00:00', 'Terminé', 2020, NULL, 6),
 (38, 2, 1, 'Basket', 'Les joueurs', '2019-04-08 00:00:00', '2019-06-23 23:00:00', 'En cours', NULL, NULL, NULL),
 (39, 1, 1, 'Assignement', 'Anglais-Français', '2019-04-08 00:00:00', '2019-04-08 23:00:00', 'Terminé', NULL, NULL, NULL),

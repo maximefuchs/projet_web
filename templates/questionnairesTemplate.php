@@ -1,9 +1,11 @@
 <div class="container">
   <h2>
-    Liste des questionnaires    
-    <button class="btn btn-secondary" id="btnFiltre" onclick="filter();">
-      À FAIRE
-    </button>
+    Liste des questionnaires
+    <?php 
+      if(Request::getController() == 'Etudiant'){
+        echo "<button class=\"btn btn-secondary\" id=\"btnFiltre\" onclick=\"filter();\">À FAIRE</button>";
+      }
+    ?>
   </h2>
   <p>&#128269;</span>Rechercher parmis les questionnaires</p>
   <input class="form-control" id="myInput" type="text" placeholder="Recherche..">

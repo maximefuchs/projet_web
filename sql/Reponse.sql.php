@@ -13,7 +13,7 @@ Model::addSqlQuery('GET_REPONSE_BY_IDQUESTION',
 	'SELECT * FROM '.Reponse::$table_name.' WHERE '.Reponse::$colIdQuestion.'=:id_question');
 
 Model::addSqlQuery('GET_REPONSE_BY_IDQUESTIONNAIRE',
-	'SELECT R.* FROM '.Reponse::$table_name.' R JOIN '.Question::$table_name.' QN ON R.'.Reponse::$colIdQuestion.'= QN.'.Question::$colId.' JOIN EST_COMPOSE EC ON QN.'.Question::$colId.'=EC.'.Question::$colId.' WHERE EC.'.Questionnaire::$colId.'=:id_questionnaire');
+	'SELECT R.* FROM '.Reponse::$table_name.' R JOIN '.Question::$table_name.' QN ON R.'.Reponse::$colIdQuestion.'= QN.'.Question::$colId.' JOIN est_compose EC ON QN.'.Question::$colId.'=EC.'.Question::$colId.' WHERE EC.'.Questionnaire::$colId.'=:id_questionnaire');
 
 Model::addSqlQuery('GET_COUPLE_REPONSES_BY_IDQUESTION',
 	'SELECT RA.* FROM '.RelieeA::$table_name.' RA JOIN '.Reponse::$table_name.' RP ON RA.'.RelieeA::$colIdRepProp.' = RP.'.RelieeA::$colIdRepProp.' JOIN '.Question::$table_name.' Q ON RP.'.Question::$colId.' = Q.'.Question::$colId.' WHERE Q.'.Question::$colId.' = :id_question');
