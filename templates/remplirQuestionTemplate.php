@@ -2,7 +2,10 @@
 	var numQuestion = 1;
 	$(document).ready(function(){
 		$("#ajouterQuestion").click(function(){
+			// URL en local
 			url =window.location.origin+"/projet_web/?controller=ajax&action=questionNew&num="+numQuestion;
+			// URL eden
+			// url =window.location.origin+"/~thomas.malidin.delabriere?controller=ajax&action=questionNew&num="+numQuestion;
 			$.ajax({
 				url: url
 			}).done(function(data) {
@@ -12,10 +15,13 @@
 		});
 
 		$("#ajouterOld").click(function(){
-			url =window.location.origin+"/projet_web/?controller=ajax&action=questionOld"
-			+"&num="+numQuestion
+			// local
+			url = window.location.origin+"/projet_web/?controller=ajax&action=questionOld";
+			// eden
+			// url = window.location.origin+"/~thomas.malidin.delabriere?controller=ajax&action=questionOld";
+
+			url += "&num="+numQuestion
 			+"&idQ="+	$("#qSelect option:selected").val();
-			console.log(url);
 			$.ajax({
 				url: url
 			}).done(function(data) {

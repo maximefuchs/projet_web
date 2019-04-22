@@ -1,4 +1,4 @@
-<div class="inscription">
+<div class="inscription col-lg-8 col-md-12">
   <h2>Inscription</h2>
   <?php
   if(isset($args['inscErrorText']))
