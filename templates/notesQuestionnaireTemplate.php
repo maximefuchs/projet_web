@@ -1,4 +1,4 @@
-<?php $resultats = $this->args['resultats']; 
+<?php $resultats = $this->args['resultats'];
 $nbQ = $args['nbQuestions'];?>
 <table class="table text-light">
 	<thead>
@@ -10,7 +10,7 @@ $nbQ = $args['nbQuestions'];?>
 		</tr>
 	</thead>
 	<tbody>
-		<?php 
+		<?php
 		$total = 0;
 		$rang = 1;
 		foreach ($resultats as $r) {
