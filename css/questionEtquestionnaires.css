@@ -3,18 +3,6 @@
   .enteteQuestion h4{font-size: 1.0rem;}
 }
 
-.custab{
-    border: 1px solid #ccc;
-    padding: 5px;
-    margin: 5% 0;
-    box-shadow: 3px 3px 2px #ccc;
-    transition: 0.5s;
-    }
-.custab:hover{
-    box-shadow: 3px 3px 0px transparent;
-    transition: 0.5s;
-    }
-
 /*Tooltip */
 .tooltip {
 	position: relative;
@@ -189,33 +177,3 @@
 	background-color: var(--blue-color);
 	padding: 20px
 }
-<<<<<<< HEAD
-#qEtr table{
-	text-align: left;
-}
-#qEtr table tr td{
-	padding: 10px;
-}
-#qEtr input{
-	width: auto;
-}
-#qEtr input[type=text]{
-	width: 60%;
-}
-||||||| merged common ancestors
-#qEtr table{
-	text-align: left;
-}
-#qEtr table tr td{
-	padding: 10px;
-}
-#qEtr input{
-	width: auto;
-}
-#qEtr input[type=text]{
-	width: 60%;
-}
-
-
-=======
->>>>>>> b4a8bcf4669ee4957c34aaa1661f92afdf97a343
