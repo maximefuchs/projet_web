@@ -194,7 +194,9 @@ class EtudiantController extends UserController{
 
 			case 'LIBRE':
 	  	// 'LIBRE_qId:14_rep:Pythagore' => string 'Py' (length=2)
-			$r = (explode(":", $key)[2] == $value);
+	  	$rep = explode(":", $key)[2];
+	  	$rep = str_replace("_"," ",$rep);
+			$r = (strtolower($rep) == strtolower($value));
 			break;
 		}
 		return $r;

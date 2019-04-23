@@ -125,7 +125,7 @@ class EnseignantController extends UserController{
 				$consigne = 1;
 
 				$rep = $this->recuperReponse($num, $type);
-			// var_dump($rep);
+					// var_dump($rep);
 
 				$NbReponses = $rep['NbReponses'];
 				Question::create($consigne, $tag, $type, $NbReponses, $description);
@@ -149,42 +149,50 @@ class EnseignantController extends UserController{
 
 			case 'ASSIGNE':
 			$c = 1;
+			$nb = 0;
 			$ASSIGNE = array();
 			$ASSIGNE_G = array();
 			$ASSIGNE_D = array();
-			while(isset($_POST['ASSIGNE_'.$c.'_1__'.$num])){
-				$rG = $_POST['ASSIGNE_'.$c.'_1__'.$num];
-				array_push($ASSIGNE_G, $rG);
-				$rD = $_POST['ASSIGNE_'.$c.'_2__'.$num];
-				array_push($ASSIGNE_D, $rD);
+			while($c<50){
+				if(isset($_POST['ASSIGNE_'.$c.'_1__'.$num])){
+					$rG = $_POST['ASSIGNE_'.$c.'_1__'.$num];
+					array_push($ASSIGNE_G, $rG);
+					$rD = $_POST['ASSIGNE_'.$c.'_2__'.$num];
+					array_push($ASSIGNE_D, $rD);
+					$nb++;
+				}
 				$c++;
 			}
 			$ASSIGNE['ASSIGNE_G'] = $ASSIGNE_G;
 			$ASSIGNE['ASSIGNE_D'] = $ASSIGNE_D;
 			$rep['ASSIGNE'] = $ASSIGNE;
-			$rep['NbReponses'] = ($c-1)*2;
+			$rep['NbReponses'] = $nb*2;
 			break;
 			
 			// QCU et QCM
 			default:
 			$c = 1;
+			$nb = 0;
 			$QC = array();
 			$contenuReps = array();
 			$sontJustes = array();
-			while(isset($_POST[$type.'_'.$c.'__'.$num])){
-				$contenu = $_POST[$type.'_'.$c.'__'.$num];
-				array_push($contenuReps, $contenu);
-				if($type == 'QCM')
-					$estJuste = isset($_POST['EstJuste'.$type.'_'.$c.'__'.$num]);
-				else
-					$estJuste = ($_POST['EstJuste'.$type.'__'.$num] == $c);					
-				array_push($sontJustes, $estJuste);
+			while($c<50){
+				if(isset($_POST[$type.'_'.$c.'__'.$num])){
+					$contenu = $_POST[$type.'_'.$c.'__'.$num];
+					array_push($contenuReps, $contenu);
+					if($type == 'QCM')
+						$estJuste = isset($_POST['EstJuste'.$type.'_'.$c.'__'.$num]);
+					else
+						$estJuste = ($_POST['EstJuste'.$type.'__'.$num] == $c);					
+					array_push($sontJustes, $estJuste);
+					$nb++;
+				}
 				$c++;
 			}
 			$QC['contenuReps'] = $contenuReps;
 			$QC['sontJustes'] = $sontJustes;
 			$rep[$type] = $QC;
-			$rep['NbReponses'] = $c-1;
+			$rep['NbReponses'] = $nb;
 			break;
 		}
 		return $rep;
