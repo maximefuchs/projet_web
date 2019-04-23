@@ -29,14 +29,14 @@ class EnseignantController extends UserController{
 
 	public function questionnairesAction($request){
 		$questionnaires = Questionnaire::getQuestionnairesByUserId($this->user->id());
-		$view = new UserView($this, 'questionnaires', 
-			array('user' => $this->user, 
+		$view = new UserView($this, 'questionnaires',
+			array('user' => $this->user,
 				'questionnaires' => $questionnaires));
 		$view->render();
 	}
 	public function nouveauQuestionnaireAction($request){
-		$view = new UserView($this, 'nouveauQuestionnaire', 
-			array('user' => $this->user, 
+		$view = new UserView($this, 'nouveauQuestionnaire',
+			array('user' => $this->user,
 				'promos' => User::getAllPromo()));
 		$view->render();
 	}
@@ -59,7 +59,7 @@ class EnseignantController extends UserController{
 		$idQuestionnaire = $request->readGet('idQuestionnaire');
 		$resultats = User::getResultatsByQuestionnaire($idQuestionnaire);
 		$nbQuestions = Questionnaire::getNbQuestionsQuestionnaire($idQuestionnaire)->nb_q();
-		$view = new UserView($this, 'notesQuestionnaire', 
+		$view = new UserView($this, 'notesQuestionnaire',
 			array('user' => $this->user,
 				'nbQuestions' => $nbQuestions,
 				'resultats' => $resultats));
@@ -112,8 +112,8 @@ class EnseignantController extends UserController{
 		// 	$view->setArg('questaireErrorText', 'Impossible de finaliser la création du questionnaire');
 		// 	$view->render();
 		// } else {
-		$view = new UserView($this, 'remplirQuestion', 
-			array('user' => $this->user, 
+		$view = new UserView($this, 'remplirQuestion',
+			array('user' => $this->user,
 				'types'=>self::$types_question,
 				'idQuestionnaire' => $idQuestionnaire,
 				'num' => 1,
@@ -183,7 +183,7 @@ class EnseignantController extends UserController{
 			$rep['ASSIGNE'] = $ASSIGNE;
 			$rep['NbReponses'] = $nb*2;
 			break;
-			
+
 			// QCU et QCM
 			default:
 			$c = 1;
@@ -198,7 +198,7 @@ class EnseignantController extends UserController{
 					if($type == 'QCM')
 						$estJuste = isset($_POST['EstJuste'.$type.'_'.$c.'__'.$num]);
 					else
-						$estJuste = ($_POST['EstJuste'.$type.'__'.$num] == $c);					
+						$estJuste = ($_POST['EstJuste'.$type.'__'.$num] == $c);
 					array_push($sontJustes, $estJuste);
 					$nb++;
 				}
@@ -233,7 +233,7 @@ class EnseignantController extends UserController{
 				Reponse::addInRelieeA($id_rG, $id_rD);
 			}
 			break;
-			
+
 			// QCU et QCM
 			default:
 			$QC = $rep[$type];
@@ -254,6 +254,17 @@ class EnseignantController extends UserController{
 		Questionnaire::supprimer($idQuestionnaire);
 	}
 
+	public function resultatEleveQuestionnaireAction($request){
+		$res = Question::getResultatUserQuestionnaire($request->readGet('idEleve'), $request->readGet('idQuestionnaire'));
+		// var_dump($res);
+		if(sizeof($res) == 0){
+			$view = new UserView($this, 'error',
+				array('user' => $this->user, 'errorText' => "Vous n'avez pas répondu à ce questionnaire."));
+		} else {
+			$view = new UserView($this, 'resUnQuestionnaire', array('user' => $this->user, 'res' => $res));
+		}
+		$view->render();
+	}
 
 
 
