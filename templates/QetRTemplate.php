@@ -3,8 +3,16 @@
 		<h4 class='panel-title'>
 			<?php
 			echo $q->description_question();
+			if(Request::getController() == 'Enseignant'){
+				echo "<a href=\"?action=repUneQuestion&idQuestion=";
+				echo $q->id();
+				echo "&idQuestionnaire=";
+				echo $_GET['idQuestionnaire'];
+				echo "\" class=\"btn btn-outline-light\" style='margin-left:10px;'>R</a>";
+			}
 			?>
 		</h4>
+		<?php  ?>
 	</div>
 	<div class='panel panel-body'>
 		<table class="table table-striped table-light">

@@ -24,6 +24,9 @@ class EnseignantController extends UserController{
 		}
 	}
 
+
+	// ACTIONS
+
 	public function questionnairesAction($request){
 		$questionnaires = Questionnaire::getQuestionnairesByUserId($this->user->id());
 		$view = new UserView($this, 'questionnaires', 
@@ -62,6 +65,18 @@ class EnseignantController extends UserController{
 				'resultats' => $resultats));
 		$view->render();
 	}
+
+	public function repUneQuestionAction($request){
+		$idQuestion = $request->readGet('idQuestion');
+		$idQuestionnaire = $request->readGet('idQuestionnaire');
+		$res = User::getResUneQuestion($idQuestionnaire, $idQuestion);
+		$view = new UserView($this, 'resUneQuestion', array('user' => $this->user, 'resultats' => $res));
+		$view->render();
+	}
+
+
+
+	// AUTRES FONCTIONS
 
 	public function validateQuestionnaire($request){
 		$titreQ = $request->readPost('titreQuestaire');
