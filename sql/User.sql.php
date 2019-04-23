@@ -33,4 +33,11 @@ Model::addSqlQuery('GET_RESULTATS_BY_QUESTIONNAIRE',
 	' GROUP BY rc.'.User::$colId.
 	' ORDER BY '.User::$colNote.' DESC');
 
+Model::addSqlQuery('GET_RESULTATS_BY_QUESTION',
+	'SELECT u.'.User::$colNom.', u.'.User::$colPrenom.', rc.EST_JUSTE_C '.User::$colEstJuste.'
+	FROM '.User::$table_name.' u 
+	JOIN reponse_choisie rc ON u.'.User::$colId.' = rc.'.User::$colId.' 
+	WHERE rc.'.Questionnaire::$colId.' = :idQuestionnaire 
+	AND rc.'.Question::$colId.' = :idQuestion');
+
 ?>

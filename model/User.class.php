@@ -20,6 +20,7 @@ class User extends Model{
 	static $colGroupe = 'GROUPE';
 // pour la récuperation des notes pour un questionnaire
 	static $colNote = 'NOTE';
+	static $colEstJuste = 'JUSTE';
 
 	//getters
 	public function id() { return $this->props[self::$colId]; }
@@ -44,6 +45,8 @@ class User extends Model{
 	public function grp_demiPromo() { return $this->props[self::$colGroupe]; }
 	
 	public function note() { return $this->props[self::$colNote]; }
+	public function estJuste() { return ($this->props[self::$colEstJuste]==1)?true:false; }
+
 
 
 
@@ -117,6 +120,13 @@ class User extends Model{
 
 	public static function getResultatsByQuestionnaire($idQuestionnaire){
 		$r = parent::exec('GET_RESULTATS_BY_QUESTIONNAIRE', array('id_questionnaire' => $idQuestionnaire));
+		return $r->fetchAll();
+	}
+
+	public static function getResUneQuestion($idQuestionnaire, $idQuestion){
+		$r = parent::exec('GET_RESULTATS_BY_QUESTION',
+				array(':idQuestionnaire' => $idQuestionnaire,
+							':idQuestion' => $idQuestion));
 		return $r->fetchAll();
 	}
 
