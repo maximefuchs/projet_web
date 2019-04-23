@@ -41,7 +41,7 @@
 	opacity: 1;
 }
 
-/* FORMULAIRE NOUVEAU QUESTIONNAIRE  */
+/* FORMULAIRE NOUVEAU QUESTIONNAIRE NOUVELLE QUESTION  */
 .newQuestionnaire, .newQuestion{
 	font-family: 'Open Sans Condensed', arial, sans;
 	padding: 20px;
@@ -158,7 +158,6 @@
 
 .unQuestionnaire{
 	background-color: var(--blue-color);
-	color: white;
 	border: 3px solid var(--blue-color);
 	transition: 0.3s;
 	font-weight: normal;
@@ -170,7 +169,14 @@
   padding: 5px;
   border-bottom: 3px solid #888;
 }
-
+#ancienneQuestion .closebtn{
+	font-size: 25px;
+	color: white;
+}
+#ancienneQuestion .closebtn:hover{
+	opacity: 0.7;
+	text-decoration: none;
+}
 
 
 /*	AFFICHAGE QUESTION AVEC REPONSES 	*/
@@ -178,6 +184,7 @@
 	background-color: var(--blue-color);
 	padding: 20px
 }
+<<<<<<< HEAD
 #qEtr table{
 	text-align: left;
 }
@@ -190,3 +197,20 @@
 #qEtr input[type=text]{
 	width: 60%;
 }
+||||||| merged common ancestors
+#qEtr table{
+	text-align: left;
+}
+#qEtr table tr td{
+	padding: 10px;
+}
+#qEtr input{
+	width: auto;
+}
+#qEtr input[type=text]{
+	width: 60%;
+}
+
+
+=======
+>>>>>>> b4a8bcf4669ee4957c34aaa1661f92afdf97a343

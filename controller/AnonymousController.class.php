@@ -44,7 +44,7 @@ class AnonymousController extends Controller{
 			$mdp = $request->readPost('inscPassword');
 			$nom = $request->readPost('nom');
 			$prenom = $request->readPost('prenom');
-			$mail = $request->readPost('mail');
+			$mail = $request->readPost('email');
 			$role= $request->readPost('role');
 			if($role=='Etudiant'){
 				$promo=$request->readPost('Promo');

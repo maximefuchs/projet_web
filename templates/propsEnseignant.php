@@ -4,9 +4,12 @@ $questionnaires = Questionnaire::getQuestionnairesByUserId($user->id());
 $nbPartTot = 0;
 $nbQuestionsTot = 0;
 $moyenne = 0;
+$nbPasDeParticipation = 0;
 foreach ($questionnaires as $q) {
 	$resultats = User::getResultatsByQuestionnaire($q->id());
 	$nbParticipants = sizeof($resultats);
+	if($nbParticipants == 0)
+		$nbPasDeParticipation++;
 	$nbPartTot += $nbParticipants;
 	$nb = Questionnaire::getNbQuestionsQuestionnaire($q->id())->nb_q();
 	$nbQuestionsTot += $nb;
@@ -15,7 +18,7 @@ foreach ($questionnaires as $q) {
 	foreach ($resultats as $r) {
 		$m += $r->note();
 	}
-	$m = $m/$nbParticipants;
+	$m = ($nbParticipants == 0)?0:$m/$nbParticipants;
 	$m = $m*20/$nb;
 	$moyenne += $m;
 
@@ -40,7 +43,9 @@ foreach ($questionnaires as $q) {
 	</div>
 	<div class="row">
 		<div class="col-sm-5">
-			<h1><span class="badge badge-dark"><?php echo substr($moyenne/sizeof($questionnaires),0,4);?>/20</span></h1>
+			<h1><span class="badge badge-dark">
+				<?php echo substr($moyenne/(sizeof($questionnaires)-$nbPasDeParticipation),0,4);?>/20
+			</span></h1>
 			<h3>Moyenne totale</h3>
 		</div>
 		<div class="col-sm-2"></div>

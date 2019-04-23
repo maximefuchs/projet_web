@@ -6,6 +6,7 @@ class Reponse extends Model{
 
 	static $colId = 'ID_REPONSESP';
 	static $colIdQuestion = 'ID_QUESTION';
+	static $colIdQuestionnaire = 'ID_QUESTIONNAIRE';
 	static $colEstJuste = 'EST_JUSTE_P';
 	static $colColonne = 'COLONNE';
 	static $colContenu = 'CONTENU';
@@ -14,6 +15,7 @@ class Reponse extends Model{
 	// getters
 	public function id() { return $this->props[self::$colId]; }
 	public function idQuestion() { return $this->props[self::$colIdQuestion]; }
+	public function idQuestionnaire() { return $this->props[self::$colIdQuestionnaire]; }
 	public function estJuste() { return $this->props[self::$colEstJuste]; }
 	public function colonne() { return $this->props[self::$colColonne]; }
 	public function contenu() { return $this->props[self::$colContenu]; }
@@ -55,9 +57,10 @@ class Reponse extends Model{
 		return $questions->fetchAll();
 	}
 
-	public static function setRepForQuestion($idUser, $idQuestion, $estJuste){
+	public static function setRepForQuestion($idUser, $idQuestion, $idQuestionnaire, $estJuste){
 		$array = array(':idUser' => $idUser,
 									':idQuestion' => $idQuestion,
+									':idQuestionnaire' => $idQuestionnaire,
 									':estJuste' => $estJuste);
 		parent::exec('SET_REP_QUESTION_FOR_USER', $array);
 	}

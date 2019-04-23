@@ -68,7 +68,7 @@ header{
 	position: sticky;
 	font-size: 30px;
 	color: white;
-	background-color: var(--blue-tr-color);
+	background-color: var(--blue-color);
 	/*border-bottom: 2px solid var(--yellow-color);*/
 	z-index: 10000;
 }
@@ -155,10 +155,10 @@ header{
 	font-size: 36px;
 	margin-left: 50px;
 }
-.closebtn{
+.menu .closebtn{
 	transition: 0.4s;
 }
-.closebtn:hover{
+.menu .closebtn:hover{
 	color: white;
 }
 #selected-element li{

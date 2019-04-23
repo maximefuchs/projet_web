@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Lun 08 Avril 2019 à 16:00
+-- Généré le :  Dim 14 Avril 2019 à 13:33
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.18
 
@@ -19,20 +19,10 @@ USE `projet_web`;
 -- --------------------------------------------------------
 
 --
--- Structure de la table `comparee_a`
---
-
-CREATE TABLE `comparee_a` (
-  `ID_REPONSEC` int(11) NOT NULL,
-  `ID_REPONSESP` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `consigne`
 --
 
+DROP TABLE IF EXISTS `consigne`;
 CREATE TABLE `consigne` (
   `ID_CONSIGNE` int(11) NOT NULL,
   `TEMPS` int(11) NOT NULL,
@@ -46,6 +36,7 @@ CREATE TABLE `consigne` (
 -- Structure de la table `est_compose`
 --
 
+DROP TABLE IF EXISTS `est_compose`;
 CREATE TABLE `est_compose` (
   `ID_QUESTION` int(11) NOT NULL,
   `ID_QUESTIONNAIRE` int(11) NOT NULL
@@ -57,6 +48,7 @@ CREATE TABLE `est_compose` (
 -- Structure de la table `participe`
 --
 
+DROP TABLE IF EXISTS `participe`;
 CREATE TABLE `participe` (
   `ID_USER` int(11) NOT NULL,
   `ID_QUESTIONNAIRE` int(11) NOT NULL
@@ -68,6 +60,7 @@ CREATE TABLE `participe` (
 -- Structure de la table `question`
 --
 
+DROP TABLE IF EXISTS `question`;
 CREATE TABLE `question` (
   `ID_QUESTION` int(11) NOT NULL,
   `ID_CONSIGNE` int(11) NOT NULL,
@@ -83,6 +76,7 @@ CREATE TABLE `question` (
 -- Structure de la table `questionnaire`
 --
 
+DROP TABLE IF EXISTS `questionnaire`;
 CREATE TABLE `questionnaire` (
   `ID_QUESTIONNAIRE` int(11) NOT NULL,
   `ID_USER` int(11) NOT NULL,
@@ -103,6 +97,7 @@ CREATE TABLE `questionnaire` (
 -- Structure de la table `reliee_a`
 --
 
+DROP TABLE IF EXISTS `reliee_a`;
 CREATE TABLE `reliee_a` (
   `ID_REPONSESP` int(11) NOT NULL,
   `REP_ID_REPONSESP` int(11) NOT NULL
@@ -114,10 +109,12 @@ CREATE TABLE `reliee_a` (
 -- Structure de la table `reponse_choisie`
 --
 
+DROP TABLE IF EXISTS `reponse_choisie`;
 CREATE TABLE `reponse_choisie` (
   `ID_REPONSEC` int(11) NOT NULL,
   `ID_USER` int(11) NOT NULL,
   `ID_QUESTION` int(11) NOT NULL,
+  `ID_QUESTIONNAIRE` int(11) NOT NULL,
   `EST_JUSTE_C` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -127,6 +124,7 @@ CREATE TABLE `reponse_choisie` (
 -- Structure de la table `reponse_proposee`
 --
 
+DROP TABLE IF EXISTS `reponse_proposee`;
 CREATE TABLE `reponse_proposee` (
   `ID_REPONSESP` int(11) NOT NULL,
   `ID_QUESTION` int(11) NOT NULL,
@@ -141,6 +139,7 @@ CREATE TABLE `reponse_proposee` (
 -- Structure de la table `user`
 --
 
+DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `LOGIN` varchar(50) NOT NULL,
   `PASSWORD` varchar(50) NOT NULL,
@@ -160,13 +159,6 @@ CREATE TABLE `user` (
 --
 -- Index pour les tables exportées
 --
-
---
--- Index pour la table `comparee_a`
---
-ALTER TABLE `comparee_a`
-  ADD PRIMARY KEY (`ID_REPONSEC`,`ID_REPONSESP`),
-  ADD KEY `FK_COMPAREE_A2` (`ID_REPONSESP`);
 
 --
 -- Index pour la table `consigne`
@@ -242,27 +234,27 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT pour la table `consigne`
 --
 ALTER TABLE `consigne`
-  MODIFY `ID_CONSIGNE` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID_CONSIGNE` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `question`
 --
 ALTER TABLE `question`
-  MODIFY `ID_QUESTION` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `ID_QUESTION` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 --
 -- AUTO_INCREMENT pour la table `questionnaire`
 --
 ALTER TABLE `questionnaire`
-  MODIFY `ID_QUESTIONNAIRE` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `ID_QUESTIONNAIRE` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 --
 -- AUTO_INCREMENT pour la table `reponse_choisie`
 --
 ALTER TABLE `reponse_choisie`
-  MODIFY `ID_REPONSEC` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `ID_REPONSEC` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 --
 -- AUTO_INCREMENT pour la table `reponse_proposee`
 --
 ALTER TABLE `reponse_proposee`
-  MODIFY `ID_REPONSESP` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
+  MODIFY `ID_REPONSESP` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
 --
 -- AUTO_INCREMENT pour la table `user`
 --
@@ -271,13 +263,6 @@ ALTER TABLE `user`
 --
 -- Contraintes pour les tables exportées
 --
-
---
--- Contraintes pour la table `comparee_a`
---
-ALTER TABLE `comparee_a`
-  ADD CONSTRAINT `FK_COMPAREE_A` FOREIGN KEY (`ID_REPONSEC`) REFERENCES `reponse_choisie` (`ID_REPONSEC`),
-  ADD CONSTRAINT `FK_COMPAREE_A2` FOREIGN KEY (`ID_REPONSESP`) REFERENCES `reponse_proposee` (`ID_REPONSESP`);
 
 --
 -- Contraintes pour la table `est_compose`

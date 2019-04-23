@@ -1,4 +1,4 @@
-<?php $resultats = $this->args['resultats']; 
+<?php $resultats = $this->args['resultats'];
 $nbQ = $args['nbQuestions'];?>
 <table class="table text-light">
 	<thead>
@@ -26,7 +26,7 @@ $nbQ = $args['nbQuestions'];?>
 		 ?>
 	</tbody>
 </table>
-<?php $moyenne = $total/sizeof($resultats); ?>
+<?php $moyenne = (sizeof($resultats)==0)?0:$total/sizeof($resultats); ?>
 <h1>
-	<span class="compteur badge badge-light">Moyenne : <?php echo substr($moyenne*20/$nbQ,0,4)."/20"; ?></span>
+	<span class="compteur badge badge-light">Moyenne : <?php echo ($nbQ==0)?0:substr($moyenne*20/$nbQ,0,4)."/20"; ?></span>
 </h1>

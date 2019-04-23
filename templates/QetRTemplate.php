@@ -53,9 +53,11 @@
 					break;
 
 					case 'LIBRE':	
-					echo "<tr><input type='text' class='form-control' style='margin:5px;'
+					echo "<tr><td>";
+					echo "<input type='text' class='form-control' style='margin:5px;'
 					name='LIBRE_qId:".$q->id().
-					"_rep:".$reps_associees[0]->contenu()."'></tr>";
+					"_rep:".$reps_associees[0]->contenu()."'>";
+					echo "</td></tr>";
 					break;
 
 					case 'ASSIGNE':

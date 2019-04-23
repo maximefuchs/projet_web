@@ -1,9 +1,11 @@
 <div class="container">
   <h2>
-    Liste des questionnaires    
-    <button class="btn btn-primary" id="btnFiltre" onclick="filter();">
-      À FAIRE
-    </button>
+    Liste des questionnaires
+    <?php 
+      if(Request::getController() == 'Etudiant'){
+        echo "<button class=\"btn btn-secondary\" id=\"btnFiltre\" onclick=\"filter();\">À FAIRE</button>";
+      }
+    ?>
   </h2>
   <p>&#128269;</span>Rechercher parmis les questionnaires</p>
   <input class="form-control" id="myInput" type="text" placeholder="Recherche..">
@@ -22,6 +24,13 @@
         }
       }
       ?>
+      <?php if(Request::getController() == 'Enseignant'){
+        echo "<div class='col-6'>
+        <a href='?action=nouveauQuestionnaire' class='btn btn-secondary row' style='margin-top: 30px;'>
+          Ajouter un questionnaire
+        </a>
+      </div>";
+      } ?>
     </div>
   </div>
 </div>
@@ -30,7 +39,7 @@
     $("#myInput").on("keyup", function() {
       var value = $(this).val().toLowerCase();
 
-      $("#mesQuestionnaires .unQuestionnaire").filter(function() {
+      $("#mesQuestionnaires .q").filter(function() {
         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
       });
     });
@@ -39,12 +48,12 @@
   var filtre = false;
   function filter(){
     if(!filtre){
-      $("#mesQuestionnaires .unQuestionnaire").filter(function() {
+      $("#mesQuestionnaires .q").filter(function() {
         $(this).toggle($(this).find('.btnRep').css('display') == 'inline-block')
       });
       $('#btnFiltre').html('TOUS');
     } else {
-      $("#mesQuestionnaires .unQuestionnaire").css('display', 'block');
+      $("#mesQuestionnaires .q").css('display', 'block');
       $('#btnFiltre').html('À FAIRE');
     }
     filtre = !filtre;

@@ -16,7 +16,7 @@ class Questionnaire extends Model{
 	static $colGroupe = 'GROUPE';
 	static $colTD = 'TD';
 
-	static$colNbQuestions = 'NB_Q';
+	static $colNbQuestions = 'NB_Q';
 
 
 	// getters
@@ -129,7 +129,7 @@ class Questionnaire extends Model{
 		$q = parent::exec('USER_A_PARTICIPE_QUESTIONNAIRE', 
 			array(':idUser' => $idUser,
 						':idQuestionnaire' => $idQuestionnaire));
-		return $q->fetch();
+		return ($q->fetch() != false)?true:false;
 	}
 
 // on ne supprime que le questionnaire. On garde les questions.
