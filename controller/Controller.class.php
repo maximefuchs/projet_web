@@ -14,7 +14,10 @@ abstract class Controller extends MyObject{
 	abstract public function defaultAction($request);
 
 	function execute(){
-		$m = $this->methodName;
+		if(method_exists($this, $this->methodName))
+			$m = $this->methodName;
+		else
+			$m = 'error';
 		$this->$m($this->request);
 	}
 	
