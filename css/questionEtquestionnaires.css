@@ -1,3 +1,8 @@
+@media (max-width: 544px) {
+  .enteteQuestion{padding: 5px!important;}
+  .enteteQuestion h4{font-size: 1.0rem;}
+}
+
 /* FORMULAIRE NOUVEAU QUESTIONNAIRE NOUVELLE QUESTION  */
 .newQuestionnaire, .newQuestion{
 	font-family: 'Open Sans Condensed', arial, sans;

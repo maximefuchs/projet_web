@@ -20,7 +20,7 @@
         require('questionnaireTemplate.php');
         $compteur++;
         if($compteur%2==0){
-          echo "</div><br><div class='row justify-content-around'>";
+          echo "</div><div class='row justify-content-around'>";
         }
       }
       ?>
