@@ -303,3 +303,50 @@ INSERT INTO `user` (`LOGIN`, `PASSWORD`, `NOM`, `PRENOM`, `EMAIL`, `ROLE`, `ID_U
 ('coco', '159', 'Devaux', 'Coline', 'coco@etu.imt-lille-douai.fr', 'Etudiant', 6, NULL, NULL, NULL, 159, 1, 1),
 ('max', 'azerty123', 'Fuchs', 'Maxime', 'm.f@mail.com', 'Etudiant', 7, NULL, NULL, NULL, 2020, 6, 1),
 ('Alix', '123456789', 'Moret', 'Alix', 'a.m@mail.com', 'Etudiant', 8, NULL, NULL, NULL, 2020, 6, 1);
+
+
+--
+-- Contraintes pour la table `est_compose`
+--
+ALTER TABLE `est_compose`
+  ADD CONSTRAINT `FK_EST_COMPOSE` FOREIGN KEY (`ID_QUESTION`) REFERENCES `question` (`ID_QUESTION`),
+  ADD CONSTRAINT `FK_EST_COMPOSE2` FOREIGN KEY (`ID_QUESTIONNAIRE`) REFERENCES `questionnaire` (`ID_QUESTIONNAIRE`);
+
+--
+-- Contraintes pour la table `participe`
+--
+ALTER TABLE `participe`
+  ADD CONSTRAINT `FK_PARTICIPE` FOREIGN KEY (`ID_QUESTIONNAIRE`) REFERENCES `questionnaire` (`ID_QUESTIONNAIRE`),
+  ADD CONSTRAINT `FK_PARTICIPE2` FOREIGN KEY (`ID_USER`) REFERENCES `user` (`ID_USER`);
+
+--
+-- Contraintes pour la table `question`
+--
+ALTER TABLE `question`
+  ADD CONSTRAINT `FK_DEFINI_QUESTION` FOREIGN KEY (`ID_CONSIGNE`) REFERENCES `consigne` (`ID_CONSIGNE`);
+
+--
+-- Contraintes pour la table `questionnaire`
+--
+ALTER TABLE `questionnaire`
+  ADD CONSTRAINT `FK_DEFINI_QUESTIONNAIRE` FOREIGN KEY (`ID_CONSIGNE`) REFERENCES `consigne` (`ID_CONSIGNE`);
+
+--
+-- Contraintes pour la table `reliee_a`
+--
+ALTER TABLE `reliee_a`
+  ADD CONSTRAINT `FK_RELIEE_A` FOREIGN KEY (`ID_REPONSESP`) REFERENCES `reponse_proposee` (`ID_REPONSESP`),
+  ADD CONSTRAINT `FK_RELIEE_A2` FOREIGN KEY (`REP_ID_REPONSESP`) REFERENCES `reponse_proposee` (`ID_REPONSESP`);
+
+--
+-- Contraintes pour la table `reponse_choisie`
+--
+ALTER TABLE `reponse_choisie`
+  ADD CONSTRAINT `FK_CHOISIT` FOREIGN KEY (`ID_USER`) REFERENCES `user` (`ID_USER`),
+  ADD CONSTRAINT `FK_EST_REPONDU` FOREIGN KEY (`ID_QUESTION`) REFERENCES `question` (`ID_QUESTION`);
+
+--
+-- Contraintes pour la table `reponse_proposee`
+--
+ALTER TABLE `reponse_proposee`
+  ADD CONSTRAINT `FK_PROPOSE` FOREIGN KEY (`ID_QUESTION`) REFERENCES `question` (`ID_QUESTION`);
