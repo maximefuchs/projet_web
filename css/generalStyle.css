@@ -3,10 +3,17 @@
 :root {
 	--blue-color: #383549;
 	--blue-tr-color: rgba(56, 53, 73, 0.6);
-	--grey-color: #6D6659;
+	--grey-color: #cac6bd;
 	--yellow-color: #E8D6A7;
 	--orange-color: #EFA267;
 	--green-color: #7CB588;
+}
+
+@media (max-width: 544px) {  
+  *{font-size:0.7rem;} /*1rem = 16px*/
+  .menu a li{font-size: 0.8rem !important; padding: 5px 5px 5px 20px !important;}
+  .bandeauMenu i{font-size: 0.9rem !important;}
+  .menu .closebtn{font-size: 1.0rem !important;margin-top: 20px;}
 }
 
 /* DEBUG */
@@ -125,7 +132,7 @@ header{
 	z-index: 10001;
 	top: 0;
 	left: 0;
-	background-color: var(--yellow-color);
+	background-color: var(--grey-color);
 	overflow-x: hidden;
 	transition: 0.5s;
 	padding-top: 60px;
@@ -145,10 +152,11 @@ header{
 	transition: 0.3s;
 }
 .menu a li:hover{
-	background-color: var(--orange-color);
+	background-color: var(--yellow-color);
 	color: white;
 }
 .menu .closebtn{
+	color: var(--blue-color);
 	position: absolute;
 	top: 0;
 	right: 25px;
@@ -162,7 +170,7 @@ header{
 	color: white;
 }
 #selected-element li{
-	background-color: var(--orange-color);
+	background-color: var(--yellow-color);
 }
 
 

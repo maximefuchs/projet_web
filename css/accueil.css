@@ -1,13 +1,11 @@
-
+@media (max-width: 544px) {  
+  .connexionInMenu h2{font-size: 1.0rem !important;}
+}
 /* ANIMATIONS */
 @keyframes goToRight{
 	from{margin-left: 5%;}
 	to{margin-left: 20%; opacity: 0;}
 }
-
-
-
-
 
 
 /* PAGE BIENVENUE */
@@ -20,10 +18,6 @@ IMG.displayed {
 .compteur{
 	font-size: 25px;
 }
-
-
-
-
 
 
 /* CONNEXION DANS LE MENU*/
@@ -48,9 +42,8 @@ IMG.displayed {
 	transition: 0.3s;
 }
 .connexionInMenu input[type=submit]:hover{
-	color: white;
-	background-color: var(--orange-color);
-	border-color: var(--orange-color);
+	background-color: var(--yellow-color);
+	border-color: var(--yellow-color);
 }
 .error{
 	color: red;
