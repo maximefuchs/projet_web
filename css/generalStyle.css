@@ -153,7 +153,7 @@ header{
 }
 .menu a li:hover{
 	background-color: var(--yellow-color);
-	color: white;
+	/*color: grey;*/
 }
 .menu .closebtn{
 	color: var(--blue-color);
