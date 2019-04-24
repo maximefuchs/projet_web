@@ -13,7 +13,7 @@ class Request {
 
 	static function getController(){
 		if(isset($_GET['controller'])){
-			return $_GET['controller'];
+			return ucfirst($_GET['controller']);
 		} else {
 			if(!isset($_SESSION))
 				session_start();

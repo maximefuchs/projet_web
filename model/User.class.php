@@ -29,7 +29,7 @@ class User extends Model{
 	public function nom() { return $this->props[self::$colNom]; }
 	public function prenom() { return $this->props[self::$colPrenom]; }
 	public function mail() { return $this->props[self::$colMail]; }
-	public function role() { return $this->props[self::$colRole]; }
+	public function role() { return ucfirst($this->props[self::$colRole]); }
 	// on définit le super admin comme le user avec id 3 (= Thomas Malidin)
 	public function getRole() {
 		if ($this->id()==3){

@@ -1,3 +1,4 @@
+<a class="btn btn-light float-left" href="?action=questionnaires" style="margin-bottom: 15px">Retour</a>
 <?php $resultats = $this->args['resultats'];
 $nbQ = $args['nbQuestions'];?>
 <table class="table text-light">
@@ -7,7 +8,6 @@ $nbQ = $args['nbQuestions'];?>
 			<th scope="col">Nom</th>
 			<th scope="col">Prénom</th>
 			<th scope="col">Note sur <?php echo $nbQ; ?></th>
-			<!-- <th scope="col">Résultats</th> -->
 
 		</tr>
 	</thead>
@@ -16,13 +16,11 @@ $nbQ = $args['nbQuestions'];?>
 		$total = 0;
 		$rang = 1;
 		foreach ($resultats as $r) {
-		//	echo "<a href=\"?action=resultatEleveQuestionnaire&idEleve=1\">";
 			echo "<tr id=\"resultatEleve\" onclick=\"afficheResultats(".$r->id().",".$_GET['idQuestionnaire'].");\">";
 			echo "<th scope='row'>".$rang."</th>";
 			echo "<td>".$r->nom()."</td>";
 			echo "<td>".$r->prenom()."</td>";
 			echo "<td>".$r->note()."</td>";
-			// echo "<td><button type=\"button\" class=\"btn btn-outline-info\">Voir Résultat</button></td>";
 			$total += $r->note();
 			echo "</tr>";
 			$rang++;

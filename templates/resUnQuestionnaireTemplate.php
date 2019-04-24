@@ -1,7 +1,5 @@
-<?php if(Request::getController()=='Enseignant'){
-	echo "<h1>Réponses de ".$args['user']->prenom()."</h1>";
-
-} ?>
+<h1>Réponses</h1>
+<button class="btn btn-light float-left" onclick="history.go(-1);" style="margin-bottom: 15px">Retour</button>
 <table class="table text-light">
 	<thead>
 		<tr>
@@ -34,4 +32,3 @@
 <h1>
 	<span class="compteur badge badge-light"><?php echo substr($justes*20/$total,0,4)."/20"; ?></span>
 </h1>
-<button class="btn btn-light" onclick="history.go(-1);">Retour</button>

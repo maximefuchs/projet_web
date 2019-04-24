@@ -1,3 +1,4 @@
+<a class="btn btn-light float-left" href="?action=questionnaires">Retour</a>
 <div class="container">
 	<h2>Questions et réponses</h2>
 	<h6>R : réponses des élèves</h6>
@@ -19,4 +20,3 @@
 		</table>
 	</div>
 </div>
-<button class="btn btn-light" onclick="history.go(-1);">Retour</button>

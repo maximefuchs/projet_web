@@ -1,3 +1,4 @@
+<button class="btn btn-light float-left" onclick="history.go(-1);" style="margin-bottom: 15px;">Retour</button>
 <table class="table text-light">
 	<thead>
 		<tr>
@@ -8,12 +9,15 @@
 	</thead>
 	<tbody>
 		<?php
-		foreach ($this->args['resultats'] as $r) {
+		$nbJustes = 0;
+		$res = $args['resultats'];
+		foreach ($res as $r) {
 			echo '<tr>';
 			echo '<td>'.$r->nom().'</td>';
 			echo '<td>'.$r->prenom().'</td>';
 			if($r->estJuste()){
 				echo '<td>&#10004;</td>';
+				$nbJustes++;
 			}
 			else
 				echo '<td>&#10006;</td>';
@@ -22,5 +26,4 @@
 		?>
 	</tbody>
 </table>
-
-<button class="btn btn-light" onclick="history.go(-1);">Retour</button>
+<h1><span class="badge badge-light"><?php echo $nbJustes."/".sizeof($res); ?></span></h1>

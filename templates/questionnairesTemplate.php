@@ -24,7 +24,8 @@
         }
       }
       ?>
-      <?php if(Request::getController() == 'Enseignant'){
+      <?php 
+      if(Request::getController() == 'Enseignant'){
         echo "<div class='col-6'>
         <a href='?action=nouveauQuestionnaire' class='btn btn-secondary row' style='margin-top: 30px;'>
           Ajouter un questionnaire
