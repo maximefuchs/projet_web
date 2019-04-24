@@ -1,5 +1,5 @@
 <h1>Réponses</h1>
-<button class="btn btn-light float-left" onclick="history.go(-1);" style="margin-bottom: 15px">Retour</button>
+<a id="btnRetour" class="btn btn-light float-left" href="?action=questionnaires" style="margin-bottom: 15px">Retour</a>
 <table class="table text-light">
 	<thead>
 		<tr>
@@ -32,3 +32,12 @@
 <h1>
 	<span class="compteur badge badge-light"><?php echo substr($justes*20/$total,0,4)."/20"; ?></span>
 </h1>
+
+<script type="text/javascript">
+	var test = <?php echo (Request::getController()=='Enseignant')?'true':'false'; ?>;
+	if(test){
+		$("#btnRetour").attr('href','#').click(function(){
+			history.go(-1);
+		});
+	}
+</script>
