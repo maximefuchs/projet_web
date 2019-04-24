@@ -10,10 +10,10 @@ Création d'un compte enseignant ou étudiant.
 ##### Création
 Un enseignant peut créer un questionnaire avec questions déjà existantes ou des questions qu'il crée lui même.
 Il peut viser un certain groupe de personne pour son questionnaire :
-	- une promo
-	- une demi promo
-	- un groupe de td d'une promo
-	- toutes les promos
+	* une promo
+	* une demi promo
+	* un groupe de td d'une promo
+	* toutes les promos
 Également, une date de début et de fin sont demandées. Un questionnaire dont la date de fin est dépassée ne pourra plus être répondu par un élève (même si l'on triche avec l'url).
 
 Une question peut être de quatre types différents : QCM, QCU, Libre, ou assignement.
@@ -30,9 +30,9 @@ Des barres de recherches sont fonctionnelles afin de faciliter la recherche d'un
 Certains boutons sont aussi affichés afin de trier les questionnaires qui attendent une réponse.
 
 Le site a été fait pour traiter au maximum les erreurs telles que :
-	- les echecs de connexion
-	- erreurs dans les formaulaires
-	- les tricheries au niveau des url (accéder à des actions qui ne font pas parti du controller actuel, changer de controleur par l'url, accéder à un questionnaire fermé...) 
+	* les echecs de connexion
+	* erreurs dans les formaulaires
+	* les tricheries au niveau des url (accéder à des actions qui ne font pas parti du controller actuel, changer de controleur par l'url, accéder à un questionnaire fermé...) 
 	- modifier les affichages à partir de l'inspecteur : Les boutons qui sont affichés ou non sont traités par le php et donc inaccessible via la page web.
 
 Une personne qui s'incrit ne peut pas avoir un login déjà existant
@@ -50,12 +50,12 @@ Pour ce faire, deux fichier sont à modifier.
 #### Accès à la base de données
 Le premier est celui de la connexion à la base de données : le fichier classes/Database.class.php. Il faudra mettre votre nom de base de données, le nom d'utilisateur ainsi que le mot de passe.
 Notez que pour un serveur local, on aura souvent :
-	$DB_HOST = 'localhost';
-	$DB_NAME = *le nom de votre base de données*;
+	```$DB_HOST = 'localhost';
+	$DB_NAME = 'le nom de votre base de données';
 	$DB_USER = 'root';
 	$DB_PWD = 'root';
-	*ou bien* 
-	$DB_PWD = '';
+	// ou bien 
+	$DB_PWD = '';```
 Également, même sur un serveur distant, le nom d'hôte est souvent toujours 'localhost', mais pensez tout de même à vérifier ce paramètre. Les sites hébergeurs (tels que 1and1) ne gardent pas ces noms là.
 
 #### Liens des requêtes AJAX
