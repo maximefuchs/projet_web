@@ -42,4 +42,4 @@ $nbReponse = count(Reponse::getList());
 	</div>
 </div>
 
-	<h4 style="margin-top: 30px;"><a href="#" onclick="openNav();">Connectez-vous</a href="#"> ou <a href="?action=inscription">inscrivez-vous</a> pour commencer</h4>
+	<h4 style="margin-top: 30px;"><a href="#" class="bienv-link" onclick="openNav();">Connectez-vous</a> ou <a href="?action=inscription" class="bienv-link">inscrivez-vous</a> pour commencer</h4>

@@ -18,11 +18,16 @@ IMG.displayed {
 .compteur{
 	font-size: 25px;
 }
-
+.bienv-link{
+	color: var(--orange-color);
+}
+.bienv-link:hover{
+	color: var(--orange-color);
+}
 
 /* CONNEXION DANS LE MENU*/
 .connexionInMenu{
-	color: var(--blue-color);
+	color: var(--purple-color);
 	padding: 1%;
 	text-align: center;
 }

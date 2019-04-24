@@ -30,7 +30,7 @@ foreach ($questionnaires as $q) {
 <div class="container">
 	<div class="row">
 		<div class="col-sm-5">
-			<h1><span class="badge badge-dark"><?php echo sizeof($questionnaires);?></span></h1>
+			<h1><a href="?action=questionnaires" class="badge badge-light"><?php echo sizeof($questionnaires);?></a></h1>
 			<h3>questionnaires créés</h3>
 		</div>
 		<div class="col-sm-2"></div>
@@ -57,3 +57,5 @@ foreach ($questionnaires as $q) {
 		</div>
 	</div>
 </div>
+<br>
+<p><i>Vous pouvez cliquer sur le chiffre des questionnaires afin de voir les voir en détail</i></p>

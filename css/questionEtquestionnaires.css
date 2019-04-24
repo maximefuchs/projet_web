@@ -119,8 +119,8 @@
 }
 
 .unQuestionnaire{
-	background-color: var(--blue-color);
-	border: 3px solid var(--blue-color);
+	background-color: var(--purple-color);
+	border: 3px solid var(--purple-color);
 	transition: 0.3s;
 	font-weight: normal;
 }
@@ -143,7 +143,7 @@
 
 /*	AFFICHAGE QUESTION AVEC REPONSES 	*/
 .enteteQuestion{
-	background-color: var(--blue-color);
+	background-color: var(--purple-color);
 	padding: 20px
 }
 #resultatEleve:hover{

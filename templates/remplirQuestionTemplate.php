@@ -39,7 +39,7 @@
 	}
 </script>
 
-<button id="ajouterQuestion" class="btn btn-secondary sticky-top" style="z-index: 10000; top: 10px;">
+<button id="ajouterQuestion" class="btn btn-grey sticky-top" style="z-index: 10000; top: 10px;">
 	Ajouter une nouvelle question
 </button>
 
@@ -66,12 +66,12 @@
 		</a>
 	</div>
 
-	<a href='javascript:void(0)' class="btn btn-secondary form-group" id="btnAncQ" onclick="afficheAncQ();">
+	<a href='javascript:void(0)' class="btn btn-grey form-group" id="btnAncQ" onclick="afficheAncQ();">
 		Ajouter une question déjà existante
 	</a>
 
 	<div class="form-group">
 		<input type="hidden" name="idQuestionnaire" value="<?php echo $args['idQuestionnaire']; ?>">
-		<input class="btn btn-primary row" type="submit" name="addQuestions" value="Valider">
+		<input class="btn btn-purple row" type="submit" name="addQuestions" value="Valider">
 	</div>
 </form>

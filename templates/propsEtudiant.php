@@ -10,7 +10,6 @@ foreach ($questionnaires as $q) {
 
 ?>
 
-
 <div class="container">
 	<div class="row">
 		<div class="col-sm-5">
@@ -28,3 +27,5 @@ foreach ($questionnaires as $q) {
 		</div>
 	</div>
 </div>
+<br>
+<p><i>Cliquez sur les chiffres ci dessus pour accéder à vos questionnaire correspondant</i></p>

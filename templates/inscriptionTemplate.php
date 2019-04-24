@@ -51,6 +51,6 @@
       <input type="hidden" value="0" name="Int_Ext">
       <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="1" name="Int_Ext">
     </div>
-    <button type="submit" class="btn btn-primary">Creer mon compte</button>
+    <button type="submit" class="btn btn-purple">Creer mon compte</button>
   </form>
 </div>

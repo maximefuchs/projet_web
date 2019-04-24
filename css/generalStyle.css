@@ -1,12 +1,11 @@
 /* VARIABLES CSS */
 
 :root {
-	--blue-color: #383549;
-	--blue-tr-color: rgba(56, 53, 73, 0.6);
-	--grey-color: #cac6bd;
+	--purple-color: #383549;
+	--blue-color: #7F8AAB;
+	--grey-color: #666675;
 	--yellow-color: #E8D6A7;
 	--orange-color: #EFA267;
-	--green-color: #7CB588;
 }
 
 @media (max-width: 544px) {  
@@ -60,7 +59,6 @@ header{
 	padding: 10px;
 	text-align: center;
 	color: white;
-	/*background-color: var(--blue-tr-color);*/
 }
 
 
@@ -75,8 +73,8 @@ header{
 	position: sticky;
 	font-size: 30px;
 	color: white;
-	background-color: var(--blue-color);
-	/*border-bottom: 2px solid var(--yellow-color);*/
+	background-color: var(--purple-color);
+	border-bottom: 2px solid var(--blue-color);
 	z-index: 10000;
 }
 .bandeauMenu span, .bandeauMenu div a{
@@ -132,7 +130,7 @@ header{
 	z-index: 10001;
 	top: 0;
 	left: 0;
-	background-color: var(--grey-color);
+	background-color: var(--blue-color);
 	overflow-x: hidden;
 	transition: 0.5s;
 	padding-top: 60px;
@@ -145,7 +143,7 @@ header{
 .menu a li{
 	padding: 8px 8px 8px 32px;
 	font-size: 25px;
-	color: var(--blue-color);
+	color: var(--purple-color);
 	display: block;
 	overflow: hidden;
 	white-space: nowrap;
@@ -156,7 +154,7 @@ header{
 	/*color: grey;*/
 }
 .menu .closebtn{
-	color: var(--blue-color);
+	color: var(--purple-color);
 	position: absolute;
 	top: 0;
 	right: 25px;
@@ -192,4 +190,86 @@ header{
 
 .content .panel-body{
 	color: black;
+}
+
+
+/* BUTTONS */
+.btn-purple{
+	background-color: var(--purple-color)!important;
+	color: white!important;
+}
+.btn-purple:hover{
+	opacity: 0.9!important;
+}
+.btn-outline-purple{
+	border: 1px solid var(--purple-color)!important;
+	color: var(--purple-color)!important;
+}
+.btn-outline-purple:hover{
+	background-color: var(--purple-color)!important;
+	color: white!important;
+}
+
+.btn-grey{
+	background-color: var(--grey-color)!important;
+	color: white!important;
+}
+.btn-grey:hover{
+	opacity: 0.9!important;
+}
+.btn-outline-grey{
+	border: 1px solid var(--grey-color)!important;
+	color: var(--grey-color)!important;
+}
+.btn-outline-grey:hover{
+	background-color: var(--grey-color)!important;
+	color: white!important;
+}
+
+.btn-orange{
+	background-color: var(--orange-color)!important;
+	color: white!important;
+}
+.btn-orange:hover{
+	opacity: 0.9!important;
+}
+.btn-outline-orange{
+	border: 1px solid var(--orange-color)!important;
+	color: var(--orange-color)!important;
+}
+.btn-outline-orange:hover{
+	background-color: var(--orange-color)!important;
+	color: white!important;
+}
+
+.btn-yellow{
+	background-color: var(--yellow-color)!important;
+	color: white!important;
+}
+.btn-yellow:hover{
+	opacity: 0.9!important;
+}
+.btn-outline-yellow{
+	border: 1px solid var(--yellow-color)!important;
+	color: var(--yellow-color)!important;
+}
+.btn-outline-yellow:hover{
+	background-color: var(--yellow-color)!important;
+	color: white!important;
+}
+
+.btn-blue{
+	background-color: var(--blue-color)!important;
+	color: white!important;
+}
+.btn-blue:hover{
+	opacity: 0.9!important;
+}
+.btn-outline-blue{
+	border: 1px solid var(--blue-color)!important;
+	color: var(--blue-color)!important;
+}
+.btn-outline-blue:hover{
+	background-color: var(--blue-color)!important;
+	color: white!important;
 }

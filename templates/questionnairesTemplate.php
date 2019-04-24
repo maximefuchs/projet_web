@@ -3,7 +3,7 @@
     Liste des questionnaires
     <?php 
       if(Request::getController() == 'Etudiant'){
-        echo "<button class=\"btn btn-secondary\" id=\"btnFiltre\" onclick=\"filter();\">À FAIRE</button>";
+        echo "<button class=\"btn btn-grey\" id=\"btnFiltre\" onclick=\"filter();\">À FAIRE</button>";
       }
     ?>
   </h2>
@@ -27,7 +27,7 @@
       <?php 
       if(Request::getController() == 'Enseignant'){
         echo "<div class='col-6'>
-        <a href='?action=nouveauQuestionnaire' class='btn btn-secondary row' style='margin-top: 30px;'>
+        <a href='?action=nouveauQuestionnaire' class='btn btn-grey row' style='margin-top: 30px;'>
           Ajouter un questionnaire
         </a>
       </div>";
